@@ -11,9 +11,15 @@ document
     .classList.add('nav-displayed');
 
 document
-    .querySelectorAll('.nav-displayed .col-xs-100.col-lg-60.submenu-left .col-lg-33')
+    .querySelectorAll('li.menu-img .col-xs-100.col-lg-60.submenu-left .col-lg-33')
     .forEach(function (item) {
         item.classList.remove('col-lg-33');
+    });
+
+document
+    .querySelectorAll('li.sport-link .col-xs-100.col-lg-60.submenu-left > div')
+    .forEach(function (item) {
+        item.classList.add('col-lg-33');
     });
 
 document.querySelectorAll('.menu li ul.submenu a.submenu-title + ul').forEach(function (item) {
@@ -74,7 +80,6 @@ allLinks.forEach(function (item) {
     $(firstMenuItem).append(firstPromoBox);
     $(secondMenuItem).append(secondPromoBox);
     $(thirdMenuItem).append(thirdPromoBox);
-    console.log(thirdPromoBox);
     $(menuItem4).append(thirdPromoBox.cloneNode(true));
     $(menuItem5).append(thirdPromoBox.cloneNode(true));
     $(menuItem6).append(thirdPromoBox.cloneNode(true));
@@ -105,3 +110,14 @@ allLinks.forEach(function (item) {
         false
     );
 });
+
+var sportImage = document.querySelector(
+    '.sport-link .submenu-right > section.hp-promo.marginb16 > div > div:nth-child(1) > div.hp-promo-box-img'
+);
+var newContainer = document.createElement('div');
+newContainer.setAttribute('class', 'col-lg-33 new-container-for-image');
+var sportList = document.querySelector('.sport-link .submenu-left');
+
+$(sportList).append(newContainer);
+$('.new-container-for-image').append(sportImage);
+document.querySelector('.sport-link .submenu-right').remove();
