@@ -1,0 +1,53 @@
+<script>
+
+    var id = '';
+    var price = 0;
+    var page = '';
+    var id = new Array();
+    var price = new Array();
+
+    //product page
+    if (jQuery('.product-shop .btn-cart').length > 0) {
+        var page = 'productPage';
+        id = jQuery(".product-info-main .product.sku .value").text();
+        price = jQuery(".product-shop-content .price-box.price-final_price > span .price").first().text().replace(',', '.').replace(/[^0-9.]/g, '');
+
+        if (price == NaN || price == undefined || price == '') {
+            price = 0;
+        }
+        price = parseFloat(price);
+    }
+
+    else if (window.location.pathname == '/') {
+        var page = 'home';
+    }
+
+    else if (window.location.pathname.indexOf("/checkout") > -1) {
+        var page = 'cart';
+
+        price = jQuery('tr.grand.totals .amount .price').text().replace(',', '.').replace(/[^0-9.]/g, '');
+
+        jQuery(".product-item").each(function () {
+            if (jQuery(this).find('input').attr("data-cart-item-id") !== undefined) {
+                id.push(jQuery(this).find('input').attr("data-cart-item-id"))
+            }
+        });
+
+
+    }
+    else {
+        page = 'others';
+    }
+
+
+    var google_tag_params = {
+        dynx_itemid: id,
+        dynx_pagetype: page,
+        dynx_totalvalue: price
+    };
+
+    dataLayer.push({
+        'event': 'dynamicremarketing',
+        'google_tag_params': google_tag_params
+    });
+</script>

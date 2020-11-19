@@ -1,0 +1,130 @@
+.cart-message {
+  display: none !important;
+}
+.header .header-wrapper {
+  position: relative;
+}
+
+.cart-modal {
+  position: absolute;
+  top: 72px;
+  right: -43px;
+  width: 240px;
+  background: #ffffff;
+  z-index: 9999;
+  border: 1px solid #949499;
+  border-radius: 3px;
+  box-shadow: 0 0 30px rgb(0 0 0 / 0.3);
+}
+.cart-modal.hide-modal {
+  display: none;
+}
+.cart-modal::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 14px solid #949499;
+}
+.cart-modal__top {
+  background: #949499;
+  height: 30px;
+  position: relative;
+}
+
+.cart-modal__top .text-center {
+  color: #ffffff;
+  font-weight: 700;
+  text-align: center;
+  font-size: 11px;
+  margin: 0;
+  padding-top: 9px;
+}
+
+.cart-modal__top button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: transparent;
+  font-weight: 500;
+  color: #ffffff;
+  border: 0;
+  font-size: 12px;
+}
+
+.cart-middle {
+  padding: 15px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.cart-middle__right a {
+  text-transform: uppercase;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.cart-middle__right p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #000000;
+}
+.cart-buttons {
+  padding: 0 15px 15px;
+  text-align: auto;
+}
+
+.cart-buttons a {
+  width: 100%;
+  display: block;
+  height: 30px;
+  background: #01a652;
+  color: #ffffff;
+  text-align: center;
+  padding-top: 7px;
+  border-radius: 3px;
+  font-weight: 700;
+  font-size: 11px;
+  position: relative;
+}
+
+.cart-buttons a:hover {
+  text-decoration: none;
+}
+
+.cart-buttons a::before {
+  font-family: icons;
+  content: "";
+  margin-right: 6px;
+  font-size: 10px;
+  margin-top: 2px;
+  color: #ffffff;
+  position: absolute;
+  right: 35px;
+}
+
+.cart-buttons p {
+  cursor: pointer;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #949499;
+  position: relative;
+  top: 10px;
+  font-size: 11px;
+}
+
+.cart-buttons p::before {
+  font-family: icons;
+  content: "";
+  margin-right: 6px;
+  font-size: 10px;
+  margin-top: 2px;
+  color: #949499;
+  position: absolute;
+  left: 45px;
+  transform: rotate(180deg);
+}

@@ -1,0 +1,150 @@
+li.nav-displayed.menu-img {
+    background: #333333;
+}
+li.nav-displayed.menu-img a {
+    color: #ffffff;
+}
+li.menu-img a span {
+    border: 0 !important;
+}
+
+li.nav-displayed.menu-img ul li a {
+    color: #000000;
+}
+ul.menu li:hover a span.current {
+    border-bottom: 0px solid #000 !important;
+}
+
+ul.submenu {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.nav-displayed ul.submenu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.nav-displayed .submenu-title ul {
+    visibility: hidden;
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 0;
+    top: 41px;
+    margin-right: 35%;
+    padding: 20px 30px;
+    padding-right: 30%;
+    min-height: 220px;
+    width: calc(100% + 1px);
+}
+
+.nav-displayed .submenu-title ul li {
+    width: 25%;
+}
+
+.menu li ul.submenu li ul li a {
+    font-size: 11px;
+    margin-right: 15px;
+}
+
+.nav-displayed .submenu-title:hover ul {
+    visibility: visible;
+}
+
+#mask div.col-xs-100.col-lg-40.submenu-right > section > div > div:nth-child(2) {
+    display: none;
+}
+
+#mask div.col-xs-100.col-lg-40.submenu-right > section.hp-slider {
+    display: none;
+}
+
+li.menu-img > a {
+    font-size: 14px !important;
+}
+
+li.menu-secondary > a {
+    font-weight: 400 !important;
+}
+
+li.menu-secondary > a span {
+    border: 0 !important;
+}
+
+li.black_friday a {
+    background: transparent;
+    color: #000000 !important;
+    text-decoration: underline;
+}
+li.black_friday a:before {
+    background: transparent;
+}
+li.black_friday a:after {
+    background-color: transparent;
+}
+
+/* Submenu */
+
+.menu li ul.submenu {
+    padding: 0;
+    height: 40px;
+    overflow: hidden;
+}
+
+.menu li ul.submenu:hover {
+    height: auto;
+}
+
+.submenu-left {
+    border-right: 1px solid transparent;
+}
+
+.col-xs-100.col-lg-60.submenu-left {
+    background: #333333;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+.col-xs-100.col-lg-60.submenu-left .col-lg-33 {
+    width: min-content;
+    white-space: nowrap;
+}
+
+.menu li ul.submenu li {
+    padding: 0;
+}
+.menu li ul.submenu a.submenu-title {
+    color: #ffffff;
+    height: 40px;
+    line-height: 36px;
+    margin-right: 40px;
+    margin-left: 20px;
+    font-weight: 400;
+    text-transform: inherit;
+    font-size: 12px;
+}
+
+.col-xs-100.col-lg-40.submenu-right {
+    width: 20%;
+    float: right;
+    min-height: 220px;
+}
+
+.col-xs-100.col-lg-40.submenu-right > section.hp-promo.marginb16 > div > div:nth-child(1) {
+    width: 100%;
+    position: relative;
+    top: 20px;
+    right: 20px;
+}
+
+.main-menu {
+    border-bottom: 0;
+}
+
+.col-xs-100.col-lg-60.submenu-left > div:nth-last-child(2) {
+    width: 100%;
+}

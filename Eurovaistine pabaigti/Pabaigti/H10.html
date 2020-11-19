@@ -1,0 +1,31 @@
+<script>
+    /*------ Params of test ----------*/
+        var testName = "AB test EuroI2H10TDM - Decluttered bottom of product page"; 
+        var testID = "EuroI2H10TDM";
+          var variationPercent = 51;
+          // 101 - MAX only less (100%)
+        // 1 - MIN more or equals (0%)
+        // 51 - 50/50 (50%)
+    /*--------------------------------*/
+      
+    AbTestRun(testID, testName, variationPercent); 
+      
+    if (((xcookie("AB tests").indexOf("["+testID+" : "+ABtestVariation+"]") != -1) || (variationPercent == 101)) && (xcookie("AB tests").indexOf("false") == -1)) {
+    /* ------------ Variation UI/UX changes ----------------- */
+    (function() {  
+      var css = ".footer .footer-table{display:none}.content+div{display:none}",
+            head = document.head || document.getElementsByTagName("head")[0],
+            style = document.createElement("style");
+        
+          style.type = "text/css";
+          if (style.styleSheet) {
+            // This is required for IE8 and below.
+            style.styleSheet.cssText = css;
+          } else {
+            style.appendChild(document.createTextNode(css));
+          }
+          head.appendChild(style);
+    })();
+    /* ------------------------------------------------------ */
+    } 
+    </script>

@@ -1,0 +1,42 @@
+<script>
+	/*------ Params of test ----------*/
+	var testName = "KODAS";
+	var testID = "KODAS";
+	var variationPercent = 51;
+	// 101 - MAX only less (100%)
+	// 1 - MIN more or equals (0%)
+	// 51 - 50/50 (50%)
+	/*--------------------------------*/
+
+	AbTestRun(testID, testName, variationPercent);
+
+	if (((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) || (variationPercent == 101)) && (xcookie("AB tests").indexOf("false") == -1)) {
+		/* ------------ Variation UI/UX changes ----------------- */
+		(function () {
+			/* ------------ Style changes ----------------- */
+			var css = 'MMMMMMMMMMMMM',
+				head = document.head || document.getElementsByTagName("head")[0],
+				style = document.createElement("style");
+
+			style.type = "text/css";
+			if (style.styleSheet) {
+				// This is required for IE8 and below.
+				style.styleSheet.cssText = css;
+			} else {
+				style.appendChild(document.createTextNode(css));
+			}
+			head.appendChild(style);
+			/* ------------ End of style changes ----------------- */
+			/* ------------ Code changes ----------------- */
+
+
+
+
+			/* ------------ End of code changes ----------------- */
+			hj('trigger', 'ab_test_' + testID + '_var1');
+		})();
+		/* ------------------------------------------------------ */
+	} else {
+		hj('trigger', 'ab_test_' + testID + '_orig');
+	}
+</script>

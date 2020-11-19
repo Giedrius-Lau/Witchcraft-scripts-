@@ -1,0 +1,33 @@
+<script>
+	/*------ Params of test ----------*/
+	var testName = "AB test EuroI2H12TD - Recently viewed products";
+	var testID = "EuroI2H12TD";
+	var variationPercent = 51;
+	// 101 - MAX only less (100%)
+	// 1 - MIN more or equals (0%)
+	// 51 - 50/50 (50%)
+	/*--------------------------------*/
+
+	AbTestRun(testID, testName, variationPercent);
+
+	if (((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) || (variationPercent == 101)) && (xcookie("AB tests").indexOf("false") == -1)) {
+		/* ------------ Variation UI/UX changes ----------------- */
+		(function () {
+			var css =
+				'.product-list.product-carousel-list.products-viewed{position:relative;width:100%;background-color:#01a652;display:flex;justify-content:center;margin:0;padding:80px 0 40px;margin-bottom:50px;margin-top:40px}.product-list.product-carousel-list.products-viewed::before{content:"";position:absolute;top:0;bottom:0;width:calc(100vw - 22px);box-shadow:0 6px 10px #c0c0c0a6;background:#01a652}.product-list.products-opacity .product-item .button-wrapper{opacity:1}.products-viewed::after{content:"Neseniai peržiūrėtos prekės";font-weight:700;color:#fff;font-family:"Open sans",Arial,Tahoma,Verdana,sans-serif;font-size:21px;padding-bottom:8px;left:50%;transform:translate(-50%);position:absolute;top:25px}.products-viewed .product-item{opacity:1!important}.product-list.products-opacity .instock{display:block!important}.products-viewed h2{display:none}.product-list.product-carousel-list .carousel{width: 100%}',
+				head = document.head || document.getElementsByTagName("head")[0],
+				style = document.createElement("style");
+
+			style.type = "text/css";
+			if (style.styleSheet) {
+				// This is required for IE8 and below.
+				style.styleSheet.cssText = css;
+			} else {
+				style.appendChild(document.createTextNode(css));
+			}
+			head.appendChild(style);
+
+		})();
+		/* ------------------------------------------------------ */
+	}
+</script>

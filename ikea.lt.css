@@ -1,0 +1,84 @@
+/* div.p-listing__head>div:nth-of-type(4)>h2 {
+    text-align : center;
+    position : relative;
+  }
+  
+  div.p-listing__head>div:nth-of-type(4)>h2>span {
+    position : relative;
+    padding : 0px 20px;
+  }
+  
+  div.p-listing__head>div:nth-of-type(4) {
+    margin-bottom : 20px;
+  }
+  
+  .new-banner__inner.slick-initialized.slick-slider {
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
+  }
+  
+  .slick-arrow {
+    border : 0px;
+    background-image : initial;
+    background-position : initial;
+    background-size : initial;
+    background-repeat : initial;
+    background-attachment : initial;
+    background-origin : initial;
+    background-clip : initial;
+    background-color : transparent;
+    height : 40px;
+    outline-color : initial;
+    outline-style : initial;
+    outline-width : 0px;
+  }
+  
+  .slick-arrow svg {
+    width : 30px;
+  }
+  
+  .slick-prev svg {
+    transform : rotate(-90deg);
+  }
+  
+  .slick-next svg {
+    transform : rotate(90deg);
+  }
+  
+  .carousel-card {
+    height : 215px;
+    position : relative;
+    padding : 0px 5px;
+    text-align : center;
+  }
+  
+  a.carousel-image {
+    background-size : cover;
+    width : 100%;
+    height : 170px;
+    display : block;
+    background-repeat : no-repeat no-repeat;
+    background-position : center center;
+  }
+  
+  .carousel-card div {
+    height : 42px;
+    border : 1px solid;
+    display : flex;
+    align-items : center;
+    justify-content : center;
+    width : 100%;
+    font-weight : 700;
+  }
+  
+  div.p-listing__head>div:nth-of-type(4) {
+    animation-name : fadeIn;
+    animation-duration : 0.5s;
+    animation-timing-function : ease-in-out;
+  }
+  
+  body {
+    left : 40px;
+  }
+   */

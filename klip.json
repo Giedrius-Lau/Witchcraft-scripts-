@@ -1,0 +1,3668 @@
+{
+  "title": "IKEAI1H1TD",
+  "id": "349b94f659d9a6173982ce2bc0721e35",
+  "workspace": {
+    "datasources": ["c6c4244ae568f91cf0d41c9c870ed4e9"],
+    "dimensions": {
+      "w": 1655
+    }
+  },
+  "showToolbar": false,
+  "appliedMigrations": {
+    "result_rows2": true,
+    "post_dst": true,
+    "textOnlyFormulas": true,
+    "separate_root_dsts": true
+  },
+  "components": [
+    {
+      "type": "label",
+      "id": "58a948ca87a4ee58bc038ae4e39f637ed2dcf084",
+      "displayName": "Test number (Header)",
+      "renamed": true,
+      "size": "large",
+      "fmt": "txt",
+      "fmtArgs": {
+        "prefix": "",
+        "resultMetadata": {
+          "ignoreDateFormat": false,
+          "isAggregated": false,
+          "resultAutoDetectedFmt": {
+            "fmtArgs": {},
+            "defaultAggregate": "COUNT",
+            "fmt": "txt"
+          },
+          "formulaIsDataPointer": false,
+          "suggestedName": "Unnamed 1",
+          "resultCount": 1
+        },
+        "autoFmt": {
+          "fmtArgs": {},
+          "defaultAggregate": "COUNT",
+          "fmt": "txt"
+        }
+      },
+      "dstContext": {
+        "kid": "349b94f659d9a6173982ce2bc0721e35",
+        "id": "dst58a948ca87a4ee58bc038ae4e39f637ed2dcf084"
+      },
+      "conditions": [
+        {
+          "predicates": [
+            {
+              "left": {
+                "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+              },
+              "type": "eq",
+              "right": {
+                "raw": "1"
+              }
+            }
+          ],
+          "reactions": [
+            {
+              "value": "cx-theme_ccc",
+              "isScalar": true,
+              "type": "color"
+            }
+          ]
+        }
+      ],
+      "components": [
+        {
+          "type": "data_slot",
+          "role": "data",
+          "id": "ac60d6bab79e0136143c40b96ae79710f1035442",
+          "displayName": "Stopping index",
+          "fmt": "num",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {
+                "precision": "0"
+              },
+              "defaultAggregate": "SUM",
+              "fmt": "num"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "expiryScheme": [
+                {
+                  "expiryType": "EOD",
+                  "expiryTimezoneId": null
+                }
+              ],
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "0"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "isDstRoot": false,
+          "formulas": [
+            {
+              "txt": "if(datevalue((today()-1*24*60*60),\"yyyyMMdd\")>max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'),1,0)",
+              "ver": 2
+            }
+          ],
+          "data": [[0]],
+          "autoFmt": true,
+          "name": "Stopping index"
+        },
+        {
+          "type": "data_slot",
+          "role": "data",
+          "id": "c09b10ee5eff5f2cc093f7f034e6bf1f922497a8",
+          "displayName": "Desktop stopping",
+          "renamed": true,
+          "fmt": "txt",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "isDstRoot": false,
+          "formulas": [
+            {
+              "txt": "max(select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=\"Desktop/Tablet\"))",
+              "ver": 2
+            }
+          ],
+          "data": [[20201013]],
+          "autoFmt": true,
+          "name": "Untitled"
+        },
+        {
+          "type": "data_slot",
+          "role": "data",
+          "id": "38420861504fe4f4eb64bda5354642930d0bd3ca",
+          "displayName": "Mobile stopping",
+          "renamed": true,
+          "fmt": "txt",
+          "fmtArgs": {
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            },
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            }
+          },
+          "isDstRoot": false,
+          "formulas": [
+            {
+              "txt": "max(select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=\"Mobile\"))",
+              "ver": 2
+            }
+          ],
+          "data": [[20201013]],
+          "autoFmt": true,
+          "name": "Untitled"
+        },
+        {
+          "type": "data_slot",
+          "role": "data",
+          "id": "0c74c8bc24af80facf94d645785260f12073a1e6",
+          "displayName": "All stopping",
+          "renamed": true,
+          "fmt": "txt",
+          "fmtArgs": {
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            },
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            }
+          },
+          "isDstRoot": false,
+          "formulas": [
+            {
+              "txt": "min(array(!'c09b10ee5eff5f2cc093f7f034e6bf1f922497a8',!'38420861504fe4f4eb64bda5354642930d0bd3ca'))",
+              "ver": 2
+            }
+          ],
+          "data": [[20201013]],
+          "autoFmt": true,
+          "name": "Untitled"
+        }
+      ],
+      "formulas": [
+        {
+          "txt": "\"AB test IKEAI1H1TD - Mega menu dropdown\"",
+          "src": {
+            "v": false,
+            "t": "expr",
+            "c": [
+              {
+                "v": "My Label",
+                "t": "l"
+              }
+            ]
+          },
+          "ver": 2
+        }
+      ],
+      "data": [["AB test IKEAI1H1TD - Mega menu dropdown"]],
+      "autoFmt": true,
+      "align": "c",
+      "wrap": true
+    },
+    {
+      "type": "panel_grid",
+      "id": "d6f2afafb22c20a8eea3ae51989f09a3b29583c2",
+      "displayName": "Sub header layout",
+      "renamed": true,
+      "components": [
+        {
+          "type": "label",
+          "id": "e3adabd4e364fd703b2a4036e621242a6e0783de",
+          "displayName": "Test name & link (sub header)",
+          "layoutConfig": {
+            "y": 0,
+            "x": 0
+          },
+          "renamed": true,
+          "size": "xx-small",
+          "fmt": "hyp",
+          "fmtArgs": {
+            "hypFixedText": "Mega menu dropdown",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            },
+            "hypSameTab": false
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dste3adabd4e364fd703b2a4036e621242a6e0783de"
+          },
+          "conditions": [
+            {
+              "predicates": [
+                {
+                  "left": {
+                    "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                  },
+                  "type": "eq",
+                  "right": {
+                    "raw": "1"
+                  }
+                }
+              ],
+              "reactions": [
+                {
+                  "value": "cx-theme_aaa",
+                  "isScalar": true,
+                  "type": "color"
+                }
+              ]
+            }
+          ],
+          "formulas": [
+            {
+              "txt": "\"https://airtable.com/shr0w85KStBHGha28/tblptHaK1v9RddG0n/viwv0alY8hxOYeABS/reczmpYAi0ymcTuqh\"",
+              "src": {
+                "v": false,
+                "t": "expr",
+                "c": [
+                  {
+                    "v": "My Label",
+                    "t": "l"
+                  }
+                ]
+              },
+              "ver": 2
+            }
+          ],
+          "data": [["https://airtable.com/shr0w85KStBHGha28/tblptHaK1v9RddG0n/viwv0alY8hxOYeABS/reczmpYAi0ymcTuqh"]],
+          "autoFmt": false,
+          "align": "c",
+          "wrap": true
+        },
+        {
+          "type": "input",
+          "id": "9b7920194275df2844c18ba209e559f752bfbe6e",
+          "displayName": "User Input Control",
+          "layoutConfig": {
+            "y": 0,
+            "x": 1
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dst9b7920194275df2844c18ba209e559f752bfbe6e"
+          },
+          "components": [
+            {
+              "type": "proxy",
+              "role": "values",
+              "id": "c3b1dcff68cb0bd5621dffb0c080851d6cd4f537",
+              "displayName": "Values",
+              "fmtArgs": {
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {},
+                    "defaultAggregate": "COUNT",
+                    "fmt": "txt"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "formulas": [
+                {
+                  "txt": "array(\"Desktop/Tablet\")",
+                  "ver": 2
+                }
+              ],
+              "data": [["Desktop/Tablet"]],
+              "autoFmt": false
+            },
+            {
+              "type": "proxy",
+              "role": "labels",
+              "id": "ea757d9c5c9083c9683be550a32f58ed778326a6",
+              "displayName": "Labels",
+              "formulas": [],
+              "data": [],
+              "autoFmt": false
+            }
+          ],
+          "scope": 1,
+          "propName": "Segmentation",
+          "inputType": 1,
+          "inputLabel": "Select enviroment",
+          "controlWidth": true,
+          "width": "40%"
+        },
+        {
+          "type": "label",
+          "id": "cf17b13861b8c8c4c71f0880bd55a17f0b8e8ea1",
+          "displayName": "Label 4",
+          "layoutConfig": {
+            "x": 2,
+            "y": 0
+          },
+          "size": "xx-small",
+          "fmt": "txt",
+          "fmtArgs": {
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            },
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            }
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dstcf17b13861b8c8c4c71f0880bd55a17f0b8e8ea1"
+          },
+          "formulas": [
+            {
+              "txt": "\"Days rule\"",
+              "src": {
+                "t": "expr",
+                "v": false,
+                "c": [
+                  {
+                    "t": "l",
+                    "v": "My Label"
+                  }
+                ]
+              },
+              "ver": 2
+            }
+          ],
+          "data": [["Days rule"]],
+          "autoFmt": true,
+          "align": "c",
+          "wrap": true
+        },
+        {
+          "type": "label",
+          "id": "765a66fa66d6140a6be8431d4f4874dae6a51251",
+          "displayName": "Label 5",
+          "layoutConfig": {
+            "x": 3,
+            "y": 0
+          },
+          "size": "xx-small",
+          "fmt": "txt",
+          "fmtArgs": {
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            },
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            }
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dst765a66fa66d6140a6be8431d4f4874dae6a51251"
+          },
+          "formulas": [
+            {
+              "txt": "\"Transactions rule\"",
+              "src": {
+                "t": "expr",
+                "v": false,
+                "c": [
+                  {
+                    "t": "l",
+                    "v": "My Label"
+                  }
+                ]
+              },
+              "ver": 2
+            }
+          ],
+          "data": [["Transactions rule"]],
+          "autoFmt": true,
+          "align": "c",
+          "wrap": true
+        },
+        {
+          "type": "pictograph",
+          "id": "8dbd9f35cfc0e5cbdc1cdb07ae0d3512708b340e",
+          "displayName": "Pictograph 2",
+          "layoutConfig": {
+            "x": 2,
+            "y": 1
+          },
+          "size": "small",
+          "dstContext": {
+            "id": "dst8dbd9f35cfc0e5cbdc1cdb07ae0d3512708b340e"
+          },
+          "components": [
+            {
+              "type": "picto_data",
+              "role": "value",
+              "id": "3f1aa419b9d276bde5da3c1dd6262df4abb0c191",
+              "displayName": "Image Set",
+              "fmt": "num",
+              "fmtArgs": {
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "0"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dst3f1aa419b9d276bde5da3c1dd6262df4abb0c191"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "0de4484b95d2e6cf0321da86be57f09e44834570"
+                      },
+                      "type": "gt",
+                      "right": {
+                        "raw": "14"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "type": "color",
+                      "value": "cx-theme_green_4"
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "1",
+                  "src": {
+                    "t": "expr",
+                    "v": false,
+                    "c": [
+                      {
+                        "t": "l",
+                        "v": "5"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [[1]],
+              "valueId": 1,
+              "imageType": "checkmark",
+              "colorFilter": "color",
+              "valueColor": "cx-theme_red_4"
+            }
+          ]
+        },
+        {
+          "type": "pictograph",
+          "id": "0f9b29a13b31a2d06847b7988664725a28db2cb5",
+          "displayName": "Pictograph",
+          "layoutConfig": {
+            "x": 3,
+            "y": 1
+          },
+          "size": "small",
+          "dstContext": {
+            "id": "dst0f9b29a13b31a2d06847b7988664725a28db2cb5"
+          },
+          "components": [
+            {
+              "type": "picto_data",
+              "role": "value",
+              "id": "1d08cf7e2b1f07e8f7317bd26c7e7bc161437220",
+              "displayName": "Image Set",
+              "fmt": "num",
+              "fmtArgs": {
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "0"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dst1d08cf7e2b1f07e8f7317bd26c7e7bc161437220"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "3d5d157c0a3aa03d03857eea0e0879ee018d88b7"
+                      },
+                      "type": "gt",
+                      "right": {
+                        "raw": "1000"
+                      }
+                    },
+                    {
+                      "left": {
+                        "cx": "86c12bda46afc7dac2fb364bf9be3cd0eefc1874"
+                      },
+                      "type": "gt",
+                      "right": {
+                        "raw": "1000"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "type": "color",
+                      "value": "cx-theme_green_4",
+                      "isScalar": true
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "1",
+                  "src": {
+                    "t": "expr",
+                    "v": false,
+                    "c": [
+                      {
+                        "t": "l",
+                        "v": "5"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [[1]],
+              "valueId": 1,
+              "imageType": "checkmark",
+              "useSamePadding": false,
+              "padding": [2, 2, 2, 50],
+              "colorFilter": "color",
+              "valueColor": "cx-theme_red_4"
+            }
+          ]
+        }
+      ],
+      "rows": 2,
+      "cols": 4,
+      "widths": [
+        {
+          "w": "40%",
+          "x": 0
+        },
+        {
+          "x": 1,
+          "w": "40%"
+        },
+        {
+          "x": 2,
+          "w": "10%"
+        },
+        {
+          "x": 3,
+          "w": "10%"
+        }
+      ],
+      "cellData": [
+        {
+          "alignment": 1,
+          "y": 0,
+          "x": 0,
+          "h": 2
+        },
+        {
+          "y": 0,
+          "x": 1,
+          "h": 2,
+          "cellPadding": [0, 0, 0, 0],
+          "alignment": 1
+        },
+        {
+          "x": 2,
+          "y": 0,
+          "alignment": 1
+        },
+        {
+          "x": 3,
+          "y": 1,
+          "alignment": 1,
+          "cellPadding": [5, 5, 5, 5]
+        },
+        {
+          "x": 3,
+          "y": 0,
+          "alignment": 1
+        },
+        {
+          "x": 2,
+          "y": 1,
+          "cellPadding": [5, 5, 5, 50],
+          "alignment": 1
+        }
+      ]
+    },
+    {
+      "type": "separator",
+      "id": "e3cb79bfb0027b91cf22e8b47efafb42b8813f73",
+      "displayName": "Separator"
+    },
+    {
+      "type": "panel_grid",
+      "id": "9075fc0d911d3456bdbe077d530b7e83e00ffeb5",
+      "displayName": "Layout Grid 4",
+      "components": [
+        {
+          "type": "label",
+          "id": "acba492d458e51b85717e853bdff6fb0c4ca7d08",
+          "displayName": "Label Copy",
+          "layoutConfig": {
+            "y": 0,
+            "x": 0
+          },
+          "size": "small",
+          "fmt": "txt",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dstacba492d458e51b85717e853bdff6fb0c4ca7d08"
+          },
+          "conditions": [
+            {
+              "predicates": [
+                {
+                  "left": {
+                    "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                  },
+                  "type": "eq",
+                  "right": {
+                    "raw": "1"
+                  }
+                }
+              ],
+              "reactions": [
+                {
+                  "value": "cx-theme_aaa",
+                  "isScalar": true,
+                  "type": "color"
+                }
+              ]
+            }
+          ],
+          "formulas": [
+            {
+              "txt": "\"Performance of AB Test\"",
+              "src": {
+                "v": false,
+                "t": "expr",
+                "c": [
+                  {
+                    "v": "My Label",
+                    "t": "l"
+                  }
+                ]
+              },
+              "ver": 2
+            }
+          ],
+          "data": [["Performance of AB Test"]],
+          "autoFmt": true,
+          "align": "c",
+          "wrap": true
+        },
+        {
+          "type": "label",
+          "id": "6a7e9f6fb8deb340fcb2042b687edf18ad5a41c3",
+          "displayName": "Label",
+          "layoutConfig": {
+            "y": 0,
+            "x": 1
+          },
+          "size": "small",
+          "fmt": "txt",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dst6a7e9f6fb8deb340fcb2042b687edf18ad5a41c3"
+          },
+          "conditions": [
+            {
+              "predicates": [
+                {
+                  "left": {
+                    "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                  },
+                  "type": "eq",
+                  "right": {
+                    "raw": "1"
+                  }
+                }
+              ],
+              "reactions": [
+                {
+                  "value": "cx-theme_aaa",
+                  "isScalar": true,
+                  "type": "color"
+                }
+              ]
+            }
+          ],
+          "formulas": [
+            {
+              "txt": "\"Probability to outperform original\"",
+              "src": {
+                "v": false,
+                "t": "expr",
+                "c": [
+                  {
+                    "v": "My Label",
+                    "t": "l"
+                  }
+                ]
+              },
+              "ver": 2
+            }
+          ],
+          "data": [["Probability to outperform original"]],
+          "autoFmt": true,
+          "align": "c",
+          "wrap": true
+        }
+      ],
+      "rows": 1,
+      "cols": 2
+    },
+    {
+      "type": "panel_grid",
+      "id": "72ea196499e43f5312695e1298ec9b338d1caa7e",
+      "displayName": "Layout Grid",
+      "components": [
+        {
+          "type": "panel_grid",
+          "id": "c4e1161321f06f1891e5340e265b0c24876cb4f2",
+          "displayName": "Layout Grid 3",
+          "layoutConfig": {
+            "y": 0,
+            "x": 0
+          },
+          "components": [
+            {
+              "type": "simple_value",
+              "id": "c23485617e8e91f6dd395a328d38e3e4c01e6ff1",
+              "displayName": "Performance of AB Test value pair",
+              "layoutConfig": {
+                "y": 0,
+                "x": 0
+              },
+              "renamed": true,
+              "dstContext": {
+                "id": "dstc23485617e8e91f6dd395a328d38e3e4c01e6ff1"
+              },
+              "components": [
+                {
+                  "type": "label",
+                  "role": "primary",
+                  "id": "7db8364d1ad8b78fde4539d2d49de6f91e1b4600",
+                  "displayName": "Performance of AB Test label",
+                  "renamed": true,
+                  "size": "small",
+                  "fmt": "txt",
+                  "fmtArgs": {
+                    "autoFmt": {
+                      "defaultAggregate": "COUNT",
+                      "fmt": "txt",
+                      "fmtArgs": {}
+                    }
+                  },
+                  "dstContext": {
+                    "kid": "bd79b2d9884e80e2b708045e6d3cf768",
+                    "id": "dst7db8364d1ad8b78fde4539d2d49de6f91e1b4600"
+                  },
+                  "conditions": [
+                    {
+                      "predicates": [
+                        {
+                          "left": {
+                            "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                          },
+                          "type": "eq",
+                          "right": {
+                            "raw": "1"
+                          }
+                        }
+                      ],
+                      "reactions": [
+                        {
+                          "value": "cx-theme_aaa",
+                          "isScalar": true,
+                          "type": "color"
+                        }
+                      ]
+                    }
+                  ],
+                  "formulas": [],
+                  "data": [[]],
+                  "autoFmt": true,
+                  "align": "c"
+                },
+                {
+                  "type": "label",
+                  "role": "secondary",
+                  "id": "ddc7cce6a12f9885c31db4c5134a3602699c2ad3",
+                  "displayName": "Performance of AB Test value",
+                  "renamed": true,
+                  "size": "xx-large",
+                  "fmt": "pct",
+                  "fmtArgs": {
+                    "precision": "2",
+                    "resultMetadata": {
+                      "ignoreDateFormat": false,
+                      "isAggregated": false,
+                      "resultAutoDetectedFmt": {
+                        "fmtArgs": {
+                          "precision": "4"
+                        },
+                        "defaultAggregate": "SUM",
+                        "fmt": "num"
+                      },
+                      "formulaIsDataPointer": false,
+                      "suggestedName": "Unnamed 1",
+                      "resultCount": 1
+                    }
+                  },
+                  "dstContext": {
+                    "kid": "349b94f659d9a6173982ce2bc0721e35",
+                    "id": "dstddc7cce6a12f9885c31db4c5134a3602699c2ad3"
+                  },
+                  "conditions": [
+                    {
+                      "predicates": [
+                        {
+                          "left": {
+                            "self": 1
+                          },
+                          "type": "gt",
+                          "right": {
+                            "raw": "0"
+                          }
+                        }
+                      ],
+                      "reactions": [
+                        {
+                          "value": "cx-theme_green_3",
+                          "isScalar": true,
+                          "type": "color"
+                        }
+                      ]
+                    },
+                    {
+                      "predicates": [
+                        {
+                          "left": {
+                            "self": 1
+                          },
+                          "type": "lt",
+                          "right": {
+                            "raw": "0"
+                          }
+                        }
+                      ],
+                      "reactions": [
+                        {
+                          "value": "cx-theme_red_3",
+                          "isScalar": true,
+                          "type": "color"
+                        }
+                      ]
+                    }
+                  ],
+                  "formulas": [
+                    {
+                      "txt": "select(!'a6a8e6dd872f26e3855c1b6ea601f2908742773d',!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'=max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'))",
+                      "src": {
+                        "v": false,
+                        "t": "expr",
+                        "c": [
+                          {
+                            "v": "My Value",
+                            "t": "l"
+                          }
+                        ]
+                      },
+                      "ver": 2
+                    }
+                  ],
+                  "data": [[-0.0343]],
+                  "autoFmt": false,
+                  "align": "c"
+                }
+              ]
+            }
+          ],
+          "rows": 1,
+          "cols": 1,
+          "cellData": [
+            {
+              "alignment": 1,
+              "y": 0,
+              "x": 0
+            }
+          ]
+        },
+        {
+          "type": "panel_grid",
+          "id": "d3370f11c87b8878764e9e7b9c9398d79e954d66",
+          "displayName": "Layout Grid 2",
+          "layoutConfig": {
+            "y": 0,
+            "x": 1
+          },
+          "components": [
+            {
+              "type": "gauge",
+              "id": "a6987fb114df13b153ba34241ca2f892ab43ddbc",
+              "displayName": "Gauge",
+              "layoutConfig": {
+                "y": 0,
+                "x": 0
+              },
+              "size": "1",
+              "dstContext": {
+                "id": "dsta6987fb114df13b153ba34241ca2f892ab43ddbc"
+              },
+              "components": [
+                {
+                  "type": "label",
+                  "role": "current",
+                  "id": "fb2bdf24684440fa644bf11670b942f9e208793e",
+                  "displayName": "Current Value",
+                  "size": "medium",
+                  "fmt": "pct",
+                  "fmtArgs": {
+                    "precision": "2",
+                    "resultMetadata": {
+                      "ignoreDateFormat": false,
+                      "isAggregated": false,
+                      "resultAutoDetectedFmt": {
+                        "fmtArgs": {
+                          "precision": "4"
+                        },
+                        "defaultAggregate": "SUM",
+                        "fmt": "num"
+                      },
+                      "formulaIsDataPointer": false,
+                      "suggestedName": "Unnamed 1",
+                      "isDSTApplied": true,
+                      "resultCount": 1
+                    }
+                  },
+                  "dstContext": {
+                    "ops": [
+                      {
+                        "type": "aggregate",
+                        "aggregateBy": "fb2bdf24684440fa644bf11670b942f9e208793e"
+                      }
+                    ],
+                    "kid": "349b94f659d9a6173982ce2bc0721e35",
+                    "id": "dstfb2bdf24684440fa644bf11670b942f9e208793e",
+                    "aggs": {
+                      "fb2bdf24684440fa644bf11670b942f9e208793e": "sum"
+                    }
+                  },
+                  "conditions": [
+                    {
+                      "predicates": [
+                        {
+                          "left": {
+                            "self": 1
+                          },
+                          "type": "lteq",
+                          "right": {
+                            "raw": "0.1"
+                          }
+                        }
+                      ],
+                      "reactions": [
+                        {
+                          "value": "cx-theme_red_3",
+                          "isScalar": true,
+                          "type": "color"
+                        }
+                      ]
+                    },
+                    {
+                      "predicates": [
+                        {
+                          "left": {
+                            "self": 1
+                          },
+                          "type": "gt",
+                          "right": {
+                            "raw": "0.1"
+                          }
+                        },
+                        {
+                          "left": {
+                            "self": 1
+                          },
+                          "type": "lt",
+                          "right": {
+                            "raw": "0.95"
+                          }
+                        }
+                      ],
+                      "reactions": [
+                        {
+                          "value": "cx-theme_orange_3",
+                          "isScalar": true,
+                          "type": "color"
+                        }
+                      ]
+                    },
+                    {
+                      "predicates": [
+                        {
+                          "left": {
+                            "self": 1
+                          },
+                          "type": "gteq",
+                          "right": {
+                            "raw": "0.95"
+                          }
+                        }
+                      ],
+                      "reactions": [
+                        {
+                          "value": "cx-theme_green_3",
+                          "isScalar": true,
+                          "type": "color"
+                        }
+                      ]
+                    }
+                  ],
+                  "formulas": [
+                    {
+                      "txt": "select(!'99ccd6523c08dcb27e06a1ce05b213a0ec119111',!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'=max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'))",
+                      "src": {
+                        "v": false,
+                        "t": "expr",
+                        "c": [
+                          {
+                            "v": "50",
+                            "t": "l"
+                          }
+                        ]
+                      },
+                      "ver": 2
+                    }
+                  ],
+                  "data": [[0.1945]],
+                  "autoFmt": false
+                },
+                {
+                  "type": "label",
+                  "role": "target",
+                  "id": "317d4ff25d7da31d77be837b2146b43a541fc49a",
+                  "displayName": "Target Value",
+                  "size": "xx-small",
+                  "fmt": "num",
+                  "fmtArgs": {
+                    "autoFmt": {
+                      "defaultAggregate": "SUM",
+                      "fmt": "num",
+                      "fmtArgs": {
+                        "precision": "0"
+                      }
+                    }
+                  },
+                  "dstContext": {
+                    "ops": [
+                      {
+                        "type": "aggregate",
+                        "aggregateBy": "317d4ff25d7da31d77be837b2146b43a541fc49a"
+                      }
+                    ],
+                    "kid": "bd79b2d9884e80e2b708045e6d3cf768",
+                    "id": "dst317d4ff25d7da31d77be837b2146b43a541fc49a",
+                    "aggs": {
+                      "317d4ff25d7da31d77be837b2146b43a541fc49a": "auto"
+                    }
+                  },
+                  "formulas": [],
+                  "data": [],
+                  "autoFmt": true,
+                  "font_colour": "cx-color_888"
+                },
+                {
+                  "type": "label",
+                  "role": "min",
+                  "id": "7b547b844b8bbefe97ee30c58553cbbdf2261fed",
+                  "displayName": "Min Value",
+                  "size": "xx-small",
+                  "fmt": "pct",
+                  "fmtArgs": {
+                    "precision": "0",
+                    "resultMetadata": {
+                      "ignoreDateFormat": false,
+                      "isAggregated": false,
+                      "resultAutoDetectedFmt": {
+                        "fmtArgs": {
+                          "precision": "0"
+                        },
+                        "defaultAggregate": "SUM",
+                        "fmt": "num"
+                      },
+                      "formulaIsDataPointer": false,
+                      "suggestedName": "Unnamed 1",
+                      "isDSTApplied": true,
+                      "resultCount": 1
+                    }
+                  },
+                  "dstContext": {
+                    "ops": [
+                      {
+                        "type": "aggregate",
+                        "aggregateBy": "7b547b844b8bbefe97ee30c58553cbbdf2261fed"
+                      }
+                    ],
+                    "kid": "349b94f659d9a6173982ce2bc0721e35",
+                    "id": "dst7b547b844b8bbefe97ee30c58553cbbdf2261fed",
+                    "aggs": {
+                      "7b547b844b8bbefe97ee30c58553cbbdf2261fed": "sum",
+                      "fb2bdf24684440fa644bf11670b942f9e208793e": "sum"
+                    }
+                  },
+                  "formulas": [
+                    {
+                      "txt": "0",
+                      "src": {
+                        "v": false,
+                        "t": "expr",
+                        "c": [
+                          {
+                            "v": "0",
+                            "t": "l"
+                          }
+                        ]
+                      },
+                      "ver": 2
+                    }
+                  ],
+                  "data": [[0]],
+                  "autoFmt": false,
+                  "font_colour": "cx-color_888",
+                  "font_style": ""
+                },
+                {
+                  "type": "label",
+                  "role": "max",
+                  "id": "3fe74e35b9acfe262b1c9154cd1ae03cbd81fbe1",
+                  "displayName": "Max Value",
+                  "size": "xx-small",
+                  "fmt": "pct",
+                  "fmtArgs": {
+                    "precision": "0",
+                    "resultMetadata": {
+                      "ignoreDateFormat": false,
+                      "isAggregated": false,
+                      "resultAutoDetectedFmt": {
+                        "fmtArgs": {
+                          "precision": "0"
+                        },
+                        "defaultAggregate": "SUM",
+                        "fmt": "num"
+                      },
+                      "formulaIsDataPointer": false,
+                      "suggestedName": "Unnamed 1",
+                      "isDSTApplied": true,
+                      "resultCount": 1
+                    }
+                  },
+                  "dstContext": {
+                    "ops": [
+                      {
+                        "type": "aggregate",
+                        "aggregateBy": "3fe74e35b9acfe262b1c9154cd1ae03cbd81fbe1"
+                      }
+                    ],
+                    "kid": "349b94f659d9a6173982ce2bc0721e35",
+                    "id": "dst3fe74e35b9acfe262b1c9154cd1ae03cbd81fbe1",
+                    "aggs": {
+                      "3fe74e35b9acfe262b1c9154cd1ae03cbd81fbe1": "sum",
+                      "7b547b844b8bbefe97ee30c58553cbbdf2261fed": "sum",
+                      "fb2bdf24684440fa644bf11670b942f9e208793e": "sum"
+                    }
+                  },
+                  "formulas": [
+                    {
+                      "txt": "1",
+                      "ver": 2
+                    }
+                  ],
+                  "data": [[1]],
+                  "autoFmt": false,
+                  "font_colour": "cx-color_888",
+                  "font_style": ""
+                },
+                {
+                  "type": "range",
+                  "role": "range",
+                  "id": "e82f4dae88acd3844d6aa04041fd0224e291cdf1",
+                  "displayName": "Range 1",
+                  "components": [
+                    {
+                      "type": "proxy",
+                      "role": "start",
+                      "id": "a5054f208368d78cff3f0fd4a8c59ae9aa57cede",
+                      "displayName": "Start 1",
+                      "fmt": "num",
+                      "fmtArgs": {
+                        "resultMetadata": {
+                          "ignoreDateFormat": false,
+                          "isAggregated": false,
+                          "resultAutoDetectedFmt": {
+                            "fmtArgs": {
+                              "precision": "0"
+                            },
+                            "defaultAggregate": "SUM",
+                            "fmt": "num"
+                          },
+                          "formulaIsDataPointer": false,
+                          "suggestedName": "Unnamed 1",
+                          "isDSTApplied": true,
+                          "resultCount": 1
+                        }
+                      },
+                      "dstContext": {
+                        "ops": [
+                          {
+                            "type": "aggregate",
+                            "aggregateBy": "a5054f208368d78cff3f0fd4a8c59ae9aa57cede"
+                          }
+                        ],
+                        "kid": "349b94f659d9a6173982ce2bc0721e35",
+                        "id": "dsta5054f208368d78cff3f0fd4a8c59ae9aa57cede",
+                        "aggs": {
+                          "a5054f208368d78cff3f0fd4a8c59ae9aa57cede": "sum"
+                        }
+                      },
+                      "formulas": [
+                        {
+                          "txt": "0",
+                          "ver": 2
+                        }
+                      ],
+                      "data": [[0]],
+                      "autoFmt": false
+                    },
+                    {
+                      "type": "proxy",
+                      "role": "end",
+                      "id": "12076e3d4245959e6500302ab8f002343ff2996b",
+                      "displayName": "End 1",
+                      "fmt": "num",
+                      "fmtArgs": {
+                        "resultMetadata": {
+                          "ignoreDateFormat": false,
+                          "isAggregated": false,
+                          "resultAutoDetectedFmt": {
+                            "fmtArgs": {
+                              "precision": "1"
+                            },
+                            "defaultAggregate": "SUM",
+                            "fmt": "num"
+                          },
+                          "formulaIsDataPointer": false,
+                          "suggestedName": "Unnamed 1",
+                          "isDSTApplied": true,
+                          "resultCount": 1
+                        }
+                      },
+                      "dstContext": {
+                        "ops": [
+                          {
+                            "type": "aggregate",
+                            "aggregateBy": "12076e3d4245959e6500302ab8f002343ff2996b"
+                          }
+                        ],
+                        "kid": "349b94f659d9a6173982ce2bc0721e35",
+                        "id": "dst12076e3d4245959e6500302ab8f002343ff2996b",
+                        "aggs": {
+                          "12076e3d4245959e6500302ab8f002343ff2996b": "sum"
+                        }
+                      },
+                      "formulas": [
+                        {
+                          "txt": "0.1",
+                          "ver": 2
+                        }
+                      ],
+                      "data": [[0.1]],
+                      "autoFmt": false
+                    }
+                  ],
+                  "formulas": [],
+                  "data": [],
+                  "autoFmt": true,
+                  "dataDisabled": true,
+                  "rangeId": 1,
+                  "color": "cx-theme_red_3"
+                },
+                {
+                  "type": "range",
+                  "role": "range",
+                  "id": "b638fd3dd247ea6e3a8f0c29000e57a2fb0e393b",
+                  "displayName": "Range 2",
+                  "components": [
+                    {
+                      "type": "proxy",
+                      "role": "start",
+                      "id": "e9911d781649c8a3f136723d281957794227ce8a",
+                      "displayName": "Start 2",
+                      "fmt": "num",
+                      "fmtArgs": {
+                        "resultMetadata": {
+                          "ignoreDateFormat": false,
+                          "isAggregated": false,
+                          "resultAutoDetectedFmt": {
+                            "fmtArgs": {
+                              "precision": "2"
+                            },
+                            "defaultAggregate": "SUM",
+                            "fmt": "num"
+                          },
+                          "formulaIsDataPointer": false,
+                          "suggestedName": "Unnamed 1",
+                          "isDSTApplied": true,
+                          "resultCount": 1
+                        }
+                      },
+                      "dstContext": {
+                        "ops": [
+                          {
+                            "type": "aggregate",
+                            "aggregateBy": "e9911d781649c8a3f136723d281957794227ce8a"
+                          }
+                        ],
+                        "kid": "349b94f659d9a6173982ce2bc0721e35",
+                        "id": "dste9911d781649c8a3f136723d281957794227ce8a",
+                        "aggs": {
+                          "e9911d781649c8a3f136723d281957794227ce8a": "sum"
+                        }
+                      },
+                      "formulas": [
+                        {
+                          "txt": "0.95",
+                          "ver": 2
+                        }
+                      ],
+                      "data": [[0.95]],
+                      "autoFmt": false
+                    },
+                    {
+                      "type": "proxy",
+                      "role": "end",
+                      "id": "425286fa9610a7d181b3eaf5420a8424985f00f3",
+                      "displayName": "End 2",
+                      "fmt": "num",
+                      "fmtArgs": {
+                        "resultMetadata": {
+                          "ignoreDateFormat": false,
+                          "isAggregated": false,
+                          "resultAutoDetectedFmt": {
+                            "fmtArgs": {
+                              "precision": "0"
+                            },
+                            "defaultAggregate": "SUM",
+                            "fmt": "num"
+                          },
+                          "formulaIsDataPointer": false,
+                          "suggestedName": "Unnamed 1",
+                          "isDSTApplied": true,
+                          "resultCount": 1
+                        }
+                      },
+                      "dstContext": {
+                        "ops": [
+                          {
+                            "type": "aggregate",
+                            "aggregateBy": "425286fa9610a7d181b3eaf5420a8424985f00f3"
+                          }
+                        ],
+                        "kid": "349b94f659d9a6173982ce2bc0721e35",
+                        "id": "dst425286fa9610a7d181b3eaf5420a8424985f00f3",
+                        "aggs": {
+                          "425286fa9610a7d181b3eaf5420a8424985f00f3": "sum"
+                        }
+                      },
+                      "formulas": [
+                        {
+                          "txt": "1",
+                          "ver": 2
+                        }
+                      ],
+                      "data": [[1]],
+                      "autoFmt": false
+                    }
+                  ],
+                  "formulas": [],
+                  "data": [],
+                  "autoFmt": true,
+                  "dataDisabled": true,
+                  "rangeId": 2,
+                  "color": "cx-theme_green_3"
+                },
+                {
+                  "type": "range",
+                  "role": "range",
+                  "id": "b2c64f992073b232b9cfd93edda30de9ce07814d",
+                  "displayName": "Range 3",
+                  "components": [
+                    {
+                      "type": "proxy",
+                      "role": "start",
+                      "id": "36c78b479c780e137ae26376b90f014f6067a6fd",
+                      "displayName": "Start 3",
+                      "fmt": "num",
+                      "fmtArgs": {
+                        "resultMetadata": {
+                          "ignoreDateFormat": false,
+                          "isAggregated": false,
+                          "resultAutoDetectedFmt": {
+                            "fmtArgs": {
+                              "precision": "1"
+                            },
+                            "defaultAggregate": "SUM",
+                            "fmt": "num"
+                          },
+                          "formulaIsDataPointer": false,
+                          "suggestedName": "Unnamed 1",
+                          "isDSTApplied": true,
+                          "resultCount": 1
+                        }
+                      },
+                      "dstContext": {
+                        "ops": [
+                          {
+                            "type": "aggregate",
+                            "aggregateBy": "36c78b479c780e137ae26376b90f014f6067a6fd"
+                          }
+                        ],
+                        "kid": "349b94f659d9a6173982ce2bc0721e35",
+                        "id": "dst36c78b479c780e137ae26376b90f014f6067a6fd",
+                        "aggs": {
+                          "36c78b479c780e137ae26376b90f014f6067a6fd": "sum"
+                        }
+                      },
+                      "formulas": [
+                        {
+                          "txt": "0.1",
+                          "ver": 2
+                        }
+                      ],
+                      "data": [[0.1]],
+                      "autoFmt": false
+                    },
+                    {
+                      "type": "proxy",
+                      "role": "end",
+                      "id": "c4e2e77856fcf65d2cd1c4d4447dd2535e4fb6df",
+                      "displayName": "End 3",
+                      "fmt": "num",
+                      "fmtArgs": {
+                        "resultMetadata": {
+                          "ignoreDateFormat": false,
+                          "isAggregated": false,
+                          "resultAutoDetectedFmt": {
+                            "fmtArgs": {
+                              "precision": "2"
+                            },
+                            "defaultAggregate": "SUM",
+                            "fmt": "num"
+                          },
+                          "formulaIsDataPointer": false,
+                          "suggestedName": "Unnamed 1",
+                          "isDSTApplied": true,
+                          "resultCount": 1
+                        }
+                      },
+                      "dstContext": {
+                        "ops": [
+                          {
+                            "type": "aggregate",
+                            "aggregateBy": "c4e2e77856fcf65d2cd1c4d4447dd2535e4fb6df"
+                          }
+                        ],
+                        "kid": "349b94f659d9a6173982ce2bc0721e35",
+                        "id": "dstc4e2e77856fcf65d2cd1c4d4447dd2535e4fb6df",
+                        "aggs": {
+                          "c4e2e77856fcf65d2cd1c4d4447dd2535e4fb6df": "sum"
+                        }
+                      },
+                      "formulas": [
+                        {
+                          "txt": "0.95",
+                          "ver": 2
+                        }
+                      ],
+                      "data": [[0.95]],
+                      "autoFmt": false
+                    }
+                  ],
+                  "formulas": [],
+                  "data": [],
+                  "autoFmt": true,
+                  "dataDisabled": true,
+                  "rangeId": 3,
+                  "color": "cx-theme_orange_3"
+                }
+              ],
+              "gaugeStyle": "cg"
+            }
+          ],
+          "rows": 1,
+          "cols": 1,
+          "cellData": [
+            {
+              "alignment": 1,
+              "y": 0,
+              "x": 0
+            }
+          ]
+        }
+      ],
+      "rows": 1,
+      "cols": 2,
+      "cellData": [
+        {
+          "alignment": 1,
+          "y": 0,
+          "x": 0
+        }
+      ]
+    },
+    {
+      "type": "separator",
+      "id": "51cca3d3b8053dc400a5a4af0da0c275f4b0fd05",
+      "displayName": "Separator 2"
+    },
+    {
+      "type": "panel_grid",
+      "id": "a0feda58be2e52c03e817c54cbb51a6d753bf197",
+      "displayName": "Layout Grid 6",
+      "components": [
+        {
+          "type": "simple_value",
+          "id": "e8ceabe2785bb64512bda6d122edb618f8dce083",
+          "displayName": "Value Pair 3",
+          "layoutConfig": {
+            "y": 0,
+            "x": 0
+          },
+          "dstContext": {
+            "id": "dste8ceabe2785bb64512bda6d122edb618f8dce083"
+          },
+          "components": [
+            {
+              "type": "label",
+              "role": "primary",
+              "id": "a8cdda932a501c890bd244a4a413142a556b7223",
+              "displayName": "Primary Value",
+              "size": "small",
+              "fmt": "txt",
+              "fmtArgs": {
+                "autoFmt": {
+                  "fmtArgs": {},
+                  "defaultAggregate": "COUNT",
+                  "fmt": "txt"
+                },
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {},
+                    "defaultAggregate": "COUNT",
+                    "fmt": "txt"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dsta8cdda932a501c890bd244a4a413142a556b7223"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "\"Test duration\"",
+                  "src": {
+                    "v": false,
+                    "t": "expr",
+                    "c": [
+                      {
+                        "v": "My Value",
+                        "t": "l"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [["Test duration"]],
+              "autoFmt": true,
+              "align": "c"
+            },
+            {
+              "type": "label",
+              "role": "secondary",
+              "id": "ec7f05dda5e60ad823776b7d3330c3cf9226cab4",
+              "displayName": "Secondary Value",
+              "size": "large",
+              "fmt": "num",
+              "fmtArgs": {
+                "autoFmt": {
+                  "fmtArgs": {
+                    "precision": "0"
+                  },
+                  "defaultAggregate": "SUM",
+                  "fmt": "num"
+                },
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "0"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                },
+                "suffix": " Days"
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dstec7f05dda5e60ad823776b7d3330c3cf9226cab4"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "max(!'0de4484b95d2e6cf0321da86be57f09e44834570')",
+                  "src": {
+                    "v": false,
+                    "t": "expr",
+                    "c": [
+                      {
+                        "v": "My Value",
+                        "t": "l"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [[12]],
+              "autoFmt": true,
+              "align": "c"
+            }
+          ]
+        },
+        {
+          "type": "simple_value",
+          "id": "4545c937b10f94d7b65d0463ea8e95dcce21b12e",
+          "displayName": "Value Pair 4",
+          "layoutConfig": {
+            "y": 0,
+            "x": 1
+          },
+          "dstContext": {
+            "id": "dst4545c937b10f94d7b65d0463ea8e95dcce21b12e"
+          },
+          "components": [
+            {
+              "type": "label",
+              "role": "primary",
+              "id": "77c3ff29af276d94f87d10be9b5f4fb1d4138f63",
+              "displayName": "Primary Value",
+              "size": "small",
+              "fmt": "txt",
+              "fmtArgs": {
+                "autoFmt": {
+                  "fmtArgs": {},
+                  "defaultAggregate": "COUNT",
+                  "fmt": "txt"
+                },
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {},
+                    "defaultAggregate": "COUNT",
+                    "fmt": "txt"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dst77c3ff29af276d94f87d10be9b5f4fb1d4138f63"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "\"Test status\"",
+                  "src": {
+                    "v": false,
+                    "t": "expr",
+                    "c": [
+                      {
+                        "v": "My Value",
+                        "t": "l"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [["Test status"]],
+              "autoFmt": true,
+              "align": "c"
+            },
+            {
+              "type": "label",
+              "role": "secondary",
+              "id": "8cba053fb56288437a7b3fad32790e9397a43442",
+              "displayName": "Secondary Value",
+              "size": "large",
+              "fmt": "txt",
+              "fmtArgs": {
+                "autoFmt": {
+                  "fmtArgs": {},
+                  "defaultAggregate": "COUNT",
+                  "fmt": "txt"
+                },
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {},
+                    "defaultAggregate": "COUNT",
+                    "fmt": "txt"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dst8cba053fb56288437a7b3fad32790e9397a43442"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    },
+                    {
+                      "value": "Test is stopped",
+                      "isScalar": true,
+                      "type": "text"
+                    }
+                  ]
+                },
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "fb2bdf24684440fa644bf11670b942f9e208793e"
+                      },
+                      "type": "gteq",
+                      "right": {
+                        "raw": "0,95"
+                      }
+                    },
+                    {
+                      "left": {
+                        "cx": "3d5d157c0a3aa03d03857eea0e0879ee018d88b7"
+                      },
+                      "type": "gt",
+                      "right": {
+                        "raw": "200"
+                      }
+                    },
+                    {
+                      "left": {
+                        "cx": "86c12bda46afc7dac2fb364bf9be3cd0eefc1874"
+                      },
+                      "type": "gt",
+                      "right": {
+                        "raw": "200"
+                      }
+                    },
+                    {
+                      "left": {
+                        "cx": "ddc7cce6a12f9885c31db4c5134a3602699c2ad3"
+                      },
+                      "type": "gt",
+                      "right": {
+                        "raw": "0"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "Test can be stopped (Won)",
+                      "isScalar": true,
+                      "type": "text"
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "\"Test is in progress\"",
+                  "src": {
+                    "v": false,
+                    "t": "expr",
+                    "c": [
+                      {
+                        "v": "My Value",
+                        "t": "l"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [["Test is in progress"]],
+              "autoFmt": true,
+              "align": "c"
+            }
+          ]
+        }
+      ],
+      "rows": 1,
+      "cols": 2
+    },
+    {
+      "type": "separator",
+      "id": "2ccb58b34f43047161c16a2515ea9f0afa9abadb",
+      "displayName": "Separator 3"
+    },
+    {
+      "type": "panel_grid",
+      "id": "f753a57ce2caad9670007b7c0f6a5bb65886dbd3",
+      "displayName": "Layout Grid 5",
+      "components": [
+        {
+          "type": "label",
+          "id": "2b2784a8c384793aa2499c05d77346c1d514412c",
+          "displayName": "Label 2",
+          "layoutConfig": {
+            "y": 0,
+            "x": 0
+          },
+          "size": "medium",
+          "fmt": "txt",
+          "fmtArgs": {
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            },
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            }
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dst2b2784a8c384793aa2499c05d77346c1d514412c"
+          },
+          "conditions": [
+            {
+              "predicates": [
+                {
+                  "left": {
+                    "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                  },
+                  "type": "eq",
+                  "right": {
+                    "raw": "1"
+                  }
+                }
+              ],
+              "reactions": [
+                {
+                  "value": "cx-theme_aaa",
+                  "isScalar": true,
+                  "type": "color"
+                }
+              ]
+            }
+          ],
+          "formulas": [
+            {
+              "txt": "\"Original\"",
+              "src": {
+                "v": false,
+                "t": "expr",
+                "c": [
+                  {
+                    "v": "My Label",
+                    "t": "l"
+                  }
+                ]
+              },
+              "ver": 2
+            }
+          ],
+          "data": [["Original"]],
+          "autoFmt": true,
+          "align": "c",
+          "wrap": true
+        },
+        {
+          "type": "label",
+          "id": "0eeadc9d93327196869517f6d0d4baebe7633853",
+          "displayName": "Label 3",
+          "layoutConfig": {
+            "y": 0,
+            "x": 1
+          },
+          "size": "medium",
+          "fmt": "txt",
+          "fmtArgs": {
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {},
+                "defaultAggregate": "COUNT",
+                "fmt": "txt"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            },
+            "autoFmt": {
+              "fmtArgs": {},
+              "defaultAggregate": "COUNT",
+              "fmt": "txt"
+            }
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dst0eeadc9d93327196869517f6d0d4baebe7633853"
+          },
+          "conditions": [
+            {
+              "predicates": [
+                {
+                  "left": {
+                    "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                  },
+                  "type": "eq",
+                  "right": {
+                    "raw": "1"
+                  }
+                }
+              ],
+              "reactions": [
+                {
+                  "value": "cx-theme_aaa",
+                  "isScalar": true,
+                  "type": "color"
+                }
+              ]
+            }
+          ],
+          "formulas": [
+            {
+              "txt": "\"Variation\"",
+              "src": {
+                "v": false,
+                "t": "expr",
+                "c": [
+                  {
+                    "v": "My Label",
+                    "t": "l"
+                  }
+                ]
+              },
+              "ver": 2
+            }
+          ],
+          "data": [["Variation"]],
+          "autoFmt": true,
+          "align": "c",
+          "wrap": true
+        },
+        {
+          "type": "simple_value",
+          "id": "87394f5dc71f5eb7c98f55e0e9ba1a03f594c424",
+          "displayName": "Value Pair",
+          "layoutConfig": {
+            "y": 1,
+            "x": 0
+          },
+          "dstContext": {
+            "id": "dst87394f5dc71f5eb7c98f55e0e9ba1a03f594c424"
+          },
+          "components": [
+            {
+              "type": "label",
+              "role": "primary",
+              "id": "5e192d229eebe46dbb7f6a52d1eebb6d12a9c0f0",
+              "displayName": "Primary Value",
+              "size": "xx-small",
+              "fmt": "txt",
+              "fmtArgs": {
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {},
+                    "defaultAggregate": "COUNT",
+                    "fmt": "txt"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                },
+                "autoFmt": {
+                  "fmtArgs": {},
+                  "defaultAggregate": "COUNT",
+                  "fmt": "txt"
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dst5e192d229eebe46dbb7f6a52d1eebb6d12a9c0f0"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "\"Original test conversion rate\"",
+                  "src": {
+                    "v": false,
+                    "t": "expr",
+                    "c": [
+                      {
+                        "v": "My Value",
+                        "t": "l"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [["Original test conversion rate"]],
+              "autoFmt": true,
+              "align": "c"
+            },
+            {
+              "type": "label",
+              "role": "secondary",
+              "id": "1ca33d89c73c20dfa5346bf4ec2e5263e938cdc4",
+              "displayName": "Secondary Value",
+              "size": "large",
+              "fmt": "pct",
+              "fmtArgs": {
+                "precision": "2",
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "4"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dst1ca33d89c73c20dfa5346bf4ec2e5263e938cdc4"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "components": [],
+              "formulas": [
+                {
+                  "txt": "select(!'57eb575cdbd8b0a3ca4478dedc2429779f0870e8',!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'=max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'))",
+                  "src": {
+                    "v": false,
+                    "t": "expr",
+                    "c": [
+                      {
+                        "v": "My Value",
+                        "t": "l"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [[0.0159]],
+              "autoFmt": false,
+              "align": "c"
+            }
+          ]
+        },
+        {
+          "type": "simple_value",
+          "id": "f35a2246cd6f7e803400cf1efb542908100eff27",
+          "displayName": "Value Pair 2",
+          "layoutConfig": {
+            "y": 1,
+            "x": 1
+          },
+          "dstContext": {
+            "id": "dstf35a2246cd6f7e803400cf1efb542908100eff27"
+          },
+          "components": [
+            {
+              "type": "label",
+              "role": "primary",
+              "id": "443e7ee4cf2ae2f733efb4a1c100712fbd8a9dce",
+              "displayName": "Primary Value",
+              "size": "xx-small",
+              "fmt": "txt",
+              "fmtArgs": {
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {},
+                    "defaultAggregate": "COUNT",
+                    "fmt": "txt"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                },
+                "autoFmt": {
+                  "fmtArgs": {},
+                  "defaultAggregate": "COUNT",
+                  "fmt": "txt"
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dst443e7ee4cf2ae2f733efb4a1c100712fbd8a9dce"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "\"Variation test conversion rate\"",
+                  "src": {
+                    "v": false,
+                    "t": "expr",
+                    "c": [
+                      {
+                        "v": "My Value",
+                        "t": "l"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [["Variation test conversion rate"]],
+              "autoFmt": true,
+              "align": "c"
+            },
+            {
+              "type": "label",
+              "role": "secondary",
+              "id": "7c34e07ab149919af33e80551ca71939611870b9",
+              "displayName": "Secondary Value",
+              "size": "large",
+              "fmt": "pct",
+              "fmtArgs": {
+                "precision": "2",
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "4"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "dstContext": {
+                "kid": "349b94f659d9a6173982ce2bc0721e35",
+                "id": "dst7c34e07ab149919af33e80551ca71939611870b9"
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "formulas": [
+                {
+                  "txt": "select(!'4a48c19ae2a9d95fe087313fbd38e4f3dabc5b05',!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'=max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'))",
+                  "src": {
+                    "v": false,
+                    "t": "expr",
+                    "c": [
+                      {
+                        "v": "My Value",
+                        "t": "l"
+                      }
+                    ]
+                  },
+                  "ver": 2
+                }
+              ],
+              "data": [[0.0153]],
+              "autoFmt": false,
+              "align": "c"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "id": "744638d3a9f9086e711502a110bf35e1b6f018d4",
+          "displayName": "Table 2",
+          "layoutConfig": {
+            "y": 2,
+            "x": 0
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dst744638d3a9f9086e711502a110bf35e1b6f018d4"
+          },
+          "components": [
+            {
+              "type": "table_col",
+              "role": "tcol",
+              "id": "0d8156a5f49a27bce5001b2d77d97bae75ef8e01",
+              "displayName": "Sessions (Original)",
+              "namerenamed": true,
+              "size": "xx-small",
+              "fmt": "num",
+              "fmtArgs": {
+                "autoFmt": {
+                  "fmtArgs": {
+                    "precision": "0"
+                  },
+                  "defaultAggregate": "SUM",
+                  "fmt": "num"
+                },
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "0"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "components": [],
+              "formulas": [
+                {
+                  "txt": "select(!'0d37259f9ea610daccc11a0a1bbb92165b6c091a',!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'=max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'))",
+                  "ver": 2
+                }
+              ],
+              "data": [["77227"]],
+              "autoFmt": true,
+              "name": "Sessions (Original)",
+              "index": 0,
+              "customHeader": false,
+              "align": "c"
+            },
+            {
+              "type": "table_col",
+              "role": "tcol",
+              "id": "3d5d157c0a3aa03d03857eea0e0879ee018d88b7",
+              "displayName": "Transactions (Original)",
+              "namerenamed": true,
+              "size": "xx-small",
+              "fmt": "num",
+              "fmtArgs": {
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "0"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                },
+                "autoFmt": {
+                  "fmtArgs": {
+                    "precision": "0"
+                  },
+                  "defaultAggregate": "SUM",
+                  "fmt": "num"
+                }
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "components": [],
+              "formulas": [
+                {
+                  "txt": "select(!'b554919a00075a53baf94097048a49c479a7ee93',!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'=max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'))",
+                  "ver": 2
+                }
+              ],
+              "data": [["1227"]],
+              "autoFmt": true,
+              "name": "Transactions (Original)",
+              "index": 1,
+              "customHeader": false,
+              "align": "c"
+            }
+          ]
+        },
+        {
+          "type": "table",
+          "id": "a41a5c82038138d0297423c0deae3789c7ef3fbf",
+          "displayName": "Table 3",
+          "layoutConfig": {
+            "y": 2,
+            "x": 1
+          },
+          "dstContext": {
+            "kid": "349b94f659d9a6173982ce2bc0721e35",
+            "id": "dsta41a5c82038138d0297423c0deae3789c7ef3fbf"
+          },
+          "components": [
+            {
+              "type": "table_col",
+              "role": "tcol",
+              "id": "59adbc8c5497c6aafec19690f043d51ee0554fc7",
+              "displayName": "Sessions (Variation)",
+              "namerenamed": true,
+              "size": "xx-small",
+              "fmt": "num",
+              "fmtArgs": {
+                "autoFmt": {
+                  "fmtArgs": {
+                    "precision": "0"
+                  },
+                  "defaultAggregate": "SUM",
+                  "fmt": "num"
+                },
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "0"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                }
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "components": [],
+              "formulas": [
+                {
+                  "txt": "select(!'62a0f77b72eef58dc6a87eefdedfff6dba0d78ef',!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'=max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'))",
+                  "ver": 2
+                }
+              ],
+              "data": [["76386"]],
+              "autoFmt": true,
+              "name": "Sessions (Variation)",
+              "index": 0,
+              "customHeader": false,
+              "align": "c"
+            },
+            {
+              "type": "table_col",
+              "role": "tcol",
+              "id": "86c12bda46afc7dac2fb364bf9be3cd0eefc1874",
+              "displayName": "Transactions (Variation)",
+              "namerenamed": true,
+              "size": "xx-small",
+              "fmt": "num",
+              "fmtArgs": {
+                "resultMetadata": {
+                  "ignoreDateFormat": false,
+                  "isAggregated": false,
+                  "resultAutoDetectedFmt": {
+                    "fmtArgs": {
+                      "precision": "0"
+                    },
+                    "defaultAggregate": "SUM",
+                    "fmt": "num"
+                  },
+                  "formulaIsDataPointer": false,
+                  "suggestedName": "Unnamed 1",
+                  "resultCount": 1
+                },
+                "autoFmt": {
+                  "fmtArgs": {
+                    "precision": "0"
+                  },
+                  "defaultAggregate": "SUM",
+                  "fmt": "num"
+                }
+              },
+              "conditions": [
+                {
+                  "predicates": [
+                    {
+                      "left": {
+                        "cx": "ac60d6bab79e0136143c40b96ae79710f1035442"
+                      },
+                      "type": "eq",
+                      "right": {
+                        "raw": "1"
+                      }
+                    }
+                  ],
+                  "reactions": [
+                    {
+                      "value": "cx-theme_aaa",
+                      "isScalar": true,
+                      "type": "color"
+                    }
+                  ]
+                }
+              ],
+              "components": [],
+              "formulas": [
+                {
+                  "txt": "select(!'cad71d09aa35ed612010a7527b9285882fd03804',!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'=max(!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'))",
+                  "ver": 2
+                }
+              ],
+              "data": [["1172"]],
+              "autoFmt": true,
+              "name": "Transactions (Variation)",
+              "index": 1,
+              "customHeader": false,
+              "align": "c"
+            }
+          ]
+        }
+      ],
+      "rows": 3,
+      "cols": 2
+    },
+    {
+      "type": "separator",
+      "id": "6979de87e9a3e3c369859d069aa04b76fefecd6d",
+      "displayName": "Separator 4"
+    },
+    {
+      "type": "chart_series",
+      "id": "9ed05e76f15506d5aa1c2e194c943ecf43b425bb",
+      "displayName": "Bar/Line Chart",
+      "dstContext": {
+        "kid": "349b94f659d9a6173982ce2bc0721e35",
+        "id": "dst9ed05e76f15506d5aa1c2e194c943ecf43b425bb"
+      },
+      "components": [
+        {
+          "type": "series_data",
+          "role": "series",
+          "id": "1d7a1140effec495d53af9d1261a62d0344164ca",
+          "displayName": "Performance of AB testing",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "2"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "formulas": [
+            {
+              "txt": "!'a6a8e6dd872f26e3855c1b6ea601f2908742773d'*100",
+              "ver": 2
+            }
+          ],
+          "data": [
+            [-34.38, -17.5, -7.66, -4.859999999999999, -6.18, -5.66, -7.84, -5.7, -3.17, -4.09, -3.62, -3.4299999999999997]
+          ],
+          "autoFmt": false,
+          "seriesName": "Performance of AB testing",
+          "renderer": "line",
+          "chartStyle": "line",
+          "lineStyle": "curve",
+          "axis": "5fde9f2b47b08a8dd64ba60a336bc25233900a99"
+        },
+        {
+          "type": "series_data",
+          "role": "series",
+          "id": "d6a58f0ce0f47d0e5990f6092bb590dc5e37fcf2",
+          "displayName": "Probability to outperform original",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "2"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "formulas": [
+            {
+              "txt": "!'99ccd6523c08dcb27e06a1ce05b213a0ec119111'*100",
+              "ver": 2
+            }
+          ],
+          "data": [[0.42, 4.84, 18.709999999999997, 24.75, 15.58, 15.25, 6.069999999999999, 11.86, 24.9, 17.78, 19.31, 19.45]],
+          "autoFmt": false,
+          "seriesName": "Probability to outperform original",
+          "renderer": "line",
+          "chartStyle": "line",
+          "lineStyle": "curve",
+          "lineWeight": "3",
+          "axis": "2d0f1948edd4cf4d26c76b2c87081239f0c1a4a2",
+          "overrideColor": true,
+          "color": "cx-theme_aaa"
+        },
+        {
+          "type": "series_data",
+          "role": "series",
+          "id": "cd25e9cd17baf5a24a270710a9dd94077a5c2f69",
+          "displayName": "Target",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "0"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "formulas": [
+            {
+              "txt": "if(!'67b2d1411456da6b03784dfb3d2d519c94784783'>0,95,0)",
+              "ver": 2
+            }
+          ],
+          "data": [[95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95, 95]],
+          "autoFmt": false,
+          "seriesName": "Target",
+          "renderer": "line",
+          "chartStyle": "line",
+          "lineWeight": "2",
+          "lineDashes": "ShortDot",
+          "axis": "2d0f1948edd4cf4d26c76b2c87081239f0c1a4a2",
+          "overrideColor": true,
+          "color": "cx-theme_aaa"
+        },
+        {
+          "type": "chart_axis",
+          "role": "axis_x",
+          "id": "67b2d1411456da6b03784dfb3d2d519c94784783",
+          "displayName": "Untitled",
+          "fmt": "dat2",
+          "fmtArgs": {
+            "dateInputFormat": "custom",
+            "dateFormatCustom": "yyyy-MM-dd",
+            "dateFormat": "yyyy-MM-dd",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "dateInputFormat": "custom",
+                  "dateInputFormatCustom": "yyyyMMdd",
+                  "dateFormat": "custom",
+                  "dateFormatCustom": "yyyyMMdd"
+                },
+                "defaultAggregate": "COUNT",
+                "fmt": "dat2"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "isDSTApplied": true,
+              "resultCount": 1
+            },
+            "dateInputFormatCustom": "yyyyMMdd"
+          },
+          "formulas": [
+            {
+              "txt": "!'2219fbfd2bbe3c8d4df9c602f4c701ac732287b6'",
+              "ver": 2
+            }
+          ],
+          "data": [
+            [
+              "2020-10-02",
+              "2020-10-03",
+              "2020-10-04",
+              "2020-10-05",
+              "2020-10-06",
+              "2020-10-07",
+              "2020-10-08",
+              "2020-10-09",
+              "2020-10-10",
+              "2020-10-11",
+              "2020-10-12",
+              "2020-10-13"
+            ]
+          ],
+          "autoFmt": false,
+          "label": "Untitled",
+          "labelAngle": "-45",
+          "labelDrop": 0,
+          "showLabelTicks": true
+        },
+        {
+          "type": "chart_axis",
+          "role": "axis_y",
+          "id": "5fde9f2b47b08a8dd64ba60a336bc25233900a99",
+          "displayName": "Performance of AB Testing",
+          "renamed": true,
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2"
+          },
+          "formulas": [],
+          "data": [],
+          "autoFmt": true,
+          "dataDisabled": true,
+          "label": "Untitled",
+          "customInterval": false,
+          "labelDrop": 0,
+          "grid": true
+        },
+        {
+          "type": "chart_axis",
+          "role": "axis_y",
+          "id": "2d0f1948edd4cf4d26c76b2c87081239f0c1a4a2",
+          "displayName": "Probability to outperform original",
+          "fmt": "pct",
+          "fmtArgs": {},
+          "formulas": [],
+          "data": [],
+          "autoFmt": true,
+          "dataDisabled": true,
+          "label": "Probability to outperform original",
+          "axisPosition": "right",
+          "customRange": true,
+          "min": "0",
+          "max": "101",
+          "labelDrop": 0
+        }
+      ],
+      "zoom": "xy"
+    },
+    {
+      "type": "table",
+      "id": "6ff713239a7abe8a9e586485ef6477b888dbea60",
+      "displayName": "RAW Data (Table)",
+      "renamed": true,
+      "dstContext": {
+        "kid": "349b94f659d9a6173982ce2bc0721e35",
+        "id": "dst6ff713239a7abe8a9e586485ef6477b888dbea60"
+      },
+      "components": [
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "2219fbfd2bbe3c8d4df9c602f4c701ac732287b6",
+          "displayName": "Date",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "dat2",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {
+                "dateInputFormat": "custom",
+                "dateInputFormatCustom": "yyyyMMdd",
+                "dateFormat": "custom",
+                "dateFormatCustom": "yyyyMMdd"
+              },
+              "defaultAggregate": "COUNT",
+              "fmt": "dat2"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "dateInputFormat": "custom",
+                  "dateInputFormatCustom": "yyyyMMdd",
+                  "dateFormat": "custom",
+                  "dateFormatCustom": "yyyyMMdd"
+                },
+                "defaultAggregate": "COUNT",
+                "fmt": "dat2"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [
+            [
+              "20201002",
+              "20201003",
+              "20201004",
+              "20201005",
+              "20201006",
+              "20201007",
+              "20201008",
+              "20201009",
+              "20201010",
+              "20201011",
+              "20201012",
+              "20201013"
+            ]
+          ],
+          "autoFmt": true,
+          "name": "Date",
+          "index": 0,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "0de4484b95d2e6cf0321da86be57f09e44834570",
+          "displayName": "Test Duration",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "num",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {
+                "precision": "0"
+              },
+              "defaultAggregate": "SUM",
+              "fmt": "num"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "0"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@C:C;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@C:C;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]],
+          "autoFmt": true,
+          "name": "Test Duration",
+          "index": 1,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "0d37259f9ea610daccc11a0a1bbb92165b6c091a",
+          "displayName": "Cumulated sessions original",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "num",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {
+                "precision": "0"
+              },
+              "defaultAggregate": "SUM",
+              "fmt": "num"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "0"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@D:D;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@D:D;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [["6100", "11472", "16902", "24637", "31682", "38129", "44695", "51705", "57235", "62751", "69921", "77227"]],
+          "autoFmt": true,
+          "name": "Cumulated sessions original",
+          "index": 2,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "b554919a00075a53baf94097048a49c479a7ee93",
+          "displayName": "Cumulated transactions original",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "num",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {
+                "precision": "0"
+              },
+              "defaultAggregate": "SUM",
+              "fmt": "num"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "0"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@E:E;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@E:E;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [["95", "163", "258", "382", "515", "631", "743", "827", "892", "990", "1113", "1227"]],
+          "autoFmt": true,
+          "name": "Cumulated transactions original",
+          "index": 3,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "62a0f77b72eef58dc6a87eefdedfff6dba0d78ef",
+          "displayName": "Cumulated sessions variation",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "num",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {
+                "precision": "0"
+              },
+              "defaultAggregate": "SUM",
+              "fmt": "num"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "0"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@F:F;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@F:F;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [["6263", "11346", "16530", "24134", "31212", "37664", "43995", "50987", "56589", "61859", "69029", "76386"]],
+          "autoFmt": true,
+          "name": "Cumulated sessions variation",
+          "index": 4,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "cad71d09aa35ed612010a7527b9285882fd03804",
+          "displayName": "Cumulated transactions variation",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "num",
+          "fmtArgs": {
+            "autoFmt": {
+              "fmtArgs": {
+                "precision": "0"
+              },
+              "defaultAggregate": "SUM",
+              "fmt": "num"
+            },
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "0"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@G:G;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@G:G;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [["64", "133", "233", "356", "476", "588", "674", "769", "854", "936", "1059", "1172"]],
+          "autoFmt": true,
+          "name": "Cumulated transactions variation",
+          "index": 5,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "57eb575cdbd8b0a3ca4478dedc2429779f0870e8",
+          "displayName": "Conversion rate original",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "4"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@H:H;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@H:H;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [[0.0156, 0.0142, 0.0153, 0.0155, 0.0163, 0.0165, 0.0166, 0.016, 0.0156, 0.0158, 0.0159, 0.0159]],
+          "autoFmt": false,
+          "name": "Conversion rate original",
+          "index": 6,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "4a48c19ae2a9d95fe087313fbd38e4f3dabc5b05",
+          "displayName": "Conversion rate variation",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "4"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@I:I;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@I:I;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [[0.0102, 0.0117, 0.0141, 0.0148, 0.0153, 0.0156, 0.0153, 0.0151, 0.0151, 0.0151, 0.0153, 0.0153]],
+          "autoFmt": false,
+          "name": "Conversion rate variation",
+          "index": 7,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "a6a8e6dd872f26e3855c1b6ea601f2908742773d",
+          "displayName": "Performance of AB Testing",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "4"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@J:J;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@J:J;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [[-0.3438, -0.175, -0.0766, -0.0486, -0.0618, -0.0566, -0.0784, -0.057, -0.0317, -0.0409, -0.0362, -0.0343]],
+          "autoFmt": false,
+          "name": "Performance of AB Testing",
+          "index": 8,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "ad49c45983d45600e2f134eb25a99733cc9a8965",
+          "displayName": "Performance interval from",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "4"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@K:K;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@K:K;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [[-0.5111, -0.3101, -0.187, -0.14, -0.1401, -0.1274, -0.1434, -0.1189, -0.0916, -0.0977, -0.0898, -0.0854]],
+          "autoFmt": false,
+          "name": "Performance interval from",
+          "index": 9,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "c5da8303fbd3cc9a683dfd93a84580be2acf29f9",
+          "displayName": "Performance interval to",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "4"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@L:L;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@L:L;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [[-0.1766, -0.0399, 0.0339, 0.0428, 0.0165, 0.0141, -0.0135, 0.0048, 0.0283, 0.0159, 0.0174, 0.0167]],
+          "autoFmt": false,
+          "name": "Performance interval to",
+          "index": 10,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        },
+        {
+          "type": "table_col",
+          "role": "tcol",
+          "id": "99ccd6523c08dcb27e06a1ce05b213a0ec119111",
+          "displayName": "Statistical significance",
+          "namerenamed": true,
+          "vis": false,
+          "size": "xx-small",
+          "fmt": "pct",
+          "fmtArgs": {
+            "precision": "2",
+            "resultMetadata": {
+              "ignoreDateFormat": false,
+              "isAggregated": false,
+              "resultAutoDetectedFmt": {
+                "fmtArgs": {
+                  "precision": "4"
+                },
+                "defaultAggregate": "SUM",
+                "fmt": "num"
+              },
+              "formulaIsDataPointer": false,
+              "suggestedName": "Unnamed 1",
+              "resultCount": 1
+            }
+          },
+          "components": [],
+          "formulas": [
+            {
+              "txt": "if($Segmentation=\"ALL\",select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@M:M;),and(slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation,slice(c6c4244ae568f91cf0d41c9c870ed4e9@B:B;)<=!'0c74c8bc24af80facf94d645785260f12073a1e6')),select(slice(c6c4244ae568f91cf0d41c9c870ed4e9@M:M;),slice(c6c4244ae568f91cf0d41c9c870ed4e9@A:A;)=$Segmentation))",
+              "ver": 2
+            }
+          ],
+          "data": [[0.0042, 0.0484, 0.1871, 0.2475, 0.1558, 0.1525, 0.0607, 0.1186, 0.249, 0.1778, 0.1931, 0.1945]],
+          "autoFmt": false,
+          "name": "Statistical significance",
+          "index": 11,
+          "colHidden": "hidden",
+          "customHeader": false,
+          "align": "c"
+        }
+      ]
+    }
+  ]
+}
