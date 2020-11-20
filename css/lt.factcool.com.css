@@ -1,0 +1,34 @@
+::-webkit-scrollbar {
+  display: none; }
+
+.filters-mobile ul {
+  height: 40px;
+  overflow: scroll;
+  display: flex;
+  width: 100%;
+  white-space: nowrap; }
+
+.filters-mobile ul li {
+  margin-right: 6px;
+  height: 25px;
+  background: #dcdcdc;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 3px; }
+
+.filters-mobile ul li:hover,
+.filters-mobile ul li.current,
+.filters-mobile ul li:focus {
+  background-color: #404040; }
+
+.filters-mobile ul li:focus a,
+.filters-mobile ul li.current a,
+.filters-mobile ul li:hover a {
+  color: #f2f2f2; }
+
+.filters-mobile ul li a {
+  font-size: 13px;
+  color: #9c9c9c;
+  padding: 0 8px;
+  font-weight: 500; }
