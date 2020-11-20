@@ -1,35 +1,78 @@
-::-webkit-scrollbar {
-    display: none;
-}
-.filters-mobile ul {
-    height: 40px;
-    overflow: scroll;
-    display: flex;
+.accordion {
+    background-color: #e4e4e4;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
     width: 100%;
-    white-space: nowrap;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    font-weight: 700;
+    position: relative;
+
+    &::before {
+        content: '>';
+        font-weight: 500;
+        position: absolute;
+        top: 13px;
+        right: 22px;
+        font-family: monospace;
+        font-size: 23px;
+        transform: rotate(90deg);
+        transition: 0.3s ease-in-out;
+    }
+
+    @media (max-width: 768px) {
+        background-color: #676767;
+        color: #ffffff;
+        margin: 0 20px;
+        width: auto;
+
+        &::before {
+            top: 14px;
+            right: 22px;
+            color: #ffffff;
+        }
+    }
+
+    &.active {
+        &::before {
+            transform: rotate(-90deg);
+        }
+    }
 }
-.filters-mobile ul li {
-    margin-right: 6px;
-    height: 25px;
-    background: #dcdcdc;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    border-radius: 3px;
+
+.account-inner {
+    padding: 30px 0;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+
+    h3 {
+        display: none;
+    }
+
+    @media (min-width: 1200px) {
+        padding: 40px 30% 10px 30px;
+    }
+
+    @media (max-width: 768px) {
+        background-color: transparent;
+        padding: 30px 18px;
+    }
 }
-.filters-mobile ul li:hover,
-.filters-mobile ul li.current,
-.filters-mobile ul li:focus {
-    background-color: #404040;
+
+.account-inner.shown {
+    display: block;
 }
-.filters-mobile ul li:focus a,
-.filters-mobile ul li.current a,
-.filters-mobile ul li:hover a {
-    color: #f2f2f2;
+
+.account-wrapper {
+    padding: 0 !important;
+    border: 0;
 }
-.filters-mobile ul li a {
-    font-size: 13px;
-    color: #9c9c9c;
-    padding: 0 8px;
-    font-weight: 500;
+
+.cart-step-terms {
+    padding: 0 30px;
 }
