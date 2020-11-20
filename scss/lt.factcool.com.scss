@@ -77,12 +77,15 @@
 // }
 
 // .nav-displayed .submenu-title ul li {
-//     width: 25%;
+//     width: 33%;
+//     line-height: 31px;
 // }
 
 // .menu li ul.submenu li ul li a {
 //     font-size: 13px;
 //     margin-right: 15px;
+//     white-space: initial;
+//     word-break: initial;
 // }
 
 // .nav-displayed .submenu-title:hover .meniu-dropdown {
@@ -154,6 +157,12 @@
 
 // .main-menu {
 //     border-bottom: 0;
+
+//     .main-menu-inner > ul {
+//         display: flex;
+//         justify-content: space-between;
+//         white-space: nowrap;
+//     }
 // }
 
 // .nav-displayed .meniu-dropdown ul {
@@ -174,6 +183,8 @@
 //     margin-left: 40px;
 //     display: flex;
 //     align-items: center;
+//     width: 70%;
+//     justify-content: flex-end;
 // }
 
 // // .col-xs-100.col-lg-60.submenu-left > div:nth-last-child(2) {
@@ -194,7 +205,7 @@
 //     height: 190px;
 // }
 // .meniu-dropdown-banner .hp-slider-inner {
-//     width: 600px;
+//     // width: 600px;
 // }
 
 // .submenu-left .submenu-title .meniu-dropdown-banner img.obanner-mobile {
@@ -226,6 +237,7 @@
 //         width: 20%;
 //         min-height: 200px;
 //         max-width: 20%;
+//         margin-bottom: 20px;
 //     }
 
 //     .submenu-title {
