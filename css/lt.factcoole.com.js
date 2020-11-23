@@ -1,61 +1,123 @@
-var miestas = $('#checkout_address_paymentAddress div')[2];
-var pastoIndeksas = $('#checkout_address_paymentAddress div')[3];
-var gatve = $('#checkout_address_paymentAddress div')[4];
-var namoNumeris = $('#checkout_address_paymentAddress div')[5];
-var checkbox = $('#formStep2 > div.mobile-row > div:nth-child(1) > div > div:nth-child(6)');
-var firstSectionContainer = $('#formStep2 > div.mobile-row > div:nth-child(1)');
-var secondSectionContainer = $('#formStep2 > div.mobile-row > div:nth-child(2)');
-var secondSection = $('#formStep2 > div.mobile-row > div:nth-child(2) > div');
-var accountInnerBlock = document.querySelectorAll('.account-inner')[0];
+var allLinks = document.querySelectorAll(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li '
+);
 
-accountInnerBlock.classList.add('shown');
+$('a[href$="/index.php?route=product/category&path=719"]').parent().addClass('sport-link');
 
-secondSection.append(checkbox);
-secondSection.prepend(namoNumeris);
-secondSection.prepend(gatve);
-secondSection.prepend(pastoIndeksas);
-secondSection.prepend(miestas);
+document
+    .querySelector(
+        '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(2)'
+    )
+    .classList.add('nav-displayed');
 
-var accordionButton = document.createElement('div');
-accordionButton.setAttribute('class', 'accordion');
-accordionButton.textContent = '1. BUYER INFORMATION';
-firstSectionContainer.prepend(accordionButton);
+document
+    .querySelectorAll('li.menu-img .col-xs-100.col-lg-60.submenu-left .col-lg-33')
+    .forEach(function (item) {
+        item.classList.remove('col-lg-33');
+    });
 
-var accordionButton = document.createElement('div');
-accordionButton.setAttribute('class', 'accordion');
-accordionButton.textContent = '2. ADDRESS';
-secondSectionContainer.prepend(accordionButton);
+document
+    .querySelectorAll('li.sport-link .col-xs-100.col-lg-60.submenu-left > div')
+    .forEach(function (item) {
+        item.classList.add('col-lg-33');
+    });
 
-var accordion = document.getElementsByClassName('accordion');
-document.querySelectorAll('.accordion')[0].classList.add('active');
-var i;
+document.querySelectorAll('.menu li ul.submenu a.submenu-title + ul').forEach(function (item) {
+    var newMenu = document.createElement('div');
+    newMenu.setAttribute('class', 'meniu-dropdown');
+    item.parentNode.querySelector('a').append(newMenu);
+    item.parentNode.querySelector('a div.meniu-dropdown').append(item);
+});
 
-for (i = 0; i < accordion.length; i++) {
-    accordion[i].addEventListener('click', function () {
-        var accordion1 = document.querySelectorAll('.accordion')[0];
-        var accordion2 = document.querySelectorAll('.accordion')[1];
-        var block1 = document.querySelectorAll('.account-inner.shown')[0];
-        var block2 = document.querySelectorAll('.account-inner.shown')[1];
-        var panel = this.nextElementSibling;
+allLinks.forEach(function (item) {
+    if (
+        item.classList.contains('menu-secondary') ||
+        item.classList.contains('menu-home') ||
+        item.classList.contains('mobile-menu-separator') ||
+        item.classList.contains('sport-link')
+    ) {
+        return;
+    }
+    var firstPromoBox = item.querySelector(
+        'ul > li > div.col-xs-100.col-lg-40.submenu-right > section > div > .hp-promo-box:nth-child(1)'
+    );
+    var secondPromoBox = item.querySelector(
+        'ul > li > div.col-xs-100.col-lg-40.submenu-right > section > div > .hp-promo-box:nth-child(2)'
+    );
+    var thirdPromoBox = item.querySelector(
+        'ul > li > div.col-xs-100.col-lg-40.submenu-right > section.hp-slider'
+    );
 
-        if (panel.classList.contains('shown')) {
-            panel.classList.remove('shown');
-        } else {
-            if (block1) {
-                block1.classList.remove('shown');
-            } else if (block2) {
-                block2.classList.remove('shown');
+    if (firstPromoBox !== null) {
+        firstPromoBox.setAttribute('class', 'meniu-dropdown-banner');
+    }
+    if (secondPromoBox !== null) {
+        secondPromoBox.setAttribute('class', 'meniu-dropdown-banner');
+    }
+    if (thirdPromoBox !== null) {
+        thirdPromoBox.setAttribute('class', 'meniu-dropdown-banner');
+    }
+
+    var firstMenuItem = item.querySelectorAll('.submenu-title div.meniu-dropdown')[0];
+    var secondMenuItem = item.querySelectorAll('.submenu-title div.meniu-dropdown')[1];
+    var thirdMenuItem = item.querySelectorAll('.submenu-title div.meniu-dropdown')[2];
+
+    if (item.querySelectorAll('.submenu-title div.meniu-dropdown')[3] !== undefined) {
+        var menuItem4 = item.querySelectorAll('.submenu-title div.meniu-dropdown')[3];
+    }
+    if (item.querySelectorAll('.submenu-title div.meniu-dropdown')[4] !== undefined) {
+        var menuItem5 = item.querySelectorAll('.submenu-title div.meniu-dropdown')[4];
+    }
+    if (item.querySelectorAll('.submenu-title div.meniu-dropdown')[5] !== undefined) {
+        var menuItem6 = item.querySelectorAll('.submenu-title div.meniu-dropdown')[5];
+    }
+    if (item.querySelectorAll('.submenu-title div.meniu-dropdown')[6] !== undefined) {
+        var menuItem7 = item.querySelectorAll('.submenu-title div.meniu-dropdown')[6];
+    }
+    if (item.querySelectorAll('.submenu-title div.meniu-dropdown')[7] !== undefined) {
+        var menuItem8 = item.querySelectorAll('.submenu-title div.meniu-dropdown')[7];
+    }
+    $(firstMenuItem).append(firstPromoBox);
+    $(secondMenuItem).append(secondPromoBox);
+    $(thirdMenuItem).append(thirdPromoBox);
+    $(menuItem4).append(thirdPromoBox.cloneNode(true));
+    $(menuItem5).append(thirdPromoBox.cloneNode(true));
+    $(menuItem6).append(thirdPromoBox.cloneNode(true));
+    $(menuItem7).append(thirdPromoBox.cloneNode(true));
+    $(menuItem8).append(thirdPromoBox.cloneNode(true));
+});
+
+allLinks.forEach(function (item) {
+    if (item.classList.contains('menu-secondary') || item.classList.contains('menu-home')) {
+        return;
+    }
+
+    item.addEventListener(
+        'mouseenter',
+        function (event) {
+            allLinks.forEach(function (link) {
+                if (link.classList.contains('nav-displayed')) {
+                    link.classList.remove('nav-displayed');
+                }
+            });
+
+            if (event.target.classList.contains('sport-link')) {
+                return;
             }
 
-            panel.classList.add('shown');
-        }
+            event.target.classList.add('nav-displayed');
+        },
+        false
+    );
+});
 
-        if (this.classList.contains('active')) {
-            this.classList.remove('active');
-        } else {
-            accordion1.classList.remove('active');
-            accordion2.classList.remove('active');
-            this.classList.add('active');
-        }
-    });
-}
+var sportImage = document.querySelector(
+    '.sport-link .submenu-right > section.hp-promo.marginb16 > div > div:nth-child(1) > div.hp-promo-box-img'
+);
+var newContainer = document.createElement('div');
+newContainer.setAttribute('class', 'col-lg-33 new-container-for-image');
+var sportList = document.querySelector('.sport-link .submenu-left');
+
+$(sportList).append(newContainer);
+$('.new-container-for-image').append(sportImage);
+document.querySelector('.sport-link .submenu-right').remove();
