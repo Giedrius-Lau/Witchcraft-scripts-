@@ -1,14 +1,34 @@
+var boysLink = $(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(4) > ul > li > div.col-xs-100.col-lg-40.submenu-right > section.hp-promo.marginb16 > div > div:nth-child(1)'
+);
+var girlsLink = $(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(4) > ul > li > div.col-xs-100.col-lg-40.submenu-right > section.hp-promo.marginb16 > div > div:nth-child(2)'
+);
+
+boysLink.insertAfter(girlsLink);
+
+var hostname = window.location.hostname;
+
 var allLinks = document.querySelectorAll(
     '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li '
 );
 
 $('a[href$="/index.php?route=product/category&path=719"]').parent().addClass('sport-link');
 
-document
-    .querySelector(
-        '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(2)'
-    )
-    .classList.add('nav-displayed');
+var url = window.location.pathname;
+if (window.location.pathname == '/index.php') {
+    url = window.location.pathname + window.location.search;
+}
+$(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li'
+).each(function () {
+    if ($('a', this).attr('href') == url) {
+        if (!$(this).hasClass('sport-link')) {
+            $(this).addClass('nav-displayed');
+        }
+    }
+});
+console.log(url);
 
 document
     .querySelectorAll('li.menu-img .col-xs-100.col-lg-60.submenu-left .col-lg-33')
@@ -121,3 +141,91 @@ var sportList = document.querySelector('.sport-link .submenu-left');
 $(sportList).append(newContainer);
 $('.new-container-for-image').append(sportImage);
 document.querySelector('.sport-link .submenu-right').remove();
+
+var bannerLink1 =
+    hostname === 'lt.factcool.com'
+        ? 'https://lt.factcool.com/aksesuarai/aksesuarai-1?manufacturer%5B%5D=139639&sort=top&_=1606139319502'
+        : hostname === 'bg.factcool.com'
+        ? 'https://cs.factcool.com/doplnky/bizuterie?manufacturer%5B%5D=139639&sort=top&_=1606139363544'
+        : hostname === 'cs.factcool.com'
+        ? 'https://bg.factcool.com/aksesoari/bizhuta?manufacturer%5B%5D=139639&sort=top&_=1606139385663'
+        : '';
+
+var bannerLink2 =
+    hostname === 'lt.factcool.com'
+        ? 'https://lt.factcool.com/aksesuarai/aksesuarai-1?manufacturer%5B%5D=141710&sort=top&_=1606139319504'
+        : hostname === 'bg.factcool.com'
+        ? 'https://cs.factcool.com/doplnky/bizuterie?manufacturer%5B%5D=141710&sort=top&_=1606139363546'
+        : hostname === 'cs.factcool.com'
+        ? 'https://bg.factcool.com/aksesoari/bizhuta?manufacturer%5B%5D=141710&sort=top&_=1606139532018'
+        : '';
+
+var bannerSrc1 = 'https://semexit.s3-eu-west-1.amazonaws.com/Factcool/Group.png';
+var bannerSrc2 = 'https://semexit.s3-eu-west-1.amazonaws.com/Factcool/Group+2.png';
+
+var banner1 = document.createElement('div');
+banner1.setAttribute('class', 'hp-slider-inner');
+banner1.innerHTML =
+    '<a class=' +
+    bannerLink1 +
+    ' title=""></a> <img class=" obanner-desktop" src=' +
+    bannerSrc1 +
+    ' alt="">';
+
+var banner2 = document.createElement('div');
+banner2.setAttribute('class', 'hp-slider-inner');
+banner2.innerHTML =
+    '<a class=' +
+    bannerLink2 +
+    ' title=""></a> <img class=" obanner-desktop" src=' +
+    bannerSrc2 +
+    ' alt="">';
+
+var bannerPlace = document.querySelector(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(5) > ul > li > div.col-xs-100.col-lg-60.submenu-left > div:nth-child(2) > a > div > div'
+);
+
+bannerPlace.append(banner1);
+bannerPlace.append(banner2);
+bannerPlace.parentNode.classList.add('wider-container');
+$(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(5) > ul > li > div.col-xs-100.col-lg-60.submenu-left > div:nth-child(2) > a > div > div > div.hp-promo-box-img'
+).remove();
+
+var other =
+    hostname === 'lt.factcool.com'
+        ? 'Kita'
+        : hostname === 'bg.factcool.com'
+        ? 'Други'
+        : hostname === 'cs.factcool.com'
+        ? 'Ostatní'
+        : '';
+
+var newMenuItem = document.createElement('div');
+newMenuItem.setAttribute('class', 'new-menu-item');
+newMenuItem.innerHTML =
+    '<a href="/aksesuarai/zygiui-gamtoje" class="submenu-title">' +
+    other +
+    '<div class="meniu-dropdown menu-dropdown-other"><ul></ul></div></a>';
+
+var submenuJuosta = $(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(5) > ul > li > div.col-xs-100.col-lg-60.submenu-left'
+);
+submenuJuosta.append(newMenuItem);
+$(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li.menu-img.nav-displayed > ul > li > div.col-xs-100.col-lg-60.submenu-left > div:nth-child(4) > a > div > section'
+).appendTo('.menu-dropdown-other');
+
+var nature = $(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(5) > ul > li > div.col-xs-100.col-lg-60.submenu-left > div:nth-child(3) > a'
+);
+var more = $(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(5) > ul > li > div.col-xs-100.col-lg-60.submenu-left > div:nth-child(4) > a'
+);
+var home = $(
+    '#mask > div.container-fluid > div.main-menu-scroll-container > div > div.main-menu-inner > ul > li:nth-child(5) > ul > li > div.col-xs-100.col-lg-60.submenu-left > div:nth-child(5) > a'
+);
+
+nature.appendTo('.new-menu-item > a > .meniu-dropdown > ul');
+more.appendTo('.new-menu-item > a > .meniu-dropdown > ul');
+home.appendTo('.new-menu-item > a > .meniu-dropdown > ul');

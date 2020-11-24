@@ -11,7 +11,8 @@ li.menu-img a span {
   border: 0 !important; }
 
 li.nav-displayed.menu-img ul li a {
-  color: #000000; }
+  color: #000000;
+  line-height: initial; }
 
 ul.menu li:hover a span.current {
   border-bottom: 0px solid #000 !important; }
@@ -63,14 +64,14 @@ ul.submenu {
   max-height: 240px; }
 
 .nav-displayed .submenu-title ul li {
-  width: 33%;
-  line-height: 31px; }
+  width: 32%; }
 
 .menu li ul.submenu li ul li a {
   font-size: 13px;
   margin-right: 15px;
   white-space: initial;
-  word-break: initial; }
+  word-break: initial;
+  line-height: initial; }
 
 .nav-displayed .submenu-title:hover .meniu-dropdown {
   visibility: visible; }
@@ -97,7 +98,8 @@ li.black_friday a:after {
 
 .menu li ul.submenu {
   padding: 0;
-  height: 40px; }
+  height: 40px;
+  z-index: 0; }
 
 .menu li ul.submenu:hover {
   height: auto; }
@@ -113,8 +115,10 @@ li.black_friday a:after {
   align-items: flex-start;
   position: relative; }
 
-.menu li ul.submenu li {
-  padding: 0; }
+.menu li.nav-displayed ul.submenu li {
+  padding: 0;
+  line-height: initial;
+  height: 40px; }
 
 .menu li.nav-displayed ul.submenu a.submenu-title {
   color: #ffffff;
@@ -129,11 +133,6 @@ li.black_friday a:after {
 
 .main-menu {
   border-bottom: 0; }
-
-.main-menu .main-menu-inner > ul {
-  display: flex;
-  justify-content: space-between;
-  white-space: nowrap; }
 
 .nav-displayed .meniu-dropdown ul {
   float: unset;
@@ -188,7 +187,7 @@ li.black_friday a:after {
 
 .sport-link .col-lg-33 {
   width: 20%;
-  min-height: 200px;
+  min-height: 220px;
   max-width: 20%;
   margin-bottom: 20px; }
 
@@ -212,3 +211,54 @@ li.black_friday a:after {
 
 .menu li:hover ul.submenu {
   transition: none !important; }
+
+.meniu-dropdown.wider-container ul {
+  max-width: 150px;
+  min-width: 150px; }
+  .meniu-dropdown.wider-container ul li {
+    width: 100%; }
+
+.meniu-dropdown.wider-container .meniu-dropdown-banner {
+  min-width: 800px; }
+  .meniu-dropdown.wider-container .meniu-dropdown-banner .hp-slider-inner {
+    margin-left: 10px; }
+
+.menu li.nav-displayed ul.submenu a.submenu-title a.submenu-title {
+  color: #000000 !important;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  margin-right: 40px;
+  margin-top: -13px;
+  font-weight: 700;
+  font-size: 13px; }
+  .menu li.nav-displayed ul.submenu a.submenu-title a.submenu-title::before {
+    display: none; }
+  .menu li.nav-displayed ul.submenu a.submenu-title a.submenu-title:hover {
+    text-decoration: none; }
+  .menu li.nav-displayed ul.submenu a.submenu-title a.submenu-title:after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    display: inline-block;
+    left: 0;
+    right: 0;
+    border-bottom: 1px solid #000000; }
+
+.nav-displayed .new-menu-item .submenu-title .meniu-dropdown .meniu-dropdown {
+  background: transparent;
+  position: static;
+  height: auto;
+  min-height: auto;
+  max-height: fit-content;
+  padding: 0; }
+  .nav-displayed .new-menu-item .submenu-title .meniu-dropdown .meniu-dropdown ul {
+    margin-top: 10px; }
+    .nav-displayed .new-menu-item .submenu-title .meniu-dropdown .meniu-dropdown ul li {
+      width: 100%;
+      height: 35px; }
+  .nav-displayed .new-menu-item .submenu-title .meniu-dropdown .meniu-dropdown .meniu-dropdown-banner {
+    display: none; }
+
+.menu-dropdown-other > ul {
+  flex-direction: row !important; }
