@@ -10,11 +10,11 @@
 
 	AbTestRun(testID, testName, variationPercent);
 
-	if (((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) || (variationPercent == 101)) && (xcookie("AB tests").indexOf("false") == -1)) {
+	if (((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) || (variationPercent == 101)) && (xcookie("AB tests").indexOf("false") == -1) || window.location.href.indexOf("evolvery") > -1) {
 		/* ------------ Variation UI/UX changes ----------------- */
 		(function () {
 			/* ------------ Style changes ----------------- */
-			var css = "MMMMMMMMMMMMM",
+			var css = "",
 				head = document.head || document.getElementsByTagName("head")[0],
 				style = document.createElement("style");
 
