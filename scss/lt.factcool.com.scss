@@ -1,283 +1,49 @@
-// .site-wrapper {
-//     margin-top: 35px;
+// .c-scrolled {
+//     transition: 1s ease-in-out;
 // }
-// li.nav-displayed.menu-img {
-//     background: #333333;
+// .categories-inner {
+//     position: sticky;
+//     top: 60px;
 // }
-// li.nav-displayed.menu-img a {
-//     color: #ffffff;
+// ul.category-list > li.current > a {
+//     display: none;
 // }
-// li.menu-img a span {
-//     border: 0 !important;
+
+// html.scrolled,
+// body.scrolled {
+//     overflow: unset;
 // }
-// li.nav-displayed.menu-img ul li a {
-//     color: #000000;
-//     line-height: initial;
+
+// .has-secondCategory {
+//     ul.category-list > li,
+//     ul.expanded li {
+//         display: none;
+//     }
+//     ul.category-list > li.current,
+//     ul.expanded li.current,
+//     ul.expanded li.current ul li {
+//         display: block;
+//     }
 // }
-// ul.menu li:hover a span.current {
-//     border-bottom: 0px solid #000 !important;
+
+// .has-firstCategory {
+//     .category-list > li {
+//         display: none;
+//     }
+//     .category-list li.current {
+//         display: block;
+//     }
 // }
-// .nav-displayed .submenu-title::before {
-//     content: '';
-//     border-color: transparent;
-//     border-style: solid;
-//     border-width: 0px 10px 10px 10px;
-//     height: 0px;
-//     width: 0px;
-//     position: relative;
-//     bottom: -4px;
-//     left: 50%;
-//     transform: translate(-50%);
+
+// .has-baseCategory {
+//     .category-list > li {
+//         display: none;
+//     }
+//     .category-list li.current {
+//         display: block;
+//     }
 // }
-// .nav-displayed .submenu-title:hover::before {
-//     content: '';
-//     border-color: #ffffff transparent;
-//     border-style: solid;
-//     border-width: 0px 10px 10px 10px;
-//     height: 0px;
-//     width: 0px;
-//     position: relative;
-//     bottom: -4px;
-//     left: 50%;
-//     transform: translate(-50%);
-// }
-// ul.submenu {
-//     visibility: hidden;
-//     opacity: 0;
-// }
-// .nav-displayed ul.submenu {
-//     visibility: visible;
-//     opacity: 1;
-// }
-// .nav-displayed .submenu-title .meniu-dropdown {
-//     justify-content: space-between;
-//     visibility: hidden;
-//     background: white;
-//     display: flex;
-//     position: absolute;
-//     left: 0;
-//     top: 40px;
-//     right: 0px;
-//     padding: 20px 30px;
-//     width: calc(100% + 1px);
-//     height: 100%;
-//     min-height: 240px;
-//     max-height: 240px;
-// }
-// .nav-displayed .submenu-title ul li {
-//     width: 32%;
-// }
-// .menu li ul.submenu li ul li a {
-//     font-size: 13px;
-//     margin-right: 15px;
-//     white-space: initial;
-//     word-break: initial;
-//     line-height: initial;
-// }
-// .nav-displayed .submenu-title:hover .meniu-dropdown {
-//     visibility: visible;
-// }
-// li.menu-img > a {
-//     font-size: 14px !important;
-// }
-// li.menu-secondary > a {
-//     font-weight: 400 !important;
-// }
-// li.menu-secondary > a span {
-//     border: 0 !important;
-// }
-// li.black_friday a {
-//     background: transparent;
-//     color: #000000 !important;
-//     text-decoration: underline;
-// }
-// li.black_friday a:before {
-//     background: transparent;
-// }
-// li.black_friday a:after {
-//     background-color: transparent;
-// }
-// .menu li ul.submenu {
-//     padding: 0;
-//     height: 40px;
-//     z-index: 0;
-// }
-// .menu li ul.submenu:hover {
-//     height: auto;
-// }
-// .submenu-left {
-//     border-right: 1px solid transparent;
-// }
-// .nav-displayed .col-xs-100.col-lg-60.submenu-left {
-//     background: #333333;
-//     width: 100%;
-//     height: 40px;
-//     display: flex;
-//     align-items: flex-start;
-//     position: relative;
-// }
-// .menu li.nav-displayed ul.submenu li {
-//     padding: 0;
-//     line-height: initial;
-//     height: 40px;
-// }
-// .menu li.nav-displayed ul.submenu a.submenu-title {
-//     color: #ffffff;
-//     height: 40px;
-//     line-height: 36px;
-//     padding-right: 40px;
-//     padding-left: 20px;
-//     font-weight: 400;
-//     text-transform: inherit;
-//     white-space: nowrap;
-//     font-size: 12px;
-// }
-// .main-menu {
-//     border-bottom: 0;
-// }
-// .nav-displayed .meniu-dropdown ul {
-//     float: unset;
-//     display: flex;
-//     flex-wrap: wrap;
-//     flex-direction: column;
-//     min-width: 50%;
-//     width: 100%;
-//     height: 210px;
-// }
-// .meniu-dropdown ul li {
-//     font-size: 15px;
-//     font-weight: 500;
-// }
-// .meniu-dropdown-banner {
-//     margin-left: 40px;
-//     display: flex;
-//     align-items: center;
-//     width: 70%;
-//     justify-content: flex-end;
-// }
-// .submenu-left .submenu-title .meniu-dropdown-banner img {
-//     display: block !important;
-// }
-// .nav-displayed .col-xs-100.col-lg-40.submenu-right {
-//     visibility: hidden;
-//     pointer-events: none;
-//     z-index: -100;
-// }
-// .meniu-dropdown-banner .hp-promo-box-img {
-//     width: 280px;
-//     height: 190px;
-// }
-// .submenu-left .submenu-title .meniu-dropdown-banner img.obanner-mobile {
+
+// .navbar-promo button {
 //     display: none !important;
-// }
-// .sport-link ul.submenu {
-//     padding: 24px 24px 0 !important;
-//     height: initial !important;
-// }
-// .sport-link ul.submenu:hover {
-//     height: initial !important;
-// }
-// .sport-link:hover {
-//     background: #333333;
-// }
-// .sport-link:hover > a {
-//     color: #ffffff;
-// }
-// .sport-link .submenu-left {
-//     width: 100%;
-// }
-// .sport-link .col-lg-33 {
-//     width: 20%;
-//     min-height: 220px;
-//     max-width: 20%;
-//     margin-bottom: 20px;
-// }
-// .sport-link .submenu-title {
-//     text-decoration: underline;
-// }
-// .sport-link > a {
-//     position: relative;
-// }
-// .sport-link > a::before {
-//     content: '';
-//     border-color: #ffffff transparent;
-//     border-style: solid;
-//     border-width: 0px 10px 10px 10px;
-//     height: 0px;
-//     width: 0px;
-//     position: absolute;
-//     bottom: -2px;
-//     left: 50%;
-//     transform: translate(-50%);
-// }
-// .menu li:hover ul.submenu {
-//     transition: none !important;
-// }
-// .meniu-dropdown.wider-container ul {
-//     max-width: 150px;
-//     min-width: 150px;
-// }
-// .meniu-dropdown.wider-container ul li {
-//     width: 100%;
-// }
-// .meniu-dropdown.wider-container .meniu-dropdown-banner {
-//     min-width: 800px;
-// }
-// .meniu-dropdown.wider-container .meniu-dropdown-banner .hp-slider-inner {
-//     margin-left: 10px;
-// }
-// .menu li.nav-displayed ul.submenu a.submenu-title a.submenu-title {
-//     color: #000000 !important;
-//     padding: 0;
-//     margin: 0;
-//     position: relative;
-//     margin-right: 40px;
-//     margin-top: -13px;
-//     font-weight: 700;
-//     font-size: 13px;
-// }
-// .menu li.nav-displayed ul.submenu a.submenu-title a.submenu-title::before {
-//     display: none;
-// }
-// .menu li.nav-displayed ul.submenu a.submenu-title a.submenu-title:hover {
-//     text-decoration: none;
-// }
-// .menu li.nav-displayed ul.submenu a.submenu-title a.submenu-title:after {
-//     content: '';
-//     position: absolute;
-//     bottom: 10px;
-//     display: inline-block;
-//     left: 0;
-//     right: 0;
-//     border-bottom: 1px solid #000000;
-// }
-// .nav-displayed .new-menu-item .submenu-title .meniu-dropdown .meniu-dropdown {
-//     background: transparent;
-//     position: static;
-//     height: auto;
-//     min-height: auto;
-//     max-height: fit-content;
-//     padding: 0;
-// }
-// .nav-displayed .new-menu-item .submenu-title .meniu-dropdown .meniu-dropdown ul {
-//     margin-top: 10px;
-// }
-// .nav-displayed .new-menu-item .submenu-title .meniu-dropdown .meniu-dropdown ul li {
-//     width: 100%;
-//     height: 35px;
-// }
-// .nav-displayed .new-menu-item .submenu-title .meniu-dropdown .meniu-dropdown .meniu-dropdown-banner {
-//     display: none;
-// }
-// .menu-dropdown-other > ul {
-//     flex-direction: row !important;
-// }
-// .main-menu-scroll-container {
-//     border-bottom: 1px solid #0000001a;
-// }
-// .filters-top.scrolled.combined-tests {
-//     top: 90px !important;
-// }
-// .filters-top.scrolled {
-//     transition: top 0.3s ease;
 // }

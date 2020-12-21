@@ -1,0 +1,57 @@
+.ProductGrid-productPrice-1wU > div,
+.ProductList-productPrice-npk > div {
+  display: flex;
+  flex-flow: column; }
+
+.ProductGrid-productPrice-1wU,
+.ProductList-productPrice-npk {
+  display: flex;
+  align-items: center; }
+  @media (max-width: 767px) {
+    .ProductGrid-productPrice-1wU,
+    .ProductList-productPrice-npk {
+      margin-top: 10px; } }
+  @media (max-width: 450px) {
+    .ProductGrid-productPrice-1wU,
+    .ProductList-productPrice-npk {
+      display: block; } }
+
+.ProductGrid-productPrice-1wU .ProductStickers-label-Fri,
+.ProductGrid-productPrice-1wU .ProductStickers-greenLabel-3Rm,
+.ProductGrid-productPrice-1wU .ProductStickers-blueLabel-2J6,
+.ProductGrid-productPrice-1wU .ProductStickers-yellowLabel-21f,
+.ProductGrid-productPrice-1wU .ProductStickers-goldLabel-3ar,
+.ProductGrid-productPrice-1wU .ProductStickers-orangeLabel-5C-,
+.ProductGrid-productPrice-1wU .ProductStickers-redLabel-1xa,
+.ProductList-productPrice-npk .ProductStickers-label-Fri,
+.ProductList-productPrice-npk .ProductStickers-greenLabel-3Rm,
+.ProductList-productPrice-npk .ProductStickers-blueLabel-2J6,
+.ProductList-productPrice-npk .ProductStickers-yellowLabel-21f,
+.ProductList-productPrice-npk .ProductStickers-goldLabel-3ar,
+.ProductList-productPrice-npk .ProductStickers-orangeLabel-5C-,
+.ProductList-productPrice-npk .ProductStickers-redLabel-1xa {
+  border-radius: 2px;
+  background-color: #f57e20;
+  color: #ffffff;
+  margin-right: 10px;
+  height: 50px;
+  margin-bottom: 0;
+  font-size: 11px;
+  white-space: nowrap; }
+
+.Price-oldPrice-3co {
+  margin: 0; }
+
+.Price-leasingPrice-6n0 .Price-month-kdU {
+  font-size: 14px; }
+
+@media (min-width: 768px) {
+  .Price-leasingPrice-6n0,
+  .Price-oldPrice-3co {
+    font-size: 16px; } }
+
+@media (max-width: 767px) {
+  .Price-finalPrice-3mI {
+    font-size: 12px;
+    color: #404040;
+    white-space: nowrap; } }

@@ -1,24 +1,44 @@
-// // document.querySelectorAll('ul.Filters-filterOptionsWrapper-3R6').forEach(function (list) {
-// //     var listLength = list.querySelectorAll('li').length;
-// //     if (listLength < 2) {
-// //         list.parentNode.remove();
-// //     }
-// // });
+document.querySelectorAll('.ProductGrid-productWrapper-1hm, .ProductList-productWrapper-3xz').forEach(function (item) {
+    var priceOld;
+    var priceOldSpan = item.querySelector('.Price-oldPrice-3co');
+    var priceLease = item.querySelector('.Price-leasingPrice-6n0');
 
-// function insertAfter(newNode, existingNode) {
-//     existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
-// }
+    if (!!priceOldSpan) {
+        priceOld = priceOldSpan;
+    } else if (!!priceLease) {
+        priceOld = priceLease;
+    }
 
-// var recommendedBlock, priceBlock;
-// document.querySelectorAll('.Filters-filterContainer-3TR button').forEach(function (button) {
-//     if (button.textContent === 'Rekomenduojame') {
-//         recommendBlock = button.parentNode;
-//     }
-//     if (button.textContent === 'Kaina') {
-//         priceBlock = button.parentNode;
-//     }
-// });
+    var priceNew = item.querySelector('.Price-price-27p');
+    var discount;
+    var discountOrange = item.querySelector('span.ProductStickers-orangeLabel-5C-:nth-child(2)');
+    var discountYellow = item.querySelector('span.ProductStickers-yellowLabel-21f:nth-child(2)');
+    var discountGold = item.querySelector('span.ProductStickers-goldLabel-3ar');
+    var discountBlue = item.querySelector('span.ProductStickers-blueLabel-2J6:nth-child(2)');
 
-// if (recommendBlock !== 'undefined' && priceBlock !== 'undefined') {
-//     insertAfter(recommendBlock, priceBlock);
-// }
+    var divider = item.querySelectorAll(
+        '.ProductStickers-divider-2Q-, .ProductStickers-blueLabelDivider-2OR, .ProductStickers-yellowLabelDivider--vq, .ProductStickers-goldLabelDivider-1rs, .ProductStickers-orangeLabelDivider-2R_'
+    );
+
+    if (!!discountOrange) {
+        discount = discountOrange;
+    } else if (!!discountYellow) {
+        discount = discountYellow;
+    } else if (!!discountGold) {
+        discount = discountGold;
+    } else if (!!discountBlue) {
+        discount = discountBlue;
+    }
+
+    if (!!priceOld && !!priceNew) {
+        $(priceOld).insertBefore(priceNew);
+    }
+
+    if (!!discount && !!priceOld) {
+        $(discount).insertBefore(priceOld.parentNode);
+    }
+
+    if (!!divider && !!discount) {
+        $(divider).remove();
+    }
+});

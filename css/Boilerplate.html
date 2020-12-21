@@ -34,9 +34,11 @@
 
 			/* ------------ End of code changes ----------------- */
 			hj('trigger', 'ab_test_' + testID + '_var1');
+			hj('identify', null, { 'AB Tests': 'ab_test_' + testID + '_var1' });
 		})();
 		/* ------------------------------------------------------ */
 	} else {
 		hj('trigger', 'ab_test_' + testID + '_orig');
+		hj('identify', null, { 'AB Tests': 'ab_test_' + testID + '_orig' });
 	}
 </script>
