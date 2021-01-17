@@ -84,8 +84,8 @@
 
 
        /*------ Params of tests ----------*/
-       var gaDimensionID = 12;
-       var gaPropertyID = 'UA-63428597-7';
+       var gaDimensionID = 5;
+       var gaPropertyID = 'UA-101546830-2';
        /*--------------------------------*/
 
        // Ramdom integer from 1 to 100 
@@ -100,13 +100,13 @@
 
        if (xcookie("AB tests") == undefined) { //If cookie "AB tests" not exist
               if (randomValue > testPercent) { // Check or user will be in testing user scope
-                     xcookie("AB tests", false, { expires: 180, path: '/', domain: '.factcool.com' });
+                     xcookie("AB tests", false, { expires: 180, path: '/', domain: '.rrr.lt' });
               } else {
-                     xcookie("AB tests", true, { expires: 180, path: '/', domain: '.factcool.com' });
+                     xcookie("AB tests", true, { expires: 180, path: '/', domain: '.rrr.lt' });
               }
        }
        if (xcookie("AB tests") === 'false') {
-              xcookie("AB tests", true, { expires: 180, path: '/', domain: '.factcool.com' });
+              xcookie("AB tests", true, { expires: 180, path: '/', domain: '.rrr.lt' });
        }
 
        ga("create", gaPropertyID, { name: 'myTracker' });
@@ -126,11 +126,11 @@
 
               if (xcookie("AB tests") !== 'false') {
                      if (xcookie("AB tests") === 'true') {
-                            document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.factcool.com;";
-                            xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.factcool.com' });
+                            document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.rrr.lt;";
+                            xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.rrr.lt' });
                      }
                      if ((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") == -1) & (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestOriginal + "]") == -1)) {
-                            xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.factcool.com' });
+                            xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.rrr.lt' });
                      } else if (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) {
                             testDetails = testID + ' : ' + testName + ' - ' + ABtestVariation;
                             customData = "[" + testID + " : " + ABtestVariation + "]";
@@ -159,7 +159,7 @@
               console.log("testDetails-> Testing users\n");
        }
 
-          //console.log('AB tests value: ' + xcookie("AB tests"));
-          //console.log('------------------------------------------------------------------------------------');
+       //console.log('AB tests value: ' + xcookie("AB tests"));
+       //console.log('------------------------------------------------------------------------------------');
 
 </script>

@@ -1,44 +1,37 @@
-document.querySelectorAll('.ProductGrid-productWrapper-1hm, .ProductList-productWrapper-3xz').forEach(function (item) {
-    var priceOld;
-    var priceOldSpan = item.querySelector('.Price-oldPrice-3co');
-    var priceLease = item.querySelector('.Price-leasingPrice-6n0');
+// var resizeImages = function () {
+//     var items = document.querySelectorAll('.ProductGrid-imageContainer-3rN > img');
 
-    if (!!priceOldSpan) {
-        priceOld = priceOldSpan;
-    } else if (!!priceLease) {
-        priceOld = priceLease;
-    }
+//     items.forEach(function (item) {
+//         var itemSrc = $(item).attr('src');
 
-    var priceNew = item.querySelector('.Price-price-27p');
-    var discount;
-    var discountOrange = item.querySelector('span.ProductStickers-orangeLabel-5C-:nth-child(2)');
-    var discountYellow = item.querySelector('span.ProductStickers-yellowLabel-21f:nth-child(2)');
-    var discountGold = item.querySelector('span.ProductStickers-goldLabel-3ar');
-    var discountBlue = item.querySelector('span.ProductStickers-blueLabel-2J6:nth-child(2)');
+//         newSrc = itemSrc.split(',');
+//         if (newSrc[2] !== 'height=250') {
+//             newSrc[2] = 'height=250';
+//             newSrc.join(',');
+//             $(item).attr('src', newSrc);
+//         }
+//     });
+// };
 
-    var divider = item.querySelectorAll(
-        '.ProductStickers-divider-2Q-, .ProductStickers-blueLabelDivider-2OR, .ProductStickers-yellowLabelDivider--vq, .ProductStickers-goldLabelDivider-1rs, .ProductStickers-orangeLabelDivider-2R_'
-    );
+// setInterval(function ()  {
+//     resizeImages();
 
-    if (!!discountOrange) {
-        discount = discountOrange;
-    } else if (!!discountYellow) {
-        discount = discountYellow;
-    } else if (!!discountGold) {
-        discount = discountGold;
-    } else if (!!discountBlue) {
-        discount = discountBlue;
-    }
+// }, 1000);
 
-    if (!!priceOld && !!priceNew) {
-        $(priceOld).insertBefore(priceNew);
-    }
+// var xhrSend = window.XMLHttpRequest.prototype.send;
+// window.XMLHttpRequest.prototype.send = function () {
+//     var xhr = this;
+//     var intervalIdDelivery = window.setInterval(function () {
+//         if (xhr.readyState != 4) {
+//             return;
+//         }
+//         resizeImages();
 
-    if (!!discount && !!priceOld) {
-        $(discount).insertBefore(priceOld.parentNode);
-    }
+//         clearInterval(intervalIdDelivery);
+//     }, 1);
+//     return xhrSend.apply(this, [].slice.call(arguments));
+// };
 
-    if (!!divider && !!discount) {
-        $(divider).remove();
-    }
-});
+// setTimeout(function () {
+//     resizeImages();
+// }, 300);

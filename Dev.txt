@@ -7,3 +7,4 @@ Draudimo būsto forma turėtų priimti:
 
 Lauksime kintamūjų pavadinimo ir post url jei jis keisis.
 
+npm run scss

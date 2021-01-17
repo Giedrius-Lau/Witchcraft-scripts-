@@ -1,0 +1,162 @@
+// .delivery_form {
+//     flex-flow: column;
+
+//     li.delivery_form__items {
+//         max-width: 470px;
+//     }
+// }
+
+// body > div.wrapper > main > main > section > div > div > form > div.accordion.accordion-address > div > div.section > div > p {
+//     display: none;
+// }
+
+// .shipping__panels .googleComplete {
+//     max-width: 570px;
+// }
+
+// .shipping__panels {
+//     .shipping__panels {
+//         padding: 0;
+//         border: 0;
+//         box-shadow: none;
+//     }
+// }
+
+// //Address panel in second accordion
+// #address_search_fill > div:nth-child(1) {
+//     visibility: hidden;
+//     height: 0;
+// }
+
+// .shipping .btn {
+//     margin-top: 0;
+
+//     @media (max-width: 767px) {
+//         margin: 0 auto;
+//         display: block;
+//     }
+
+//     &.disabled {
+//         background: #e1e1e1;
+//         color: #bebebe;
+//         pointer-events: none;
+//     }
+// }
+
+// .delivery_form__items--over {
+//     flex: none;
+// }
+
+// div.accordion.accordion-address > div > div.section > h2 {
+//     display: none;
+// }
+
+// body > div.wrapper > main > main > section > div > div > form > div.accordion.accordion-address > div > div.shipping__panels {
+//     display: none;
+// }
+
+// body > div.wrapper > main > main > section > div > div > form > div.accordion.accordion-address > div > div.shipping__panels.display {
+//     display: block;
+// }
+
+// .company-container {
+//     display: none;
+
+//     &.shown {
+//         display: block;
+//     }
+// }
+
+// #address_search_fill > div:nth-child(5) > ul > li > label {
+//     cursor: pointer;
+// }
+
+// .shipping h1 {
+//     padding: 0;
+// }
+
+// .accordion {
+//     background-color: #ffffff;
+//     color: #0b5391;
+//     cursor: pointer;
+//     width: 100%;
+//     text-align: left;
+//     outline: none;
+//     font-size: 15px;
+//     transition: 0.4s;
+//     font-weight: 700;
+//     text-transform: uppercase;
+//     margin-bottom: 20px;
+//     background: #fff;
+//     box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.04);
+//     border: 1px solid #0b5391;
+//     padding: 25px 30px;
+//     position: relative;
+//     height: 70px;
+//     overflow: hidden;
+
+//     &.active {
+//         height: auto;
+//     }
+
+//     &.disabled {
+//         background: #e1e1e1;
+//         color: #bebebe;
+//         pointer-events: none;
+//         border: 1px solid #e1e1e1;
+//     }
+
+//     .googleComplete .googleCompleteSuggestions {
+//         position: relative;
+//     }
+
+//     .shipping__panels {
+//         padding: 0;
+//         border: 0;
+//         box-shadow: none;
+//     }
+
+//     .accordion-title {
+//         padding: 20px 20px 24px 20px;
+//         margin: -25px -30px 15px;
+//         cursor: pointer;
+//         transition: 0.3s ease;
+//         text-transform: none;
+//         display: flex;
+//         align-items: center;
+
+//         &:hover {
+//             background: rgb(246, 246, 246);
+//         }
+
+//         .accordion-check {
+//             display: none;
+
+//             &.display {
+//                 display: block;
+//             }
+
+//             img {
+//                 width: 100%;
+//                 height: 100%;
+//                 width: 24px;
+//                 margin-left: 30px;
+//             }
+//         }
+//     }
+//     @media (max-width: 767px) {
+//         padding: 15px;
+
+//         .accordion-title {
+//             margin: -15px -15px 0;
+//             padding: 0px 15px;
+//             min-height: 70px;
+
+//             .accordion-check {
+//                 img {
+//                     margin-left: 0;
+//                 }
+//             }
+//         }
+//     }
+// }

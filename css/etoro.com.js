@@ -19,3 +19,33 @@ setInterval(() => {
         itemToReplaceContent.textContent = percentage + '%';
     });
 }, 3000);
+
+// let today = new Date();
+// const dd = String(today.getDate()).padStart(2, '0');
+// const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+// const yyyy = today.getFullYear();
+
+// today = mm + '/' + dd + '/' + yyyy;
+
+// var checkIfExists = true;
+// const data = {
+//     date: today,
+//     data: [],
+// };
+
+// setInterval(() => {
+//     if (document.querySelectorAll('.e-loader-ph').length > 1 && checkIfExists) {
+//         checkIfExists = false;
+
+//         setTimeout(() => {
+//             var list = document.querySelectorAll('portfolio-list-view > div > ui-table > ui-table-body > div');
+//             list.forEach(function (listItem) {
+//                 const name = listItem.querySelector('.table-first-name').textContent.trim();
+//                 const profitMoney = listItem.querySelector(' a > ui-table-body-slot > ui-table-cell:nth-child(4)').textContent.trim();
+//                 const profitPercentage = listItem.querySelector(' a > ui-table-body-slot > ui-table-cell:nth-child(5)').textContent.trim();
+//                 data.data.push({ name, profitMoney, profitPercentage });
+//             });
+//             console.log(data);
+//         }, 3000);
+//     }
+// }, 1000);

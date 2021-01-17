@@ -1,0 +1,84 @@
+1.
+    Krepšelyje, kur yra bendra dalių kaina, padaryti dar vieną blokelį,
+    kuriame būtų:
+        1. Visa suma be PVM
+        2. Tik PVM suma
+        3. Visa suma su PVM
+    Patį blokelį paslėpti su kokia klase arba tiesiog uždėti style display: none.
+
+2.
+    Checkout 3 ir 4 žingsniuose virš pagrindinio submit mygtuko kuris veda į kitus žingsnius
+    pridėdi naują bloką: 
+
+        <div class="cart_product_sidebar">
+            <div class="cart_product_sidebar__inner">
+            <h3>Krepšelis</h3>
+            <ul>
+                    <li class="cart_product">
+                            <a href="https://rrr.lt/autodalis/kas251-jeep-cherokee-dangtis-variklio-kapotas"
+                                    class="cart_product__image"><img
+                                        src="https://images.cdnrrr.com/fit-in/99x74/kas/0/0/0/0/0/0/2/5/1/76b6aeb232c8aedc12647db574931f27-jeep-cherokee-dangtis-variklio-kapotas.jpeg"
+                                        alt="Dangtis variklio (kapotas)" title="Dangtis variklio (kapotas)"></a>
+                            <div class="modal__product_text">
+                                    <h3><a href="https://rrr.lt/autodalis/kas251-jeep-cherokee-dangtis-variklio-kapotas"
+                                                title="Dangtis variklio (kapotas)">Dangtis variklio (kapotas)</a></h3>
+
+                                    <p>Avgustina Kasparienė, IV <span class="rating rating--5"></span></p>
+                            </div>
+                            <div class="cart_product__details">
+                                    <div>
+                                        <p>Citroen Xantia 1993, 100kw, 2000cm3</p>
+                                    </div>
+                                    <div>
+                                        <p>15.00 €</p>
+                                        <p>(su PVM)</p>
+                                    </div>
+                            </div>
+                    </li>
+            </ul>
+
+            <div class="cart_summary">
+                    <div class="cart_summary__row">
+                            <div class="title">Už prekes be PVM</div>
+                            <div class="price">77.52 €</div>
+                    </div>
+
+                    <div class="cart_summary__row">
+                            <div class="title">PVM</div>
+                            <div class="price">17.52 €</div>
+                    </div>
+
+                    <div class="cart_summary__row">
+                            <div class="title">Iš viso už prekes</div>
+                            <div class="price">95.00 €</div>
+                    </div>
+
+                    <div class="cart_summary__row">
+                            <div class="title">Pristatymas</div>
+                            <div class="price">5 €</div>
+                    </div>
+
+                    <div class="cart_summary__row">
+                            <div class="title">Atsiskaitymo per kurejrį mokestis</div>
+                            <div class="price">4.38 €</div>
+                    </div>
+
+                    <div class="cart_summary__row">
+                            <div class="title">Paypal komisinis mokestis</div>
+                            <div class="price">4.31 €</div>
+                    </div>
+
+                    <div class="cart_summary__row cart_summary__total">
+                            <div class="title">Iš viso:</div>
+                            <div class="price">120.31 €</div>
+                    </div>
+            </div>
+            </div>
+        </div>
+
+
+    Elementus <li></li> atvaizduoti tiek kiek yra prekių, visas nuorodas, pavadinimus, žvaigždutes, kainas sudėti dinaminius.
+    Paskutinis blokas cart_summary kainos turėtų būti dinaminės, pasipildytų pristatymo kaina "Mokėjimo būdai" žingsnyje ir pildytūsi 
+    keičiant pasirinkimus.
+
+    Visą bloką cart_product_sidebar padaryti display: none. Mes patys darysime style.

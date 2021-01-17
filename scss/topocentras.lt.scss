@@ -1,59 +1,14 @@
-.ProductGrid-productPrice-1wU > div,
-.ProductList-productPrice-npk > div {
-    display: flex;
-    flex-flow: column;
-}
+// .ProductGrid-catalogProductGrid-3ct > * {
+//     width: 33%;
+// }
+// .ProductGrid-imageContainer-3rN {
+//     height: 250px;
 
-.ProductGrid-productPrice-1wU,
-.ProductList-productPrice-npk {
-    display: flex;
-    align-items: center;
-
-    @media (max-width: 767px) {
-        margin-top: 10px;
-    }
-
-    @media (max-width: 450px) {
-        display: block;
-    }
-}
-
-.ProductGrid-productPrice-1wU,
-.ProductList-productPrice-npk {
-    .ProductStickers-label-Fri,
-    .ProductStickers-greenLabel-3Rm,
-    .ProductStickers-blueLabel-2J6,
-    .ProductStickers-yellowLabel-21f,
-    .ProductStickers-goldLabel-3ar,
-    .ProductStickers-orangeLabel-5C-,
-    .ProductStickers-redLabel-1xa {
-        border-radius: 2px;
-        background-color: #f57e20;
-        color: #ffffff;
-        margin-right: 10px;
-        height: 50px;
-        margin-bottom: 0;
-        font-size: 11px;
-        white-space: nowrap;
-    }
-}
-
-.Price-oldPrice-3co {
-    margin: 0;
-}
-.Price-leasingPrice-6n0 .Price-month-kdU {
-    font-size: 14px;
-}
-@media (min-width: 768px) {
-    .Price-leasingPrice-6n0,
-    .Price-oldPrice-3co {
-        font-size: 16px;
-    }
-}
-@media (max-width: 767px) {
-    .Price-finalPrice-3mI {
-        font-size: 12px;
-        color: #404040;
-        white-space: nowrap;
-    }
-}
+//     img {
+//         max-height: 250px;
+//         max-width: 270px;
+//         height: 100%;
+//         width: 100%;
+//         object-fit: contain;
+//     }
+// }
