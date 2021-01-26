@@ -1,33 +1,15 @@
-// var loaded = false;
-
-// setInterval(() => {
-//     var button = document.querySelector('#updateform > div.pt-shopcart-wrapperbox > div > div.col-12.col-md-8.col-lg > div > button');
-//     var placement = document.querySelector('#updateform > div.pt-shopcart-page > div.pt-shopcart-btn > div:nth-child(2)');
-
-//     if (loaded === false && button && placement) {
-//         placement.appendChild(button);
-//         document.querySelector('#updateform > div.pt-shopcart-wrapperbox').remove();
-//         document.querySelector('h2').remove();
-//         document.querySelector('#shopify-section-cart-template > div:nth-child(2)').remove();
-//         document.querySelector('#updateform > div > div.pt-shopcart-btn > div:nth-child(2) > a:nth-child(1)').remove();
-
-//         document.querySelector('#updateform > div > div.pt-shopcart-btn > div:nth-child(2) > button').textContent = 'Get it now';
-
-//         loaded = true;
-//     }
-// }, 100);
-
 // var interval = window.setInterval(function () {
-//     var button = document.querySelector('#updateform > div.pt-shopcart-wrapperbox > div > div.col-12.col-md-8.col-lg > div > button');
-//     var placement = document.querySelector('#updateform > div.pt-shopcart-page > div.pt-shopcart-btn > div:nth-child(2)');
-//     if (button && placement) {
-//         placement.appendChild(button);
-//         document.querySelector('#updateform > div.pt-shopcart-wrapperbox').remove();
-//         document.querySelector('h2').remove();
-//         document.querySelector('#shopify-section-cart-template > div:nth-child(2)').remove();
-//         document.querySelector('#updateform > div > div.pt-shopcart-btn > div:nth-child(2) > a:nth-child(1)').remove();
+//     var sliderTitle = document.querySelector(
+//         '#shopify-section-1610087146abb481f3 > div > div > div > div > div > div > ul > li > div.tp-caption.tp-caption1.lfl.stb.text-value.start > div.tp-caption1-wd-2'
+//     );
+//     var sliderText = document.querySelector(
+//         '#shopify-section-1610087146abb481f3 > div > div > div > div > div > div > ul > li > div.tp-caption.tp-caption1.lfl.stb.text-value.start > div.tp-caption1-wd-3'
+//     );
 
-//         document.querySelector('#updateform > div > div.pt-shopcart-btn > div:nth-child(2) > button').textContent = 'Get it now';
+//     if (sliderTitle && sliderText) {
+//         sliderTitle.innerHTML = "<div style='color: #ffffff'>BionicGym <br> exercises <span style='color: #f09c40'>you.</span></div>";
+//         sliderText.innerHTML =
+//             "<div style='color: #ffffff; max-width: 320px;'>Burn <strong>500+ calories per hour</strong> in the comfort and safety of your home</div>";
 
 //         clearInterval(interval);
 //     }
