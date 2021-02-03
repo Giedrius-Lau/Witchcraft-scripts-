@@ -1,0 +1,7 @@
+.tc .fade.in {
+    display: block !important;
+}
+
+.tc .modal-backdrop.in {
+    opacity: 0.5;
+}

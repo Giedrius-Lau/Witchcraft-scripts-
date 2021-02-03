@@ -1,0 +1,45 @@
+// .new-popup {
+//     position: fixed;
+//     bottom: 0;
+//     right: 0;
+//     width: 100%;
+//     max-width: 400px;
+//     z-index: 1200;
+
+//     img {
+//         width: 100%;
+//         object-fit: contain;
+//     }
+// }
+
+// .close-btn {
+//     position: absolute;
+//     top: -35px;
+//     right: 5px;
+//     filter: brightness(100%) invert(1);
+//     width: 30px;
+//     height: 30px;
+//     cursor: pointer;
+
+//     img {
+//         width: 100%;
+//     }
+// }
+
+// .desktop-image {
+//     display: block;
+// }
+
+// .mobile-image {
+//     display: none;
+// }
+
+// @media (max-width: 767px) {
+//     .desktop-image {
+//         display: none;
+//     }
+
+//     .mobile-image {
+//         display: block;
+//     }
+// }
