@@ -1,50 +1,51 @@
-// const hasClass = function (el, className) {
-//     el.classList.contains(className);
-// };
+setTimeout(() => {
+    var screenWidth = screen.width;
+    var searchBlock, searchInput;
 
-// document.querySelectorAll('.ProductGrid-productWrapper-1hm, .ProductList-productWrapper-3xz').forEach(function (item) {
-//     if (!hasClass(item, 'moved-discount')) {
-//         var priceOld;
-//         var priceOldSpan = item.querySelector('.Price-oldPrice-3co');
-//         var priceLease = item.querySelector('.Price-leasingPrice-6n0');
+    if (screenWidth > 1023) {
+        searchBlock = document.querySelector('.HeaderContent-searchContainer-2Ip');
+        searchInput = document.querySelector('.HeaderContent-searchInput-3Ks');
+    } else {
+        searchBlock = document.querySelector('.searchBar-searchInputWrapper-3Tg');
+        searchInput = document.querySelector('.searchBar-input-3MY');
+    }
 
-//         if (!!priceOldSpan) {
-//             priceOld = priceOldSpan;
-//         } else if (!!priceLease) {
-//             priceOld = priceLease;
-//         }
+    var newDropdown = document.createElement('div');
+    newDropdown.setAttribute('class', 'search-field');
+    newDropdown.innerHTML = `
+        <div class="shadow-click"></div>
+        <div><img src="https://semexit.s3-eu-west-1.amazonaws.com/topocentras/star.png" alt="star" /> <strong>TOP PAIEŠKOS</strong></div>
+        <a href="/catalogsearch/result/?q=dulkių%20siurblys%20robotas"><span>dulkių siurbliai robotai</span><img src="https://semexit.s3-eu-west-1.amazonaws.com/topocentras/long-arrow-up.png" alt="arrow-right"></a>
+        <a href="/catalogsearch/result/?q=sony%20playstation"><span>sony playstation</span><img src="https://semexit.s3-eu-west-1.amazonaws.com/topocentras/long-arrow-up.png" alt="arrow-right"></a>
+        <a href="/catalogsearch/result/?q=elektrinis%20paspirtukas"><span>elektrinis paspirtukas</span><img src="https://semexit.s3-eu-west-1.amazonaws.com/topocentras/long-arrow-up.png" alt="arrow-right"></a>
+        <a href="/catalogsearch/result/?q=ausin%C4%97s"><span>ausinės</span><img src="https://semexit.s3-eu-west-1.amazonaws.com/topocentras/long-arrow-up.png" alt="arrow-right"></a>
+        <a href="/catalogsearch/result/?q=plauk%C5%B3%20kirpimo%20ma%C5%A1in%C4%97l%C4%97"><span>plaukų kirpimo mašinėlė</span><img src="https://semexit.s3-eu-west-1.amazonaws.com/topocentras/long-arrow-up.png" alt="arrow-right"></a>
+        <a href="/catalogsearch/result/?q=kavos%20aparatai"><span>kavos aparatai</span><img src="https://semexit.s3-eu-west-1.amazonaws.com/topocentras/long-arrow-up.png" alt="arrow-right"></a>
+        <a href="/catalogsearch/result/?q=kavos%20kapsules"><span>kavos kapsulės</span><img src="https://semexit.s3-eu-west-1.amazonaws.com/topocentras/long-arrow-up.png" alt="arrow-right"></a>
+    `.trim();
+    searchBlock.appendChild(newDropdown);
 
-//         var priceNew = item.querySelector('.Price-price-27p');
-//         var discount;
-//         var discountOrange = item.querySelector('span.ProductStickers-orangeLabel-5C-:nth-child(2)');
-//         var discountYellow = item.querySelector('span.ProductStickers-yellowLabel-21f:nth-child(2)');
-//         var discountGold = item.querySelector('div.ProductStickers-productLabels-1ke > div > span:last-child');
-//         var discountBlue = item.querySelectorAll('div.ProductStickers-productLabels-1ke > div > span:last-child');
+    searchInput.addEventListener('click', function () {
+        if (!document.querySelector('.search-field').classList.contains('displayed')) {
+            document.querySelector('.search-field').classList.add('displayed');
+        }
+    });
 
-//         var divider = item.querySelectorAll(
-//             '.ProductStickers-divider-2Q-, .ProductStickers-blueLabelDivider-2OR, .ProductStickers-yellowLabelDivider--vq, .ProductStickers-goldLabelDivider-1rs, .ProductStickers-orangeLabelDivider-2R_'
-//         );
+    searchInput.addEventListener('change', function () {
+        if (document.querySelector('.search-field').classList.contains('displayed')) {
+            document.querySelector('.search-field').classList.remove('displayed');
+        }
+    });
 
-//         if (!!discountBlue) {
-//             discount = discountBlue;
-//         } else if (!!discountYellow) {
-//             discount = discountYellow;
-//         } else if (!!discountGold) {
-//             discount = discountGold;
-//         } else if (!!discountOrange) {
-//             discount = discountOrange;
-//         }
+    setInterval(function () {
+        if (document.querySelector('.Autocomplete-suggestions-2AZ') && document.querySelector('.search-field').classList.contains('displayed')) {
+            document.querySelector('.search-field').classList.remove('displayed');
+        }
+    }, 300);
 
-//         if (!!priceOld && !!priceNew) {
-//             $(priceOld).insertBefore(priceNew);
-//         }
-//         if (!!discount && !!priceOld) {
-//             $(discount).insertBefore(priceOld.parentNode);
-//             item.classList.add('moved-discount');
-//         }
-
-//         if (!!divider && !!discount) {
-//             $(divider).remove();
-//         }
-//     }
-// });
+    document.querySelector('.shadow-click').addEventListener('click', function () {
+        if (document.querySelector('.search-field').classList.contains('displayed')) {
+            document.querySelector('.search-field').classList.remove('displayed');
+        }
+    });
+}, 1000);

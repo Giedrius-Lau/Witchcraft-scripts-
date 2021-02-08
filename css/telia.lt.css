@@ -1,7 +1,22 @@
-.tc .fade.in {
-    display: block !important;
+/* .banner-image {
+    width: 100%;
 }
 
-.tc .modal-backdrop.in {
-    opacity: 0.5;
+.banner-image img {
+    width: 100%;
 }
+
+.image-desktop {
+    display: block;
+}
+.image-mobile {
+    display: none;
+}
+@media (max-width: 767px) {
+    .image-desktop {
+        display: none;
+    }
+    .image-mobile {
+        display: block;
+    }
+} */

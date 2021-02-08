@@ -1,14 +1,51 @@
-// .ProductGrid-catalogProductGrid-3ct > * {
-//     width: 33%;
-// }
-// .ProductGrid-imageContainer-3rN {
-//     height: 250px;
+// .search-field {
+//     position: absolute;
+//     width: calc(100% - 96px);
+//     background: #ffffff;
+//     top: 38px;
+//     flex-direction: column;
+//     padding: 20px;
+//     border: 2px solid #d9d7c1;
+//     box-shadow: 0 5px 20px #00000036;
+//     font-size: 12px;
+//     display: none;
+
+//     &.displayed {
+//         display: flex;
+//     }
+
+//     a {
+//         margin-top: 10px;
+//         display: flex;
+//         justify-content: space-between;
+//         color: silver !important;
+//         transition: 0.1s ease;
+
+//         &:hover {
+//             color: #f57e20 !important;
+//         }
+//     }
+
+//     .shadow-click {
+//         position: fixed;
+//         width: 100%;
+//         height: 100%;
+//         opacity: 0;
+//         top: 0;
+//         left: 0;
+//         z-index: -1;
+//     }
 
 //     img {
-//         max-height: 250px;
-//         max-width: 270px;
-//         height: 100%;
-//         width: 100%;
+//         width: 17px;
+//         height: auto;
 //         object-fit: contain;
+//     }
+// }
+
+// @media (max-width: 1023px) {
+//     .search-field {
+//         width: 100vw;
+//         left: -10px;
 //     }
 // }
