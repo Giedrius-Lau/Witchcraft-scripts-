@@ -1,4 +1,17 @@
+<style>
+    .config-block {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        z-index: 1012002121454;
+        background: #ffffff;
+        padding: 15px;
+        box-shadow: 0 0 20px #00000066;
+        border-radius: 5px;
+    }
+</style>
 <script>
+    var developmentON = true;
     var xpluses = /\+/g;
     var xconfig = {};
 
@@ -84,8 +97,8 @@
 
 
     /*------ Params of tests ----------*/
-    var gaDimensionID = 5;
-    var gaPropertyID = 'UA-101546830-2';
+    var gaDimensionID = 3;
+    var gaPropertyID = 'UA-22952696-1';
     /*--------------------------------*/
 
     // Ramdom integer from 1 to 100 
@@ -100,13 +113,13 @@
 
     if (xcookie("AB tests") == undefined) { //If cookie "AB tests" not exist
         if (randomValue > testPercent) { // Check or user will be in testing user scope
-            xcookie("AB tests", false, { expires: 180, path: '/', domain: '.factcool.com' });
+            xcookie("AB tests", false, { expires: 180, path: '/', domain: '.azeta.lv' });
         } else {
-            xcookie("AB tests", true, { expires: 180, path: '/', domain: '.factcool.com' });
+            xcookie("AB tests", true, { expires: 180, path: '/', domain: '.azeta.lv' });
         }
     }
     if (xcookie("AB tests") === 'false') {
-        xcookie("AB tests", true, { expires: 180, path: '/', domain: '.factcool.com' });
+        xcookie("AB tests", true, { expires: 180, path: '/', domain: '.azeta.lv' });
     }
 
     ga("create", gaPropertyID, { name: 'myTracker' });
@@ -124,13 +137,14 @@
             testDetails = testID + ' : ' + testName + ' - ' + ABtestOriginal;
         }
 
+
         if (xcookie("AB tests") !== 'false') {
             if (xcookie("AB tests") === 'true') {
-                document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.factcool.com;";
-                xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.factcool.com' });
+                document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.azeta.lv;";
+                xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.azeta.lv' });
             }
             if ((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") == -1) & (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestOriginal + "]") == -1)) {
-                xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.factcool.com' });
+                xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.azeta.lv' });
             } else if (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) {
                 testDetails = testID + ' : ' + testName + ' - ' + ABtestVariation;
                 customData = "[" + testID + " : " + ABtestVariation + "]";
@@ -144,7 +158,30 @@
         if (xcookie("AB tests") !== 'false') {
             ga('myTracker.set', 'dimension' + gaDimensionID, xcookie("AB tests"));
             ga('myTracker.send', 'event', 'AB tests', 'Variation delivered', testDetails, { nonInteraction: true }); //must be called in order to deliver custom VAR data to GA
-            console.log("testDetails -> " + customData + "\n");
+            console.log("Test ID -> " + customData + "\n");
+
+        }
+
+        if (developmentON === true) {
+
+            if (!document.querySelector('.config-block')) {
+                var newBlock = document.createElement('div');
+                newBlock.setAttribute('class', 'config-block');
+                document.querySelector('body').append(newBlock);
+            }
+
+            var additionalBlock = document.createElement('div');
+
+            if (xcookie("AB tests") !== 'false') {
+                if (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) {
+
+                    additionalBlock.innerHTML = '<p style="color: #009688;font-weight: 600;">' + testID + ' : ' + ABtestVariation + '</p>';
+                    document.querySelector('.config-block').append(additionalBlock);
+                } else {
+                    additionalBlock.innerHTML = '<p style="color: #7b7b7b;font-weight: 600;">' + testID + ' : ' + ABtestOriginal + '</p>';
+                    document.querySelector('.config-block').append(additionalBlock);
+                }
+            }
         }
 
     }
@@ -159,7 +196,7 @@
         console.log("testDetails-> Testing users\n");
     }
 
-	//console.log('AB tests value: ' + xcookie("AB tests"));
-	//console.log('------------------------------------------------------------------------------------');
+  //console.log('AB tests value: ' + xcookie("AB tests"));
+  //console.log('------------------------------------------------------------------------------------');
 
 </script>

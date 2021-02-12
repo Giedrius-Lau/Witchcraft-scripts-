@@ -1,51 +1,71 @@
-// .search-field {
-//     position: absolute;
-//     width: calc(100% - 96px);
-//     background: #ffffff;
-//     top: 38px;
-//     flex-direction: column;
-//     padding: 20px;
-//     border: 2px solid #d9d7c1;
-//     box-shadow: 0 5px 20px #00000036;
-//     font-size: 12px;
-//     display: none;
-
-//     &.displayed {
-//         display: flex;
+// @media (min-width: 768px) {
+//     .AccountBenefits-benefitsTitle-YKE {
+//         margin: 40px 0 0 0;
 //     }
-
-//     a {
-//         margin-top: 10px;
+//     .LoginStep-loginStepContainer-3BE {
 //         display: flex;
+//         flex-wrap: wrap;
+//         flex-direction: row;
 //         justify-content: space-between;
-//         color: silver !important;
-//         transition: 0.1s ease;
-
-//         &:hover {
-//             color: #f57e20 !important;
-//         }
 //     }
-
-//     .shadow-click {
-//         position: fixed;
+//     .AccountBenefits-container-2vp {
+//         flex-direction: column;
+//         padding: 0;
+//     }
+//     .AccountBenefits-container-2vp .AccountBenefits-innerContainer-F9A {
+//         border: 0;
 //         width: 100%;
+//     }
+//     .AccountBenefits-container-2vp > div:nth-child(1) {
+//         border-radius: 4px 4px 0 0;
+//         padding-top: 70px;
+//         padding-bottom: 15px;
+//         background: linear-gradient(39deg, #456aae 0%, #204c8f 100%);
+//     }
+//     .AccountBenefits-container-2vp > div:nth-child(2) {
+//         background: linear-gradient(355deg, #456aae 0%, #204c8f 100%);
 //         height: 100%;
-//         opacity: 0;
-//         top: 0;
-//         left: 0;
-//         z-index: -1;
+//         border-radius: 0 0 4px 4px;
+//         min-height: 209px;
 //     }
 
-//     img {
-//         width: 17px;
-//         height: auto;
-//         object-fit: contain;
+//     #root > div.MainCheckout-checkoutContainer-TQF > main > div.LoginStep-loginStepContainer-3BE > div:nth-child(1) {
+//         order: 1;
+//     }
+
+//     #root > div.MainCheckout-checkoutContainer-TQF > main > div.LoginStep-loginStepContainer-3BE > div:nth-child(2) {
+//         order: 3;
+//         width: 49% !important;
+//     }
+
+//     #root > div.MainCheckout-checkoutContainer-TQF > main > div.LoginStep-loginStepContainer-3BE > div.AccountBenefits-container-2vp {
+//         order: 2;
+//         width: 49%;
+//         height: 197px;
+//         padding: 0;
+//         display: block;
 //     }
 // }
+// @media (max-width: 767px) {
+//     .AccountBenefits-container-2vp {
+//         margin-bottom: 10px;
+//     }
+//     .LoginStep-loginStepContainer-3BE {
+//         margin-bottom: 10px;
+//         margin: 10px;
+//         display: flex;
+//         flex-wrap: wrap;
 
-// @media (max-width: 1023px) {
-//     .search-field {
-//         width: 100vw;
-//         left: -10px;
+//         & > div:nth-child(1) {
+//             order: 1;
+//         }
+
+//         & > div:nth-child(2) {
+//             order: 3;
+//         }
+
+//         & > div.AccountBenefits-container-2vp {
+//             order: 2;
+//         }
 //     }
 // }

@@ -1,26 +1,198 @@
+<style>
+        .config-block {
+                position: fixed;
+                bottom: 15px;
+                left: 15px;
+                z-index: 1012002121454;
+                background: #ffffff;
+                padding: 15px;
+                box-shadow: 0 0 20px #00000066;
+                border-radius: 5px;
+        }
+</style>
 <script>
-    (function () {
-        var trustpilotContainer = document.createElement('div');
-        trustpilotContainer.setAttribute('id', 'trust-container');
-        document.querySelector('body > div.wrapper > main > section:nth-child(5) > div').appendChild(trustpilotContainer);
+        var developmentON = false;
+        var xpluses = /\+/g;
+        var xconfig = {};
 
-        setTimeout(function () {
-            var containerId = 'trust-container';
-            var trustboxContainer = document.getElementById(containerId) || document.getElementsByClassName(containerId)[0];
-            if (trustboxContainer) {
-                var trustbox = document.createElement('div');
-                trustbox.innerHTML =
-                    '<div class="trustpilot-widget" data-locale="en-US" data-template-id="5406e65db0d04a09e042d5fc"
-                data - businessunit - id="5e95c6ce17f82e0001d25fde" data - style - height="28px" data - style - width="100%"
-                data - theme="light" > <a href="https://www.trustpilot.com/review/rrr.lt" target="_blank"
-                    rel="noopener">Trustpilot</a></div > ';
-                trustboxContainer.appendChild(trustbox);
-            }
-        }, 2000)
-    })();
+        function xisFunction(functionToCheck) {
+                var getType = {};
+                return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
+        }
+
+        function xencode(s) {
+                return xconfig.raw ? s : encodeURIComponent(s);
+        }
+
+        function xdecode(s) {
+                return xconfig.raw ? s : decodeURIComponent(s);
+        }
+
+        function xstringifyCookieValue(value) {
+                return xencode(xconfig.json ? JSON.stringify(value) : String(value));
+        }
+
+        function xparseCookieValue(s) {
+                if (s.indexOf('"') === 0) {
+                        // This is a quoted cookie as according to RFC2068, unescape...
+                        s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+                }
+
+                try {
+                        // Replace server-side written pluses with spaces.
+                        // If we can't decode the cookie, ignore it, it's unusable.
+                        // If we can't parse the cookie, ignore it, it's unusable.
+                        s = decodeURIComponent(s.replace(xpluses, ' '));
+                        return xconfig.json ? JSON.parse(s) : s;
+                } catch (e) { }
+        }
+
+        function xread(s, converter) {
+                var value = xconfig.raw ? s : xparseCookieValue(s);
+                return xisFunction(converter) ? converter(value) : value;
+        }
+
+        function xcookie(key, value, options) {
+                // Write
+                if (arguments.length > 1 && !xisFunction(value)) {
+                        if (typeof options.expires === 'number') {
+                                var days = options.expires, t = options.expires = new Date();
+                                t.setMilliseconds(t.getMilliseconds() + days * 864e+5);
+                        }
+
+                        return (document.cookie = [
+                                xencode(key), '=', xstringifyCookieValue(value),
+                                options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+                                options.path ? '; path=' + options.path : '',
+                                options.domain ? '; domain=' + options.domain : '',
+                                options.secure ? '; secure' : ''
+                        ].join(''));
+                }
+
+                // Read
+                var result = key ? undefined : {},
+                        // To prevent the for loop in the first place assign an empty array
+                        // in case there are no cookies at all. Also prevents odd result when
+                        // calling $.cookie().
+                        cookies = document.cookie ? document.cookie.split('; ') : [],
+                        i = 0,
+                        l = cookies.length;
+
+                for (; i < l; i++) {
+                        var parts = cookies[i].split('='),
+                                name = xdecode(parts.shift()),
+                                cookie = parts.join('=');
+                        if (key === name) {
+                                // If second argument (value) is a function it's a converter...
+                                result = xread(cookie, value);
+                                break;
+                        }
+                        // Prevent storing a cookie that we couldn't decode.
+                        if (!key && (cookie = xread(cookie)) !== undefined) {
+                                result[name] = cookie;
+                        }
+                }
+                return result;
+        }
+
+
+        /*------ Params of tests ----------*/
+        var gaDimensionID = 3;
+        var gaPropertyID = 'UA-22952696-1';
+        /*--------------------------------*/
+
+        // Ramdom integer from 1 to 100 
+        var min = Math.ceil(1); // Start from 1% (more or equals)
+        var max = Math.floor(101); //Finish with 100% (only less)
+        var testPercent = 100; // Testing user percent
+        var randomValue = Math.floor(Math.random() * (max - min)) + min;
+        //-------------
+
+        var ABtestVariation = 'Variation 1';
+        var ABtestOriginal = 'Original';
+
+        if (xcookie("AB tests") == undefined) { //If cookie "AB tests" not exist
+                if (randomValue > testPercent) { // Check or user will be in testing user scope
+                        xcookie("AB tests", false, { expires: 180, path: '/', domain: '.topocentras.lt' });
+                } else {
+                        xcookie("AB tests", true, { expires: 180, path: '/', domain: '.topocentras.lt' });
+                }
+        }
+        if (xcookie("AB tests") === 'false') {
+                xcookie("AB tests", true, { expires: 180, path: '/', domain: '.topocentras.lt' });
+        }
+
+        ga("create", gaPropertyID, { name: 'myTracker' });
+        ga('myTracker.set', 'transport', 'beacon');
+
+        function AbTestRun(testID, testName, variationPercent) {
+                // Random integer from 0 to 100. If random integer is less than "variationPercent" variable - user will see AB test Variation
+                if ((Math.floor(Math.random() * (Math.floor(101) - Math.ceil(1))) + Math.ceil(1)) < variationPercent) {
+                        experimentData = "[" + testID + " : " + ABtestVariation + "]";
+                        customData = "[" + testID + " : " + ABtestVariation + "]";
+                        testDetails = testID + ' : ' + testName + ' - ' + ABtestVariation;
+                } else {
+                        experimentData = "[" + testID + " : " + ABtestOriginal + "]";
+                        customData = "[" + testID + " : " + ABtestOriginal + "]";
+                        testDetails = testID + ' : ' + testName + ' - ' + ABtestOriginal;
+                }
+
+
+                if (xcookie("AB tests") !== 'false') {
+                        if (xcookie("AB tests") === 'true') {
+                                document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.topocentras.lt;";
+                                xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.topocentras.lt' });
+                        }
+                        if ((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") == -1) & (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestOriginal + "]") == -1)) {
+                                xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.topocentras.lt' });
+                        } else if (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) {
+                                testDetails = testID + ' : ' + testName + ' - ' + ABtestVariation;
+                                customData = "[" + testID + " : " + ABtestVariation + "]";
+                        } else {
+                                testDetails = testID + ' : ' + testName + ' - ' + ABtestOriginal;
+                                customData = "[" + testID + " : " + ABtestOriginal + "]";
+                        }
+                }
+
+                // Create and push analytics data to GA (event and/or dimension)
+                if (xcookie("AB tests") !== 'false') {
+                        ga('myTracker.set', 'dimension' + gaDimensionID, xcookie("AB tests"));
+                        ga('myTracker.send', 'event', 'AB tests', 'Variation delivered', testDetails, { nonInteraction: true }); //must be called in order to deliver custom VAR data to GA
+                        console.log("Test ID -> " + customData + "\n");
+                }
+
+                if (developmentON === true) {
+                        var newBlock = document.createElement('div');
+                        newBlock.setAttribute('class', 'config-block');
+                        if (document.querySelector('.config-block')) {
+                                document.querySelector('.config-block').remove();
+                        }
+                        document.querySelector('body').append(newBlock);
+                        var additionalBlock = document.createElement('div');
+
+                        if (xcookie("AB tests") !== 'false') {
+                                if (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) {
+                                        additionalBlock.innerHTML = '<p style="color:#4caf50">' + testID + ' : ' + ABtestVariation + '</p>';
+                                        document.querySelector('.config-block').append(additionalBlock);
+                                } else {
+                                        additionalBlock.innerHTML = '<p style="color:#7b7b7b">' + testID + ' : ' + ABtestOriginal + '</p>';
+                                        document.querySelector('.config-block').append(additionalBlock);
+                                }
+                        }
+                }
+        }
+
+        if (xcookie("AB tests") === 'false') {
+                ga('myTracker.set', 'dimension' + gaDimensionID, xcookie("AB tests"));
+                ga('myTracker.send', 'event', 'AB tests', 'No testing users', '', { nonInteraction: true }); //must be called in order to deliver custom VAR data to GA
+                console.log("testDetails-> No testing users\n");
+        } else if (xcookie("AB tests") === 'true') {
+                ga('myTracker.set', 'dimension' + gaDimensionID, xcookie("AB tests"));
+                ga('myTracker.send', 'event', 'AB tests', 'Testing users', '', { nonInteraction: true }); //must be called in order to deliver custom VAR data to GA
+                console.log("testDetails-> Testing users\n");
+        }
+
+  //console.log('AB tests value: ' + xcookie("AB tests"));
+  //console.log('------------------------------------------------------------------------------------');
+
 </script>
-
-<div class="trustpilot-widget" data-locale="en-US" data-template-id="5406e65db0d04a09e042d5fc"
-    data-businessunit-id="5e95c6ce17f82e0001d25fde" data-style-height="28px" data-style-width="100%" data-theme="light">
-    <a href="https://www.trustpilot.com/review/rrr.lt" target="_blank" rel="noopener">Trustpilot</a>
-</div>
