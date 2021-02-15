@@ -1,0 +1,25 @@
+/* @media (min-width: 768px) {
+    #pt-pageContent > div:nth-child(3) {
+        height: auto !important;
+        opacity: 1 !important;
+        display: block !important;
+    }
+}
+@media (max-width: 767px) {
+    #pt-pageContent > div:nth-child(4) {
+        height: auto !important;
+        opacity: 1 !important;
+        display: block !important;
+    }
+}
+
+#pt-pageContent > div:nth-child(2) {
+    height: auto;
+    opacity: 1;
+    display: none;
+}
+#pt-pageContent > div:nth-child(1) {
+    height: auto;
+    opacity: 1;
+    display: none;
+} */

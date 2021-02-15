@@ -1,7 +1,13 @@
 setInterval(function () {
     var container = $('.test-container');
     if ($('.sn-suggest-input').is(':focus') && !container.length) {
-        var block = $('.header-mid');
+        var screenWidth = $(window).width();
+
+        if (screenWidth > 767) {
+            var block = $('.header-mid');
+        } else {
+            var block = $('#search-block');
+        }
 
         var trendingSearches = document.createElement('div');
         trendingSearches.setAttribute('class', 'test-container');
@@ -53,7 +59,7 @@ setInterval(function () {
         });
     } else if (!$('.sn-suggest-input').is(':focus') && container.length) {
         setTimeout(function () {
-            // container.remove();
+            container.remove();
         }, 100);
     } else if ($('.sn-suggest-input').is(':focus') && container.length && !$('.sn-suggest-history').length && $('.sn-suggest-hints').length) {
         container.remove();
