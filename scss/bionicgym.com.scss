@@ -1,19 +1,83 @@
-// #pt-pageContent>div:nth-child(1) {
-//     display : none;
-//   }
+.product-reviews {
+    margin-top: 40px;
 
-//   #pt-pageContent>div:nth-child(2) {
-//     display : none;
-//   }
-//   @media (min-width: 768px) {
-//     #pt-pageContent > div:nth-child(4) {
-//       display: none;
-//     }
-//   }
-//   @media (max-width: 767px) {
-//       #pt-pageContent > div:nth-child(3) {
-//       display: none;
-//     }
-//   }
+    strong.bold-text-2 {
+        color: #000000;
+    }
 
-//   #pt-pageContent > div:nth-child(4)
+    .paragraph-2 {
+        margin-top: 5px;
+        color: #000000;
+    }
+}
+
+.pt-product-single-info .pt-wrapper {
+    margin-top: 0;
+}
+.celebrities-carousel {
+    margin: 20px -10px 0;
+
+    .item {
+        margin: 0 10px;
+    }
+
+    @media (min-width: 768px) {
+        .slick-arrow {
+            top: 50%;
+            position: absolute;
+            z-index: 2;
+            border: none;
+            outline: none;
+            font-size: 0;
+            line-height: 0;
+            width: 28px;
+            height: 28px;
+            margin-top: -32px;
+            cursor: pointer;
+            color: #616161;
+            background: transparent;
+
+            &::before {
+                z-index: 2;
+                top: 20px;
+                left: 20px;
+                font-family: 'fyanka';
+                font-size: 23px;
+                line-height: 1;
+                background: #ffffffe3;
+            }
+
+            &::after {
+                content: '';
+                top: 20px;
+                left: 20px;
+                z-index: 1;
+                width: 24px;
+                height: 24px;
+                background: #ffffff;
+                -moz-transition: background 0.2s linear;
+                -o-transition: background 0.2s linear;
+                -webkit-transition: background 0.2s linear;
+                transition: background 0.2s linear;
+            }
+
+            &.slick-next {
+                right: 17px;
+                top: 36px;
+
+                &:before {
+                    content: '\e905';
+                }
+            }
+
+            &.slick-prev {
+                left: 10px;
+                top: 36px;
+
+                &::before {
+                    content: '\e904';
+                }
+            }
+        }
+    }
+}

@@ -1,9 +1,16 @@
 // var interval = window.setInterval(function () {
-//     var description = $('#s-2c32caee-557b-4eba-aaaf-898abf5f0de6 > div.ab-test');
-//     var title = $('#shopify-section-product-template > div.container-indent > div.container.container-fluid-mobile > div > div:nth-child(2) > div > h1');
+//     var oldBadges = $(
+//         '#shopify-section-product-template > div.container-indent > div.container.container-fluid-mobile > div > div:nth-child(2) > div > div.flair-badge-layout.flair-badge-layout-3-badges-layout-4562434916417'
+//     );
 
-//     if (description && title) {
-//         description.insertAfter(title);
+//     if (oldBadges.length) {
+//         var newBadges = document.createElement('div');
+//         newBadges.setAttribute('class', 'new-badges');
+//         newBadges.innerHTML =
+//             '<div class="flair-badge-layout flair-badge-layout-3-badges-layout-4562434916417" style="display: flex;flex-wrap: wrap;flex: 1 1 0%;line-height: 1;margin: 10px -5px 5px 0px;flex-direction: column;justify-content: center;align-items: flex-start" data-product-id="4562434916417" data-selector=".flair-badge-layout-3-badges-layout-4562434916417" data-section="flair-product-badges"> <div class="flair-badge-wrapper flair-badge-wrapper-full " style="margin: 0 5px 5px 0"> <div class="flair-badge flair-badge-18182" style="display: inline-block;box-sizing: border-box;color: #ffffff;background-color: rgba(239, 68, 68, 1);font-size: 18px;line-height: 28px;position: relative;height: 28px;max-width: 100%;vertical-align: bottom;padding-left: 10px;margin-left: 14px;padding-right: 10px;margin-right: 14px"> <span style="position: absolute;top: 0;left: -14px;border-top: 14px solid rgba(239, 68, 68, 1);border-bottom: 14px solid rgba(239, 68, 68, 1);border-left: 14px solid transparent"></span> <div style="white-space: nowrap;overflow: hidden;font-weight: bold">10% OFF PRO-HIIT</div><span style="position: absolute;top: 0;right: -14px;border-top: 14px solid rgba(239, 68, 68, 1);border-bottom: 14px solid rgba(239, 68, 68, 1);border-right: 14px solid transparent"></span> </div> </div> <div class="flair-badge-wrapper flair-badge-wrapper-full " style="margin: 0 5px 5px 0"> <div class="flair-badge flair-badge-20871" style="display: inline-block;box-sizing: border-box;color: #fdf2f2;background-color: rgba(239, 68, 68, 1);font-size: 18px;line-height: 28px;position: relative;height: 28px;max-width: 100%;vertical-align: bottom;padding-left: 10px;margin-left: 14px;padding-right: 10px;margin-right: 14px"> <span style="position: absolute;top: 0;left: -14px;border-top: 14px solid rgba(239, 68, 68, 1);border-bottom: 14px solid rgba(239, 68, 68, 1);border-left: 14px solid transparent"></span> <div style="white-space: nowrap;overflow: hidden;font-weight: bold">USE CODE: SPRING10</div><span style="position: absolute;top: 0;right: -14px;border-top: 14px solid rgba(239, 68, 68, 1);border-bottom: 14px solid rgba(239, 68, 68, 1);border-right: 14px solid transparent"></span> </div> </div> <div class="flair-badge-wrapper flair-badge-wrapper-full " style="margin: 0 5px 5px 0"> <div class="flair-badge flair-badge-20871" style="display: inline-block;box-sizing: border-box;color: #fdf2f2;background-color: rgba(239, 68, 68, 1);font-size: 18px;line-height: 28px;position: relative;height: 28px;max-width: 100%;vertical-align: bottom;padding-left: 10px;margin-left: 14px;padding-right: 10px;margin-right: 14px"> <span style="position: absolute;top: 0;left: -14px;border-top: 14px solid rgba(239, 68, 68, 1);border-bottom: 14px solid rgba(239, 68, 68, 1);border-left: 14px solid transparent"></span> <div style="white-space: nowrap;overflow: hidden;font-weight: bold">FREE SHIPPING</div><span style="position: absolute;top: 0;right: -14px;border-top: 14px solid rgba(239, 68, 68, 1);border-bottom: 14px solid rgba(239, 68, 68, 1);border-right: 14px solid transparent"></span> </div> </div></div>';
+
+//         $(newBadges).insertAfter(oldBadges);
+//         oldBadges.remove();
 
 //         clearInterval(interval);
 //     }
