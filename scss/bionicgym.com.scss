@@ -1,83 +1,123 @@
-.product-reviews {
-    margin-top: 40px;
+// body {
+//     background: #000000;
+// }
 
-    strong.bold-text-2 {
-        color: #000000;
-    }
+// body #pt-pageContent {
+//     background-color: #000000;
 
-    .paragraph-2 {
-        margin-top: 5px;
-        color: #000000;
-    }
-}
+//     h1.pt-title {
+//         color: #ffffff;
+//     }
 
-.pt-product-single-info .pt-wrapper {
-    margin-top: 0;
-}
-.celebrities-carousel {
-    margin: 20px -10px 0;
+//     .pt-title-options {
+//         color: #cecece;
+//     }
 
-    .item {
-        margin: 0 10px;
-    }
+//     span.current_option_name {
+//         color: #ffffff;
+//     }
+// }
 
-    @media (min-width: 768px) {
-        .slick-arrow {
-            top: 50%;
-            position: absolute;
-            z-index: 2;
-            border: none;
-            outline: none;
-            font-size: 0;
-            line-height: 0;
-            width: 28px;
-            height: 28px;
-            margin-top: -32px;
-            cursor: pointer;
-            color: #616161;
-            background: transparent;
+// .sizing-button {
+//     background: #000000;
+//     color: #f1f1f1;
+// }
 
-            &::before {
-                z-index: 2;
-                top: 20px;
-                left: 20px;
-                font-family: 'fyanka';
-                font-size: 23px;
-                line-height: 1;
-                background: #ffffffe3;
-            }
+// .new-test-price {
+//     text-decoration: line-through;
+//     color: #fefefe;
+//     font-size: 32px;
+// }
 
-            &::after {
-                content: '';
-                top: 20px;
-                left: 20px;
-                z-index: 1;
-                width: 24px;
-                height: 24px;
-                background: #ffffff;
-                -moz-transition: background 0.2s linear;
-                -o-transition: background 0.2s linear;
-                -webkit-transition: background 0.2s linear;
-                transition: background 0.2s linear;
-            }
+// .pt-price .test-price {
+//     text-decoration: none;
+//     position: relative;
 
-            &.slick-next {
-                right: 17px;
-                top: 36px;
+//     &::before {
+//         content: '';
+//         position: absolute;
+//         width: 55px;
+//         height: 40px;
+//         right: 0px;
+//         top: 0;
+//         background: black;
 
-                &:before {
-                    content: '\e905';
-                }
-            }
+//         @media (max-width: 1024px) {
+//             width: 37px;
+//         }
+//     }
+// }
 
-            &.slick-prev {
-                left: 10px;
-                top: 36px;
+// ul.pt-options-swatch.options-large li a {
+//     background: black;
+//     color: white;
+// }
 
-                &::before {
-                    content: '\e904';
-                }
-            }
-        }
-    }
-}
+// #deliverymessage {
+//     color: #ffffff;
+// }
+
+// .prpage-tabs .pt-item .pt-collapse-title,
+// .shg-c p,
+// .shg-c div {
+//     color: #ffffff;
+// }
+
+// #write {
+//     background: #282828;
+//     color: #fff;
+//     outline: 0;
+// }
+
+// #shopify-section-product-template
+//     > div.pt-fixed-product-wrapper.atdshowed
+//     > div
+//     > div
+//     > div.col-6.col-lg-4.col-xl-4
+//     > div
+//     > div.pt-description
+//     > div
+//     .new-test-price {
+//     color: #000000;
+//     font-size: 12px;
+// }
+
+// #shopify-section-product-template
+//     > div.pt-fixed-product-wrapper.atdshowed
+//     > div
+//     > div
+//     > div.col-6.col-lg-4.col-xl-4
+//     > div
+//     > div.pt-description
+//     > div
+//     > span.new-price.test-price {
+//     &::before {
+//         content: '';
+//         position: absolute;
+//         width: 26px;
+//         height: 20px;
+//         right: 0px;
+//         top: 0;
+//         background: white;
+
+//         @media (max-width: 1024px) {
+//             width: 26px;
+//         }
+
+//         @media (max-width: 520px) {
+//             width: 23px;
+//         }
+//     }
+// }
+
+// .pt-product-single-info .buyinoneclick {
+//     margin-top: 10px;
+//     margin-bottom: 20px;
+// }
+
+// button.shopify-payment-button__button.shopify-payment-button__button--unbranded {
+//     margin: 0;
+//     height: 54px;
+//     background: white;
+//     color: #000000;
+// }

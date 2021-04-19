@@ -1,82 +1,64 @@
-(function () {
-  var css =
-      '.new-cart-delivery-price{color: #0091ff; font-weight: 600; margin-top: 12px; font-size: 14px; padding-left: 28px; min-width: 300px; max-width: 500px;} .new-cart-delivery-price:before{content: ""; display: inline-block; vertical-align: top; width: 16px; height: 8px; border-bottom: 2px solid #0091ff; border-left: 2px solid #0091ff; transform: rotate(-45deg); margin-top: 2px; margin-right: 10px;} @media (max-width: 767px){.new-cart-delivery-price{font-weight: 300; font-size: 13px;}}',
-    head = document.head || document.getElementsByTagName('head')[0],
-    style = document.createElement('style');
+// var selector = {
+//     idejos: document.querySelectorAll('.headerMenuProducts__menu--item')[2],
+//     naujienos: document.querySelectorAll('.headerMenuProducts__menu--item')[4],
+//     katalogas: document.querySelectorAll('.headerMenuProducts__menu--item')[5],
+//     balduPlanavimas: document.querySelectorAll('.headerMenuProducts__menu--item')[6],
+// };
 
-  style.type = 'text/css';
-  if (style.styleSheet) {
-    // This is required for IE8 and below.
-    style.styleSheet.cssText = css;
-  } else {
-    style.appendChild(document.createTextNode(css));
-  }
-  head.appendChild(style);
+// var menuHTML =
+//     '<a class="nav-link dropdown-toggle outstanding" href="#" id="newMenuDropdown" role="button" data-toggle="dropdown"aria-haspopup="true" aria-expanded="false"><span>Įkvėpimui</span></a><div class="dropdown-menu custom-menu" aria-labelledby="newMenuDropdown"><div class="container"><div class="rooms-custom"><div class="dropdown-item__image1"><a href="https://publications.ikea.lt/IKEA_Catalogue" class="dropdown-item__a">IKEA katalogas</a></div><div class="dropdown-item__image2"><a href="/lt/page/inspirations" class="dropdown-item__a">Idėjos</a></div><div class="dropdown-item__image3"><a href="/lt/page/newitems" class="dropdown-item__a">Naujienos</a></div><div class="dropdown-item__image3"><a href="/lt/planavimo-programos" class="dropdown-item__a">Baldų planavimas</a></div></div></div></div></div>';
+// var newMenuElement = document.createElement('li');
+// newMenuElement.setAttribute('class', 'headerMenuProducts__menu--item nav-item dropdown servicesMenu customMenu');
+// newMenuElement.innerHTML = menuHTML;
 
-  /*-----TRANSLATIONS------*/
-  var tillFree = 'Līdz BEZMAKSAS piegādei:';
-  var nowIsFree = 'Izmantojiet šo piegādes veidu bez maksas!';
-  if (window.location.pathname.indexOf('/ru/') > -1) {
-    tillFree = 'До бесплатной доставки оталось:';
-    nowIsFree = 'Воспользуйтесь этим способом доставки бесплатно!';
-  }
-  /*---END TRANSLATIONS----*/
+// $('.headerMenuProducts__menu').append(newMenuElement);
+// $('.customMenu').insertBefore(selector.idejos);
 
-  var finalPrice = 0;
-  var priceHolders = document.querySelectorAll('.tar.cart-price strong');
-  priceHolders.forEach(function (elem) {
-    finalPrice += parseFloat(elem.innerText.replace(',', '.').replace('€', ''));
-  });
-  var countPriceStart = Number(finalPrice).toFixed(2);
+// if (selector.idejos) {
+//     selector.idejos.remove();
+// }
+// if (selector.naujienos) {
+//     selector.naujienos.remove();
+// }
+// if (selector.katalogas) {
+//     selector.katalogas.remove();
+// }
+// if (selector.balduPlanavimas) {
+//     selector.balduPlanavimas.remove();
+// }
+// document.querySelector('.dropdown-item__image1').addEventListener('click', function () {
+//     window.location = '//publications.ikea.lt/IKEA_Catalogue';
+// });
 
-  function countPrices(price, parent) {
-    //var countPriceStart = document.querySelector(".cart-total .col-xs-4").innerText.replace(",",".").replace("€","");
+// document.querySelector('.dropdown-item__image2').addEventListener('click', function () {
+//     window.location = '/page/inspirations';
+// });
 
-    var elemWithPrice = document.createElement('div');
-    if (countPriceStart < price) {
-      elemWithPrice.innerHTML =
-        "<div class='new-cart-delivery-price'>" +
-        tillFree +
-        ' &euro;' +
-        (price - countPriceStart).toFixed(2) +
-        '</div>';
-    } else {
-      elemWithPrice.innerHTML =
-        "<div class='new-cart-delivery-price'>" + nowIsFree + '</div>';
-    }
-    parent.append(elemWithPrice);
-  }
+// document.querySelector('.dropdown-item__image3').addEventListener('click', function () {
+//     window.location = '/page/newitems';
+// });
 
-  if (document.querySelectorAll("input[value='at_pharmacy']").length > 0) {
-    var thisElem = document.querySelector("input[value='at_pharmacy']")
-      .parentNode.parentNode;
-    var thisPrice = 30.0;
-    if (!thisElem.classList.contains('disabled')) {
-      countPrices(thisPrice, thisElem);
-    }
-  }
-  if (document.querySelectorAll("input[value='courier']").length > 0) {
-    var thisElem = document.querySelector("input[value='courier']").parentNode
-      .parentNode;
-    var thisPrice = 35.0;
-    if (!thisElem.classList.contains('disabled')) {
-      countPrices(thisPrice, thisElem);
-    }
-  }
-  if (document.querySelectorAll("input[value='dpd']").length > 0) {
-    var thisElem = document.querySelector("input[value='dpd']").parentNode
-      .parentNode;
-    var thisPrice = 10.0;
-    if (!thisElem.classList.contains('disabled')) {
-      countPrices(thisPrice, thisElem);
-    }
-  }
-  if (document.querySelectorAll("input[value='circle_k']").length > 0) {
-    var thisElem = document.querySelector("input[value='circle_k']").parentNode
-      .parentNode;
-    var thisPrice = 10.0;
-    if (!thisElem.classList.contains('disabled')) {
-      countPrices(thisPrice, thisElem);
-    }
-  }
-})();
+// document.querySelector('.dropdown-item__image3').addEventListener('click', function () {
+//     window.location = '/lt/planavimo-programos';
+// });
+
+// if (!$('.scrolled').length) {
+//     $('.headerMain .breadcrumbContainer').addClass('scrolled');
+// }
+// var lastScrollTop = 0;
+
+// $(window).scroll(function () {
+//     var scrollTop = $(this).scrollTop();
+
+//     if (scrollTop > lastScrollTop) {
+//         if ($('.container-show')) {
+//             $('#header_searcher_mobile_input_container').addClass('container-show');
+//             $('.headerMain .breadcrumbContainer').removeClass('scrolled');
+//         }
+//     } else {
+//         $('#header_searcher_mobile_input_container').removeClass('container-show');
+//         $('.headerMain .breadcrumbContainer').addClass('scrolled');
+//     }
+
+//     lastScrollTop = scrollTop;
+// });

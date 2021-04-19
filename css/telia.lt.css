@@ -1,22 +1,20 @@
-/* .banner-image {
-    width: 100%;
-}
+body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(1) {
+  order: 7; }
 
-.banner-image img {
-    width: 100%;
-}
+body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(2) {
+  order: 6; }
 
-.image-desktop {
-    display: block;
-}
-.image-mobile {
-    display: none;
-}
-@media (max-width: 767px) {
-    .image-desktop {
-        display: none;
-    }
-    .image-mobile {
-        display: block;
-    }
-} */
+body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(3) {
+  order: 5; }
+
+body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(4) {
+  order: 4; }
+
+body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(5) {
+  order: 3; }
+
+body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(6) {
+  order: 2; }
+
+body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(7) {
+  order: 1; }
