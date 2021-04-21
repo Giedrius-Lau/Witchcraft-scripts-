@@ -1,27 +1,40 @@
-body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(1) {
-    order: 7;
+.alert.alert-warning.new-top-notification {
+    margin-top: 0;
+    background-color: #09f;
+    color: #fff;
+    padding: 15px 20px;
+    position: static;
+    width: 100%;
 }
-
-body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(2) {
-    order: 6;
+.alert.alert-warning.new-top-notification .container {
+    margin: 0 auto;
+    position: relative;
+    width: 100%;
+    max-width: 1108px;
 }
-
-body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(3) {
-    order: 5;
+.alert.alert-warning.new-top-notification .new-top-notification-close {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    font-size: 14px;
+    cursor: pointer;
 }
-
-body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(4) {
-    order: 4;
+@media (max-width: 767px) {
+    .alert.alert-warning.new-top-notification {
+        font-size: 13px;
+    }
 }
+body.with-notification {
+    .header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        display: block;
+        height: auto !important;
 
-body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(5) {
-    order: 3;
-}
-
-body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(6) {
-    order: 2;
-}
-
-body > div:nth-child(5) > main > div > div.react-app-plans-mhs > div > div > section > div > div > div:nth-child(3) > div:nth-child(7) {
-    order: 1;
+        .header__container {
+            position: static;
+        }
+    }
 }

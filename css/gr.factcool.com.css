@@ -1,0 +1,44 @@
+.main-nav-search form,
+.search-mobile-inner form {
+  position: relative; }
+  .main-nav-search form .test-container,
+  .search-mobile-inner form .test-container {
+    position: absolute;
+    top: 36px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #ffffff;
+    border-top: 1px solid #707070;
+    z-index: 800;
+    padding: 15px 15px 5px; }
+    .main-nav-search form .test-container .suggestions-list,
+    .search-mobile-inner form .test-container .suggestions-list {
+      display: flex;
+      flex-wrap: wrap; }
+      .main-nav-search form .test-container .suggestions-list .suggestion-link,
+      .search-mobile-inner form .test-container .suggestions-list .suggestion-link {
+        margin-right: 10px;
+        height: 35px;
+        font-size: 13px;
+        border: 1px solid #cccccc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        border-radius: 20px;
+        margin-bottom: 10px; }
+        .main-nav-search form .test-container .suggestions-list .suggestion-link a,
+        .search-mobile-inner form .test-container .suggestions-list .suggestion-link a {
+          color: #757575;
+          font-weight: 500; }
+    .main-nav-search form .test-container .block-title,
+    .search-mobile-inner form .test-container .block-title {
+      display: flex; }
+      .main-nav-search form .test-container .block-title p,
+      .search-mobile-inner form .test-container .block-title p {
+        font-weight: 800;
+        margin-left: 6px; }
+
+.search-mobile-inner form .test-container {
+  top: 50px; }
