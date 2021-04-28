@@ -1,0 +1,26 @@
+.pd-promo-code-widget {
+  border: 1px dashed #ff5f14;
+  background: #fef2f0;
+  margin: 20px 0; }
+
+#form-1342196 > div.pd-promo-code-widget > div:nth-child(1) > strong,
+#form-1342196 > div.pd-promo-code-widget > div:nth-child(2) > strong {
+  color: #ff5f14;
+  font-size: 17px; }
+
+body
+> div.site-wrapper
+> section
+> div.product-detail-wrapper.marginb48
+> div
+> div.col-xs-100.col-sm-50.col-lg-38.product-info
+> div.pd-prices
+> span.three-prices
+> span.pd-price-current {
+  color: #000000; }
+
+.discounted-price {
+  color: #ff5f00 !important; }
+
+.pd-prices {
+  height: 45px; }

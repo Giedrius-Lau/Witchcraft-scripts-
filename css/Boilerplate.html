@@ -34,7 +34,6 @@
 				/* ------------ End of style changes ----------------- */
 				/* ------------ Code changes ----------------- */
 
-				alert(testID)
 
 
 				/* ------------ End of code changes ----------------- */
@@ -50,12 +49,10 @@
 
 	if (testingMode == true && urlParams.has('test') && urlParams.get('test') == testID) {
 		variationPercent = 101
-		console.log(variationPercent)
 		runABTest(variationPercent)
 
 	} else if (testingMode == false) {
 		variationPercent = 51
-		console.log(variationPercent)
 		runABTest(variationPercent)
 	}
 
