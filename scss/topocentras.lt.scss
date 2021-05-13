@@ -1,170 +1,137 @@
-// // First row
+#root > header.header-desktopHeader-1gy.show-from-desktop {
+    .TopBar-loginButton-1Xm {
+        display: none;
+    }
+}
 
-// .TopBar-shops-LMN {
-//     flex-direction: row-reverse;
-//     border-right: 1px solid rgba(217, 215, 193, 1);
-//     padding-right: 10px;
-//     margin-right: 7px !important;
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled {
+    .header-topBarWrapper-2bd {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        left: 0;
+        right: 0;
+    }
 
-//     &::after {
-//         background: center/contain no-repeat url('https://www.topocentras.lt/ca94881477429df6020c4bf3554379c7.svg') !important;
-//         margin-right: 5px !important;
-//     }
-// }
+    div.TopBar-topBarContainer-1E0 {
+        display: none;
+    }
 
-// .TopBar-app-3FR {
-//     flex-direction: row-reverse;
-//     border-right: 1px solid rgba(217, 215, 193, 1);
-//     padding-right: 10px;
-//     margin-right: 7px !important;
+    #desktopMenu {
+        position: fixed;
+        width: 100%;
+        z-index: 3;
+        top: 60px;
+        left: 0;
+        right: 0;
+        display: none;
 
-//     &::after {
-//         background: center/contain no-repeat url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/App.png') !important;
-//         width: 18px !important;
-//         margin-right: 5px !important;
-//     }
-// }
+        &.displayed-meniu {
+            display: block;
+        }
+    }
 
-// .TopBar-bussiness-1I- {
-//     flex-direction: row-reverse;
-//     border-right: 1px solid rgba(217, 215, 193, 1);
-//     padding-right: 10px;
-//     margin-right: 7px !important;
+    div.HeaderContent-headerContentWrapper-M-b > div.HeaderContent-headerContentContainer-2N9 > div.HeaderContent-contactContainer-3r- {
+        display: none;
+    }
 
-//     &::after {
-//         margin-right: 5px !important;
-//     }
-// }
+    .HeaderContent-headerContentContainer-2N9 {
+        justify-content: space-between;
+    }
 
-// .TopBar-free-3Ed {
-//     &::before {
-//         background: center/contain no-repeat url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/Phone.png') !important;
-//     }
-// }
+    button.TopBar-loginButton-1Xm {
+        display: flex;
+        margin-right: 30px;
+        background: transparent !important;
+        color: #0a509b !important;
+        border: 0 !important;
 
-// #root
-//     > header.header-desktopHeader-1gy.show-from-desktop
-//     > div.header-topBarWrapper-2bd
-//     > div.TopBar-topBarContainer-1E0
-//     > div.TopBar-buttonContainer-3dd
-//     > button {
-//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/Log-out.png');
-//     background-color: rgba(225, 234, 243, 1);
-//     background-position: center;
-//     background-repeat: no-repeat;
-// }
+        &:before {
+            background: center/contain no-repeat url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/human.svg');
+        }
+    }
 
-// #root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd > a {
-//     &::before {
-//         background: center/contain no-repeat url(https://semexit.s3-eu-west-1.amazonaws.com/topocentras/Vector.svg) !important;
-//         content: '';
-//         display: inline-block;
-//         margin: 0 10px 0 0px;
-//         height: 16px;
-//         width: 16px;
-//     }
-// }
+    div.HeaderContent-headerContentContainer-2N9 > div.Cart-cartContainer-1zC > a {
+        width: 220px;
+        background: transparent;
+        color: #0a509b !important;
 
-// #root
-//     > header.header-desktopHeader-1gy.show-from-desktop
-//     > div.header-topBarWrapper-2bd
-//     > div.TopBar-topBarContainer-1E0
-//     > div.TopBar-buttonContainer-3dd
-//     > a.HeaderContent-orderTracking-3gI {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     margin-right: 15px;
-//     font-size: 12px;
+        &:hover {
+            width: 220px;
+            background: #0a509b;
+            color: #ffffff !important;
+        }
 
-//     &::before {
-//         background: center/contain no-repeat url(https://semexit.s3-eu-west-1.amazonaws.com/topocentras/Shipping.svg) !important;
-//     }
-// }
+        &:before {
+            background: center/contain no-repeat url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/cart2.svg') !important;
+        }
+    }
 
-// .HeaderContent-searchButton-1mR:before {
-//     width: 18px;
-//     height: 18px;
-// }
+    div.Cart-cartContainer-1zC > div > span {
+        display: none;
+    }
 
-// .TopBar-buttonContainer-3dd {
-//     margin-left: auto;
-// }
+    div.Cart-cartContainer-1zC > div:after {
+        content: 'Krepšelis';
+    }
 
-// .darbo-laikas {
-//     color: rgba(108, 111, 112, 1);
-//     font-size: 12px;
-//     margin-top: 2px;
+    .Logo-logo-gJI {
+        max-height: 25px;
+    }
 
-//     & > span:nth-child(1) {
-//         margin-right: 10px;
-//         padding-right: 10px;
-//         border-right: 1px solid #d9d7c1;
-//     }
-// }
+    .Cart-cart-2xd {
+        border: 0 !important;
+        color: #0a509b !important;
+    }
 
-// a.HeaderContent-orderTracking-3gI {
-//     margin-left: auto;
-//     margin-right: 15px;
-//     font-size: 12px;
-//     display: flex;
-//     align-items: center;
-// }
+    .Cart-cart-2xd:before {
+        background: center/contain no-repeat url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/cart2.svg') !important;
+    }
 
-// // Second row
+    .Cart-cartActive-m27 {
+        background: transparent !important;
+        border: 0 !important;
+        border: 0;
+        color: #f60 !important;
+    }
 
-// .HeaderContent-contactContainer-3r- {
-//     display: none;
-// }
+    .Cart-cartActive-m27:before {
+        background: center/contain no-repeat url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/cart.svg') !important;
+    }
 
-// button.HeaderContent-searchButton-1mR {
-//     width: 54px;
+    .header-menuIcon-iKS:before {
+        background: center/contain no-repeat url(/ddb974c….svg);
+    }
 
-//     &:before {
-//         margin: 0;
-//     }
-// }
+    .header-baseIcon-267:before {
+        content: '';
+        height: 26px;
+        width: 26px;
+    }
 
-// .HeaderContent-headerContentContainer-2N9 {
-//     justify-content: space-between;
-// }
+    .new-meniu-button {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 60px;
+        background: #f57e20;
+        z-index: 4;
 
-// .HeaderContent-headerContentWrapper-M-b {
-//     height: 90px;
-// }
+        &:before {
+            background: url(/4d04b20b3275871f15e5a2173ed34080.svg);
+            content: '';
+            display: inline-block;
+            height: 100%;
+            width: 100%;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 32px;
+            cursor: pointer;
+        }
+    }
+}
 
-// .Cart-cart-2xd {
-//     border: 1px solid #000000;
-//     border-radius: 3px;
-
-//     &:before {
-//         filter: contrast(6);
-//         width: 20px;
-//     }
-
-//     .Cart-cartText-1Fe {
-//         color: #000000;
-//         font-weight: 600;
-//     }
-// }
-
-// // Third row
-
-// li.DesktopMenu-firstLevelMenuItem-3ve.firstLevelMenu-0.DesktopMenu-firstLevelMenuItemActive-2WQ,
-// .DesktopMenu-firstLevelMenuItem-3ve:nth-child(1) {
-//     background: #0b509b !important;
-
-//     &:hover {
-//         background: #0b3f76 !important;
-//     }
-// }
-
-// #desktopMenu > ul > li.DesktopMenu-firstLevelMenuItem-3ve.firstLevelMenu-1 {
-//     background: #f67e20;
-// }
-
-// #desktopMenu > ul > li.DesktopMenu-firstLevelMenuItem-3ve.firstLevelMenu-5 > a {
-//     &:before {
-//         border-right: 0;
-//     }
-// }
+// .Navigation-mobileNavigationOpen-L27
+// .Navigation-mobileNavigation-1F5
+// #mobileMenu

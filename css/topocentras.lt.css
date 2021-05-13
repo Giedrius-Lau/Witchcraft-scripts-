@@ -1,0 +1,102 @@
+@charset "UTF-8";
+#root > header.header-desktopHeader-1gy.show-from-desktop .TopBar-loginButton-1Xm {
+  display: none; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .header-topBarWrapper-2bd {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  right: 0; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled div.TopBar-topBarContainer-1E0 {
+  display: none; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled #desktopMenu {
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  top: 60px;
+  left: 0;
+  right: 0;
+  display: none; }
+  #root > header.header-desktopHeader-1gy.show-from-desktop.scrolled #desktopMenu.displayed-meniu {
+    display: block; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled div.HeaderContent-headerContentWrapper-M-b > div.HeaderContent-headerContentContainer-2N9 > div.HeaderContent-contactContainer-3r- {
+  display: none; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .HeaderContent-headerContentContainer-2N9 {
+  justify-content: space-between; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled button.TopBar-loginButton-1Xm {
+  display: flex;
+  margin-right: 30px;
+  background: transparent !important;
+  color: #0a509b !important;
+  border: 0 !important; }
+  #root > header.header-desktopHeader-1gy.show-from-desktop.scrolled button.TopBar-loginButton-1Xm:before {
+    background: center/contain no-repeat url("https://semexit.s3-eu-west-1.amazonaws.com/topocentras/human.svg"); }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled div.HeaderContent-headerContentContainer-2N9 > div.Cart-cartContainer-1zC > a {
+  width: 220px;
+  background: transparent;
+  color: #0a509b !important; }
+  #root > header.header-desktopHeader-1gy.show-from-desktop.scrolled div.HeaderContent-headerContentContainer-2N9 > div.Cart-cartContainer-1zC > a:hover {
+    width: 220px;
+    background: #0a509b;
+    color: #ffffff !important; }
+  #root > header.header-desktopHeader-1gy.show-from-desktop.scrolled div.HeaderContent-headerContentContainer-2N9 > div.Cart-cartContainer-1zC > a:before {
+    background: center/contain no-repeat url("https://semexit.s3-eu-west-1.amazonaws.com/topocentras/cart2.svg") !important; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled div.Cart-cartContainer-1zC > div > span {
+  display: none; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled div.Cart-cartContainer-1zC > div:after {
+  content: 'Krepšelis'; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .Logo-logo-gJI {
+  max-height: 25px; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .Cart-cart-2xd {
+  border: 0 !important;
+  color: #0a509b !important; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .Cart-cart-2xd:before {
+  background: center/contain no-repeat url("https://semexit.s3-eu-west-1.amazonaws.com/topocentras/cart2.svg") !important; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .Cart-cartActive-m27 {
+  background: transparent !important;
+  border: 0 !important;
+  border: 0;
+  color: #f60 !important; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .Cart-cartActive-m27:before {
+  background: center/contain no-repeat url("https://semexit.s3-eu-west-1.amazonaws.com/topocentras/cart.svg") !important; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .header-menuIcon-iKS:before {
+  background: center/contain no-repeat url(/ddb974c….svg); }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .header-baseIcon-267:before {
+  content: '';
+  height: 26px;
+  width: 26px; }
+
+#root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .new-meniu-button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 60px;
+  background: #f57e20;
+  z-index: 4; }
+  #root > header.header-desktopHeader-1gy.show-from-desktop.scrolled .new-meniu-button:before {
+    background: url(/4d04b20b3275871f15e5a2173ed34080.svg);
+    content: '';
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32px;
+    cursor: pointer; }
