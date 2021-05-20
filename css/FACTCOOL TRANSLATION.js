@@ -1,13 +1,13 @@
 var language =
     window.location.hostname === 'gr.factcool.com'
-        ? 'GR'
+        ? 'gr'
         : window.location.hostname === 'si.factcool.com'
-        ? 'SI'
+        ? 'si'
         : window.location.hostname === 'ro.factcool.com'
-        ? 'RO'
+        ? 'ro'
         : window.location.hostname === 'sk.factcool.com'
-        ? 'SK'
-        : 'LT';
+        ? 'sk'
+        : 'lt';
 
 var trendingNow = language === 'gr' ? 'Trending now' : language === 'si' ? 'SI' : language === 'ro' ? 'RO' : language === 'sk' ? 'SK' : 'Trending now';
 var linkOne = language === 'gr' ? 'GRlink' : language === 'si' ? 'SIlink' : language === 'ro' ? 'ROlink' : language === 'sk' ? 'SKlink' : 'GRlink';
