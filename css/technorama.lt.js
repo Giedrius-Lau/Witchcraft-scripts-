@@ -1,0 +1,2 @@
+alert('start');
+alert(testas);

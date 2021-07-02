@@ -1,26 +1,29 @@
-/* @charset "UTF-8";
 .body__block--bg-grey .trustpilot-widget {
-  background: #ffffff;
-  padding: 64px 40px 55px 40px;
-  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.04);
-  border-radius: 4px;
-  border: 1px solid #e7e7e7;
-  margin: 40px ​0 0 !important; }
-
+    background: #ffffff;
+    padding: 64px 40px 55px 40px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+    border: 1px solid #e7e7e7;
+    margin-top: 40px;
+    height: 260px;
+}
 .trustpilot-widget {
-  background: #ffffff;
-  margin: 0 0 62px; }
-
-.tp-widget-wrapper {
-  width: 100% !important; }
-
-body > div.wrapper > main > div.main.clearfix > div.product_column.product_column--left > div.trustpilot-widget {
-  display: block !important;
-  margin: 10px 0px 20px; }
-
-body > div.wrapper > main > div.main.clearfix > div:nth-child(4) {
-  margin-top: 40px;
-  display: block !important; }
-
-body > div.wrapper > main > section:nth-child(5) > div > div {
-  display: block !important; } */
+    display: block !important;
+}
+body > div.wrapper > header > div.trustpilot-widget {
+    margin: 6px 0 4px;
+    height: 28px;
+}
+@media (max-width: 767px) {
+    .header__middle {
+        position: relative;
+    }
+    .header__bottom {
+        margin: 0;
+    }
+}
+@media (max-width: 767px) {
+    .nav_hold {
+        top: 87px;
+    }
+}

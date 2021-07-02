@@ -1,0 +1,70 @@
+// .category-item .shipping-label-container,
+// .category-item .label-preview-image,
+// .category-item .uleasing-price-container {
+//     display: none;
+// }
+// .category-item .new-labels {
+//     position: absolute;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: start;
+//     align-items: start;
+// }
+// .category-item .new-labels > div {
+//     width: 25px;
+//     height: 22px;
+//     border: 1px solid #dddddd;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     position: relative;
+//     border-right: 0;
+//     margin-top: 10px;
+// }
+// .category-item .new-labels > div:after {
+//     content: '';
+//     top: 2px;
+//     right: -8px;
+//     height: 16px;
+//     width: 15px;
+//     position: absolute;
+//     border-top: #dddddd solid 1px;
+//     border-left: #dddddd solid 1px;
+//     transform: rotate(135deg);
+// }
+// .category-item .new-labels > div:hover .label-information {
+//     opacity: 1;
+// }
+// .category-item .new-labels .label-information {
+//     position: absolute;
+//     top: 0;
+//     left: 38px;
+//     background: #ffffff;
+//     width: max-content;
+//     text-align: left;
+//     min-height: 22px;
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     padding: 2px 5px;
+//     box-shadow: 0 0 6px #00000038;
+//     z-index: 1;
+//     opacity: 0;
+//     pointer-events: none;
+//     transition: 0.1s ease-in-out;
+// }
+// .category-item .new-labels .label-dpd {
+//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/dpd_logo-removebg-preview+1.svg');
+// }
+// .category-item .new-labels .label-ziticity {
+//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/wide-logo.svg');
+// }
+// .category-item .new-labels .label-sandelyje {
+//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/Icon+awesome-check-circle.svg');
+// }
+// .category-item .new-labels .label-shipping {
+//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/delivery-truck.svg');
+// }
+// .category-item .new-labels .label-leasing {
+//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/LIZINGAS.svg');
+//     width: 60px;
+// }

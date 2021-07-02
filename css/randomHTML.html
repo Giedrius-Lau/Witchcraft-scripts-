@@ -1,137 +1,44 @@
 <script>
-	/*------ Params of test ----------*/
-	var testingMode = true;
-	var testName = "AB test TopoI5H5TD - Header pakeitimai";
-	var testID = "TopoI5H5TD";
-	var percentage, variationPercent;
-	// 101 - MAX only less (100%)
-	// 1 - MIN more or equals (0%)
-	// 51 - 50/50 (50%)
-	/*--------------------------------*/
 
-	var QueryString = window.location.search;
-	var urlParams = new URLSearchParams(QueryString);
+	(function () {
+		/* ------------ Style changes ----------------- */
+		var css = "",
+			head = document.head || document.getElementsByTagName("head")[0],
+			style = document.createElement("style");
 
-	var runABTest = function (percentage) {
-		AbTestRun(testID, testName, percentage);
-
-		if (((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) || (variationPercent == 101)) && (xcookie("AB tests").indexOf("false") == -1) || window.location.href.indexOf("evolvery") > -1) {
-			/* ------------ Variation UI/UX changes ----------------- */
-			(function () {
-				/* ------------ Style changes ----------------- */
-				var css = ".TopBar-shops-LMN {flex-direction: row-reverse;border-right: 1px solid #d9d7c1;padding-right: 10px;margin-right: 7px !important;}.TopBar-shops-LMN::after {background: center/contain no-repeat url('https://www.topocentras.lt/ca94881477429df6020c4bf3554379c7.svg') !important;margin-right: 5px !important;}.TopBar-app-3FR {flex-direction: row-reverse;border-right: 1px solid #d9d7c1;padding-right: 10px;margin-right: 7px !important;}.TopBar-app-3FR::after {background: center/contain no-repeat url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/App.png') !important;width: 18px !important;margin-right: 5px !important;}.TopBar-bussiness-1I- {flex-direction: row-reverse;border-right: 1px solid #d9d7c1;padding-right: 10px;margin-right: 7px !important;}.TopBar-bussiness-1I-::after {margin-right: 5px !important;}.TopBar-free-3Ed::before {background: center/contain no-repeat url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/Phone.png') !important;}#root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd > button {background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/topocentras/Log-out.png');background-color: #e1eaf3;background-position: center;background-repeat: no-repeat;}",
-					head = document.head || document.getElementsByTagName("head")[0],
-					style = document.createElement("style");
-
-				css += "#root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd > a::before {background: center/contain no-repeat url(https://semexit.s3-eu-west-1.amazonaws.com/topocentras/Vector.svg) !important;content: '';display: inline-block;margin: 0 10px 0 0px;height: 16px;width: 16px;}#root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd > a.HeaderContent-orderTracking-3gI {display: flex;justify-content: space-between;align-items: center;margin-right: 15px;font-size: 12px;}#root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd > a.HeaderContent-orderTracking-3gI::before {background: center/contain no-repeat url(https://semexit.s3-eu-west-1.amazonaws.com/topocentras/Shipping.svg) !important;}"
-
-				css += ".HeaderContent-searchButton-1mR:before {width: 18px;height: 18px;}.TopBar-buttonContainer-3dd {}.darbo-laikas {color: #6c6f70;font-size: 12px;margin-top: 2px;}.darbo-laikas > span:nth-child(1) {margin-right: 10px;padding-right: 10px;border-right: 1px solid #d9d7c1;}a.HeaderContent-orderTracking-3gI {margin-left: auto;margin-right: 15px;font-size: 12px;display: flex;align-items: center;}.HeaderContent-contactContainer-3r- {display: none;}button.HeaderContent-searchButton-1mR {width: 54px;}button.HeaderContent-searchButton-1mR:before {margin: 0;}.HeaderContent-headerContentContainer-2N9 {justify-content: space-between;}.HeaderContent-headerContentWrapper-M-b {height: 90px;}.Cart-cart-2xd {border: 1px solid #000000;border-radius: 3px;}.Cart-cart-2xd:before {filter: contrast(6);width: 20px;}.Cart-cart-2xd .Cart-cartText-1Fe {color: #000000;font-weight: 600;}#desktopMenu > ul > li.DesktopMenu-firstLevelMenuItem-3ve.firstLevelMenu-5 > a:before {border-right: 0;}";
-
-
-				style.type = "text/css";
-				if (style.styleSheet) {
-					// This is required for IE8 and below.
-					style.styleSheet.cssText = css;
-				} else {
-					style.appendChild(document.createTextNode(css));
-				}
-				head.appendChild(style);
-				/* ------------ End of style changes ----------------- */
-				/* ------------ Code changes ----------------- */
-
-				function insertAfter(el, referenceNode) {
-					referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
-				}
-
-				function insertBefore(element, destination) {
-					destination.parentNode.insertBefore(element, destination);
-				}
-
-				var productInterval = window.setInterval(function () {
-					var searchIcon = document.querySelector('.HeaderContent-searchButton-1mR');
-					var searchInput = document.querySelector('.HeaderContent-searchInput-3Ks');
-					var akcijosLink = document.querySelector('.DesktopMenu-firstLevelMenuItem-3ve.firstLevelMenu-1 > a');
-
-					if (searchIcon && akcijosLink) {
-						var profileLink = document.querySelector(
-							'#root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd > a'
-						);
-						var tracking = document.querySelector('.HeaderContent-orderTracking-3gI');
-						var delivery = document.querySelector('.TopBar-delivery-3wI');
-						var wallet = document.querySelector('.TopBar-wallet-_8S');
-						var returns = document.querySelector('.TopBar-return-1Mz');
-						var freeDelivery = document.querySelector('.TopBar-free-3Ed');
-						var atsijungti = document.querySelector(
-							'#root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd > button'
-						);
-
-						searchIcon.textContent = '';
-						searchInput.placeholder = 'Ieškokite prekės, kategorijos...';
-						akcijosLink.textContent = 'Akcijos ir pasiūlymai';
-
-						if (delivery) {
-							delivery.remove();
-						}
-						if (wallet) {
-							wallet.remove();
-						}
-						if (returns) {
-							returns.remove();
-						}
-
-						if (profileLink) {
-							insertBefore(
-								tracking,
-								document.querySelector(
-									'#root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd'
-								).parentNode,
-								document.querySelector(
-									'#root > header.header-desktopHeader-1gy.show-from-desktop > div.header-topBarWrapper-2bd > div.TopBar-topBarContainer-1E0 > div.TopBar-buttonContainer-3dd'
-								)
-							);
-						} else {
-							insertBefore(tracking, document.querySelector('.TopBar-topBarContainer-1E0'), document.querySelector('.TopBar-loginButton-1Xm'));
-						}
-
-						var mieleParduotuve = document.createElement('li');
-						mieleParduotuve.setAttribute('class', 'DesktopMenu-firstLevelMenuItem-3ve firstLevelMenu-3');
-						mieleParduotuve.innerHTML = '<a class="DesktopMenu-link-4C-" href="/miele?ref=meniu">Miele parduotuvė</a>';
-
-						var darboLaikas = document.createElement('div');
-						darboLaikas.setAttribute('class', 'darbo-laikas');
-						darboLaikas.innerHTML = '<span>I - V 08:00 - 20:00</span><span>VI - VII 09:00 -17:00</span>';
-
-						freeDelivery.textContent = '+370 660 00200';
-						freeDelivery.href = '';
-
-						if (atsijungti) {
-							atsijungti.innerHTML = '<img src="" />';
-						}
-
-						insertAfter(darboLaikas, freeDelivery);
-
-						clearInterval(productInterval);
-					}
-				}, 500);
-
-				/* ------------ End of code changes ----------------- */
-				hj('trigger', 'ab_test_' + testID + '_var1');
-				hj('identify', null, { 'AB Tests': 'ab_test_' + testID + '_var1' });
-			})();
-			/* ------------------------------------------------------ */
+		style.type = "text/css";
+		if (style.styleSheet) {
+			// This is required for IE8 and below.
+			style.styleSheet.cssText = css;
 		} else {
-			hj('trigger', 'ab_test_' + testID + '_orig');
-			hj('identify', null, { 'AB Tests': 'ab_test_' + testID + '_orig' });
+			style.appendChild(document.createTextNode(css));
 		}
-	}
+		head.appendChild(style);
+		/* ------------ End of style changes ----------------- */
+		/* ------------ Code changes ----------------- */
 
-	if (testingMode == true && urlParams.has('test') && urlParams.get('test') == testID) {
-		variationPercent = 101
-		runABTest(variationPercent)
+		function insertBefore(element, firstChild) {
+			firstChild.parentNode.insertBefore(element, firstChild);
+		}
 
-	} else if (testingMode == false) {
-		variationPercent = 51
-		runABTest(variationPercent)
-	}
+
+		function insertAfter(el, referenceNode) {
+			referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+		}
+
+
+		var firstForm = document.querySelector('#step-1-form > div.mobile-row');
+		var secondForm = document.querySelector('#shipping-radios');
+
+		insertAfter(firstForm, secondForm);
+
+		var title = document.querySelector('body > div.site-wrapper > section > div:nth-child(2) > div.subpage-main.col-xs-100.col-lg-70.marginb96 > div');
+		var newPosition = document.querySelector('#step-1-form > div > div:nth-child(3)');
+
+		insertBefore(title, newPosition);
+
+	})();
+
+
 
 </script>

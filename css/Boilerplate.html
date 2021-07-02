@@ -13,6 +13,10 @@
 	var urlParams = new URLSearchParams(QueryString);
 
 	var runABTest = function (percentage) {
+		if (percentage === 101) {
+			testID = "Testing view: " + testID
+		}
+
 		AbTestRun(testID, testName, percentage);
 
 		if (((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) || (variationPercent == 101)) && (xcookie("AB tests").indexOf("false") == -1) || window.location.href.indexOf("evolvery") > -1) {

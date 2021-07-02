@@ -15,6 +15,12 @@
     var xpluses = /\+/g;
     var xconfig = {};
 
+    /*------ Params of tests ----------*/
+    var gaDimensionID = 3;
+    var gaPropertyID = 'UA-22952696-1';
+    /*--------------------------------*/
+
+
     function xisFunction(functionToCheck) {
         var getType = {};
         return functionToCheck && getType.toString.call(functionToCheck) === '[object Function]';
@@ -95,12 +101,6 @@
         return result;
     }
 
-
-    /*------ Params of tests ----------*/
-    var gaDimensionID = 3;
-    var gaPropertyID = 'UA-22952696-1';
-    /*--------------------------------*/
-
     // Ramdom integer from 1 to 100 
     var min = Math.ceil(1); // Start from 1% (more or equals)
     var max = Math.floor(101); //Finish with 100% (only less)
@@ -113,13 +113,13 @@
 
     if (xcookie("AB tests") == undefined) { //If cookie "AB tests" not exist
         if (randomValue > testPercent) { // Check or user will be in testing user scope
-            xcookie("AB tests", false, { expires: 180, path: '/', domain: '.azeta.lv' });
+            xcookie("AB tests", false, { expires: 180, path: '/', domain: '.ovoko.pl' });
         } else {
-            xcookie("AB tests", true, { expires: 180, path: '/', domain: '.azeta.lv' });
+            xcookie("AB tests", true, { expires: 180, path: '/', domain: '.ovoko.pl' });
         }
     }
     if (xcookie("AB tests") === 'false') {
-        xcookie("AB tests", true, { expires: 180, path: '/', domain: '.azeta.lv' });
+        xcookie("AB tests", true, { expires: 180, path: '/', domain: '.ovoko.pl' });
     }
 
     ga("create", gaPropertyID, { name: 'myTracker' });
@@ -140,11 +140,11 @@
 
         if (xcookie("AB tests") !== 'false') {
             if (xcookie("AB tests") === 'true') {
-                document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.azeta.lv;";
-                xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.azeta.lv' });
+                document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.ovoko.pl;";
+                xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.ovoko.pl' });
             }
             if ((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") == -1) & (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestOriginal + "]") == -1)) {
-                xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.azeta.lv' });
+                xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.ovoko.pl' });
             } else if (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) {
                 testDetails = testID + ' : ' + testName + ' - ' + ABtestVariation;
                 customData = "[" + testID + " : " + ABtestVariation + "]";
@@ -196,7 +196,7 @@
         console.log("testDetails-> Testing users\n");
     }
 
-  //console.log('AB tests value: ' + xcookie("AB tests"));
-  //console.log('------------------------------------------------------------------------------------');
+    //console.log('AB tests value: ' + xcookie("AB tests"));
+    //console.log('------------------------------------------------------------------------------------');
 
 </script>
