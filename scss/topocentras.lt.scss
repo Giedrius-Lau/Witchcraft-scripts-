@@ -1,92 +1,37 @@
-// .hidden-block {
-//     display: none;
+// .TopBlock-topBlock-1Ng .TopBlock-contentWrapper-1o3 .TopBlock-imageCarousel-dui {
+//     padding-bottom: 50px !important;
 // }
-// .MokiWidgets-leasingContainer-2Xd .MokiWidgets-separator-15t {
-//     display: none !important;
-// }
-// .leasing-buttons {
-//     display: flex;
-//     justify-content: space-between;
-// }
-// .mokiLizingas {
-//     margin-right: 15px;
-// }
-// .mokiLizingas,
-// .moki3 {
-//     width: 200px;
-//     height: 40px;
-//     background-color: #e1eaf3;
-//     cursor: pointer;
-//     border-radius: 0;
-//     background-repeat: no-repeat;
-//     background-size: 200px 28px;
-//     background-position: center;
-//     transition: 0.3s ease;
-//     border: 1px solid #e1eaf3;
 
-//     &:hover {
-//         border: 1px solid #3e69a9;
-//         border-radius: 0;
+// .specifikacija {
+//     position: absolute;
+//     bottom: 5px;
+//     right: 15px;
+//     border-bottom: 1px solid #0a509b;
+//     font-weight: 600;
+//     margin-bottom: 10px;
+
+//     &:hover,
+//     &:focus,
+//     &:active {
+//         border-bottom: 1px solid #f57e20;
+//     }
+
+//     @media (max-width: 767px) {
+//         font-size: 13px;
 //     }
 // }
-// .selected {
-//     background-color: #ffffff;
-// }
-// .sOuqeB._30YrLK ._1X1AIX,
-// .sOuqeB._2gNfp6 ._1X1AIX,
-// .sOuqeB.TR40G8 ._1X1AIX {
-//     height: 40px;
-// }
-// .sOuqeB {
-//     background: #ffffff !important;
-//     margin-top: -5px;
-// }
-// ._3K3wsr {
-//     background: #ffffff !important;
-// }
-// .mokiLizingasContainer,
-// .moki3Container {
-//     height: 180px;
+
+// .scrollToTop {
+//     align-items: center;
 //     background: #ffffff;
-//     padding-top: 20px;
-//     position: relative;
-// }
-// .suskleisti {
-//     position: absolute;
-//     bottom: 10px;
-//     left: 50%;
-//     transform: translate(-50%);
-//     font-size: 12px;
-//     color: #cc3e3e;
-//     cursor: pointer;
-// }
-// div.leasing-blocks > div.leasing-buttons > div.mokiLizingas > div,
-// div.leasing-blocks > div.leasing-buttons > div.mokiLizingas > div > div {
-//     height: initial;
-//     width: initial;
-//     margin: 0 !important;
-//     border-radius: 5px;
-//     background-color: transparent !important;
-//     height: 40px;
-//     pointer-events: none;
-// }
-// div.leasing-blocks > div.leasing-buttons > div.moki3 > div,
-// div.leasing-blocks > div.leasing-buttons > div.moki3.selected > div {
-//     width: 100%;
-//     height: 26px;
-//     margin-top: 8px;
-//     pointer-events: none;
-// }
-
-// // .LeasingLabelBlocks-labelBlock-2H4,
-// // .MokiWidgets-leasingContainer-2Xd .MokiWidgets-mokiLizingasWidget-V8o > div:first-child > div:first-child,
-// // ._3K3wsr {
-// //     display: none !important;
-// // }
-
-// .mokiLizingasContainer,
-// .moki3Container {
-//     height: 0;
-//     background: transparent;
-//     padding: 0 !important;
+//     border-radius: 50%;
+//     bottom: 90px;
+//     box-shadow: 0 3px 16px #0000001f, 0 2px 8px #00000033;
+//     display: flex;
+//     height: 64px;
+//     justify-content: center;
+//     position: fixed;
+//     right: 10px;
+//     width: 64px;
+//     z-index: 999;
 // }

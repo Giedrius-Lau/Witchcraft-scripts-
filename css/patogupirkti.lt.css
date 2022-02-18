@@ -1,0 +1,118 @@
+/* #am_search_container-2 .am_search_popup {
+    background-color: rgb(255, 255, 255);
+    right: 2px;
+}
+@media (max-width: 767px) {
+    #am_search_container-2 .am_search_popup {
+        margin: 0px !important;
+    }
+}
+#am_search_container-2 .am_search_popup .popup-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: rgb(40, 90, 52);
+    padding: 10px;
+}
+
+#am_search_container-2 .am_search_popup .popup-links {
+    padding: 0px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px) {
+    #am_search_container-2 .am_search_popup .popup-links {
+        padding: 0px 10px;
+    }
+}
+#am_search_container-2 .am_search_popup .popup-links a {
+    font-weight: 700;
+    color: rgb(255, 98, 45);
+    font-size: 12px;
+    border-right: 1px solid rgb(255, 98, 45);
+    padding-right: 12px;
+    text-align: center;
+    font-size: 10px;
+}
+
+#am_search_container-2 .am_search_popup .popup-links a:last-child {
+    border-right: 0px;
+    padding-right: 0px;
+}
+@media (max-width: 767px) {
+    #am_search_container-2 .am_search_popup .popup-links a {
+        font-size: 10px;
+        margin-right: 10px;
+    }
+}
+#am_search_container-2 .am_search_popup .popup-line {
+    border-top: 1px solid rgb(237, 237, 237);
+    margin: 20px 10px 10px 10px;
+}
+
+#am_search_container-2 .am_search_popup div.am_element > div {
+    display: flex;
+}
+@media (max-width: 767px) {
+    #am_search_container-2 .am_search_popup img {
+        max-height: none !important;
+    }
+
+    #am_search_container-2 .am_search_popup .popup-links a {
+        border-right: 0px;
+        padding-right: 0px;
+    }
+}
+.am_search_popup_inner {
+    background: rgb(255, 255, 255);
+}
+@media (max-width: 767px) {
+    .am_search_popup_inner {
+        max-height: 470px !important;
+    }
+
+    a.more_results {
+        font-size: 14px;
+        margin: 20px 0px;
+    }
+
+    a.soundest-form-wof-open {
+        position: fixed;
+        top: 80% !important;
+    }
+}
+.am_image > img {
+    border: 0px;
+}
+
+a.more_results {
+    border-top: 1px solid rgb(237, 237, 237);
+    margin: 0px 10px;
+    padding: 17px !important;
+}
+
+.am_search_popup_triangle {
+    margin-top: 11px;
+}
+
+.quick-search .input-group-addon .btn {
+    height: 41px;
+    width: 41px;
+    margin-right: -1px;
+}
+
+.product-with-button {
+    padding-bottom: 40px;
+}
+
+.product-with-button .btn-wrapper {
+    bottom: -20px !important;
+}
+
+.product .price-wrapper > strong {
+    color: rgb(255, 98, 45);
+    font-size: 17px;
+}
+
+#cart_form > div > div.row.mt30 > div.col-md-6.col-xs-12 > a {
+    display: none;
+} */

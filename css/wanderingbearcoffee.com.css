@@ -1,0 +1,22 @@
+/* .PDPForm-description ul,
+.PDPContent-description ul {
+    margin-top: 20px;
+    animation-name: abtest;
+    animation-duration: 0.5s;
+}
+
+.PDPContent-description ul li {
+    margin-bottom: 0;
+}
+
+@keyframes abtest {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 10;
+    }
+} */

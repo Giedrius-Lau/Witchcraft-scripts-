@@ -1,0 +1,61 @@
+/* div.AlgoliaFilters-wrapper > div > div.AlgoliaFilters-container > div.AlgoliaFilters-desktop {
+    display: none;
+}
+
+.AlgoliaFilters-desktop::-webkit-scrollbar {
+    height: 5px;
+}
+
+.AlgoliaFilters-desktop::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.AlgoliaFilters-desktop::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.AlgoliaFilters-desktop::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.AlgoliaFilters-desktop {
+    display: flex;
+    justify-content: space-between;
+    max-width: 82.5rem;
+    padding: 0 1.25rem 0.75rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@media print, screen and (min-width: 63.9375em) {
+    .AlgoliaFilters-desktop {
+        font-size: 1.75rem;
+        line-height: 2.75rem;
+        padding: 0 1.25rem 1.25rem;
+    }
+}
+
+.AlgoliaFilterLink {
+    display: flex;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+li.AlgoliaFilterLink-item {
+    margin-right: 20px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.AlgoliaFilterLink-item.is-refined,
+.AlgoliaFilterLink-item.is-refined .AlgoliaFilterLink-btn {
+    font-weight: 400;
+    text-decoration: underline;
+    color: #658088;
+}
+
+.AlgoliaFilterHeader-btnSort.desktop {
+    width: 200px;
+    height: 48px;
+    color: #333333;
+} */

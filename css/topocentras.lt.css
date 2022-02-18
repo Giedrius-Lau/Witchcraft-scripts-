@@ -1,0 +1,44 @@
+/* .TopBlock-topBlock-1Ng .TopBlock-contentWrapper-1o3 .TopBlock-imageCarousel-dui {
+    padding-bottom: 50px !important;
+}
+.specifikacija {
+    position: absolute;
+    bottom: 5px;
+    right: 15px;
+    border-bottom: 1px solid #0a509b;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.specifikacija:hover,
+.specifikacija:focus,
+.specifikacija:active {
+    border-bottom: 1px solid #f57e20;
+}
+@media (max-width: 767px) {
+    .specifikacija {
+        font-size: 13px;
+    }
+}
+.scrollToTop {
+    align-items: center;
+    border-radius: 50%;
+    bottom: 90px;
+    display: flex;
+    height: 64px;
+    justify-content: center;
+    position: fixed;
+    right: 10px;
+    width: 64px;
+    min-height: 64px;
+    z-index: 999;
+    background-image: url(https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,quality=80/media/wysiwyg/media21/back-to-top-button.png);
+    background-position: center;
+    background-size: 84px 86px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    transition: 0.1s ease;
+}
+
+.scrollToTop:hover {
+    background-image: url(https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,quality=80/media/wysiwyg/media21/back-to-top-button_hover.png);
+} */

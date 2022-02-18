@@ -1,44 +1,13 @@
-<script>
+<div class="row-1">
+	<h2>Added to Your Cart!</h2>
+	<div class="row-1-products">\
+		<div class="row-1-added-product">\
 
-	(function () {
-		/* ------------ Style changes ----------------- */
-		var css = "",
-			head = document.head || document.getElementsByTagName("head")[0],
-			style = document.createElement("style");
+		</div>
+		<div class="row-1-outfits">\
 
-		style.type = "text/css";
-		if (style.styleSheet) {
-			// This is required for IE8 and below.
-			style.styleSheet.cssText = css;
-		} else {
-			style.appendChild(document.createTextNode(css));
-		}
-		head.appendChild(style);
-		/* ------------ End of style changes ----------------- */
-		/* ------------ Code changes ----------------- */
-
-		function insertBefore(element, firstChild) {
-			firstChild.parentNode.insertBefore(element, firstChild);
-		}
-
-
-		function insertAfter(el, referenceNode) {
-			referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
-		}
-
-
-		var firstForm = document.querySelector('#step-1-form > div.mobile-row');
-		var secondForm = document.querySelector('#shipping-radios');
-
-		insertAfter(firstForm, secondForm);
-
-		var title = document.querySelector('body > div.site-wrapper > section > div:nth-child(2) > div.subpage-main.col-xs-100.col-lg-70.marginb96 > div');
-		var newPosition = document.querySelector('#step-1-form > div > div:nth-child(3)');
-
-		insertBefore(title, newPosition);
-
-	})();
-
-
-
-</script>
+		</div>
+	</div>
+</div>
+<div class="row-2"></div>
+<div class="row-3"></div>

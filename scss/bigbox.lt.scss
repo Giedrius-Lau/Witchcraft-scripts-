@@ -1,70 +1,85 @@
-// .category-item .shipping-label-container,
-// .category-item .label-preview-image,
-// .category-item .uleasing-price-container {
-//     display: none;
-// }
-// .category-item .new-labels {
+// .header-banner {
 //     position: absolute;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: start;
-//     align-items: start;
-// }
-// .category-item .new-labels > div {
-//     width: 25px;
-//     height: 22px;
-//     border: 1px solid #dddddd;
-//     background-repeat: no-repeat;
-//     background-position: center;
-//     position: relative;
-//     border-right: 0;
-//     margin-top: 10px;
-// }
-// .category-item .new-labels > div:after {
-//     content: '';
-//     top: 2px;
-//     right: -8px;
-//     height: 16px;
-//     width: 15px;
-//     position: absolute;
-//     border-top: #dddddd solid 1px;
-//     border-left: #dddddd solid 1px;
-//     transform: rotate(135deg);
-// }
-// .category-item .new-labels > div:hover .label-information {
-//     opacity: 1;
-// }
-// .category-item .new-labels .label-information {
-//     position: absolute;
-//     top: 0;
-//     left: 38px;
+//     top: 90px;
+//     width: 100%;
+//     height: 50px;
+//     margin: 0 auto;
+//     left: 50%;
+//     transform: translate(-50%);
+//     z-index: 5610;
 //     background: #ffffff;
-//     width: max-content;
-//     text-align: left;
-//     min-height: 22px;
 //     display: flex;
-//     flex-direction: column;
 //     justify-content: center;
-//     padding: 2px 5px;
-//     box-shadow: 0 0 6px #00000038;
-//     z-index: 1;
-//     opacity: 0;
-//     pointer-events: none;
-//     transition: 0.1s ease-in-out;
+//     align-items: center;
+//     box-shadow: 0 1px 1px #e7e7e7;
+
+//     &.banner-sticky {
+//         position: fixed;
+//         top: 70px;
+//     }
+
+//     .owl-prev,
+//     .owl-next {
+//         display: none !important;
+//     }
+
+//     .banner-item {
+//         padding: 0 30px;
+//         border-right: 1px solid #e3e3e3;
+//         display: flex;
+//         align-items: center;
+//         width: 300px;
+
+//         img {
+//             margin-right: 15px;
+//             width: 33px;
+//         }
+
+//         span {
+//             color: #838f98;
+//             display: block;
+//         }
+//     }
+
+//     div:nth-child(4) {
+//         border-right: 0;
+//     }
 // }
-// .category-item .new-labels .label-dpd {
-//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/dpd_logo-removebg-preview+1.svg');
+
+// .columns-container {
+//     margin-top: 50px;
 // }
-// .category-item .new-labels .label-ziticity {
-//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/wide-logo.svg');
+
+// .sticky-price-container {
+//     top: 130px;
 // }
-// .category-item .new-labels .label-sandelyje {
-//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/Icon+awesome-check-circle.svg');
+
+// @media (max-width: 767px) {
+//     .header-banner {
+//         display: block;
+
+//         .banner-item {
+//             border-right: 0;
+//             width: 100%;
+//             height: 50px;
+//             justify-content: center;
+//         }
+//     }
+
+//     .columns-container {
+//         margin-top: 70px;
+//     }
 // }
-// .category-item .new-labels .label-shipping {
-//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/delivery-truck.svg');
-// }
-// .category-item .new-labels .label-leasing {
-//     background-image: url('https://semexit.s3-eu-west-1.amazonaws.com/BigBox/LIZINGAS.svg');
-//     width: 60px;
+
+// @media (min-width: 768px) and (max-width: 1024px) {
+//     .header-banner .banner-item {
+//         padding: 0 15px;
+//     }
+//     .header-banner .banner-item span {
+//         font-size: 10px;
+//         line-height: 11px;
+//     }
+//     .header-banner .banner-item img {
+//         width: 23px;
+//     }
 // }

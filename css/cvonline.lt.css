@@ -1,0 +1,42 @@
+/* .jsx-2111983364.form-container-hidden,
+.jsx-439795490.apply-form-buttons {
+    display: block !important;
+}
+.jsx-439795490 {
+    display: none;
+}
+.input-text__field.jsx-2823573103 {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+    height: 48px;
+    padding-top: 13px;
+}
+.input-text__field.jsx-2823573103:active,
+.input-text__field.jsx-2823573103:focus {
+    height: 250px;
+}
+div.jsx-2111983364.form-buttons > span:nth-child(2) > button.disabled {
+    background: #f2f1f6;
+    color: #acabb1;
+    font-weight: 400;
+}
+div.jsx-2111983364.form-buttons > span:nth-child(2) > button.disabled::before {
+    display: none;
+}
+.btn.jsx-3475526473::before {
+    z-index: -1;
+}
+.jsx-2111983364 {
+    animation-name: abtest;
+    animation-duration: 0.5s;
+}
+@keyframes abtest {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 10;
+    }
+} */

@@ -1,0 +1,63 @@
+/* .AlgoliaFilterLink {
+    display: flex;
+}
+
+.AlgoliaFilterLink-item.is-refined,
+.AlgoliaFilterLink-item.is-refined .AlgoliaFilterLink-btn {
+    font-weight: 400;
+    text-decoration: underline;
+    color: #658088;
+}
+
+.AlgoliaFilterLink .AlgoliaFilterLink-item {
+    margin-right: 20px;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.Algolia-collectionHeader {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.AlgoliaFilterHeader-btnSort.desktop {
+    margin-left: auto;
+    width: 270px;
+    width: 360px;
+    display: flex !important;
+}
+
+.AlgoliaFilters-desktop {
+    margin-left: 20px;
+    margin-right: 10px;
+    position: static;
+    left: 180px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    width: auto;
+}
+
+@media (min-width: 1440px) {
+    .AlgoliaFilters-desktop {
+        position: static;
+        left: 190px;
+        width: auto;
+    }
+}
+
+.AlgoliaFilters-desktop::-webkit-scrollbar {
+    height: 5px;
+}
+
+.AlgoliaFilters-desktop::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.AlgoliaFilters-desktop::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.AlgoliaFilters-desktop::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} */

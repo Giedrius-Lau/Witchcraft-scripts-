@@ -9,17 +9,26 @@
         box-shadow: 0 0 20px #00000066;
         border-radius: 5px;
     }
+
+    .close-button {
+        text-align: right;
+        margin-top: -15px;
+        margin-right: -7px;
+        margin-bottom: -10px;
+    }
 </style>
 <script>
-    var developmentON = true;
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+</script>
+<script>
+    var developmentON = document.querySelector('.__TAG_ASSISTANT_BADGE') ? true : false;
     var xpluses = /\+/g;
     var xconfig = {};
-
-    /*------ Params of tests ----------*/
-    var gaDimensionID = 3;
-    var gaPropertyID = 'UA-22952696-1';
-    /*--------------------------------*/
-
 
     function xisFunction(functionToCheck) {
         var getType = {};
@@ -101,6 +110,12 @@
         return result;
     }
 
+
+    /*------ Params of tests ----------*/
+    var gaDimensionID = 1;
+    var gaPropertyID = 'UA-86291914-1';
+    /*--------------------------------*/
+
     // Ramdom integer from 1 to 100 
     var min = Math.ceil(1); // Start from 1% (more or equals)
     var max = Math.floor(101); //Finish with 100% (only less)
@@ -113,13 +128,13 @@
 
     if (xcookie("AB tests") == undefined) { //If cookie "AB tests" not exist
         if (randomValue > testPercent) { // Check or user will be in testing user scope
-            xcookie("AB tests", false, { expires: 180, path: '/', domain: '.ovoko.pl' });
+            xcookie("AB tests", false, { expires: 180, path: '/', domain: '.accdistribution.net' });
         } else {
-            xcookie("AB tests", true, { expires: 180, path: '/', domain: '.ovoko.pl' });
+            xcookie("AB tests", true, { expires: 180, path: '/', domain: '.accdistribution.net' });
         }
     }
     if (xcookie("AB tests") === 'false') {
-        xcookie("AB tests", true, { expires: 180, path: '/', domain: '.ovoko.pl' });
+        xcookie("AB tests", true, { expires: 180, path: '/', domain: '.accdistribution.net' });
     }
 
     ga("create", gaPropertyID, { name: 'myTracker' });
@@ -140,11 +155,11 @@
 
         if (xcookie("AB tests") !== 'false') {
             if (xcookie("AB tests") === 'true') {
-                document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.ovoko.pl;";
-                xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.ovoko.pl' });
+                document.cookie = "AB%20tests=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.accdistribution.net;";
+                xcookie("AB tests", experimentData, { expires: 180, path: '/', domain: '.accdistribution.net' });
             }
             if ((xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") == -1) & (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestOriginal + "]") == -1)) {
-                xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.ovoko.pl' });
+                xcookie("AB tests", xcookie("AB tests") + " === " + experimentData, { expires: 180, path: '/', domain: '.accdistribution.net' });
             } else if (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) {
                 testDetails = testID + ' : ' + testName + ' - ' + ABtestVariation;
                 customData = "[" + testID + " : " + ABtestVariation + "]";
@@ -158,23 +173,27 @@
         if (xcookie("AB tests") !== 'false') {
             ga('myTracker.set', 'dimension' + gaDimensionID, xcookie("AB tests"));
             ga('myTracker.send', 'event', 'AB tests', 'Variation delivered', testDetails, { nonInteraction: true }); //must be called in order to deliver custom VAR data to GA
-            console.log("Test ID -> " + customData + "\n");
+            // console.log("Test ID -> " + customData + "\n");
 
         }
 
+        // Development notification
         if (developmentON === true) {
-
             if (!document.querySelector('.config-block')) {
                 var newBlock = document.createElement('div');
                 newBlock.setAttribute('class', 'config-block');
+                newBlock.innerHTML = '<div class="close-button">x</div>';
                 document.querySelector('body').append(newBlock);
             }
 
+            document.querySelector('.close-button').addEventListener('click', function () {
+                document.querySelector('.config-block').remove();
+            });
+
             var additionalBlock = document.createElement('div');
 
-            if (xcookie("AB tests") !== 'false') {
-                if (xcookie("AB tests").indexOf("[" + testID + " : " + ABtestVariation + "]") != -1) {
-
+            if (xcookie('AB tests') !== 'false') {
+                if (xcookie('AB tests').indexOf('[' + testID + ' : ' + ABtestVariation + ']') != -1) {
                     additionalBlock.innerHTML = '<p style="color: #009688;font-weight: 600;">' + testID + ' : ' + ABtestVariation + '</p>';
                     document.querySelector('.config-block').append(additionalBlock);
                 } else {
@@ -184,16 +203,17 @@
             }
         }
 
+
     }
 
     if (xcookie("AB tests") === 'false') {
         ga('myTracker.set', 'dimension' + gaDimensionID, xcookie("AB tests"));
         ga('myTracker.send', 'event', 'AB tests', 'No testing users', '', { nonInteraction: true }); //must be called in order to deliver custom VAR data to GA
-        console.log("testDetails-> No testing users\n");
+        // console.log("testDetails-> No testing users\n");
     } else if (xcookie("AB tests") === 'true') {
         ga('myTracker.set', 'dimension' + gaDimensionID, xcookie("AB tests"));
         ga('myTracker.send', 'event', 'AB tests', 'Testing users', '', { nonInteraction: true }); //must be called in order to deliver custom VAR data to GA
-        console.log("testDetails-> Testing users\n");
+        // console.log("testDetails-> Testing users\n");
     }
 
     //console.log('AB tests value: ' + xcookie("AB tests"));
