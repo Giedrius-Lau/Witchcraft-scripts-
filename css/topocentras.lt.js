@@ -11,17 +11,24 @@
 //         scrollToTop.setAttribute('class', 'scrollToTop');
 
 //         leftBlock.append(specifikacija);
-//         main.append(scrollToTop);
+
+//         if (!document.querySelector('.scrollToTop')) {
+//             main.append(scrollToTop);
+//         }
+
 //         var y = $(this).scrollTop();
 //         if (y < 850) {
 //             $('.scrollToTop').hide();
 //         } else {
 //             $('.scrollToTop').show();
+//             document.querySelector('.scrollToTop').addEventListener('click', function () {
+//                 console.log('click1');
+
+//                 $('html, body').animate({ scrollTop: 0 }, 'slow');
+//                 return false;
+//             });
 //         }
-//         document.querySelector('.scrollToTop').addEventListener('click', function () {
-//             $("html, body").animate({ scrollTop: 0 }, "slow");
-//             return false;
-//         });
+
 //         clearInterval(productInterval);
 //     }
 // }, 300);
@@ -32,5 +39,10 @@
 //         $('.scrollToTop').hide();
 //     } else {
 //         $('.scrollToTop').show();
+//         document.querySelector('.scrollToTop').addEventListener('click', function () {
+//             console.log('click2');
+//             $('html, body').animate({ scrollTop: 0 }, 'slow');
+//             return false;
+//         });
 //     }
 // });

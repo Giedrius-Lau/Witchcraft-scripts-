@@ -1,5 +1,19 @@
 var bundles = [
     {
+        id: 989311,
+        title: 'TV and Sports',
+        price: '9.99 €',
+        description: [
+            { title: 'More than 30 local and foreign TV channels' },
+            { title: 'TV3 sport, Setanta, NBA TV' },
+            { title: 'Live stream for events' },
+            { title: 'Sport documentaries' },
+            { title: 'Up to 7 day catch-up' },
+        ],
+        addons: [{ 2935377: '& discovery+' }, { 2218494: '& Turinys suaugusiems' }, { 3411405: '& NBA' }],
+        subscribe: 'Subscribe',
+    },
+    {
         id: 989321,
         title: 'Films',
         price: '6.99 €',
@@ -13,25 +27,43 @@ var bundles = [
             { title: 'Kids content' },
             { title: 'Early access to local shows' },
         ],
+        addons: [{ 2935377: '& discovery+' }, { 2218494: '& Turinys suaugusiems' }, { 3411405: '& NBA' }],
+        subscribe: 'Subscribe',
+    },
+    {
+        id: 2935376,
+        title: 'Films',
+        price: '9.98 €',
+        includes: 'Includes Paramount+ & Go3 Originals',
+        plus: ['& discovery+'],
+        description: [
+            { title: 'Paramount+: Paramount Pictures movies, CBS/ShowTime TV series, Comedy Central, Nickelodeon animation, MTV reality shows and more' },
+            { title: 'Go3 originals' },
+            { title: 'Disney blockbusters' },
+            { title: 'Premium channels for movies' },
+            { title: 'Latest movies & series' },
+            { title: 'Kids content' },
+            { title: 'Early access to local shows' },
+        ],
+        addons: [{ 2935377: '& discovery+' }, { 2218494: '& Turinys suaugusiems' }, { 3411405: '& NBA' }],
+        subscribe: 'Subscribe',
     },
     {
         id: 989319,
         title: 'TV',
-        price: '7.99 € / month',
-        description: {
-            1: '7 day catch-up',
-            2: 'More than 30 local and foreign TV channels',
-        },
+        price: '7.99 €',
+        description: [{ title: '7 day catch-up' }, { title: 'More than 30 local and foreign TV channels' }],
+        addons: [{ 2935377: '& discovery+' }, { 2218494: '& Turinys suaugusiems' }, { 3411405: '& NBA' }],
+        subscribe: 'Subscribe',
     },
+
     {
         id: 989317,
         title: 'Sports',
-        price: '6.99 € / month',
-        description: {
-            1: 'TV3 sport, Setanta, NBA TV',
-            2: 'Live streams for events',
-            3: 'Sports documentaries',
-        },
+        price: '6.99 €',
+        description: [{ title: 'TV3 sport, Setanta, NBA TV' }, { title: 'Live streams for events' }, { title: 'Sports documentaries' }],
+        addons: [{ 2935377: '& discovery+' }, { 2218494: '& Turinys suaugusiems' }, { 3411405: '& NBA' }],
+        subscribe: 'Subscribe',
     },
 ];
 
@@ -67,7 +99,9 @@ var getProductBundleIds = function (href) {
     var url;
 
     if (serialPage) {
-        url = 'https://go3.lt/api/products/vods/serials/' + mediaId + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
+        var serialId = pageUrl.match(/\bserial-\b.[0-9]+/)[0];
+        var extractedNumbersFormSeries = serialId.match(/[0-9]+/);
+        url = 'https://go3.lt/api/products/vods/serials/' + extractedNumbersFormSeries + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
     }
 
     if (videoPage) {
@@ -75,8 +109,9 @@ var getProductBundleIds = function (href) {
     }
 
     if (livePage) {
-        var liveTvMediaId = pageUrl.match(/\d{6}/);
-        url = 'https://go3.lt/api/products/lives/' + liveTvMediaId + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
+        var liveTvMediaId = pageUrl.match(/\blive-\b.[0-9]+/)[0];
+        var extractedNumbers = liveTvMediaId.match(/[0-9]+/);
+        url = 'https://go3.lt/api/products/lives/' + extractedNumbers + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
     }
 
     getJSON(url, function (err, data) {
@@ -95,7 +130,7 @@ var getProductBundleIds = function (href) {
             }
 
             console.table(bundles);
-            console.log(data);
+            // console.log(data);
             pageBundleId = bundleIds;
             localStorage.setItem('bundleIds', '[' + bundleIds + ']');
             // window.location = 'https://go3.lt/subscriber/register';
@@ -104,35 +139,54 @@ var getProductBundleIds = function (href) {
 };
 
 var generateModal = function () {
+    pageBundleId = '';
     getProductBundleIds();
-    var filteredBundles;
+
     var interval = window.setInterval(function () {
-        if (pageBundleId) {
-            console.log(pageBundleId);
-            pageBundleId.forEach(function (id) {
-                filteredBundles = bundles.filter((bundle) => bundle.id == id);
-            });
+        if (pageBundleId && !document.querySelector('.ab-test-modal')) {
+            clearInterval(interval);
+
+            var filteredBundles = [];
+            var splittedPageBundleIds = pageBundleId.split(',');
+
+            for (let index = 0; index < splittedPageBundleIds.length; index++) {
+                const splittedBundleId = splittedPageBundleIds[index];
+
+                for (let index = 0; index < bundles.length; index++) {
+                    const bundleId = bundles[index];
+
+                    if (splittedBundleId == bundleId.id) {
+                        filteredBundles.push(bundleId);
+                        break;
+                    }
+                }
+            }
 
             var includes = filteredBundles[0].includes && filteredBundles[0].includes;
             var title = filteredBundles[0].title;
+            var plus = filteredBundles[0].plus && filteredBundles[0].plus;
             var price = filteredBundles[0].price;
             var description = filteredBundles[0].description;
+            var subscribe = filteredBundles[0].subscribe;
 
             var modal = document.createElement('div');
             modal.setAttribute('class', 'ab-test-modal');
             modal.innerHTML =
                 '<div class="modal-overflow"></div><div class="modal-inner"> ' +
-                (includes && '<div class="modal-includes">' + includes + '</div>') +
+                (!!includes ? '<div class="modal-includes">' + includes + '</div>' : '') +
                 ' <div class="modal-close"></div><div class="modal-recommended">RECOMMENDED PLAN</div>' +
                 '<div class="modal-title">' +
                 title +
                 '</div>' +
+                (!!plus ? '<div class="modal-plus">' + plus + '</div>' : '') +
                 '<div class="modal-price">' +
                 price +
                 '<span class="modal-price-month"> / month</span>' +
                 '</div>' +
                 '<div class="c-feature__column"></div>' +
-                '<button class="o-button o-button--primary modal-subscribe-button"> <span class="o-typography__label o-button__label u-bold"> Subscribe </span> </button>';
+                '<button class="o-button o-button--primary modal-subscribe-button"> <span class="o-typography__label o-button__label u-bold"> ' +
+                subscribe +
+                ' </span> </button>';
 
             document.querySelector('body').append(modal);
             var modalList = document.querySelector('.ab-test-modal .c-feature__column');
@@ -160,48 +214,55 @@ var generateModal = function () {
                 document.querySelector('.ab-test-modal').remove();
                 window.location = 'https://go3.lt/subscriber/register';
             });
-
-            clearInterval(interval);
         }
     }, 200);
 };
 
 // Interval for movies
 
-if (window.location.href.indexOf('movies') > -1) {
-    console.log('movies');
+setInterval(() => {
+    if (window.location.href.indexOf('movies') > -1) {
+        console.log('movies');
 
-    var interval = window.setInterval(() => {
         var buttonContainer = document.querySelector(' div.c-highlight__wrapper > div.c-highlight__buttons ');
 
-        if (buttonContainer) {
-            clearInterval(interval);
+        if (buttonContainer && !document.querySelector('.changed-button')) {
+            buttonContainer.classList.add('changed-button');
 
-            var newButton = document.createElement('div');
-            newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
-            newButton.innerHTML = 'WATCH <div class="arrow-right"></div>';
+            if (buttonContainer.querySelector('.o-button--primary') && buttonContainer.querySelector('.o-button--primary').textContent.includes('BUY')) {
+                buttonContainer.querySelector('.o-button--primary').remove();
 
-            buttonContainer.prepend(newButton);
-            var newAddedButton = document.querySelector('.ab-test-button');
+                var newButton = document.createElement('div');
+                newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
+                newButton.innerHTML = 'WATCH <div class="arrow-right"></div>';
 
-            newAddedButton.addEventListener('click', function () {
-                getProductBundleIds();
-                generateModal();
-            });
+                buttonContainer.prepend(newButton);
+                var newAddedButton = document.querySelector('.ab-test-button');
+
+                newAddedButton.addEventListener('click', function () {
+                    getProductBundleIds();
+                    generateModal();
+                });
+            }
         }
-    }, 500);
-}
+    }
+}, 500);
 
 // Interval for series
 
-if (window.location.href.indexOf('series') > -1) {
-    console.log('series');
-
-    var interval = window.setInterval(() => {
+setInterval(() => {
+    if (
+        window.location.href.indexOf('series') > -1 ||
+        window.location.href.indexOf('go3_extra') > -1 ||
+        window.location.href.indexOf('ghost') > -1 ||
+        window.location.href.indexOf('discoveryplus') > -1
+    ) {
+        console.log('series');
         var buttonContainer = document.querySelector(' div.c-highlight__wrapper > div.c-highlight__buttons ');
 
-        if (buttonContainer) {
-            clearInterval(interval);
+        if (buttonContainer && !document.querySelector('.changed-button')) {
+            buttonContainer.classList.add('changed-button');
+
             var additionalSeriesBlocks = document.querySelectorAll(
                 '#app > div.app-container > div > section.c-section.c-section--two-lines > div > div.c-section__container.js-section-container > div.c-section__wrapper > div'
             );
@@ -232,31 +293,35 @@ if (window.location.href.indexOf('series') > -1) {
                 });
             }
         }
-    }, 500);
-}
+    }
+}, 500);
 
 // Interval for live tv
 
-if (window.location.href.indexOf('live_tv') > -1) {
-    console.log('live tv');
+setInterval(() => {
+    if (window.location.href.indexOf('live_tv') > -1) {
+        console.log('live tv');
 
-    var interval = window.setInterval(() => {
         var buttonContainer = document.querySelector('div.c-live-detail__preview.c-live-detail__preview--channel > div.c-live-detail__cover.u-desktop-only');
+        var buttonContainerMobile = document.querySelector('a.is-selected.js-current-program > div.c-epg-program-detail.u-mobile-only > div');
 
-        if (buttonContainer) {
-            clearInterval(interval);
+        if (buttonContainer && !document.querySelector('.changed-button')) {
+            buttonContainer.classList.add('changed-button');
 
             var newButton = document.createElement('div');
             newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
             newButton.innerHTML = 'WATCH <div class="arrow-right"></div>';
 
             buttonContainer.prepend(newButton);
-            var newAddedButton = document.querySelector('.ab-test-button');
+            buttonContainerMobile.prepend(newButton.cloneNode(true));
+            var newAddedButtons = document.querySelectorAll('.ab-test-button');
 
-            newAddedButton.addEventListener('click', function () {
-                getProductBundleIds();
-                generateModal();
+            newAddedButtons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    getProductBundleIds();
+                    generateModal();
+                });
             });
         }
-    }, 500);
-}
+    }
+}, 500);

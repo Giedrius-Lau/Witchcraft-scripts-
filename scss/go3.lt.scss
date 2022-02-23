@@ -21,6 +21,14 @@
         z-index: 10000;
         border-radius: 5px;
         font-family: Lato, sans-serif;
+        margin: 15px;
+
+        @media (max-width: 500px) {
+            width: 96%;
+            left: 48%;
+            margin: 2%;
+            z-index: 2147483640;
+        }
 
         .modal-includes {
             position: absolute;
@@ -78,6 +86,13 @@
             margin: 5px 0 7px;
         }
 
+        .modal-plus {
+            margin-bottom: 10px;
+            text-align: center;
+            margin-top: -10px;
+            font-size: 14px;
+        }
+
         .modal-price {
             text-align: center;
             font-weight: 800;
@@ -113,9 +128,9 @@
     }
 }
 
-div.c-highlight__buttons > .o-button.o-button--primary {
-    display: none;
-}
+// div.c-highlight__buttons > .o-button.o-button--primary {
+//     display: none;
+// }
 
 div.c-highlight__buttons > .o-button.o-button--primary.ab-test-button {
     height: 40px;
@@ -123,6 +138,7 @@ div.c-highlight__buttons > .o-button.o-button--primary.ab-test-button {
     display: block;
     line-height: 22px;
     display: flex;
+    margin-left: 20px;
 }
 
 .arrow-right {
@@ -153,6 +169,13 @@ div.c-highlight__buttons > .o-button.o-button--primary.ab-test-button {
         opacity: 0.5;
         transition: 0.2s ease;
 
+        @media (max-width: 767px) {
+            width: 30px;
+            height: 30px;
+            border: 2px solid;
+            top: 30px;
+        }
+
         &:hover {
             opacity: 1;
         }
@@ -165,6 +188,12 @@ div.c-highlight__buttons > .o-button.o-button--primary.ab-test-button {
             border-left: 20px solid white;
             margin-left: 4px;
             margin-top: 0;
+
+            @media (max-width: 767px) {
+                border-top: 5px solid transparent;
+                border-bottom: 5px solid transparent;
+                border-left: 10px solid white;
+            }
         }
     }
 }
@@ -186,5 +215,19 @@ div.c-live-detail__preview.c-live-detail__preview--channel > div.c-live-detail__
         span {
             display: none;
         }
+    }
+}
+
+.is-selected.js-current-program > div.c-epg-program-detail.u-mobile-only > div > div.o-button.o-button--overlay {
+    display: none;
+}
+
+.c-epg-program-detail__cover {
+    .ab-test-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 150px;
     }
 }
