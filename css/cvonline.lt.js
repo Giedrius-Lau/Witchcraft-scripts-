@@ -2,7 +2,6 @@
 //     var vacancyViews = document.querySelectorAll('span#vacancyViews');
 
 //     if (vacancyViews.length) {
-//         clearInterval(onlineInterval);
 //         vacancyViews.forEach(function (item) {
 //             if (!item.classList.contains('abtest')) {
 //                 item.classList.add('abtest');
@@ -11,4 +10,4 @@
 //             }
 //         });
 //     }
-// }, 500);
+// }, 1000);
