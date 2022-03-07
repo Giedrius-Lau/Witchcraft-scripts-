@@ -208,7 +208,8 @@ var getProductBundleIds = function () {
                     bundleIds += bundles[i].id;
                 }
             }
-            console.log(bundleIds);
+
+            localStorage.setItem('bundleIds', '[2958734,2935377]');
 
             if (bundleIds == '989311,989317,989318,989339,2958734') {
                 localStorage.setItem('bundleIds', '[2958734,2935377,3411405]');
@@ -218,7 +219,7 @@ var getProductBundleIds = function () {
                 localStorage.setItem('bundleIds', '[2958734,2935377,2218494]');
             }
 
-            localStorage.setItem('bundleIds', '[2958734,2935377]');
+            pageBundleId = bundleIds;
         }
     });
 };
@@ -244,44 +245,25 @@ var generateModal = function () {
 
         if (pageBundleId && !document.querySelector('.ab-test-modal')) {
             clearInterval(interval);
-
-            // var filteredBundles = [];
-            // var splittedPageBundleIds = pageBundleId.split(',');
-
-            // for (let index = 0; index < splittedPageBundleIds.length; index++) {
-            //     const splittedBundleId = splittedPageBundleIds[index];
-
-            //     for (let index = 0; index < bundlesByLanguage.length; index++) {
-            //         const bundleId = bundlesByLanguage[index];
-
-            //         if (splittedBundleId == bundleId.id) {
-            //             filteredBundles.push(bundleId);
-            //             break;
-            //         }
-            //     }
-            // }
-
-            // if (!filteredBundles.length) {
-            //     filteredBundles[0] = bundlesByLanguage[2];
-            // }
-
-            console.log(bundlesByLanguage);
-            console.log(pageBundleId);
-
             var price = bundlesByLanguage.price;
-            var title5;
+            var title5Placeholder = '<span hidden>';
 
             if (pageBundleId == 2218494) {
-                console.log('adult content')
                 price = bundlesByLanguage.adultContent.price;
-                title5 = bundlesByLanguage.adultContent.title;
+                var title5 = bundlesByLanguage.adultContent.title;
+                title5Placeholder =
+                    '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                    title5 +
+                    '</span></div>';
             }
 
             if (pageBundleId == '989311,989317,989318,989339,2958734') {
-                console.log('NBA content')
                 price = bundlesByLanguage.nbaContent.price;
-                title5 = bundlesByLanguage.nbaContent.title;
-
+                var title5 = bundlesByLanguage.nbaContent.title;
+                title5Placeholder =
+                    '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                    title5 +
+                    '</span></div>';
             }
 
             var topInBaltics = bundlesByLanguage.topInBaltics;
@@ -314,7 +296,7 @@ var generateModal = function () {
                 tvChannelsIncluded +
                 '</div>' +
                 '<div class="c-feature__column">' +
-                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--gift"></i><span class="o-typography__subtitle3 c-feature__label">' +
                 discoveryFree +
                 '</span></div>' +
                 '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
@@ -329,9 +311,7 @@ var generateModal = function () {
                 '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
                 title4 +
                 '</span></div>' +
-                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
-                title5 +
-                '</span></div>' +
+                title5Placeholder +
                 '</div>' +
                 '<button class="o-button o-button--primary modal-subscribe-button"> <span class="o-typography__label o-button__label u-bold"> ' +
                 startWatchingNow +
@@ -341,7 +321,6 @@ var generateModal = function () {
                 '</div>';
 
             document.querySelector('body').append(modal);
-
 
             var modalCloseButton = document.querySelector('.modal-close');
             var modalOverflow = document.querySelector('.modal-close, .modal-overflow ');

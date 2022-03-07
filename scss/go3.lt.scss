@@ -115,6 +115,14 @@
                 font-weight: 600;
                 margin-bottom: 10px;
             }
+
+            .o-icon--gift {
+                background-image: url(https://semexit.s3.eu-west-1.amazonaws.com/go3/gift.svg);
+                width: 20px;
+                height: 20px;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
         }
 
         .o-button--primary {
