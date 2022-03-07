@@ -1,194 +1,123 @@
-var bundlesLt = [
-    {
-        id: 989311,
-        title: 'TV ir sportas',
-        price: '9.99 €',
-        description: [
-            { title: 'Daugiau nei 35 lietuviškų ir užsienietiškų TV kanalų' },
-            { title: 'TV3 sport, Setanta, NBA TV' },
-            { title: 'Tiesioginės transliacijos' },
-            { title: 'Sporto dokumentika' },
-            { title: 'Archyvas iki 7 d.' },
-        ],
-        subscribe: 'Prenumeruoti',
-    },
-    {
-        id: 989321,
-        title: 'Filmai',
-        price: '6.99 €',
-        includes: 'Įtrauktas Paramount+ ir Go3 originalus turinys',
-        description: [
-            { title: 'Paramount+: Paramount Pictures filmai, CBS/ShowTime serialai, Comedy Central, Nickelodeon animacija, MTV realybės šou ir dar daugiau' },
-            { title: 'Go3 originalus turinys' },
-            { title: 'Disney filmai' },
-            { title: 'Populiarūs filmų kanalai' },
-            { title: 'Naujausi filmai ir serialai' },
-            { title: 'Turinys vaikams' },
-            { title: 'Lietuviškos laidos pasirodo anksčiau nei per TV' },
-        ],
-        subscribe: 'Prenumeruoti',
-    },
-    {
-        id: 2935376,
-        title: 'Filmai',
-        price: '6.99 €',
-        includes: 'Įtrauktas Paramount+ ir Go3 originalus turinys',
-        plus: ['& discovery+'],
-        description: [
-            { title: 'Paramount+: Paramount Pictures filmai, CBS/ShowTime serialai, Comedy Central, Nickelodeon animacija, MTV realybės šou ir dar daugiau' },
-            { title: 'Go3 originalus turinys' },
-            { title: 'Disney filmai' },
-            { title: 'Populiarūs filmų kanalai' },
-            { title: 'Naujausi filmai ir serialai' },
-            { title: 'Turinys vaikams' },
-            { title: 'Lietuviškos laidos pasirodo anksčiau nei per TV' },
-        ],
-        subscribe: 'Prenumeruoti',
-    },
-    {
-        id: 989319,
-        title: 'TV',
-        price: '7.99 €',
-        description: [{ title: 'Archyvas iki 7 d.' }, { title: 'Daugiau nei 25 lietuviški ir užsienietiški TV kanalai' }],
-        subscribe: 'Prenumeruoti',
-    },
-    {
-        id: 989317,
-        title: 'Sports',
-        price: '6.99 €',
-        description: [{ title: 'TV3 sport, Setanta, NBA TV' }, { title: 'Tiesioginės transliacijos' }, { title: 'Sporto dokumentika' }],
-        subscribe: 'Prenumeruoti',
-    },
-];
+var bundlesLt = {
+    topInBaltics: 'TOP BALTIJOS ŠALYSE',
+    allInclusive: 'Viskas įskaičiuota',
+    price: '14,99 Eur / mėn.',
+    tvChannelsIncluded: 'Įtraukta TV kanalų (49)',
+    discoveryFree: 'Discovery+ NEMOKAMAI',
 
-var bundlesEn = [
-    {
-        id: 989311,
-        title: 'TV and Sports',
-        price: '9.99 €',
-        description: [
-            { title: 'More than 30 local and foreign TV channels' },
-            { title: 'TV3 sport, Setanta, NBA TV' },
-            { title: 'Live stream for events' },
-            { title: 'Sport documentaries' },
-            { title: 'Up to 7 day catch-up' },
-        ],
-        subscribe: 'Subscribe',
-    },
-    {
-        id: 989321,
-        title: 'Films',
-        price: '6.99 €',
-        includes: 'Includes Paramount+ & Go3 Originals',
-        description: [
-            { title: 'Paramount+: Paramount Pictures movies, CBS/ShowTime TV series, Comedy Central, Nickelodeon animation, MTV reality shows and more' },
-            { title: 'Go3 originals' },
-            { title: 'Disney blockbusters' },
-            { title: 'Premium channels for movies' },
-            { title: 'Latest movies & series' },
-            { title: 'Kids content' },
-            { title: 'Early access to local shows' },
-        ],
-        subscribe: 'Subscribe',
-    },
-    {
-        id: 2935376,
-        title: 'Films',
-        price: '9.98 €',
-        includes: 'Includes Paramount+ & Go3 Originals',
-        plus: ['& discovery+'],
-        description: [
-            { title: 'Paramount+: Paramount Pictures movies, CBS/ShowTime TV series, Comedy Central, Nickelodeon animation, MTV reality shows and more' },
-            { title: 'Go3 originals' },
-            { title: 'Disney blockbusters' },
-            { title: 'Premium channels for movies' },
-            { title: 'Latest movies & series' },
-            { title: 'Kids content' },
-            { title: 'Early access to local shows' },
-        ],
-        subscribe: 'Subscribe',
-    },
-    {
-        id: 989319,
-        title: 'TV',
-        price: '7.99 €',
-        description: [{ title: '7 day catch-up' }, { title: 'More than 30 local and foreign TV channels' }],
-        subscribe: 'Subscribe',
-    },
+    title1: 'Disney ir Paramount+ hitai',
+    title2: 'Išskirtinis Go3 originalus turinys',
+    title3: 'Nesibaigiantis sporto turinys',
+    title4: 'Tiesioginiai televizijos kanalai ir 7 dienų archyvas',
 
-    {
-        id: 989317,
-        title: 'Sports',
-        price: '6.99 €',
-        description: [{ title: 'TV3 sport, Setanta, NBA TV' }, { title: 'Live streams for events' }, { title: 'Sports documentaries' }],
-        addons: [{ 2935377: '& discovery+' }, { 2218494: '& Turinys suaugusiems' }, { 3411405: '& NBA' }],
-        subscribe: 'Subscribe',
+    startWatchingNow: 'Start watching now!',
+    cancelAnytime: 'Atšaukti bet kada',
+    adultContent: {
+        title: 'Turinys suaugusiems',
+        price: '17,98 Eur / mėn.',
     },
-];
+    nbaContent: {
+        title: 'NBA League Pass prenumerata',
+        price: '23,39 Eur / mėn.',
+    },
+};
 
-var bundlesRu = [
-    {
-        id: 989311,
-        title: 'ТВ и спорт',
-        price: '9.99 €',
-        description: [
-            { title: 'Более 30 местных и зарубежных каналов' },
-            { title: 'TV3 sport, Setanta, NBA TV' },
-            { title: 'Прямые трансляции' },
-            { title: 'Спортивные документальные фильмы' },
-            { title: 'Архив до 7 дней' },
-        ],
-        subscribe: 'Подписаться',
-    },
-    {
-        id: 989321,
-        title: 'Фильмы',
-        price: '6.99 €',
-        includes: 'Включает Paramount+, Оригиналы Go3',
-        description: [
-            { title: 'Paramount +: Фильмы Paramount Pictures, сериалы CBS / ShowTime, Comedy Central, анимация Nickelodeon, реалити-шоу MTV и многое другое' },
-            { title: 'Включает Оригиналы Go3' },
-            { title: 'Фильмы Disney' },
-            { title: 'Лучшие ТВ каналы фильмов' },
-            { title: 'Новые фильмы и сериалы' },
-            { title: 'Содержание для детей' },
-            { title: 'Местные сериалы и шоу раньше, чем на ТВ' },
-        ],
-        subscribe: 'Подписаться',
-    },
-    {
-        id: 2935376,
-        title: 'Фильмы',
-        price: '6.99 €',
-        includes: 'Включает Paramount+, Оригиналы Go3',
-        plus: ['& discovery+'],
-        description: [
-            { title: 'Paramount +: Фильмы Paramount Pictures, сериалы CBS / ShowTime, Comedy Central, анимация Nickelodeon, реалити-шоу MTV и многое другое' },
-            { title: 'Включает Оригиналы Go3' },
-            { title: 'Фильмы Disney' },
-            { title: 'Лучшие ТВ каналы фильмов' },
-            { title: 'Новые фильмы и сериалы' },
-            { title: 'Содержание для детей' },
-            { title: 'Местные сериалы и шоу раньше, чем на ТВ' },
-        ],
-        subscribe: 'Подписаться',
-    },
-    {
-        id: 989319,
-        title: 'ТВ',
-        price: '7.99 €',
-        description: [{ title: 'Архив до 7 дней' }, { title: 'Более 30 местных и зарубежных каналов' }],
-        subscribe: 'Подписаться',
-    },
+var bundlesEn = {
+    topInBaltics: 'TOP IN BALTICS',
+    allInclusive: 'All Inclusive',
+    price: '14.99 € / month',
+    tvChannelsIncluded: 'TV channels included (49)',
+    discoveryFree: 'Discovery+ for FREE',
 
-    {
-        id: 989317,
-        title: 'Спорт',
-        price: '6.99 €',
-        description: [{ title: 'TV3 sport, Setanta, NBA TV' }, { title: 'Прямые трансляции' }, { title: 'Спортивные документальные фильмы' }],
-        subscribe: 'Подписаться',
+    title1: 'Disney & Paramount+ blockbusters',
+    title2: 'Exclusive original Go3 content',
+    title3: 'Unlimited sports content',
+    title4: 'Live TV & 7 days TV Archive"',
+
+    startWatchingNow: 'Start watching now!',
+    cancelAnytime: 'Cancel anytime',
+    adultContent: {
+        title: 'Adult content included',
+        price: '17.98 € / month',
     },
-];
+    nbaContent: {
+        title: 'NBA League Pass subscription',
+        price: '23.39 € / month',
+    },
+};
+
+var bundlesRu = {
+    topInBaltics: 'Top Baltijos šalyse',
+    allInclusive: 'Все включено',
+    price: '14.99 € / месяц',
+    tvChannelsIncluded: 'ТВ каналы включены (49)',
+    discoveryFree: 'Discovery+ NEMOKAMAI',
+
+    title1: 'Disney & Paramount+ блокбастеры',
+    title2: 'Эксклюзивный оригинальный Go3 контент',
+    title3: 'Безлимитный спорт контент',
+    title4: 'ТВ и 7 дневный архив каналов',
+
+    startWatchingNow: 'Start watching now!',
+    cancelAnytime: 'Atšaukti bet kada',
+    adultContent: {
+        title: 'Пакет для взрослых',
+        price: '17.98 € / месяц',
+    },
+    nbaContent: {
+        //Reikia vertimo
+        title: 'NBA League Pass abonements',
+        price: '23.39 € / месяц',
+    },
+};
+
+var bundlesLv = {
+    topInBaltics: 'Top Baltijos šalyse',
+    allInclusive: 'Viskas įskaičiuota',
+    price: '14,99 €',
+    tvChannelsIncluded: 'Įtraukta TV kanalų (49)',
+    discoveryFree: 'Discovery+ NEMOKAMAI',
+
+    title1: 'Disney ir Paramount+ hitai',
+    title2: 'Išskirtinis Go3 originalus turinys',
+    title3: 'Nesibaigiantis sporto turinys',
+    title4: 'Tiesioginiai televizijos kanalai ir 7 dienų archyvas',
+
+    startWatchingNow: 'Start watching now!',
+    cancelAnytime: 'Atšaukti bet kada',
+    adultContent: {
+        title: 'Turinys suaugusiems',
+        price: '17,98 Eur / mėn.',
+    },
+    nbaContent: {
+        title: 'NBA League Pass prenumerata',
+        price: '23,39 Eur / mėn.',
+    },
+};
+
+var bundlesEe = {
+    topInBaltics: 'Top Baltijos šalyse',
+    allInclusive: 'Viskas įskaičiuota',
+    price: '14,99 €',
+    tvChannelsIncluded: 'Įtraukta TV kanalų (49)',
+    discoveryFree: 'Discovery+ NEMOKAMAI',
+
+    title1: 'Disney ir Paramount+ hitai',
+    title2: 'Išskirtinis Go3 originalus turinys',
+    title3: 'Nesibaigiantis sporto turinys',
+    title4: 'Tiesioginiai televizijos kanalai ir 7 dienų archyvas',
+
+    startWatchingNow: 'Start watching now!',
+    cancelAnytime: 'Atšaukti bet kada',
+    adultContent: {
+        title: 'Turinys suaugusiems',
+        price: '17,98 Eur / mėn.',
+    },
+    nbaContent: {
+        title: 'NBA League Pass prenumerata',
+        price: '23,39 Eur / mėn.',
+    },
+};
 
 var setButtonText = function () {
     if (localStorage.getItem('language') == '"LT"') {
@@ -279,9 +208,17 @@ var getProductBundleIds = function () {
                     bundleIds += bundles[i].id;
                 }
             }
-            console.table(bundles);
-            pageBundleId = bundleIds;
-            localStorage.setItem('bundleIds', '[' + data.bundles[0].id + ']');
+            console.log(bundleIds);
+
+            if (bundleIds == '989311,989317,989318,989339,2958734') {
+                localStorage.setItem('bundleIds', '[2958734,2935377,3411405]');
+            }
+
+            if (bundleIds == '2218494') {
+                localStorage.setItem('bundleIds', '[2958734,2935377,2218494]');
+            }
+
+            localStorage.setItem('bundleIds', '[2958734,2935377]');
         }
     });
 };
@@ -299,66 +236,112 @@ var generateModal = function () {
             bundlesByLanguage = bundlesEn;
         } else if (localStorage.getItem('language') == '"RU"') {
             bundlesByLanguage = bundlesRu;
+        } else if (localStorage.getItem('language') == '"LV"') {
+            bundlesByLanguage = bundlesLv;
+        } else if (localStorage.getItem('language') == '"EE"') {
+            bundlesByLanguage = bundlesEe;
         }
 
         if (pageBundleId && !document.querySelector('.ab-test-modal')) {
             clearInterval(interval);
 
-            var filteredBundles = [];
-            var splittedPageBundleIds = pageBundleId.split(',');
+            // var filteredBundles = [];
+            // var splittedPageBundleIds = pageBundleId.split(',');
 
-            for (let index = 0; index < splittedPageBundleIds.length; index++) {
-                const splittedBundleId = splittedPageBundleIds[index];
+            // for (let index = 0; index < splittedPageBundleIds.length; index++) {
+            //     const splittedBundleId = splittedPageBundleIds[index];
 
-                for (let index = 0; index < bundlesByLanguage.length; index++) {
-                    const bundleId = bundlesByLanguage[index];
+            //     for (let index = 0; index < bundlesByLanguage.length; index++) {
+            //         const bundleId = bundlesByLanguage[index];
 
-                    if (splittedBundleId == bundleId.id) {
-                        filteredBundles.push(bundleId);
-                        break;
-                    }
-                }
+            //         if (splittedBundleId == bundleId.id) {
+            //             filteredBundles.push(bundleId);
+            //             break;
+            //         }
+            //     }
+            // }
+
+            // if (!filteredBundles.length) {
+            //     filteredBundles[0] = bundlesByLanguage[2];
+            // }
+
+            console.log(bundlesByLanguage);
+            console.log(pageBundleId);
+
+            var price = bundlesByLanguage.price;
+            var title5;
+
+            if (pageBundleId == 2218494) {
+                console.log('adult content')
+                price = bundlesByLanguage.adultContent.price;
+                title5 = bundlesByLanguage.adultContent.title;
             }
 
-            if (!filteredBundles.length) {
-                filteredBundles[0] = bundlesByLanguage[2];
+            if (pageBundleId == '989311,989317,989318,989339,2958734') {
+                console.log('NBA content')
+                price = bundlesByLanguage.nbaContent.price;
+                title5 = bundlesByLanguage.nbaContent.title;
+
             }
 
-            var includes = filteredBundles[0].includes && filteredBundles[0].includes;
-            var title = filteredBundles[0].title;
-            var plus = filteredBundles[0].plus && filteredBundles[0].plus;
-            var price = filteredBundles[0].price;
-            var description = filteredBundles[0].description;
-            var subscribe = filteredBundles[0].subscribe;
+            var topInBaltics = bundlesByLanguage.topInBaltics;
+            var allInclusive = bundlesByLanguage.allInclusive;
+            var tvChannelsIncluded = bundlesByLanguage.tvChannelsIncluded;
+            var discoveryFree = bundlesByLanguage.discoveryFree;
+            var title1 = bundlesByLanguage.title1;
+            var title2 = bundlesByLanguage.title2;
+            var title3 = bundlesByLanguage.title3;
+            var title4 = bundlesByLanguage.title4;
+            var startWatchingNow = bundlesByLanguage.startWatchingNow;
+            var cancelAnytime = bundlesByLanguage.cancelAnytime;
 
             var modal = document.createElement('div');
             modal.setAttribute('class', 'ab-test-modal');
             modal.innerHTML =
                 '<div class="modal-overflow"></div><div class="modal-inner"> ' +
-                (!!includes ? '<div class="modal-includes">' + includes + '</div>' : '') +
-                ' <div class="modal-close"></div><div class="modal-recommended">RECOMMENDED PLAN</div>' +
-                '<div class="modal-title">' +
-                title +
+                '<div class="modal-top-in-baltics">' +
+                topInBaltics +
                 '</div>' +
-                (!!plus ? '<div class="modal-plus">' + plus + '</div>' : '') +
+                '<div class="modal-close"></div>' +
+                '<div class="modal-recommended">' +
+                '<div class="modal-title">' +
+                allInclusive +
+                '</div>' +
                 '<div class="modal-price">' +
                 price +
-                '<span class="modal-price-month"> / month</span>' +
+                '</div></div>' +
+                '<div class="modal-channels">' +
+                tvChannelsIncluded +
                 '</div>' +
-                '<div class="c-feature__column"></div>' +
+                '<div class="c-feature__column">' +
+                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                discoveryFree +
+                '</span></div>' +
+                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                title1 +
+                '</span></div>' +
+                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                title2 +
+                '</span></div>' +
+                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                title3 +
+                '</span></div>' +
+                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                title4 +
+                '</span></div>' +
+                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+                title5 +
+                '</span></div>' +
+                '</div>' +
                 '<button class="o-button o-button--primary modal-subscribe-button"> <span class="o-typography__label o-button__label u-bold"> ' +
-                subscribe +
-                ' </span> </button>';
+                startWatchingNow +
+                ' </span> </button>' +
+                '<div class="modal-cancelAnytime">' +
+                cancelAnytime +
+                '</div>';
 
             document.querySelector('body').append(modal);
-            var modalList = document.querySelector('.ab-test-modal .c-feature__column');
 
-            description.forEach(function (item) {
-                modalList.innerHTML +=
-                    "<div class='c-feature__item'><i class='o-icon c-feature__icon u-color-accent o-icon--check'></i><span class='o-typography__subtitle3 c-feature__label'>" +
-                    item.title +
-                    '</span></div>';
-            });
 
             var modalCloseButton = document.querySelector('.modal-close');
             var modalOverflow = document.querySelector('.modal-close, .modal-overflow ');
