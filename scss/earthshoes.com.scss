@@ -1,0 +1,102 @@
+// .is-group-SIZE .ProductRadioButtons-item {
+//     display: block;
+//     margin: 0;
+// }
+
+// .prod-gram .ProductRadioButtons-item.init {
+//     cursor: pointer;
+//     border-top: 1px solid #B6B9B9;
+//     border-bottom: 1px solid #B6B9B9;
+
+
+//     .ProductRadioButtons-itemRadio--dimmed+.ProductRadioButtons-itemLabel {
+//         color: #B6B9B9 !important;
+//         border-color: #B6B9B9;
+//     }
+// }
+
+// .ProductRadioButtons-item {
+//     height: 0;
+// }
+
+// .ProductRadioButtons-item.ab-test {
+//     height: 40px;
+// }
+
+// .prod-gram .ProductRadioButtons-item.ab-test {
+//     padding: 5px 15px;
+//     z-index: 2;
+//     cursor: pointer;
+//     width: 100%;
+//     margin: 0;
+//     padding: 0;
+
+//     .ProductRadioButtons-itemLabel {
+//         justify-content: flex-start;
+//         padding-left: 14px;
+//         height: 40px;
+//         border-top: 0 !important;
+//     }
+// }
+
+// .prod-gram {
+//     position: relative;
+
+//     &::after {
+//         content: '+';
+//         position: absolute;
+//         top: 6px;
+//         right: 14px;
+//         font-size: 20px;
+//         font-weight: 600;
+//         pointer-events: none;
+//     }
+
+//     &.open {
+//         &::after {
+//             content: '-';
+//         }
+//     }
+// }
+
+// .prod-gram {
+//     .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel:after {
+//         content: ' ';
+//         position: absolute;
+//         width: 1px;
+//         height: 51px;
+//         left: 17px;
+//         top: -6px;
+//         background-color: currentColor;
+//         transform: rotate(137deg);
+//     }
+// }
+
+// .Product.earth_origins .ProductRadioButtons-itemRadio:checked + .ProductRadioButtons-itemLabel {
+//     background: transparent;
+//     color: #000000;
+//     border-color: #b6b9b9;
+// }
+
+// .prod-gram .ProductRadioButtons-item:not(.init) {
+//     width: 100%;
+//     display: none;
+//     background: transparent;
+// }
+
+// #shopify-section-pdp-form > form > div.js-product-options > div > div > div.ProductRadioButtons-groupTitle {
+//     display: flex;
+//     padding-bottom: 0;
+//     margin-top: 10px;
+//     height: 28px;
+
+//     #js-sizeChart {
+//         margin-left: auto;
+//         margin-right: 2px;
+//         text-transform: capitalize;
+//         text-decoration: underline;
+//         cursor: pointer;
+//         letter-spacing: 0;
+//     }
+// }
+

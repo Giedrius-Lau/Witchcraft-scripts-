@@ -1,130 +1,17 @@
-var getJSON = function (url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function () {
-        var status = xhr.status;
-        if (status === 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status, xhr.response);
-        }
-    };
-    xhr.send();
-};
-
-var urlForTenant = '/api/subscribers/detail?platform=BROWSER';
-var urlForActiveSubscriber = '/api/subscribers/payments?platform=BROWSER&lang=EN&tenant=AMB_EE&maxResults=100&channel[]=POSTPAID';
-
-var checkIfUserSubscribed = function () {
-    getJSON(urlForTenant, function (err, data) {
-        if (err !== null) {
-            ga('send', 'event', 'Popup test', 'new user');
-            localStorage.setItem('newUser', true);
-            console.log(true, data);
-        } else {
-            if (!data) {
-                ga('send', 'event', 'Popup test', 'new user');
-                localStorage.setItem('newUser', true);
-                console.log(true, data);
-                return;
-            }
-            if (data.tenant == 'AMB_LT' || data.tenant == 'AMB_LV' || data.tenant == 'AMB_EE') {
-                getJSON(urlForActiveSubscriber, function (err, data) {
-                    if (err !== null) {
-                        ga('send', 'event', 'Popup test', 'new user');
-                        localStorage.setItem('newUser', true);
-                        console.log(true, data);
-                    } else {
-                        if (!data.items.length) {
-                            ga('send', 'event', 'Popup test', 'new user');
-                            localStorage.setItem('newUser', true);
-                            console.log(true, data);
-                        }
-
-                        for (var i = 0; i < data.items.length; ++i) {
-                            var item = data.items[i];
-                            if (!item.till) {
-                                localStorage.setItem('newUser', false);
-                                console.log(false, data);
-
-                                ga('send', 'event', 'Popup test', 'active subscriber');
-                                return;
-                            }
-                        }
-
-                        for (var t = 0; t < data.items.length; ++t) {
-                            var item2 = data.items[i];
-                            var till = new Date(item2.till);
-                            var dateNow = new Date();
-
-                            if (till < dateNow) {
-                                ga('send', 'event', 'Popup test', 'new user');
-                                localStorage.setItem('newUser', true);
-                                console.log(true, data);
-
-                                return;
-                            } else {
-                                localStorage.setItem('newUser', false);
-                                console.log(false, data);
-
-                                ga('send', 'event', 'Popup test', 'active subscriber');
-                            }
-                        }
-                    }
-                });
-            } else {
-                localStorage.setItem('newUser', false);
-                console.log(false, data);
-
-                ga('send', 'event', 'Popup test', 'active subscriber');
-            }
-        }
-    });
-};
-
-checkIfUserSubscribed();
-
-
-// setInterval(function () {
-//     checkIfUserSubscribed();
-// }, 2000);
-
-var bundlesLt = {
-    topInBaltics: 'TOP BALTIJOS ŠALYSE',
-    allInclusive: 'Viskas įskaičiuota',
-    price: '14,99 Eur / mėn.',
-    tvChannelsIncluded: 'Įtraukta TV kanalų (55)',
-    discoveryFree: 'Discovery+ NEMOKAMAI',
-
-    title1: 'Disney ir Paramount+ hitai',
-    title2: 'Išskirtinis Go3 originalus turinys',
-    title3: 'Nesibaigiantis sporto turinys',
-    title4: 'Tiesioginiai televizijos kanalai ir 7 dienų archyvas',
-
-    startWatchingNow: 'Pradėkite žiūrėti jau dabar!',
-    cancelAnytime: 'Atšaukite bet kada',
-    adultContent: {
-        title: 'Turinys suaugusiems',
-        price: '17,98 Eur / mėn.',
-    },
-    nbaContent: {
-        title: 'NBA League Pass prenumerata',
-        price: '23,39 Eur / mėn.',
-    },
-};
+var urlStart = 'https://go3.tv';
+var urlEnd = '=AMB_EE';
 
 var bundlesEn = {
     topInBaltics: 'TOP IN BALTICS',
     allInclusive: 'All Inclusive',
     price: '14.99 € / month',
-    tvChannelsIncluded: 'TV channels included (55)',
+    tvChannelsIncluded: 'TV channels included (49)',
     discoveryFree: 'Discovery+ for FREE',
 
     title1: 'Disney & Paramount+ blockbusters',
     title2: 'Exclusive original Go3 content',
     title3: 'Unlimited sports content',
-    title4: 'Live TV & 7 days TV Archive',
+    title4: 'Live TV & 7 days TV Archive"',
 
     startWatchingNow: 'Start watching now!',
     cancelAnytime: 'Cancel anytime',
@@ -142,7 +29,7 @@ var bundlesRu = {
     topInBaltics: 'ТОП В БАЛТИИ',
     allInclusive: 'Все включено',
     price: '14.99 € / месяц',
-    tvChannelsIncluded: 'ТВ каналы включены (55)',
+    tvChannelsIncluded: 'ТВ каналы включены (49)',
     discoveryFree: 'discovery+ БЕСПЛАТНО',
 
     title1: 'Disney & Paramount+ блокбастеры',
@@ -162,16 +49,37 @@ var bundlesRu = {
     },
 };
 
+var bundlesEe = {
+    topInBaltics: 'TOP 1 Baltikumis',
+    allInclusive: 'Kõik hinnas',
+    price: '14,99 € / kuu',
+    tvChannelsIncluded: 'Sisaldab telekanaleid (49)',
+    discoveryFree: 'discovery+ TASUTA',
+    title1: 'Disney ja Paramount+ kassahitid',
+    title2: 'Eksklusiivne Go3 originaalsisu',
+    title3: 'Piiramatult spordisisu',
+    title4: 'Telekanalid ja järelvaatamine 7 päeva',
+    startWatchingNow: 'Alusta vaatamist koheselt!',
+    cancelAnytime: 'Tühista igal ajal',
+    adultContent: {
+        title: 'Täiskasvanute pakett',
+        price: '17,98 € / kuu',
+    },
+    nbaContent: {
+        title: 'NBA League Pass tellimus',
+        price: '23,39 € / kuu',
+    },
+};
+
 var setButtonText = function () {
-    if (localStorage.getItem('language') == '"LT"') {
-        return 'ŽIŪRĖTI';
-    } else if (localStorage.getItem('language') == '"EN"') {
+    if (localStorage.getItem('language') == '"EN"') {
         return 'WATCH';
     } else if (localStorage.getItem('language') == '"RU"') {
         return 'СМОТРЕТЬ';
+    } else if (localStorage.getItem('language') == '"ET"') {
+        return 'VAATA';
     }
 };
-
 function setCookie(name, value, days) {
     var expires = '';
     if (days) {
@@ -190,6 +98,10 @@ function getCookie(name) {
         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
     }
     return null;
+}
+
+if (!document.querySelector('.c-navbar-subscriber')) {
+    setCookie('new-user', true, 90);
 }
 
 var getJSON = function (url, callback) {
@@ -222,17 +134,17 @@ var getProductBundleIds = function () {
     if (serialPage) {
         var serialId = pageUrl.match(/\bserial-\b.[0-9]+/)[0];
         var extractedNumbersFormSeries = serialId.match(/[0-9]+/);
-        url = 'https://go3.lt/api/products/vods/serials/' + extractedNumbersFormSeries + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
+        url = urlStart + '/api/products/vods/serials/' + extractedNumbersFormSeries + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
     }
 
     if (videoPage) {
-        url = 'https://go3.lt/api/products/vods/' + mediaId + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
+        url = urlStart + '/api/products/vods/' + mediaId + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
     }
 
     if (livePage) {
         var liveTvMediaId = pageUrl.match(/\blive-\b.[0-9]+/)[0];
         var extractedNumbers = liveTvMediaId.match(/[0-9]+/);
-        url = 'https://go3.lt/api/products/lives/' + extractedNumbers + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
+        url = urlStart + '/api/products/lives/' + extractedNumbers + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
     }
 
     getJSON(url, function (err, data) {
@@ -272,15 +184,11 @@ var generateModal = function () {
     var interval = window.setInterval(function () {
         var bundlesByLanguage;
 
-        if (localStorage.getItem('language') == '"LT"') {
-            bundlesByLanguage = bundlesLt;
-        } else if (localStorage.getItem('language') == '"EN"') {
+        if (localStorage.getItem('language') == '"EN"') {
             bundlesByLanguage = bundlesEn;
         } else if (localStorage.getItem('language') == '"RU"') {
             bundlesByLanguage = bundlesRu;
-        } else if (localStorage.getItem('language') == '"LV"') {
-            bundlesByLanguage = bundlesLv;
-        } else if (localStorage.getItem('language') == '"EE"') {
+        } else if (localStorage.getItem('language') == '"ET"') {
             bundlesByLanguage = bundlesEe;
         }
 
@@ -377,7 +285,7 @@ var generateModal = function () {
 
             modalSubscribeButton.addEventListener('click', function () {
                 document.querySelector('.ab-test-modal').remove();
-                window.location = 'https://go3.lt/subscriber/checkout';
+                window.location = 'https://go3.tv/subscriber/checkout';
             });
 
             var contentUrl = window.location.href;
@@ -393,16 +301,17 @@ var generateModal = function () {
 };
 
 setInterval(() => {
-    if (localStorage.getItem('newUser') == 'true' && (window.location.href.indexOf('movies') > -1 || window.location.href.indexOf('paramount') > -1)) {
+    if (window.location.href.indexOf('movies') > -1 || window.location.href.indexOf('paramount') > -1) {
         var buttonContainer = document.querySelector(' div.c-highlight__wrapper > div.c-highlight__buttons ');
         if (buttonContainer && !document.querySelector('.changed-button')) {
             buttonContainer.classList.add('changed-button');
-            var buttonPrimary = buttonContainer.querySelector('.o-button--primary');
             if (
-                buttonPrimary &&
-                (buttonPrimary.textContent.includes('BUY') || buttonPrimary.textContent.includes('PIRKTI') || buttonPrimary.textContent.includes('КУПИТЬ'))
+                buttonContainer.querySelector('.o-button--primary') &&
+                (buttonContainer.querySelector('.o-button--primary').textContent.includes('BUY') ||
+                    buttonContainer.querySelector('.o-button--primary').textContent.includes('OSTA') ||
+                    buttonContainer.querySelector('.o-button--primary').textContent.includes('КУПИТЬ'))
             ) {
-                buttonPrimary.remove();
+                buttonContainer.querySelector('.o-button--primary').remove();
 
                 var newButton = document.createElement('div');
                 newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
@@ -422,12 +331,11 @@ setInterval(() => {
 
 setInterval(() => {
     if (
-        localStorage.getItem('newUser') == 'true' &&
-        (window.location.href.indexOf('serial') > -1 ||
-            window.location.href.indexOf('go3_extra') > -1 ||
-            window.location.href.indexOf('ghost') > -1 ||
-            window.location.href.indexOf('paramount/') > -1 ||
-            window.location.href.indexOf('discoveryplus/') > -1)
+        window.location.href.indexOf('serial') > -1 ||
+        window.location.href.indexOf('go3_extra') > -1 ||
+        window.location.href.indexOf('ghost') > -1 ||
+        window.location.href.indexOf('paramount/') > -1 ||
+        window.location.href.indexOf('discoveryplus/') > -1
     ) {
         var buttonContainer = document.querySelector(' div.c-highlight__wrapper > div.c-highlight__buttons ');
         if (
@@ -479,7 +387,7 @@ setInterval(() => {
 // Interval for live tv
 
 setInterval(() => {
-    if (localStorage.getItem('newUser') == 'true' && window.location.href.indexOf('live_tv') > -1) {
+    if (window.location.href.indexOf('live_tv') > -1) {
         var buttonContainer = document.querySelectorAll('div.c-live-detail__preview.c-live-detail__preview--channel > div.c-live-detail__cover.u-desktop-only');
         var buttonContainerMobile = document.querySelectorAll('a.is-selected.js-current-program > div.c-epg-program-detail.u-mobile-only > div');
 
@@ -489,7 +397,7 @@ setInterval(() => {
             newButton.innerHTML = setButtonText() + ' <div class="arrow-right"></div>';
 
             buttonContainer.forEach(function (container) {
-                if (!container.querySelector('.ab-test-button')) {
+                if (!container.querySelector('ab-test-button-button')) {
                     container.prepend(newButton);
 
                     container.querySelector('.ab-test-button').addEventListener('click', function () {
@@ -500,7 +408,7 @@ setInterval(() => {
             });
 
             buttonContainerMobile.forEach(function (container) {
-                if (!container.querySelector('.ab-test-button')) {
+                if (!container.querySelector('ab-test-button-button')) {
                     container.prepend(newButton.cloneNode(true));
 
                     container.querySelector('.ab-test-button').addEventListener('click', function () {
@@ -513,35 +421,9 @@ setInterval(() => {
     }
 }, 500);
 
-var untilityInterval = window.setInterval(() => {
-    var upselModal = document.querySelector('.o-modal--upsell-popup');
-    if (upselModal && localStorage.getItem('newUser') == 'true') {
-        upselModal.querySelector('.o-modal__close').click();
-    }
-
-    var button = document.querySelector('#app > div.app-container > section > div > div.o-page__column.o-page__column--right > form > div.o-form__group.u-mb-20 > div:nth-child(1) > button')
-    if (button) {
-        button.addEventListener('click', function () {
-            checkIfUserSubscribed();
-
-            setTimeout(() => {
-                checkIfUserSubscribed();
-            }, 2000);
-        })
+var removeUpselModalInterval = window.setInterval(() => {
+    var upselModal = document.querySelector('.o-modal--upsell-popup')
+    if (upselModal) {
+        upselModal.querySelector('.o-modal__close').click()
     }
 }, 500);
-
-
-
-var addClassToBody = window.setInterval(() => {
-    var body = document.querySelector('body');
-    if (body && localStorage.getItem('newUser') == 'true') {
-        if (!body.classList.contains('ab-visible')) {
-            body.classList.add('ab-visible')
-        }
-    } else if (body && localStorage.getItem('newUser') == 'false') {
-        if (body.classList.contains('ab-visible')) {
-            body.classList.remove('ab-visible')
-        }
-    }
-})
