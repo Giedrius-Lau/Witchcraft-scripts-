@@ -1,429 +1,568 @@
-var urlStart = 'https://go3.tv';
-var urlEnd = '=AMB_EE';
+// var urlStart = 'https://go3.tv';
+// var urlEnd = '=AMB_EE';
 
-var bundlesEn = {
-    topInBaltics: 'TOP IN BALTICS',
-    allInclusive: 'All Inclusive',
-    price: '14.99 € / month',
-    tvChannelsIncluded: 'TV channels included (49)',
-    discoveryFree: 'Discovery+ for FREE',
+// var getJSON = function (url, callback) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET', url, true);
+//     xhr.responseType = 'json';
+//     xhr.onload = function () {
+//         var status = xhr.status;
+//         if (status === 200) {
+//             callback(null, xhr.response);
+//         } else {
+//             callback(status, xhr.response);
+//         }
+//     };
+//     xhr.send();
+// };
 
-    title1: 'Disney & Paramount+ blockbusters',
-    title2: 'Exclusive original Go3 content',
-    title3: 'Unlimited sports content',
-    title4: 'Live TV & 7 days TV Archive"',
+// var urlForTenant = '/api/subscribers/detail?platform=BROWSER';
+// var urlForActiveSubscriber = '/api/subscribers/payments?platform=BROWSER&lang=EN&tenant=AMB_EE&maxResults=100&channel[]=POSTPAID';
 
-    startWatchingNow: 'Start watching now!',
-    cancelAnytime: 'Cancel anytime',
-    adultContent: {
-        title: 'Adult content included',
-        price: '17.98 € / month',
-    },
-    nbaContent: {
-        title: 'NBA League Pass subscription',
-        price: '23.39 € / month',
-    },
-};
+// var checkIfUserSubscribed = function () {
+//     getJSON(urlForTenant, function (err, data) {
+//         if (err !== null) {
+//             ga('send', 'event', 'Popup test', 'new user');
+//             localStorage.setItem('newUser', true);
+//             console.log(true, data);
+//         } else {
+//             if (!data) {
+//                 ga('send', 'event', 'Popup test', 'new user');
+//                 localStorage.setItem('newUser', true);
+//                 console.log(true, data);
+//                 return;
+//             }
+//             if (data.tenant == 'AMB_LT' || data.tenant == 'AMB_LV' || data.tenant == 'AMB_EE') {
+//                 getJSON(urlForActiveSubscriber, function (err, data) {
+//                     if (err !== null) {
+//                         ga('send', 'event', 'Popup test', 'new user');
+//                         localStorage.setItem('newUser', true);
+//                         console.log(true, data);
+//                     } else {
+//                         if (!data.items.length) {
+//                             ga('send', 'event', 'Popup test', 'new user');
+//                             localStorage.setItem('newUser', true);
+//                             console.log(true, data);
+//                         }
 
-var bundlesRu = {
-    topInBaltics: 'ТОП В БАЛТИИ',
-    allInclusive: 'Все включено',
-    price: '14.99 € / месяц',
-    tvChannelsIncluded: 'ТВ каналы включены (49)',
-    discoveryFree: 'discovery+ БЕСПЛАТНО',
+//                         for (var i = 0; i < data.items.length; ++i) {
+//                             var item = data.items[i];
+//                             if (!item.till) {
+//                                 localStorage.setItem('newUser', false);
+//                                 console.log(false, data);
 
-    title1: 'Disney & Paramount+ блокбастеры',
-    title2: 'Эксклюзивный оригинальный Go3 контент',
-    title3: 'Безлимитный спорт контент',
-    title4: 'ТВ и 7 дневный архив каналов',
+//                                 ga('send', 'event', 'Popup test', 'active subscriber');
+//                                 return;
+//                             }
+//                         }
 
-    startWatchingNow: 'Начинайте смотреть прямо сейчас!',
-    cancelAnytime: 'Отключите в любое время',
-    adultContent: {
-        title: 'Пакет для взрослых',
-        price: '17.98 € / месяц',
-    },
-    nbaContent: {
-        title: 'Подписка NBA League Pass',
-        price: '23.39 € / месяц',
-    },
-};
+//                         for (var t = 0; t < data.items.length; ++t) {
+//                             var item2 = data.items[i - 1];
+//                             var till = new Date(item2.till);
+//                             var dateNow = new Date();
 
-var bundlesEe = {
-    topInBaltics: 'TOP 1 Baltikumis',
-    allInclusive: 'Kõik hinnas',
-    price: '14,99 € / kuu',
-    tvChannelsIncluded: 'Sisaldab telekanaleid (49)',
-    discoveryFree: 'discovery+ TASUTA',
-    title1: 'Disney ja Paramount+ kassahitid',
-    title2: 'Eksklusiivne Go3 originaalsisu',
-    title3: 'Piiramatult spordisisu',
-    title4: 'Telekanalid ja järelvaatamine 7 päeva',
-    startWatchingNow: 'Alusta vaatamist koheselt!',
-    cancelAnytime: 'Tühista igal ajal',
-    adultContent: {
-        title: 'Täiskasvanute pakett',
-        price: '17,98 € / kuu',
-    },
-    nbaContent: {
-        title: 'NBA League Pass tellimus',
-        price: '23,39 € / kuu',
-    },
-};
+//                             if (till < dateNow) {
+//                                 ga('send', 'event', 'Popup test', 'new user');
+//                                 localStorage.setItem('newUser', true);
+//                                 console.log(true, data);
 
-var setButtonText = function () {
-    if (localStorage.getItem('language') == '"EN"') {
-        return 'WATCH';
-    } else if (localStorage.getItem('language') == '"RU"') {
-        return 'СМОТРЕТЬ';
-    } else if (localStorage.getItem('language') == '"ET"') {
-        return 'VAATA';
-    }
-};
-function setCookie(name, value, days) {
-    var expires = '';
-    if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
-        expires = '; expires=' + date.toUTCString();
-    }
-    document.cookie = name + '=' + (value || '') + expires + '; path=/';
-}
-function getCookie(name) {
-    var nameEQ = name + '=';
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
+//                                 return;
+//                             } else {
+//                                 localStorage.setItem('newUser', false);
+//                                 console.log(false, data);
 
-if (!document.querySelector('.c-navbar-subscriber')) {
-    setCookie('new-user', true, 90);
-}
+//                                 ga('send', 'event', 'Popup test', 'active subscriber');
+//                             }
+//                         }
+//                     }
+//                 });
+//             } else {
+//                 localStorage.setItem('newUser', false);
+//                 console.log(false, data);
 
-var getJSON = function (url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function () {
-        var status = xhr.status;
-        if (status === 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status, xhr.response);
-        }
-    };
-    xhr.send();
-};
+//                 ga('send', 'event', 'Popup test', 'active subscriber');
+//             }
+//         }
+//     });
+// };
 
-var pageBundleId;
+// checkIfUserSubscribed();
 
-var getProductBundleIds = function () {
-    var pageUrl = window.location.href;
 
-    var mediaId = pageUrl.match(/\d+/g)[pageUrl.match(/\d+/g).length - 1];
+// (() => {
+//     let oldPushState = history.pushState;
+//     history.pushState = function pushState() {
+//         let ret = oldPushState.apply(this, arguments);
+//         window.dispatchEvent(new Event('pushstate'));
+//         window.dispatchEvent(new Event('locationchange'));
+//         return ret;
+//     };
 
-    var serialPage = pageUrl.match(/\bserial\b/);
-    var videoPage = pageUrl.match(/\bvod\b/);
-    var livePage = pageUrl.match(/\blive\b/);
-    var url;
+//     let oldReplaceState = history.replaceState;
+//     history.replaceState = function replaceState() {
+//         let ret = oldReplaceState.apply(this, arguments);
+//         window.dispatchEvent(new Event('replacestate'));
+//         window.dispatchEvent(new Event('locationchange'));
+//         return ret;
+//     };
 
-    if (serialPage) {
-        var serialId = pageUrl.match(/\bserial-\b.[0-9]+/)[0];
-        var extractedNumbersFormSeries = serialId.match(/[0-9]+/);
-        url = urlStart + '/api/products/vods/serials/' + extractedNumbersFormSeries + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
-    }
+//     window.addEventListener('popstate', () => {
+//         window.dispatchEvent(new Event('locationchange'));
+//     });
+// })();
 
-    if (videoPage) {
-        url = urlStart + '/api/products/vods/' + mediaId + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
-    }
+// window.addEventListener('locationchange', function () {
+//     checkIfUserSubscribed();
+// });
 
-    if (livePage) {
-        var liveTvMediaId = pageUrl.match(/\blive-\b.[0-9]+/)[0];
-        var extractedNumbers = liveTvMediaId.match(/[0-9]+/);
-        url = urlStart + '/api/products/lives/' + extractedNumbers + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
-    }
+// // setInterval(function () {
+// //     checkIfUserSubscribed();
+// // }, 2000);
 
-    getJSON(url, function (err, data) {
-        if (err !== null) {
-            console.table('Something went wrong: ' + err);
-        } else {
-            var bundles = data.bundles;
-            var bundleIds = [];
+// var bundlesEe = {
+//     topInBaltics: 'TOP 1 Baltikumis',
+//     allInclusive: 'Kõik hinnas',
+//     price: '14,99 € / kuu',
+//     tvChannelsIncluded: 'Sisaldab telekanaleid (51)',
+//     discoveryFree: 'discovery+ TASUTA',
 
-            for (i = 0; i < bundles.length; i++) {
-                if (i != bundles.length - 1) {
-                    bundleIds += bundles[i].id + ',';
-                } else {
-                    bundleIds += bundles[i].id;
-                }
-            }
+//     title1: 'Disney ja Paramount+ kassahitid',
+//     title2: 'Eksklusiivne Go3 originaalsisu',
+//     title3: 'Piiramatult spordisisu',
+//     title4: 'Telekanalid ja järelvaatamine 7 päeva',
 
-            localStorage.setItem('bundleIds', '[2958734,2935377]');
+//     startWatchingNow: 'Alusta vaatamist koheselt!',
+//     cancelAnytime: 'Tühista igal ajal',
+//     adultContent: {
+//         title: 'Täiskasvanute pakett',
+//         price: '17,98 € / kuu',
+//     },
+//     nbaContent: {
+//         title: 'NBA League Pass tellimus',
+//         price: '23,39 € / kuu',
+//     },
+// };
 
-            if (bundleIds == '989311,989317,989318,989339,2958734') {
-                localStorage.setItem('bundleIds', '[2958734,2935377,3411405]');
-            }
+// var bundlesEn = {
+//     topInBaltics: 'TOP IN BALTICS',
+//     allInclusive: 'All Inclusive',
+//     price: '14.99 € / month',
+//     tvChannelsIncluded: 'TV channels included (51)',
+//     discoveryFree: 'Discovery+ for FREE',
 
-            if (bundleIds == '2218494') {
-                localStorage.setItem('bundleIds', '[2958734,2935377,2218494]');
-            }
+//     title1: 'Disney & Paramount+ blockbusters',
+//     title2: 'Exclusive original Go3 content',
+//     title3: 'Unlimited sports content',
+//     title4: 'Live TV & 7 days TV Archive',
 
-            pageBundleId = bundleIds;
-        }
-    });
-};
+//     startWatchingNow: 'Start watching now!',
+//     cancelAnytime: 'Cancel anytime',
+//     adultContent: {
+//         title: 'Adult content included',
+//         price: '17.98 € / month',
+//     },
+//     nbaContent: {
+//         title: 'NBA League Pass subscription',
+//         price: '23.39 € / month',
+//     },
+// };
 
-var generateModal = function () {
-    pageBundleId = '';
-    getProductBundleIds();
+// var bundlesRu = {
+//     topInBaltics: 'ТОП В БАЛТИИ',
+//     allInclusive: 'Все включено',
+//     price: '14.99 € / месяц',
+//     tvChannelsIncluded: 'ТВ каналы включены (51)',
+//     discoveryFree: 'discovery+ БЕСПЛАТНО',
 
-    var interval = window.setInterval(function () {
-        var bundlesByLanguage;
+//     title1: 'Disney & Paramount+ блокбастеры',
+//     title2: 'Эксклюзивный оригинальный Go3 контент',
+//     title3: 'Безлимитный спорт контент',
+//     title4: 'ТВ и 7 дневный архив каналов',
 
-        if (localStorage.getItem('language') == '"EN"') {
-            bundlesByLanguage = bundlesEn;
-        } else if (localStorage.getItem('language') == '"RU"') {
-            bundlesByLanguage = bundlesRu;
-        } else if (localStorage.getItem('language') == '"ET"') {
-            bundlesByLanguage = bundlesEe;
-        }
+//     startWatchingNow: 'Начинайте смотреть прямо сейчас!',
+//     cancelAnytime: 'Отключите в любое время',
+//     adultContent: {
+//         title: 'Пакет для взрослых',
+//         price: '17.98 € / месяц',
+//     },
+//     nbaContent: {
+//         title: 'Подписка NBA League Pass',
+//         price: '23.39 € / месяц',
+//     },
+// };
 
-        clearInterval(interval);
-        if (pageBundleId && !document.querySelector('.ab-test-modal')) {
-            var price = bundlesByLanguage.price;
-            var title5Placeholder = '<span hidden>';
+// var setButtonText = function () {
+//     if (localStorage.getItem('language') == '"ET"') {
+//         return 'VAATAMIST';
+//     } else if (localStorage.getItem('language') == '"EN"') {
+//         return 'WATCH';
+//     } else if (localStorage.getItem('language') == '"RU"') {
+//         return 'СМОТРЕТЬ';
+//     }
+// };
 
-            if (pageBundleId == 2218494) {
-                price = bundlesByLanguage.adultContent.price;
-                var title5 = bundlesByLanguage.adultContent.title;
-                title5Placeholder =
-                    '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
-                    title5 +
-                    '</span></div>';
-            }
+// function setCookie(name, value, days) {
+//     var expires = '';
+//     if (days) {
+//         var date = new Date();
+//         date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+//         expires = '; expires=' + date.toUTCString();
+//     }
+//     document.cookie = name + '=' + (value || '') + expires + '; path=/';
+// }
+// function getCookie(name) {
+//     var nameEQ = name + '=';
+//     var ca = document.cookie.split(';');
+//     for (var i = 0; i < ca.length; i++) {
+//         var c = ca[i];
+//         while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+//         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+//     }
+//     return null;
+// }
 
-            if (pageBundleId == '989311,989317,989318,989339,2958734') {
-                price = bundlesByLanguage.nbaContent.price;
-                var title5 = bundlesByLanguage.nbaContent.title;
-                title5Placeholder =
-                    '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
-                    title5 +
-                    '</span></div>';
-            }
+// var getJSON = function (url, callback) {
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('GET', url, true);
+//     xhr.responseType = 'json';
+//     xhr.onload = function () {
+//         var status = xhr.status;
+//         if (status === 200) {
+//             callback(null, xhr.response);
+//         } else {
+//             callback(status, xhr.response);
+//         }
+//     };
+//     xhr.send();
+// };
 
-            var topInBaltics = bundlesByLanguage.topInBaltics;
-            var allInclusive = bundlesByLanguage.allInclusive;
-            var tvChannelsIncluded = bundlesByLanguage.tvChannelsIncluded;
-            var discoveryFree = bundlesByLanguage.discoveryFree;
-            var title1 = bundlesByLanguage.title1;
-            var title2 = bundlesByLanguage.title2;
-            var title3 = bundlesByLanguage.title3;
-            var title4 = bundlesByLanguage.title4;
-            var startWatchingNow = bundlesByLanguage.startWatchingNow;
-            var cancelAnytime = bundlesByLanguage.cancelAnytime;
+// var pageBundleId;
 
-            var modal = document.createElement('div');
-            modal.setAttribute('class', 'ab-test-modal');
-            modal.innerHTML =
-                '<div class="modal-overflow"></div><div class="modal-inner"> ' +
-                '<div class="modal-top-in-baltics">' +
-                topInBaltics +
-                '</div>' +
-                '<div class="modal-close"></div>' +
-                '<div class="modal-recommended">' +
-                '<div class="modal-title">' +
-                allInclusive +
-                '</div>' +
-                '<div class="modal-price">' +
-                price +
-                '</div></div>' +
-                '<div class="modal-channels">' +
-                tvChannelsIncluded +
-                '</div>' +
-                '<div class="c-feature__column">' +
-                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--gift"></i><span class="o-typography__subtitle3 c-feature__label">' +
-                discoveryFree +
-                '</span></div>' +
-                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
-                title1 +
-                '</span></div>' +
-                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
-                title2 +
-                '</span></div>' +
-                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
-                title3 +
-                '</span></div>' +
-                '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
-                title4 +
-                '</span></div>' +
-                title5Placeholder +
-                '</div>' +
-                '<button class="o-button o-button--primary modal-subscribe-button"> <span class="o-typography__label o-button__label u-bold"> ' +
-                startWatchingNow +
-                ' </span> </button>' +
-                '<div class="modal-cancelAnytime">' +
-                cancelAnytime +
-                '</div>';
+// var getProductBundleIds = function () {
+//     var pageUrl = window.location.href;
 
-            document.querySelector('body').append(modal);
+//     var mediaId = pageUrl.match(/\d+/g)[pageUrl.match(/\d+/g).length - 1];
 
-            var modalCloseButton = document.querySelector('.modal-close');
-            var modalOverflow = document.querySelector('.modal-close, .modal-overflow ');
-            var modalSubscribeButton = document.querySelector('.modal-subscribe-button');
+//     var serialPage = pageUrl.match(/\bserial\b/);
+//     var videoPage = pageUrl.match(/\bvod\b/);
+//     var livePage = pageUrl.match(/\blive\b/);
+//     var url;
 
-            modalCloseButton.addEventListener('click', function () {
-                document.querySelector('.ab-test-modal').remove();
-            });
+//     if (serialPage) {
+//         var serialId = pageUrl.match(/\bserial-\b.[0-9]+/)[0];
+//         var extractedNumbersFormSeries = serialId.match(/[0-9]+/);
+//         url = urlStart + '/api/products/vods/serials/' + extractedNumbersFormSeries + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
+//     }
 
-            modalOverflow.addEventListener('click', function () {
-                document.querySelector('.ab-test-modal').remove();
-            });
+//     if (videoPage) {
+//         url = urlStart + '/api/products/vods/' + mediaId + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
+//     }
 
-            modalSubscribeButton.addEventListener('click', function () {
-                document.querySelector('.ab-test-modal').remove();
-                window.location = 'https://go3.tv/subscriber/checkout';
-            });
+//     if (livePage) {
+//         var liveTvMediaId = pageUrl.match(/\blive-\b.[0-9]+/)[0];
+//         var extractedNumbers = liveTvMediaId.match(/[0-9]+/);
+//         url = urlStart + '/api/products/lives/' + extractedNumbers + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
+//     }
 
-            var contentUrl = window.location.href;
+//     getJSON(url, function (err, data) {
+//         if (err !== null) {
+//             console.table('Something went wrong: ' + err);
+//         } else {
+//             var bundles = data.bundles;
+//             var bundleIds = [];
 
-            var modalInterval = window.setInterval(function () {
-                if (contentUrl != window.location.href) {
-                    clearInterval(modalInterval);
-                    document.querySelector('.ab-test-modal').remove();
-                }
-            }, 1000);
-        }
-    }, 200);
-};
+//             for (i = 0; i < bundles.length; i++) {
+//                 if (i != bundles.length - 1) {
+//                     bundleIds += bundles[i].id + ',';
+//                 } else {
+//                     bundleIds += bundles[i].id;
+//                 }
+//             }
 
-setInterval(() => {
-    if (window.location.href.indexOf('movies') > -1 || window.location.href.indexOf('paramount') > -1) {
-        var buttonContainer = document.querySelector(' div.c-highlight__wrapper > div.c-highlight__buttons ');
-        if (buttonContainer && !document.querySelector('.changed-button')) {
-            buttonContainer.classList.add('changed-button');
-            if (
-                buttonContainer.querySelector('.o-button--primary') &&
-                (buttonContainer.querySelector('.o-button--primary').textContent.includes('BUY') ||
-                    buttonContainer.querySelector('.o-button--primary').textContent.includes('OSTA') ||
-                    buttonContainer.querySelector('.o-button--primary').textContent.includes('КУПИТЬ'))
-            ) {
-                buttonContainer.querySelector('.o-button--primary').remove();
+//             localStorage.setItem('bundleIds', '[2958734,2935377]');
 
-                var newButton = document.createElement('div');
-                newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
-                newButton.innerHTML = setButtonText() + ' <div class="arrow-right"></div>';
+//             if (bundleIds == '989311,989317,989318,989339,2958734') {
+//                 localStorage.setItem('bundleIds', '[2958734,2935377,3411405]');
+//             }
 
-                buttonContainer.prepend(newButton);
-                var newAddedButton = document.querySelector('.ab-test-button');
+//             if (bundleIds == '2218494') {
+//                 localStorage.setItem('bundleIds', '[2958734,2935377,2218494]');
+//             }
 
-                newAddedButton.addEventListener('click', function () {
-                    getProductBundleIds();
-                    generateModal();
-                });
-            }
-        }
-    }
-}, 500);
+//             pageBundleId = bundleIds;
+//         }
+//     });
+// };
 
-setInterval(() => {
-    if (
-        window.location.href.indexOf('serial') > -1 ||
-        window.location.href.indexOf('go3_extra') > -1 ||
-        window.location.href.indexOf('ghost') > -1 ||
-        window.location.href.indexOf('paramount/') > -1 ||
-        window.location.href.indexOf('discoveryplus/') > -1
-    ) {
-        var buttonContainer = document.querySelector(' div.c-highlight__wrapper > div.c-highlight__buttons ');
-        if (
-            !document.querySelector('div.c-highlight__buttons > div:nth-child(1) > i.o-icon--play') &&
-            buttonContainer &&
-            !document.querySelector('.changed-button')
-        ) {
-            buttonContainer.classList.add('changed-button');
+// var generateModal = function () {
+//     pageBundleId = '';
+//     getProductBundleIds();
 
-            var newButton = document.createElement('div');
-            newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
-            newButton.innerHTML = setButtonText() + ' <div class="arrow-right"></div>';
+//     var interval = window.setInterval(function () {
+//         var bundlesByLanguage;
 
-            buttonContainer.prepend(newButton);
-            buttonContainer.querySelector('.ab-test-button').addEventListener('click', function () {
-                getProductBundleIds();
-                generateModal();
-            });
-            document.querySelector('div.c-highlight__buttons.changed-button > div:nth-child(2)').remove();
-        }
-        var additionalSeriesBlocks = document.querySelectorAll(
-            '#app > div.app-container > div > section.c-section.c-section--two-lines > div > div.c-section__container.js-section-container > div.c-section__wrapper > div'
-        );
+//         if (localStorage.getItem('language') == '"LT"') {
+//             bundlesByLanguage = bundlesLt;
+//         } else if (localStorage.getItem('language') == '"EN"') {
+//             bundlesByLanguage = bundlesEn;
+//         } else if (localStorage.getItem('language') == '"RU"') {
+//             bundlesByLanguage = bundlesRu;
+//         } else if (localStorage.getItem('language') == '"LV"') {
+//             bundlesByLanguage = bundlesLv;
+//         } else if (localStorage.getItem('language') == '"ET"') {
+//             bundlesByLanguage = bundlesEe;
+//         }
 
-        if (additionalSeriesBlocks) {
-            var seriesButton = document.createElement('div');
-            seriesButton.setAttribute('class', 'ab-test-button');
-            seriesButton.innerHTML = '<div class="arrow-right"></div>';
+//         clearInterval(interval);
+//         if (pageBundleId && !document.querySelector('.ab-test-modal')) {
+//             var price = bundlesByLanguage.price;
+//             var title5Placeholder = '<span hidden>';
 
-            setInterval(() => {
-                document
-                    .querySelectorAll(
-                        '#app > div.app-container > div > section.c-section.c-section--two-lines > div > div.c-section__container.js-section-container > div.c-section__wrapper > div'
-                    )
-                    .forEach(function (block) {
-                        if (!block.querySelector('.ab-test-button') && !block.querySelector('i.o-icon.o-button__icon.o-icon--play-circle.o-icon--xlarge')) {
-                            block.prepend(seriesButton.cloneNode(true));
-                            block.querySelector('.ab-test-button').addEventListener('click', function () {
-                                getProductBundleIds();
-                                generateModal();
-                            });
-                        }
-                    });
-            }, 1000);
-        }
-    }
-}, 500);
+//             if (pageBundleId == 2218494) {
+//                 price = bundlesByLanguage.adultContent.price;
+//                 var title5 = bundlesByLanguage.adultContent.title;
+//                 title5Placeholder =
+//                     '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+//                     title5 +
+//                     '</span></div>';
+//             }
 
-// Interval for live tv
 
-setInterval(() => {
-    if (window.location.href.indexOf('live_tv') > -1) {
-        var buttonContainer = document.querySelectorAll('div.c-live-detail__preview.c-live-detail__preview--channel > div.c-live-detail__cover.u-desktop-only');
-        var buttonContainerMobile = document.querySelectorAll('a.is-selected.js-current-program > div.c-epg-program-detail.u-mobile-only > div');
+//             var topInBaltics = bundlesByLanguage.topInBaltics;
+//             var allInclusive = bundlesByLanguage.allInclusive;
+//             var tvChannelsIncluded = bundlesByLanguage.tvChannelsIncluded;
+//             var discoveryFree = bundlesByLanguage.discoveryFree;
+//             var title1 = bundlesByLanguage.title1;
+//             var title2 = bundlesByLanguage.title2;
+//             var title3 = bundlesByLanguage.title3;
+//             var title4 = bundlesByLanguage.title4;
+//             var startWatchingNow = bundlesByLanguage.startWatchingNow;
+//             var cancelAnytime = bundlesByLanguage.cancelAnytime;
 
-        if (buttonContainer) {
-            var newButton = document.createElement('div');
-            newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
-            newButton.innerHTML = setButtonText() + ' <div class="arrow-right"></div>';
+//             var modal = document.createElement('div');
+//             modal.setAttribute('class', 'ab-test-modal');
+//             modal.innerHTML =
+//                 '<div class="modal-overflow"></div><div class="modal-inner"> ' +
+//                 '<div class="modal-top-in-baltics">' +
+//                 topInBaltics +
+//                 '</div>' +
+//                 '<div class="modal-close"></div>' +
+//                 '<div class="modal-recommended">' +
+//                 '<div class="modal-title">' +
+//                 allInclusive +
+//                 '</div>' +
+//                 '<div class="modal-price">' +
+//                 price +
+//                 '</div></div>' +
+//                 '<div class="modal-channels">' +
+//                 tvChannelsIncluded +
+//                 '</div>' +
+//                 '<div class="c-feature__column">' +
+//                 '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--gift"></i><span class="o-typography__subtitle3 c-feature__label">' +
+//                 discoveryFree +
+//                 '</span></div>' +
+//                 '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+//                 title1 +
+//                 '</span></div>' +
+//                 '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+//                 title2 +
+//                 '</span></div>' +
+//                 '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+//                 title3 +
+//                 '</span></div>' +
+//                 '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+//                 title4 +
+//                 '</span></div>' +
+//                 title5Placeholder +
+//                 '</div>' +
+//                 '<button class="o-button o-button--primary modal-subscribe-button"> <span class="o-typography__label o-button__label u-bold"> ' +
+//                 startWatchingNow +
+//                 ' </span> </button>' +
+//                 '<div class="modal-cancelAnytime">' +
+//                 cancelAnytime +
+//                 '</div>';
 
-            buttonContainer.forEach(function (container) {
-                if (!container.querySelector('ab-test-button-button')) {
-                    container.prepend(newButton);
+//             document.querySelector('body').append(modal);
 
-                    container.querySelector('.ab-test-button').addEventListener('click', function () {
-                        getProductBundleIds();
-                        generateModal();
-                    });
-                }
-            });
+//             var modalCloseButton = document.querySelector('.modal-close');
+//             var modalOverflow = document.querySelector('.modal-close, .modal-overflow ');
+//             var modalSubscribeButton = document.querySelector('.modal-subscribe-button');
 
-            buttonContainerMobile.forEach(function (container) {
-                if (!container.querySelector('ab-test-button-button')) {
-                    container.prepend(newButton.cloneNode(true));
+//             modalCloseButton.addEventListener('click', function () {
+//                 document.querySelector('.ab-test-modal').remove();
+//             });
 
-                    container.querySelector('.ab-test-button').addEventListener('click', function () {
-                        getProductBundleIds();
-                        generateModal();
-                    });
-                }
-            });
-        }
-    }
-}, 500);
+//             modalOverflow.addEventListener('click', function () {
+//                 document.querySelector('.ab-test-modal').remove();
+//             });
 
-var removeUpselModalInterval = window.setInterval(() => {
-    var upselModal = document.querySelector('.o-modal--upsell-popup')
-    if (upselModal) {
-        upselModal.querySelector('.o-modal__close').click()
-    }
-}, 500);
+//             modalSubscribeButton.addEventListener('click', function () {
+//                 document.querySelector('.ab-test-modal').remove();
+//                 window.location = urlStart + '/subscriber/checkout';
+//             });
+
+//             var contentUrl = window.location.href;
+
+//             var modalInterval = window.setInterval(function () {
+//                 if (contentUrl != window.location.href) {
+//                     clearInterval(modalInterval);
+//                     document.querySelector('.ab-test-modal').remove();
+//                 }
+//             }, 1000);
+//         }
+//     }, 200);
+// };
+
+// setInterval(() => {
+//     if (localStorage.getItem('newUser') == 'true' && (window.location.href.indexOf('movies') > -1 || window.location.href.indexOf('paramount') > -1)) {
+//         var buttonContainer = document.querySelector(' div.c-highlight__wrapper > div.c-highlight__buttons ');
+//         if (buttonContainer && !document.querySelector('.changed-button')) {
+//             buttonContainer.classList.add('changed-button');
+//             var buttonPrimary = buttonContainer.querySelector('.o-button--primary');
+//             if (
+//                 buttonPrimary &&
+//                 (buttonPrimary.textContent.includes('BUY') || buttonPrimary.textContent.includes('OSTA') || buttonPrimary.textContent.includes('КУПИТЬ'))
+//             ) {
+//                 buttonPrimary.remove();
+
+//                 var newButton = document.createElement('div');
+//                 newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
+//                 newButton.innerHTML = setButtonText() + ' <div class="arrow-right"></div>';
+
+//                 buttonContainer.prepend(newButton);
+//                 var newAddedButton = document.querySelector('.ab-test-button');
+
+//                 newAddedButton.addEventListener('click', function () {
+//                     getProductBundleIds();
+//                     generateModal();
+//                 });
+//             }
+//         }
+//     }
+// }, 500);
+
+// setInterval(() => {
+//     if (
+//         localStorage.getItem('newUser') == 'true' &&
+//         (window.location.href.indexOf('serial') > -1 ||
+//             window.location.href.indexOf('go3_extra') > -1 ||
+//             window.location.href.indexOf('ghost') > -1 ||
+//             window.location.href.indexOf('paramount/') > -1 ||
+//             window.location.href.indexOf('discoveryplus/') > -1)
+//     ) {
+//         var buttonContainer = document.querySelector(' div.c-highlight__wrapper > div.c-highlight__buttons ');
+//         if (
+//             !document.querySelector('div.c-highlight__buttons > div:nth-child(1) > i.o-icon--play') &&
+//             buttonContainer &&
+//             !document.querySelector('.changed-button')
+//         ) {
+//             buttonContainer.classList.add('changed-button');
+
+//             var newButton = document.createElement('div');
+//             newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
+//             newButton.innerHTML = setButtonText() + ' <div class="arrow-right"></div>';
+
+//             buttonContainer.prepend(newButton);
+//             buttonContainer.querySelector('.ab-test-button').addEventListener('click', function () {
+//                 getProductBundleIds();
+//                 generateModal();
+//             });
+//             document.querySelector('div.c-highlight__buttons.changed-button > div:nth-child(2)').remove();
+//         }
+//         var additionalSeriesBlocks = document.querySelectorAll(
+//             '#app > div.app-container > div > section.c-section.c-section--two-lines > div > div.c-section__container.js-section-container > div.c-section__wrapper > div'
+//         );
+
+//         if (additionalSeriesBlocks) {
+//             var seriesButton = document.createElement('div');
+//             seriesButton.setAttribute('class', 'ab-test-button');
+//             seriesButton.innerHTML = '<div class="arrow-right"></div>';
+
+//             setInterval(() => {
+//                 document
+//                     .querySelectorAll(
+//                         '#app > div.app-container > div > section.c-section.c-section--two-lines > div > div.c-section__container.js-section-container > div.c-section__wrapper > div'
+//                     )
+//                     .forEach(function (block) {
+//                         if (!block.querySelector('.ab-test-button') && !block.querySelector('i.o-icon.o-button__icon.o-icon--play-circle.o-icon--xlarge')) {
+//                             block.prepend(seriesButton.cloneNode(true));
+//                             block.querySelector('.ab-test-button').addEventListener('click', function () {
+//                                 getProductBundleIds();
+//                                 generateModal();
+//                             });
+//                         }
+//                     });
+//             }, 1000);
+//         }
+//     }
+// }, 500);
+
+// // Interval for live tv
+
+// setInterval(() => {
+//     if (localStorage.getItem('newUser') == 'true' && window.location.href.indexOf('live_tv') > -1) {
+//         var buttonContainer = document.querySelectorAll('div.c-live-detail__preview.c-live-detail__preview--channel > div.c-live-detail__cover.u-desktop-only');
+//         var buttonContainerMobile = document.querySelectorAll('a.is-selected.js-current-program > div.c-epg-program-detail.u-mobile-only > div');
+
+//         if (buttonContainer) {
+//             var newButton = document.createElement('div');
+//             newButton.setAttribute('class', 'o-button o-button--primary ab-test-button');
+//             newButton.innerHTML = setButtonText() + ' <div class="arrow-right"></div>';
+
+//             buttonContainer.forEach(function (container) {
+//                 if (!container.querySelector('.ab-test-button')) {
+//                     container.prepend(newButton);
+
+//                     container.querySelector('.ab-test-button').addEventListener('click', function () {
+//                         getProductBundleIds();
+//                         generateModal();
+//                     });
+//                 }
+//             });
+
+//             buttonContainerMobile.forEach(function (container) {
+//                 if (!container.querySelector('.ab-test-button')) {
+//                     container.prepend(newButton.cloneNode(true));
+
+//                     container.querySelector('.ab-test-button').addEventListener('click', function () {
+//                         getProductBundleIds();
+//                         generateModal();
+//                     });
+//                 }
+//             });
+//         }
+//     }
+// }, 500);
+
+// var untilityInterval = window.setInterval(() => {
+//     var upselModal = document.querySelector('.o-modal--upsell-popup');
+//     if (upselModal && localStorage.getItem('newUser') == 'true') {
+//         upselModal.querySelector('.o-modal__close').click();
+//     }
+
+//     var button = document.querySelector('#app > div.app-container > section > div > div.o-page__column.o-page__column--right > form > div.o-form__group.u-mb-20 > div:nth-child(1) > button')
+//     if (button) {
+//         button.addEventListener('click', function () {
+//             checkIfUserSubscribed();
+
+//             setTimeout(() => {
+//                 checkIfUserSubscribed();
+//             }, 2000);
+//         })
+//     }
+// }, 500);
+
+
+
+// var addClassToBody = window.setInterval(() => {
+//     var body = document.querySelector('body');
+//     if (body && localStorage.getItem('newUser') == 'true') {
+//         if (!body.classList.contains('ab-visible')) {
+//             body.classList.add('ab-visible')
+//         }
+//     } else if (body && localStorage.getItem('newUser') == 'false') {
+//         if (body.classList.contains('ab-visible')) {
+//             body.classList.remove('ab-visible')
+//         }
+//     }
+// })

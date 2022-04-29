@@ -1,6 +1,3 @@
-// var urlStart = 'https://go3.lv';
-// var urlEnd = '=AMB_LV';
-
 // var getJSON = function (url, callback) {
 //     var xhr = new XMLHttpRequest();
 //     xhr.open('GET', url, true);
@@ -17,7 +14,7 @@
 // };
 
 // var urlForTenant = '/api/subscribers/detail?platform=BROWSER';
-// var urlForActiveSubscriber = '/api/subscribers/payments?platform=BROWSER&lang=EN&tenant=AMB_LV&maxResults=100&channel[]=POSTPAID';
+// var urlForActiveSubscriber = '/api/subscribers/payments?platform=BROWSER&lang=EN&tenant=AMB_EE&maxResults=100&channel[]=POSTPAID';
 
 // var checkIfUserSubscribed = function () {
 //     getJSON(urlForTenant, function (err, data) {
@@ -119,27 +116,27 @@
 // //     checkIfUserSubscribed();
 // // }, 2000);
 
-// var bundlesLv = {
-//     topInBaltics: 'TOP Baltijā',
-//     allInclusive: 'Viss iekļauts',
-//     price: '14,99 EUR / mēn.',
-//     tvChannelsIncluded: 'TV kanāli iekļauti (51)',
-//     discoveryFree: 'discovery+ BEZ MAKSAS',
+// var bundlesLt = {
+//     topInBaltics: 'TOP BALTIJOS ŠALYSE',
+//     allInclusive: 'Viskas įskaičiuota',
+//     price: '14,99 Eur / mėn.',
+//     tvChannelsIncluded: 'Įtraukta TV kanalų (55)',
+//     discoveryFree: 'Discovery+ NEMOKAMAI',
 
-//     title1: 'Disney un Paramount+ kases grāvēji',
-//     title2: 'Ekskluzīvs Go 3 oriģinālsaturs',
-//     title3: 'Neierobežots sporta saturs',
-//     title4: 'Tiešraides TV ar 7 dienu arhīvu',
+//     title1: 'Disney ir Paramount+ hitai',
+//     title2: 'Išskirtinis Go3 originalus turinys',
+//     title3: 'Nesibaigiantis sporto turinys',
+//     title4: 'Tiesioginiai televizijos kanalai ir 7 dienų archyvas',
 
-//     startWatchingNow: 'Sāc skatīties jau tagad!',
-//     cancelAnytime: 'Apturi jebkurā brīdī',
+//     startWatchingNow: 'Pradėkite žiūrėti jau dabar!',
+//     cancelAnytime: 'Atšaukite bet kada',
 //     adultContent: {
-//         title: 'Pieaugušo paka',
-//         price: '17,98 EUR / mēn.',
+//         title: 'Turinys suaugusiems',
+//         price: '17,98 Eur / mėn.',
 //     },
 //     nbaContent: {
-//         title: 'NBA League pass abonements',
-//         price: '23,39 EUR / mēn.',
+//         title: 'NBA League Pass prenumerata',
+//         price: '23,39 Eur / mėn.',
 //     },
 // };
 
@@ -147,7 +144,7 @@
 //     topInBaltics: 'TOP IN BALTICS',
 //     allInclusive: 'All Inclusive',
 //     price: '14.99 € / month',
-//     tvChannelsIncluded: 'TV channels included (51)',
+//     tvChannelsIncluded: 'TV channels included (55)',
 //     discoveryFree: 'Discovery+ for FREE',
 
 //     title1: 'Disney & Paramount+ blockbusters',
@@ -171,7 +168,7 @@
 //     topInBaltics: 'ТОП В БАЛТИИ',
 //     allInclusive: 'Все включено',
 //     price: '14.99 € / месяц',
-//     tvChannelsIncluded: 'ТВ каналы включены (51)',
+//     tvChannelsIncluded: 'ТВ каналы включены (55)',
 //     discoveryFree: 'discovery+ БЕСПЛАТНО',
 
 //     title1: 'Disney & Paramount+ блокбастеры',
@@ -192,8 +189,8 @@
 // };
 
 // var setButtonText = function () {
-//     if (localStorage.getItem('language') == '"LV"') {
-//         return 'SKATĪTIES';
+//     if (localStorage.getItem('language') == '"LT"') {
+//         return 'ŽIŪRĖTI';
 //     } else if (localStorage.getItem('language') == '"EN"') {
 //         return 'WATCH';
 //     } else if (localStorage.getItem('language') == '"RU"') {
@@ -251,17 +248,17 @@
 //     if (serialPage) {
 //         var serialId = pageUrl.match(/\bserial-\b.[0-9]+/)[0];
 //         var extractedNumbersFormSeries = serialId.match(/[0-9]+/);
-//         url = urlStart + '/api/products/vods/serials/' + extractedNumbersFormSeries + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
+//         url = 'https://go3.lt/api/products/vods/serials/' + extractedNumbersFormSeries + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
 //     }
 
 //     if (videoPage) {
-//         url = urlStart + '/api/products/vods/' + mediaId + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
+//         url = 'https://go3.lt/api/products/vods/' + mediaId + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
 //     }
 
 //     if (livePage) {
 //         var liveTvMediaId = pageUrl.match(/\blive-\b.[0-9]+/)[0];
 //         var extractedNumbers = liveTvMediaId.match(/[0-9]+/);
-//         url = urlStart + '/api/products/lives/' + extractedNumbers + '?platform=BROWSER&lang=EN&tenant' + urlEnd;
+//         url = 'https://go3.lt/api/products/lives/' + extractedNumbers + '?platform=BROWSER&lang=EN&tenant=AMB_LT';
 //     }
 
 //     getJSON(url, function (err, data) {
@@ -321,6 +318,15 @@
 //             if (pageBundleId == 2218494) {
 //                 price = bundlesByLanguage.adultContent.price;
 //                 var title5 = bundlesByLanguage.adultContent.title;
+//                 title5Placeholder =
+//                     '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
+//                     title5 +
+//                     '</span></div>';
+//             }
+
+//             if (pageBundleId == '989311,989317,989318,989339,2958734') {
+//                 price = bundlesByLanguage.nbaContent.price;
+//                 var title5 = bundlesByLanguage.nbaContent.title;
 //                 title5Placeholder =
 //                     '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
 //                     title5 +
@@ -397,7 +403,7 @@
 
 //             modalSubscribeButton.addEventListener('click', function () {
 //                 document.querySelector('.ab-test-modal').remove();
-//                 window.location = urlStart + '/subscriber/checkout';
+//                 window.location = 'https://go3.lt/subscriber/checkout';
 //             });
 
 //             var contentUrl = window.location.href;
@@ -420,7 +426,7 @@
 //             var buttonPrimary = buttonContainer.querySelector('.o-button--primary');
 //             if (
 //                 buttonPrimary &&
-//                 (buttonPrimary.textContent.includes('BUY') || buttonPrimary.textContent.includes('ABONĒT') || buttonPrimary.textContent.includes('КУПИТЬ'))
+//                 (buttonPrimary.textContent.includes('BUY') || buttonPrimary.textContent.includes('PIRKTI') || buttonPrimary.textContent.includes('КУПИТЬ'))
 //             ) {
 //                 buttonPrimary.remove();
 

@@ -1,21 +1,34 @@
-function insertBefore(el, referenceNode) {
-    referenceNode.parentNode.insertBefore(el, referenceNode);
-}
 
-var onlineInterval = window.setInterval(function () {
-    var ticketRight = document.querySelector('.n-buy-tickets-top-desk > div.n-buy-tickets-right');
-    var ticketRightTimer = ticketRight.querySelector('.n-buy-tickets-time-left');
-    var ticketsSummary = document.querySelector('.n-buy-tickets-summary');
+// var onlineInterval = window.setInterval(function () {
+//     var header = document.querySelector('.landing__header-wrapper');
+//     var title = document.querySelector('.landing__section-title');
+   
 
-    if (ticketRight && ticketRightTimer && ticketsSummary && !document.querySelector('.new-lotteries-block')) {
-        insertBefore(ticketRightTimer, ticketsSummary);
+//     if (header && title && !document.querySelector('.new-lotteries-block')) {
+//         title.textContent = 'RINKITĖS LOTERIJĄ'
+//         title.setAttribute('class', 'modified-title')
+//         var newBlock = document.createElement('div')
+//         newBlock.setAttribute('class', 'new-lotteries-block')
+//         newBlock.innerHTML = '<div class="new-lotteries-block-content"><a class="banner-images" href="/lt/teleloto"><img src="https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/teleloto+%40x2.png"></a>  <a class="banner-images" href="/lt/eurojackpot"><img src="https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/eurojackpot+%40x2.png"></a> <a class="banner-images" href="/lt/vikingloto"><img src="https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/vikinglotto+%40x2.png"></a> <a class="banner-images" href="https://loto.lt/lt/kenoloto"><img src="https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/kenoloto+%40x2.png"></a> <a class="banner-images" href="https://loto.lt/lt/jega2"><img src="https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/jega+%40x2.png"></a> <div class="test-cta"> <a href="/lt/page/prenumeratos" class="test-link">Prenumeruoti</a> <div class="landing__seperator visible-lg visible-md visible-sm"></div> <a href="/lt/laidu-irasai" class="test-link">Laidų įrašai</a></div>  </div>'
+   
+//         header.append(newBlock)
+        
+//         document.querySelector('div.new-lotteries-block > div > a:nth-child(1)').addEventListener('click', function() {
+//     ga('send', 'event', 'AB tests', 'Tele-loto');
+// })
+// document.querySelector('div.new-lotteries-block > div > a:nth-child(2)').addEventListener('click', function() {
+//     ga('send', 'event', 'AB tests', 'Euro jackpot');
+// })
+// document.querySelector('div.new-lotteries-block > div > a:nth-child(3)').addEventListener('click', function() {
+//     ga('send', 'event', 'AB tests', 'Viking lotto');
+// })
+// document.querySelector('div.new-lotteries-block > div > a:nth-child(4)').addEventListener('click', function() {
+//     ga('send', 'event', 'AB tests', 'Keno loto');
+// })
+// document.querySelector('div.new-lotteries-block > div > a:nth-child(5)').addEventListener('click', function() {
+//     ga('send', 'event', 'AB tests', 'Jega');
+// })
+//         clearInterval(onlineInterval)
+//     }
+// }, 1000);
 
-        var newBlock = document.createElement('div');
-        newBlock.setAttribute('class', 'new-lotteries-block');
-        newBlock.innerHTML =
-            '<div class="banner-content-item banner-content-item-1"> <p>Šios savaitės prizai</p> <div class="banner-content-text-w-image"> <img src="https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/eur.png" /> <div class="bold-text">950 000 €</div> </div> </div> <div class="banner-content-item banner-content-item-2"> <div class="banner-content-text-w-image"> <img src="https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/keys.png" /> <div class="bold-text">Butas Palangoje</div> </div> </div> <div class="banner-content-item banner-content-item-3"> <img src="https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/car.png" /> <div class="banner-content-text-w-text"> <p>Automobilis</p> <div class="bold-text">Toyota Corolla</div> </div> </div>';
-
-        ticketRight.append(newBlock);
-        clearInterval(onlineInterval);
-    }
-}, 1000);

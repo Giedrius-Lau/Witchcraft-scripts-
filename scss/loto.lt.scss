@@ -1,68 +1,73 @@
-.n-buy-tickets-time-left {
-    display : flex;
-    row-gap : 4px;
-    column-gap : 4px;
-    justify-content : flex-end;
-    margin-bottom : 20px;
-  }
-  
-  .n-buy-tickets-time-left img {
-    right : 200px;
-    left : auto !important;
-  }
-  
-  .new-lotteries-block {
-    display : flex;
-    row-gap : 15px;
-    column-gap : 15px;
-  }
-  
-  .new-lotteries-block .banner-content-text-w-image {
-    display : flex;
-    row-gap : 10px;
-    column-gap : 10px;
-  }
-  
-  .new-lotteries-block .bold-text {
-    font-size : 18px;
-    color : rgb(51, 51, 51);
-    font-weight : 700;
-    white-space : nowrap;
-    letter-spacing : -1px;
-  }
-  
-  .new-lotteries-block .banner-content-item {
-    line-height : 20px;
-  }
-  
-  .new-lotteries-block .banner-content-item p {
-    margin : 0px;
-    font-size : 12px;
-  }
-  
-  .new-lotteries-block .banner-content-item-3 {
-    display : flex;
-    row-gap : 10px;
-    column-gap : 10px;
-  }
-  
-  .n-buy-tickets-right>div>div:nth-child(1)>div>img {
-    width : 22px;
-    height : 22px;
-  }
-  
-  .n-buy-tickets-right>div>div:nth-child(2)>div>img {
-    width : 42px;
-    height : 42px;
-  }
-  
-  .n-buy-tickets-right>div>div:nth-child(3)>img {
-    width : 82px;
-    height : 42px;
-  }
-  
-  .n-buy-tickets-right>div>div:nth-child(2)>div>div {
-    width : 90px;
-    white-space : break-spaces !important;
-  }
-  
+// .modified-title {
+//     font-size: 12px;
+//     position: absolute;
+//     top: -7px;
+//     left: 20px;
+//     font-weight: 600;
+//     color: rgb(45, 113, 123);
+// }
+
+// .loteries-section__loteries-container,
+// #main > div.landing > div.extra-container > section > div.landing__header-wrapper > div.landing__seperator.visible-lg.visible-md.visible-sm,
+// #main > div.landing > div.extra-container > section > div.landing__header-wrapper > a.btn-green.visible-lg.visible-md.visible-sm.btn-green--mr-16,
+// #main > div.landing > div.extra-container > section > div.landing__header-wrapper > a:nth-child(4) {
+//     display: none !important;
+// }
+
+// .new-lotteries-block {
+//     display: flex;
+//     align-items: center;
+//     width: 100%;
+// }
+
+// .new-lotteries-block .new-lotteries-block-content {
+//     display: flex;
+//     align-items: center;
+//     row-gap: 15px;
+//     column-gap: 15px;
+//     width: 100%;
+// }
+
+// .new-lotteries-block .banner-images {
+//     box-shadow: rgba(0, 0, 0, 0.18) 0px 0px 5px;
+//     width: 100%;
+//     height: 80px;
+//     border-radius: 4px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+// }
+
+// .new-lotteries-block .banner-images img {
+//     width: 100%;
+//     max-height: 60px;
+//     height: 100%;
+//     object-fit: contain;
+// }
+
+// .new-lotteries-block .test-cta {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     width: 100%;
+//     max-width: 180px;
+//     margin-left: 30px;
+//     row-gap: 8px;
+//     column-gap: 8px;
+// }
+
+// .new-lotteries-block .test-cta a {
+//     color: rgb(45, 113, 123);
+//     font-weight: 600;
+// }
+
+// .new-lotteries-block .test-cta .landing__seperator {
+//     display: block !important;
+// }
+
+// .landing .loteries-section {
+//     position: relative;
+//     padding: 35px 20px 0px 20px !important;
+//     top: -132px !important;
+//     margin-bottom: -21px;
+// }

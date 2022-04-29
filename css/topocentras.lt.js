@@ -1,48 +1,43 @@
-// var productInterval = window.setInterval(function () {
-//     var leftBlock = document.querySelector('.TopBlock-imageCarousel-dui');
-//     var main = document.querySelector('main');
+// (function () {
+//     var oldPushState = history.pushState;
+//     history.pushState = function pushState() {
+//       var ret = oldPushState.apply(this, arguments);
+//       window.dispatchEvent(new Event('pushstate'));
+//       window.dispatchEvent(new Event('locationchange'));
+//       return ret;
+//     };
 
-//     if (leftBlock && main) {
-//         var specifikacija = document.createElement('div');
-//         specifikacija.setAttribute('class', 'specifikacija');
-//         specifikacija.innerHTML = '<a href="#parameters">Prekės informacija</a>';
+//     var oldReplaceState = history.replaceState;
+//     history.replaceState = function replaceState() {
+//       var ret = oldReplaceState.apply(this, arguments);
+//       window.dispatchEvent(new Event('replacestate'));
+//       window.dispatchEvent(new Event('locationchange'));
+//       return ret;
+//     };
 
-//         var scrollToTop = document.createElement('div');
-//         scrollToTop.setAttribute('class', 'scrollToTop');
+//     window.addEventListener('popstate', function () {
+//       window.dispatchEvent(new Event('locationchange'));
+//     });
+//   })();
 
-//         leftBlock.append(specifikacija);
 
-//         if (!document.querySelector('.scrollToTop')) {
-//             main.append(scrollToTop);
-//         }
+//   var setTest = function () {
+//     var interval = window.setInterval(function () {
+//       var buttons = document.querySelectorAll('.Filters-filterGroupContainer-1Wl .Filters-filterTitle-1AA')
+//       if (buttons.length > 0 && !document.querySelector('.ab-closed-filters')) {
+//         document.querySelector('.Filters-filterGroupContainer-1Wl').classList.add('ab-closed-filters')
 
-//         var y = $(this).scrollTop();
-//         if (y < 850) {
-//             $('.scrollToTop').hide();
-//         } else {
-//             $('.scrollToTop').show();
-//             document.querySelector('.scrollToTop').addEventListener('click', function () {
-//                 console.log('click1');
+//         buttons.forEach(function (button) {
+//           button.click();
+//         })
+//         clearInterval(interval);
+//       }
+//     }, 300);
+//   }
 
-//                 $('html, body').animate({ scrollTop: 0 }, 'slow');
-//                 return false;
-//             });
-//         }
+//   setTest();
 
-//         clearInterval(productInterval);
-//     }
-// }, 300);
 
-// $(document).scroll(function () {
-//     var y = $(this).scrollTop();
-//     if (y < 850) {
-//         $('.scrollToTop').hide();
-//     } else {
-//         $('.scrollToTop').show();
-//         document.querySelector('.scrollToTop').addEventListener('click', function () {
-//             console.log('click2');
-//             $('html, body').animate({ scrollTop: 0 }, 'slow');
-//             return false;
-//         });
-//     }
-// });
+//   window.addEventListener('locationchange', function () {
+//     setTest();
+//   });

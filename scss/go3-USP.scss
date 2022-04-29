@@ -1,89 +1,157 @@
-.usp-container {
-    width: 100%;
-    padding: 0 30px;
-
-    @media (min-width: 1024px) {
-        padding: 0 55px;
-        background: #050506;
+@media (min-width: 1920px) {
+    :root {
+        --page-padding: 86px;
     }
-    @media (min-width: 1366px) {
-        padding: 0 60px;
+}
+
+@media (min-width: 1366px) {
+    :root {
+        --page-padding: 60px;
     }
-    @media (min-width: 1920px) {
-        padding: 0 86px;
+}
+
+@media (min-width: 1024px) {
+    :root {
+        --page-padding: 55px;
     }
+}
+:root {
+    --page-padding: 30px;
+}
 
-    .usp-conatiner-inner {
-        display: flex;
-        min-height: 60px;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 40px;
+.ab-visible {
+    .ab-test-ups {
+        animation: opacity 1s ease;
+        opacity: 1;
 
-        @media (max-width: 999px) {
-            background: transparent;
-            flex-direction: column;
-            align-items: start;
-            padding: 20px 0;
-            margin-bottom: 10px;
-        }
+        ul {
+            li {
+                position: relative;
+                font-size: 16px;
+                color: #ffffff9e;
+                display: flex;
+                align-items: center;
 
-        & > div {
-            display: flex;
-            align-items: center;
-
-            @media (max-width: 999px) {
-                margin-bottom: 10px;
-            }
-
-            i {
-                margin-right: 10px;
-                font-size: 40px;
-
-                @media (max-width: 999px) {
+                &:before {
+                    content: '';
+                    top: 3px;
+                    background: url(https://semexit.s3.eu-west-1.amazonaws.com/go3/Vector.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    width: 27px;
+                    height: 18px;
                     margin-right: 10px;
-                    font-size: 20px;
-                }
-            }
-
-            .usp-text {
-                font-size: 18px;
-                color: #bbbbbb;
-
-                @media (max-width: 999px) {
-                    font-size: 14px;
-                    color: #ffffff;
+                    display: inline-block;
                 }
             }
         }
     }
 
-    &.movies {
-        background: #1a1a1c;
-        padding-top: 10px;
-        padding-bottom: 10px;
+    div.o-page--top.o-page--full-width.o-page > div,
+    .c-search {
+        .ab-test-ups {
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                height: 70px;
+                align-items: center;
+                padding: 0 var(--page-padding);
 
-        @media (max-width: 999px) {
-            background: linear-gradient(290deg,transparent 0,#000 100%) 0 0;
-            padding-top: 0;
-            padding-bottom: 0;
+                li {
+                    margin: 0;
+                    margin-right: 5%;
+                }
+            }
         }
-        
-        .usp-conatiner-inner {
-            margin: 0;
+    }
+
+    .c-search {
+        .ab-test-ups {
+            ul {
+                background: #050506;
+                margin-bottom: 25px;
+                margin-top: -25px;
+            }
+        }
+    }
+
+    section.o-page--navbar.o-page--full-width.o-page {
+        .c-live-detail__wrapper.u-desktop-only {
+            width: 60%;
+            float: left;
+        }
+
+        .ab-test-ups {
+            width: 40%;
+            float: right;
+            padding: 100px 40px;
+
+            ul {
+                li {
+                    gap: 7px;
+                    margin-bottom: 25px;
+                }
+            }
+        }
+    }
+
+    .c-footer {
+        clear: both;
+    }
+
+    @media (max-width: 767px) {
+        .ab-test-ups {
+            animation: opacity 1s ease;
+            opacity: 1;
+            height: 170px;
+            padding: 20px 0;
+
+            ul {
+                flex-direction: column !important;
+                align-items: start !important;
+                gap: 15px;
+
+                li {
+                    color: #ffffff;
+                    font-size: 14px;
+
+                    &:before {
+                        width: 16px;
+                        margin-top: 4px;
+                    }
+                }
+            }
+        }
+
+        .c-search .ab-test-ups {
+            margin-bottom: 20px;
+
+            ul {
+                margin-bottom: 25px;
+                margin-top: -25px;
+                height: auto;
+                padding: 20px 30px;
+                background: #1a1a1c;
+                border-top: 1px solid #797979;
+            }
+        }
+
+        .c-search__tabs {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            overflow: scroll;
+            gap: 20px;
         }
     }
 }
 
-.c-search__tabs.added-usp {
-    @media (max-width: 999px) {
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-        gap: 20px;
-        overflow: auto;
-        border-bottom: 1px solid #3a3a3c;
-        padding: 5px 30px;
-        margin: 0;
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
