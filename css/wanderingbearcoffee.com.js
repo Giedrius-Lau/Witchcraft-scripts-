@@ -1,4 +1,4 @@
-// (() => {
+// (function () {
 //     let oldPushState = history.pushState;
 //     history.pushState = function pushState() {
 //         let ret = oldPushState.apply(this, arguments);
