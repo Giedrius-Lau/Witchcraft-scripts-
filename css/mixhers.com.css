@@ -1,0 +1,35 @@
+/* .cart-subtotal__canada {
+    display: none;
+}
+.cart-security {
+    color: #1f9c69;
+    display: flex;
+    position: relative;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+@media (max-width: 767px) {
+    .cart-security {
+        width: 100%;
+        justify-content: center;
+        font-size: 14px;
+    }
+}
+.cart-security:before {
+    content: '';
+    width: 18px;
+    height: 18px;
+    background: url(https://cdn.shopify.com/s/files/1/0557/9879/2371/files/Vector_1_8f3f7c1e-254e-4064-841a-8859dc155e74.png?v=1651651772);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+@media (max-width: 767px) {
+    .cart-subtotal__title,
+    .cart-subtotal__price {
+        margin-right: auto;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        padding: 0;
+    }
+} */

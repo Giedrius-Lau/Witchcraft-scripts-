@@ -324,15 +324,6 @@
 //                     '</span></div>';
 //             }
 
-//             if (pageBundleId == '989311,989317,989318,989339,2958734') {
-//                 price = bundlesByLanguage.nbaContent.price;
-//                 var title5 = bundlesByLanguage.nbaContent.title;
-//                 title5Placeholder =
-//                     '<div class="c-feature__item"><i class="o-icon c-feature__icon u-color-accent o-icon--check"></i><span class="o-typography__subtitle3 c-feature__label">' +
-//                     title5 +
-//                     '</span></div>';
-//             }
-
 //             var topInBaltics = bundlesByLanguage.topInBaltics;
 //             var allInclusive = bundlesByLanguage.allInclusive;
 //             var tvChannelsIncluded = bundlesByLanguage.tvChannelsIncluded;

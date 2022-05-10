@@ -1,29 +1,44 @@
-.PDPGallery-imagePlaceholder.o-placeholder {
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    animation: opacity 1.5s ease;
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(1),
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(2),
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(3),
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(4),
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(5) {
+//     span {
+//         font-size: 0 !important;
+//         display: none;
+//     }
 
-}
+//     &:after {
+//         font-size: 1.25rem !important;
+//     }
+// }
 
-.PDPGallery-images {
-    animation: opacity 0.5s ease;
-}
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(1) {
+//     &:after {
+//         content: 'Try 1 box of cold brew at the 2-box discount price ($26.99) before committing to a 2 box subscription';
+//     }
+// }
 
-@keyframes opacity {
-    0% {
-        opacity: 0;
-    }
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(2) {
+//     &:after {
+//         content: 'Your subscription refills will be 2 boxes for $26.99 per box ($53.98 total) - an $18 savings from our non-subscription pricing!';
+//     }
+// }
 
-    70% {
-        opacity: 0;
-    }
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(3) {
+//     &:after {
+//         content: 'Change your flavors as often as you want';
+//     }
+// }
 
-    100% {
-        opacity: 1;
-    }
-}
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(4) {
+//     &:after {
+//         content: 'Skip or cancel any time';
+//     }
+// }
 
-.PDPGallery-imagePlaceholder.o-placeholder {
-    background: none;
-}
+// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(5) {
+//     &:after {
+//         content: 'Ships free (and sustainably)!';
+//     }
+// }

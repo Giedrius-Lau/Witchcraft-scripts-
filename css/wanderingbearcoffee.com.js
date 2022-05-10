@@ -1,127 +1,27 @@
-// (function () {
-//     let oldPushState = history.pushState;
-//     history.pushState = function pushState() {
-//         let ret = oldPushState.apply(this, arguments);
-//         window.dispatchEvent(new Event('pushstate'));
-//         window.dispatchEvent(new Event('locationchange'));
-//         return ret;
-//     };
+var listInterval = window.setInterval(function () {
+    var listItem = document.querySelector('#shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(4)');
 
-//     let oldReplaceState = history.replaceState;
-//     history.replaceState = function replaceState() {
-//         let ret = oldReplaceState.apply(this, arguments);
-//         window.dispatchEvent(new Event('replacestate'));
-//         window.dispatchEvent(new Event('locationchange'));
-//         return ret;
-//     };
+    if (listItem && !document.querySelector('#shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(5)')) {
+        listItem.parentNode.append(listItem.cloneNode(true));
+    }
+}, 1000);
 
-//     window.addEventListener('popstate', () => {
-//         window.dispatchEvent(new Event('locationchange'));
-//     });
-// })();
+var textInterval = window.setInterval(function () {
+    var text = document.querySelector('.PDPTrialMessage-text p');
 
-// var setImage = function () {
-//     var interval = window.setInterval(function () {
-//         var productImage = document.querySelector('.PDPGallery-imagePlaceholder.o-placeholder');
+    if (text && text.textContent != "This offer signs you up for a monthly 2-box subscription. Your first order will be for 1-box of your chosen flavor at the two-box discount price (25% off the normal one box price). If you love it, you'll already be set up with a 2-box subscription moving forward--and if you don't, just be sure to cancel or change flavors before your next order is processed. Your subscription will auto-ship every 4 weeks; this will keep one human caffeinated for roughly a month.") {
+        text.textContent =
+            "This offer signs you up for a monthly 2-box subscription. Your first order will be for 1-box of your chosen flavor at the two-box discount price (25% off the normal one box price). If you love it, you'll already be set up with a 2-box subscription moving forward--and if you don't, just be sure to cancel or change flavors before your next order is processed. Your subscription will auto-ship every 4 weeks; this will keep one human caffeinated for roughly a month.";
+    }
+}, 1000);
 
-//         if (productImage) {
-//             var oneBoxBlack = 'https://cdn.shopify.com/s/files/1/1418/5086/files/1boxBlack.webp?v=1651040496' + '&width=675';
-//             var oneBoxVanilla = 'https://cdn.shopify.com/s/files/1/1418/5086/files/1boxVanilla.webp?v=1651040496' + '&width=675';
-//             var oneBoxCaramel = 'https://cdn.shopify.com/s/files/1/1418/5086/files/1boxCaramel.webp?v=1651040496' + '&width=675';
-//             var oneBoxMocha = 'https://cdn.shopify.com/s/files/1/1418/5086/files/1boxMocha.webp?v=1651040496' + '&width=675';
-//             var oneBoxHazelnut = 'https://cdn.shopify.com/s/files/1/1418/5086/files/1boxHazelnut.webp?v=1651040496' + '&width=675';
-//             var oneBoxDecaf = 'https://cdn.shopify.com/s/files/1/1418/5086/files/1boxDecaf.webp?v=1651040496' + '&width=675';
+var howItWorksInterval = window.setInterval(function () {
+    var howItWorksText = document.querySelectorAll('p.TrialHIW-itemText.copy');
 
-//             var twoBoxBlack = 'https://cdn.shopify.com/s/files/1/1418/5086/files/2boxBlack.webp?v=1651040568' + '&width=675';
-//             var twoBoxVanilla = 'https://cdn.shopify.com/s/files/1/1418/5086/files/2boxVanilla.webp?v=1651040568' + '&width=675';
-//             var twoBoxCaramel = 'https://cdn.shopify.com/s/files/1/1418/5086/files/2boxCaramel.webp?v=1651040568' + '&width=675';
-//             var twoBoxMocha = 'https://cdn.shopify.com/s/files/1/1418/5086/files/2boxMocha.webp?v=1651040568' + '&width=675';
-//             var twoBoxHazelnut = 'https://cdn.shopify.com/s/files/1/1418/5086/files/2boxHazelnut.webp?v=1651040568' + '&width=675';
-//             var twoBoxDecaf = 'https://cdn.shopify.com/s/files/1/1418/5086/files/2boxDecaf.webp?v=1651040568' + '&width=675';
-
-//             var threeBoxBlack = 'https://cdn.shopify.com/s/files/1/1418/5086/files/3Box-straightblack.png?v=1651040592' + '&width=675';
-//             var threeBoxVanilla = 'https://cdn.shopify.com/s/files/1/1418/5086/files/3Box-vanilla.png?v=1651040592' + '&width=675';
-//             var threeBoxCaramel = 'https://cdn.shopify.com/s/files/1/1418/5086/files/3Box-caramel.png?v=1651040592' + '&width=675';
-//             var threeBoxMocha = 'https://cdn.shopify.com/s/files/1/1418/5086/files/3Box-mocha.png?v=1651040592' + '&width=675';
-//             var threeBoxHazelnut = 'https://cdn.shopify.com/s/files/1/1418/5086/files/3Box-hazelnut.png?v=1651040592' + '&width=675';
-//             var threeBoxDecaf = 'https://cdn.shopify.com/s/files/1/1418/5086/files/3Box-decaf.png?v=1651040592' + '&width=675';
-
-//             var black = document.querySelectorAll('.PDPSWatchesContainer .Swatches-link')[0].classList.contains('is-active');
-//             var vanilla = document.querySelectorAll('.PDPSWatchesContainer .Swatches-link')[1].classList.contains('is-active');
-//             var caramel = document.querySelectorAll('.PDPSWatchesContainer .Swatches-link')[2].classList.contains('is-active');
-//             var mocha = document.querySelectorAll('.PDPSWatchesContainer .Swatches-link')[3].classList.contains('is-active');
-//             var hazelnut = document.querySelectorAll('.PDPSWatchesContainer .Swatches-link')[4].classList.contains('is-active');
-//             var decaf = document.querySelectorAll('.PDPSWatchesContainer .Swatches-link')[5].classList.contains('is-active');
-
-//             var oneBox = document.querySelectorAll('.PDPOptions-list .PDPOptions-item')[0].classList.contains('is-active');
-//             var twoBoxes = document.querySelectorAll('.PDPOptions-list .PDPOptions-item')[1].classList.contains('is-active');
-//             var threeBoxes = document.querySelectorAll('.PDPOptions-list .PDPOptions-item')[2].classList.contains('is-active');
-
-//             if (oneBox && black) {
-//                 productImage.style.background = 'url(' + oneBoxBlack + ')';
-//             }
-//             if (oneBox && vanilla) {
-//                 productImage.style.background = 'url(' + oneBoxVanilla + ')';
-//             }
-//             if (oneBox && caramel) {
-//                 productImage.style.background = 'url(' + oneBoxCaramel + ')';
-//             }
-//             if (oneBox && mocha) {
-//                 productImage.style.background = 'url(' + oneBoxMocha + ')';
-//             }
-//             if (oneBox && hazelnut) {
-//                 productImage.style.background = 'url(' + oneBoxHazelnut + ')';
-//             }
-//             if (oneBox && decaf) {
-//                 productImage.style.background = 'url(' + oneBoxDecaf + ')';
-//             }
-
-//             if (twoBoxes && black) {
-//                 productImage.style.background = 'url(' + twoBoxBlack + ')';
-//             }
-//             if (twoBoxes && vanilla) {
-//                 productImage.style.background = 'url(' + twoBoxVanilla + ')';
-//             }
-//             if (twoBoxes && caramel) {
-//                 productImage.style.background = 'url(' + twoBoxCaramel + ')';
-//             }
-//             if (twoBoxes && mocha) {
-//                 productImage.style.background = 'url(' + twoBoxMocha + ')';
-//             }
-//             if (twoBoxes && hazelnut) {
-//                 productImage.style.background = 'url(' + twoBoxHazelnut + ')';
-//             }
-//             if (twoBoxes && decaf) {
-//                 productImage.style.background = 'url(' + twoBoxDecaf + ')';
-//             }
-
-//             if (threeBoxes && black) {
-//                 productImage.style.background = 'url(' + threeBoxBlack + ')';
-//             }
-//             if (threeBoxes && vanilla) {
-//                 productImage.style.background = 'url(' + threeBoxVanilla + ')';
-//             }
-//             if (threeBoxes && caramel) {
-//                 productImage.style.background = 'url(' + threeBoxCaramel + ')';
-//             }
-//             if (threeBoxes && mocha) {
-//                 productImage.style.background = 'url(' + threeBoxMocha + ')';
-//             }
-//             if (threeBoxes && hazelnut) {
-//                 productImage.style.background = 'url(' + threeBoxHazelnut + ')';
-//             }
-//             if (threeBoxes && decaf) {
-//                 productImage.style.background = 'url(' + threeBoxDecaf + ')';
-//             }
-
-//             clearInterval(interval);
-//         }
-//     }, 500);
-// };
-
-// setImage();
-
-// window.addEventListener('locationchange', function () {
-//     setImage();
-//     console.log('clasdasd')
-// });
+    if (howItWorksText.length > 2 && howItWorksText[0].textContent != 'Choose a flavor, sign up for a 2-box subscription, and get ready for your first shipment of ONE box of cold brew in the flavor of your choice.') {
+        howItWorksText[0].textContent = 'Choose a flavor, sign up for a 2-box subscription, and get ready for your first shipment of ONE box of cold brew in the flavor of your choice.';
+        howItWorksText[1].innerHTML =
+            "<p>Once you're hooked, we will ship you 2 boxes of cold brew each month at $26.99 per box (($53.98 total) that’s an $18 savings from our non-subscription pricing!). <br><br> Don't worry, we will send you an email before your second shipment so you have the ability to change up the flavor or cancel your trial (no hard feelings).</p>";
+        howItWorksText[2].textContent = 'Enjoy our surprisingly smooth Cold Brew AND enjoy never running out of caffeine again!';
+    }
+}, 1000);

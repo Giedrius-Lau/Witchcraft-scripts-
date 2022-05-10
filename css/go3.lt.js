@@ -1,6 +1,12 @@
 var amb = '=AMB_LT';
 var urlStart = 'https://go3.lt';
 
+// var amb = '=AMB_LV';
+// var urlStart = 'https://go3.lv';
+
+// var amb = '=AMB_EE';
+// var urlStart = 'https://go3.tv';
+
 var bundlesByLanguage;
 
 var uspEn = {
@@ -68,70 +74,60 @@ var uspEn = {
 
 var uspLt = {
     search: {
-        //done
         usp1: 'Originalus Go3 turinys',
         usp2: 'Žiūrėk visuose įrenginiuose',
         usp3: 'Atsisiųsk ir žiūrėk bet kada',
         usp4: 'Daugiau nei 3.000 filmų ir serialų',
     },
     films: {
-        //done
         usp1: 'Populiariausi Lietuviški filmai',
         usp2: 'Daugiau nei 2000 filmų',
         usp3: 'Įgarsinta lietuviškai',
         usp4: 'Tarptautiniai filmų hitai',
     },
     serials: {
-        //done
         usp1: 'Išskirtinis Go3 originalus turinys',
         usp2: 'Daugiau nei 1000+ skirtingų serialų',
         usp3: 'Įgarsinta lietuviškai',
         usp4: 'Populiariausi tarptautiniai serialai',
     },
     livetv: {
-        //done
         usp1: 'Daugiau nei 30 populiarių TV kanalų',
         usp2: '7 dienų archyvas',
         usp3: 'Lietuviški kanalai',
         usp4: 'Populiariausia dokumentika',
     },
     sport: {
-        //done
         usp1: 'Pagrindinės krepšinio lygos',
         usp2: 'Tiesioginės varžybų transliacijos',
         usp3: 'Tenisas, dviračiai, boksas',
         usp4: 'Komentatoriai lietuvių kalba',
     },
     rent: {
-        //done
         usp1: 'Naujausi kino teatrų hitai',
         usp2: 'Daugiau nei 500 filmų nuomai',
         usp3: 'Žiūrėkite su šeima namuose',
         usp4: 'Pastovus filmų papildymas',
     },
     disney: {
-        //done
         usp1: 'Populiariausi filmai',
         usp2: 'Daugiau nei 2000 filmų',
         usp3: 'Įgarsinta lietuviškai',
         usp4: 'Tarptautiniai filmų hitai',
     },
     paramount: {
-        //done
         usp1: 'Populiariausi filmai',
         usp2: 'Daugiau nei 2000 filmų',
         usp3: 'Įgarsinta lietuviškai',
         usp4: 'Tarptautiniai filmų hitai',
     },
     discovery: {
-        //done
         usp1: 'Apdovanojimus pelniusi dokumentika',
         usp2: 'Sporto varžybos per Eurosport',
         usp3: 'Olimpiados transliacijos ir apžvalga',
         usp4: 'Populiarūs realybės šou',
     },
     shortVideos: {
-        //done
         usp1: 'Originalus lietuviškas turinys',
         usp2: 'Už kadro likęs turinys',
         usp3: 'Sportas ir grožis',
@@ -453,7 +449,6 @@ var checkIfUserSubscribed = function () {
 
 checkIfUserSubscribed();
 
-// TIKRINA AR PASIKEITE URL
 (() => {
     let oldPushState = history.pushState;
     history.pushState = function pushState() {
@@ -475,23 +470,6 @@ checkIfUserSubscribed();
         window.dispatchEvent(new Event('locationchange'));
     });
 })();
-
-// TIKRINA AR PASIKEITE URL
-
-var getJSON = function (url, callback) {
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', url, true);
-    xhr.responseType = 'json';
-    xhr.onload = function () {
-        var status = xhr.status;
-        if (status === 200) {
-            callback(null, xhr.response);
-        } else {
-            callback(status, xhr.response);
-        }
-    };
-    xhr.send();
-};
 
 var categoryInfo;
 
@@ -525,7 +503,7 @@ var getCategoryInfo = function () {
         if (err !== null) {
             console.table('Something went wrong: ' + err);
         } else {
-            // console.log(data)
+            console.log(data)
 
             if (data.type && data.mainCategory && data.provider) {
                 categoryInfo = {
@@ -533,12 +511,14 @@ var getCategoryInfo = function () {
                     name: data.mainCategory.name ? data.mainCategory.name : '',
                     label: data.mainCategory.label ? data.mainCategory.label : '',
                     provider: data.provider.name ? data.provider.name : '',
+                    slug: data.slug ? data.slug : ''
                 };
             } else if (data.type && data.mainCategory) {
                 categoryInfo = {
                     type: data.type ? data.type : '',
                     name: data.mainCategory.name ? data.mainCategory.name : '',
                     label: data.mainCategory.label ? data.mainCategory.label : '',
+                    slug: data.slug ? data.slug : ''
                 };
             }
         }
@@ -548,18 +528,27 @@ var getCategoryInfo = function () {
 var generateUPSMovies = function (location) {
     getCategoryInfo();
 
-    console.log(categoryInfo)
-
     var interval = window.setInterval(function () {
         clearInterval(interval);
         if (!location) {
             return;
         }
 
+    console.log(categoryInfo)
+
+
         if (categoryInfo && categoryInfo.label == "kids_movies" && categoryInfo.provider && categoryInfo.provider == 'walt-disney	' && !document.querySelector('.ab-test-ups')) {
             var usp = document.createElement('div');
             usp.setAttribute('class', 'ab-test-ups');
             usp.innerHTML = '<ul><li>' + bundlesByLanguage.disney.usp1 + '</li><li>' + bundlesByLanguage.disney.usp2 + '</li><li>' + bundlesByLanguage.disney.usp3 + '</li><li>' + bundlesByLanguage.disney.usp4 + '</li></ul>';
+            insertAfter(usp, location);
+        }
+
+
+        if (categoryInfo && categoryInfo.label == "kids_movies" && categoryInfo.provider && categoryInfo.provider == 'ParamountPlus' && !document.querySelector('.ab-test-ups')) {
+            var usp = document.createElement('div');
+            usp.setAttribute('class', 'ab-test-ups');
+            usp.innerHTML = '<ul><li>' + bundlesByLanguage.paramount.usp1 + '</li><li>' + bundlesByLanguage.paramount.usp2 + '</li><li>' + bundlesByLanguage.paramount.usp3 + '</li><li>' + bundlesByLanguage.paramount.usp4 + '</li></ul>';
             insertAfter(usp, location);
         }
 
@@ -574,13 +563,6 @@ var generateUPSMovies = function (location) {
             var usp = document.createElement('div');
             usp.setAttribute('class', 'ab-test-ups');
             usp.innerHTML = '<ul><li>' + bundlesByLanguage.rent.usp1 + '</li><li>' + bundlesByLanguage.rent.usp2 + '</li><li>' + bundlesByLanguage.rent.usp3 + '</li><li>' + bundlesByLanguage.rent.usp4 + '</li></ul>';
-            insertAfter(usp, location);
-        }
-
-        if (categoryInfo && categoryInfo.label == 'movies' && !document.querySelector('.ab-test-ups')) {
-            var usp = document.createElement('div');
-            usp.setAttribute('class', 'ab-test-ups');
-            usp.innerHTML = '<ul><li>' + bundlesByLanguage.films.usp1 + '</li><li>' + bundlesByLanguage.films.usp2 + '</li><li>' + bundlesByLanguage.films.usp3 + '</li><li>' + bundlesByLanguage.films.usp4 + '</li></ul>';
             insertAfter(usp, location);
         }
 
@@ -611,6 +593,21 @@ var generateUPSMovies = function (location) {
             usp.innerHTML = '<ul><li>' + bundlesByLanguage.discovery.usp1 + '</li><li>' + bundlesByLanguage.discovery.usp2 + '</li><li>' + bundlesByLanguage.discovery.usp3 + '</li><li>' + bundlesByLanguage.discovery.usp4 + '</li></ul>';
             insertAfter(usp, location);
         }
+
+        if (categoryInfo && categoryInfo.label == "movies" && categoryInfo.provider && categoryInfo.provider == 'discovery' && !document.querySelector('.ab-test-ups')) {
+            var usp = document.createElement('div');
+            usp.setAttribute('class', 'ab-test-ups');
+            usp.innerHTML = '<ul><li>' + bundlesByLanguage.discovery.usp1 + '</li><li>' + bundlesByLanguage.discovery.usp2 + '</li><li>' + bundlesByLanguage.discovery.usp3 + '</li><li>' + bundlesByLanguage.discovery.usp4 + '</li></ul>';
+            insertAfter(usp, location);
+        }
+
+        if (categoryInfo && categoryInfo.label == 'movies'  && !document.querySelector('.ab-test-ups')) {
+            var usp = document.createElement('div');
+            usp.setAttribute('class', 'ab-test-ups');
+            usp.innerHTML = '<ul><li>' + bundlesByLanguage.films.usp1 + '</li><li>' + bundlesByLanguage.films.usp2 + '</li><li>' + bundlesByLanguage.films.usp3 + '</li><li>' + bundlesByLanguage.films.usp4 + '</li></ul>';
+            insertAfter(usp, location);
+        }
+
     }, 200);
 };
 
@@ -644,8 +641,16 @@ var generateUPSLiveTv = function (location) {
     var interval = window.setInterval(function () {
         clearInterval(interval);
 
+        console.log(categoryInfo)
         if (!location) {
             return;
+        }
+
+        if (categoryInfo && categoryInfo.label == 'live_tv' && categoryInfo.slug == 'discovery' && !document.querySelector('.ab-test-ups')) {
+            var usp = document.createElement('div');
+            usp.setAttribute('class', 'ab-test-ups');
+            usp.innerHTML = '<ul><li>' + bundlesByLanguage.discovery.usp1 + '</li><li>' + bundlesByLanguage.discovery.usp2 + '</li><li>' + bundlesByLanguage.discovery.usp3 + '</li><li>' + bundlesByLanguage.discovery.usp4 + '</li></ul>';
+            location.append(usp);
         }
 
         if (categoryInfo && categoryInfo.label == 'live_tv' && categoryInfo.name == 'Sport' && !document.querySelector('.ab-test-ups')) {
@@ -676,7 +681,31 @@ var generateUPSSearch = function (location) {
     }, 200);
 };
 
+var generateUPSKids = function (location) {
+    var interval = window.setInterval(function () {
+        if (location && !document.querySelector('.ab-test-ups')) {
+            var usp = document.createElement('div');
+            usp.setAttribute('class', 'ab-test-ups');
+            usp.innerHTML = '<ul><li>' + bundlesByLanguage.serials.usp1 + '</li><li>' + bundlesByLanguage.serials.usp2 + '</li><li>' + bundlesByLanguage.serials.usp3 + '</li><li>' + bundlesByLanguage.serials.usp4 + '</li></ul>';
+            insertAfter(usp, location);
+            clearInterval(interval);
+        }
+    }, 200);
+};
+
 var insertUsp = function () {
+    var kidsInterval = window.setInterval(() => {
+        if (
+            (localStorage.getItem('newUser') == 'true' && window.location.href.indexOf('kids_series') > -1)) {
+            var uspLocation = document.querySelector('#app > div > div.o-page--top.o-page--full-width.o-page > div > section');
+            if (uspLocation) {
+                generateUPSKids(uspLocation);
+                clearInterval(kidsInterval);
+            }
+        }
+    }, 500);
+
+
     var moviesInterval = window.setInterval(() => {
         if (
             (localStorage.getItem('newUser') == 'true' && (window.location.href.indexOf('kids_movies') > -1 || window.location.href.indexOf('movies') > -1 || window.location.href.indexOf('series') > -1 || window.location.href.indexOf('paramount') > -1 || window.location.href.indexOf('tvod') > -1)) ||
