@@ -1,44 +1,127 @@
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(1),
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(2),
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(3),
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(4),
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(5) {
-//     span {
-//         font-size: 0 !important;
-//         display: none;
-//     }
+// .js-pdp-options-select-options > div:nth-child(1) > div > label,
+// div.PDPOptions > div > div.PDPOptions-list > div:nth-child(1) > label {
+//     font-size: 0;
 
 //     &:after {
-//         font-size: 1.25rem !important;
-//     }
-// }
+//         content: '1 BOX';
+//         font-size: 5.8666667vw;
 
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(1) {
-//     &:after {
-//         content: 'Try 1 box of cold brew at the 2-box discount price ($26.99) before committing to a 2 box subscription';
+//         @media (min-width: 64em) {
+//             font-size: 1.5277778vw;
+//         }
 //     }
 // }
 
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(2) {
+// .js-pdp-options-select-options > div:nth-child(2) > div > label,
+// div.PDPOptions > div > div.PDPOptions-list > div:nth-child(2) > label {
+//     font-size: 0;
+
 //     &:after {
-//         content: 'Your subscription refills will be 2 boxes for $26.99 per box ($53.98 total) - an $18 savings from our non-subscription pricing!';
+//         content: '2 BOXES';
+//         font-size: 5.8666667vw;
+
+//         @media (min-width: 64em) {
+//             font-size: 1.5277778vw;
+//         }
 //     }
 // }
 
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(3) {
+// .js-pdp-options-select-options > div:nth-child(3) > div > label,
+// div.PDPOptions > div > div.PDPOptions-list > div:nth-child(3) > label {
+//     font-size: 0;
+
 //     &:after {
-//         content: 'Change your flavors as often as you want';
+//         content: '3 BOXES';
+//         font-size: 5.8666667vw;
+
+//         @media (min-width: 64em) {
+//             font-size: 1.5277778vw;
+//         }
 //     }
 // }
 
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(4) {
-//     &:after {
-//         content: 'Skip or cancel any time';
+// .PDPOptions-list {
+//     .PDPOptions-item:nth-child(1) {
+//         &.false, &.is-active {
+//             .PDPOptions-description:not(.PDPOptions-pricePerGlass) {
+//                 font-size: 0;
+
+//                 &:after {
+//                     content: '16 GLASSES';
+//                     font-size: 16px;
+//                 }
+//             }
+//         }
+//     }
+
+//     .PDPOptions-item:nth-child(2) {
+
+//         &.false, &.is-active {
+//             .PDPOptions-description:not(.PDPOptions-pricePerGlass) {
+//                 font-size: 0;
+
+//                 &:after {
+//                     content: '32 GLASSES';
+//                     font-size: 16px;
+//                 }
+//             }
+//         }
+//     }
+
+//     .PDPOptions-item:nth-child(3) {
+
+//         &.false, &.is-active {
+//             .PDPOptions-description:not(.PDPOptions-pricePerGlass) {
+//                 font-size: 0;
+
+//                 &:after {
+//                     content: '48 GLASSES';
+//                     font-size: 16px;
+//                 }
+//             }
+//         }
 //     }
 // }
 
-// #shopify-section-pdp-intro > div.PDPForm-description > ul > li:nth-child(5) {
-//     &:after {
-//         content: 'Ships free (and sustainably)!';
+
+
+// .PDPOptionsSelectOptions {
+//     .PDPOptionsSelectOptions-item:nth-child(1) {
+//         &.false, &.is-active {
+//             .PDPOptionsSelectOptions-description {
+//                 font-size: 0;
+
+//                 &:after {
+//                     content: '16 GLASSES';
+//                     font-size: 16px;
+//                 }
+//             }
+//         }
+//     }
+
+//     .PDPOptionsSelectOptions-item:nth-child(2) {
+//         &.false, &.is-active {
+//             .PDPOptionsSelectOptions-description {
+//                 font-size: 0;
+
+//                 &:after {
+//                     content: '32 GLASSES';
+//                     font-size: 16px;
+//                 }
+//             }
+//         }
+//     }
+
+//     .PDPOptionsSelectOptions-item:nth-child(3) {
+//         &.false, &.is-active {
+//             .PDPOptionsSelectOptions-description {
+//                 font-size: 0;
+
+//                 &:after {
+//                     content: '48 GLASSES';
+//                     font-size: 16px;
+//                 }
+//             }
+//         }
 //     }
 // }

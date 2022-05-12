@@ -1,102 +1,194 @@
-// .is-group-SIZE .ProductRadioButtons-item {
-//     display: block;
-//     margin: 0;
-// }
+.is-group-SIZE-test .ProductRadioButtons-item {
+    display: block;
+    margin: 0;
+}
 
-// .prod-gram .ProductRadioButtons-item.init {
-//     cursor: pointer;
-//     border-top: 1px solid #B6B9B9;
-//     border-bottom: 1px solid #B6B9B9;
+.prod-gram .ProductRadioButtons-item.init.ab-test {
+    cursor: pointer;
+    border-top: 1px solid #b6b9b9;
+    border-bottom: 1px solid #b6b9b9;
 
+    .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel {
+        color: #b6b9b9 !important;
+        border-color: #b6b9b9;
+    }
+}
 
-//     .ProductRadioButtons-itemRadio--dimmed+.ProductRadioButtons-itemLabel {
-//         color: #B6B9B9 !important;
-//         border-color: #B6B9B9;
-//     }
-// }
+.ProductRadioButtons-item--dimmed.ab-test {
+    pointer-events: none;
+}
 
-// .ProductRadioButtons-item {
-//     height: 0;
-// }
+.ProductRadioButtons-item.ab-test {
+    height: 40px;
+}
 
-// .ProductRadioButtons-item.ab-test {
-//     height: 40px;
-// }
+.prod-gram .ProductRadioButtons-item.ab-test {
+    padding: 5px 15px;
+    z-index: 2;
+    cursor: pointer;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-// .prod-gram .ProductRadioButtons-item.ab-test {
-//     padding: 5px 15px;
-//     z-index: 2;
-//     cursor: pointer;
-//     width: 100%;
-//     margin: 0;
-//     padding: 0;
+.prod-gram {
+    position: relative;
 
-//     .ProductRadioButtons-itemLabel {
-//         justify-content: flex-start;
-//         padding-left: 14px;
-//         height: 40px;
-//         border-top: 0 !important;
-//     }
-// }
+    &::after {
+        content: '+';
+        position: absolute;
+        top: 6px;
+        right: 14px;
+        font-size: 20px;
+        font-weight: 600;
+    }
 
-// .prod-gram {
-//     position: relative;
+    &.open {
+        &::after {
+            content: '-';
+        }
+    }
+}
 
-//     &::after {
-//         content: '+';
-//         position: absolute;
-//         top: 6px;
-//         right: 14px;
-//         font-size: 20px;
-//         font-weight: 600;
-//         pointer-events: none;
-//     }
+.prod-gram {
+    .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel:after {
+        content: ' ';
+        position: absolute;
+        width: 1px;
+        height: 51px;
+        left: 17px;
+        top: -6px;
+        background-color: currentColor;
+        transform: rotate(137deg);
+    }
+}
 
-//     &.open {
-//         &::after {
-//             content: '-';
-//         }
-//     }
-// }
+.prod-gram .ProductRadioButtons-item:not(.init) {
+    width: 100%;
+    display: none;
+    background: transparent;
+}
 
-// .prod-gram {
-//     .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel:after {
-//         content: ' ';
-//         position: absolute;
-//         width: 1px;
-//         height: 51px;
-//         left: 17px;
-//         top: -6px;
-//         background-color: currentColor;
-//         transform: rotate(137deg);
-//     }
-// }
+#shopify-section-pdp-form > form > div.js-product-options > div > div > div.ProductRadioButtons-groupTitle {
+    display: flex;
+    padding-bottom: 0;
+    margin-top: 10px;
+    height: 28px;
 
-// .Product.earth_origins .ProductRadioButtons-itemRadio:checked + .ProductRadioButtons-itemLabel {
-//     background: transparent;
-//     color: #000000;
-//     border-color: #b6b9b9;
-// }
+    #js-sizeChart {
+        margin-left: auto;
+        margin-right: 2px;
+        text-transform: capitalize;
+        text-decoration: underline;
+        cursor: pointer;
+        letter-spacing: 0;
+    }
+}
 
-// .prod-gram .ProductRadioButtons-item:not(.init) {
-//     width: 100%;
-//     display: none;
-//     background: transparent;
-// }
+.ProductForm-bts.ab-test-form {
+    background: #ffffff00 !important;
+    display: block !important;
+    color: #000000;
+    text-decoration: underline;
+}
 
-// #shopify-section-pdp-form > form > div.js-product-options > div > div > div.ProductRadioButtons-groupTitle {
-//     display: flex;
-//     padding-bottom: 0;
-//     margin-top: 10px;
-//     height: 28px;
+div#js-back-to-stock {
+    display: none !important;
+}
 
-//     #js-sizeChart {
-//         margin-left: auto;
-//         margin-right: 2px;
-//         text-transform: capitalize;
-//         text-decoration: underline;
-//         cursor: pointer;
-//         letter-spacing: 0;
-//     }
-// }
+.ProductRadioButtons-item.init.ab-test {
+    margin-bottom: 1px;
+}
 
+.ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel:after {
+    content: ' ';
+    position: absolute;
+    width: 0.0625rem;
+    height: 4.625rem;
+    left: 50%;
+    top: -22px;
+    background-color: currentColor;
+    -webkit-transform: rotate(114deg);
+    -ms-transform: rotate(114deg);
+    transform: rotate(114deg);
+}
+
+.ProductRadioButtons-group.is-group-SIZE {
+    .ProductRadioButtons-item {
+        display: none;
+    }
+}
+
+#js-sizeChart {
+    text-decoration: underline;
+    cursor: pointer;
+    float: right;
+    text-transform: capitalize;
+    letter-spacing: 0;
+    font-size: 13px;
+}
+
+div.is-group-SIZE-test > div.ProductRadioButtons-groupTitle {
+    display: none;
+}
+#shopify-section-pdp-form > form > div.js-product-options > div > div.ProductRadioButtons > div.is-group-SIZE-test.prod-gram.open > div:nth-child(2) {
+    display: none !important;
+}
+
+.is-group-Width .ProductRadioButtons-itemLabel {
+    padding: 0 18px;
+    margin-top: 11px;
+    justify-content: center !important;
+    border-top: 1px solid #b6b9b9 !important;
+}
+
+.ProductForm-options {
+    position: relative;
+
+    .ProductRadioButtons-group.is-group-SIZE {
+        margin-top: 10px;
+    }
+
+    .is-group-SIZE-test.prod-gram {
+        position: absolute;
+        width: 100%;
+        background: white;
+        z-index: 1;
+        top: 30px;
+
+        .ProductRadioButtons-itemLabel,
+        .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel {
+            justify-content: flex-start !important;
+            padding-left: 14px;
+            height: 40px;
+            border-top: 0 !important;
+        }
+    }
+
+    .ProductRadioButtons-group.is-group-Width {
+        margin-top: 70px;
+
+        .ProductRadioButtons-groupTitle {
+            padding-bottom: 0;
+        }
+    }
+
+    .ProductRadioButtons-groupTitle {
+        font-size: 13px;
+        letter-spacing: 1px;
+    }
+}
+
+.is-group-SIZE-test {
+    animation: opacity 0.5s ease-in-out;
+}
+
+@keyframes opacity {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100%;
+    }
+}
