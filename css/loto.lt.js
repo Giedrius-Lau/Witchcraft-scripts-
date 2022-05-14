@@ -11,6 +11,9 @@
 //         if (!!ticket1.querySelector('.act') && !!ticket2.querySelector('.act')) {
 //             clearInterval(onlineInterval);
 //         }
+
+//         console.log('interval running')
+//         console.log(!!ticket1.querySelector('.act') && !!ticket2.querySelector('.act'))
 //     }
  
 // }, 100);

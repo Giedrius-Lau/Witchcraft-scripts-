@@ -1,97 +1,97 @@
-function insertAfter(el, referenceNode) {
-    referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
-}
+// function insertAfter(el, referenceNode) {
+//     referenceNode.parentNode.insertBefore(el, referenceNode.nextSibling);
+// }
 
-function insertBefore(element, firstChild) {
-    firstChild.parentNode.insertBefore(element, firstChild);
-}
+// function insertBefore(element, firstChild) {
+//     firstChild.parentNode.insertBefore(element, firstChild);
+// }
 
-var initiateFunction = function () {
-    var sizeInterval = window.setInterval(function () {
-        var sizeContainer = document.querySelector('.ProductRadioButtons-group.is-group-SIZE');
+// var initiateFunction = function () {
+//     var sizeInterval = window.setInterval(function () {
+//         var sizeContainer = document.querySelector('.ProductRadioButtons-group.is-group-SIZE');
 
-        if (sizeContainer && !document.querySelector('.ProductRadioButtons-item.init')) {
-            var clonedList = sizeContainer.cloneNode(true);
-            clonedList.setAttribute('class', 'is-group-SIZE-test');
-            insertAfter(clonedList, document.querySelector('.is-group-SIZE'));
+//         if (sizeContainer && !document.querySelector('.ProductRadioButtons-item.init')) {
+//             var clonedList = sizeContainer.cloneNode(true);
+//             clonedList.setAttribute('class', 'is-group-SIZE-test');
+//             insertAfter(clonedList, document.querySelector('.is-group-SIZE'));
 
-            sizeContainer = document.querySelector('.is-group-SIZE-test');
+//             sizeContainer = document.querySelector('.is-group-SIZE-test');
 
-            // var sizeContainerTitle = document.querySelector('.is-group-SIZE .ProductRadioButtons-groupTitle');
-            // if (sizeContainerTitle) {
-            //     sizeContainerTitle.innerHTML = 'SIZE: <span id="js-selected-variant_1" class="ProductRadioButtons-item injected-ab"></span><span id="js-sizeChart" class="">Size chart</span>';
-            //     if (!document.querySelector('.injected-ab')) {
-            //         insertBefore(sizeContainerTitle, sizeContainer);
-            //     }
-            // }
+//             // var sizeContainerTitle = document.querySelector('.is-group-SIZE .ProductRadioButtons-groupTitle');
+//             // if (sizeContainerTitle) {
+//             //     sizeContainerTitle.innerHTML = 'SIZE: <span id="js-selected-variant_1" class="ProductRadioButtons-item injected-ab"></span><span id="js-sizeChart" class="">Size chart</span>';
+//             //     if (!document.querySelector('.injected-ab')) {
+//             //         insertBefore(sizeContainerTitle, sizeContainer);
+//             //     }
+//             // }
 
-            var emptyButton = document.createElement('div');
-            emptyButton.setAttribute('class', 'ProductRadioButtons-item init');
-            emptyButton.innerHTML = '<input class="ProductRadioButtons-itemRadio plus-has-listener" type="radio"><label class="ProductRadioButtons-itemLabel">Select your size</label>';
+//             var emptyButton = document.createElement('div');
+//             emptyButton.setAttribute('class', 'ProductRadioButtons-item init');
+//             emptyButton.innerHTML = '<input class="ProductRadioButtons-itemRadio plus-has-listener" type="radio"><label class="ProductRadioButtons-itemLabel">Select your size</label>';
 
-            sizeContainer.prepend(emptyButton);
+//             sizeContainer.prepend(emptyButton);
  
-            document.querySelector('.is-group-SIZE-test').classList.add('prod-gram');
+//             document.querySelector('.is-group-SIZE-test').classList.add('prod-gram');
 
-            $('.is-group-SIZE-test .ProductRadioButtons-item').addClass('ab-test');
+//             $('.is-group-SIZE-test .ProductRadioButtons-item').addClass('ab-test');
 
-            var allOptions = $('.prod-gram').children('.ProductRadioButtons-item:not(.init)');
-            $('.prod-gram').on('click', '.ProductRadioButtons-item:not(.init)', function () {
+//             var allOptions = $('.prod-gram').children('.ProductRadioButtons-item:not(.init)');
+//             $('.prod-gram').on('click', '.ProductRadioButtons-item:not(.init)', function () {
 
-                setTimeout(() => {
-                    allOptions.removeClass('selected');
-                    $(this).addClass('selected');
-                    $('.prod-gram').removeClass('open');
-                    $(this).parent().children('.init').html($(this).html());
-                    $(this).parent().find('.ProductRadioButtons-item:not(.init)').hide();
-                }, 100);
-            });
+//                 setTimeout(() => {
+//                     allOptions.removeClass('selected');
+//                     $(this).addClass('selected');
+//                     $('.prod-gram').removeClass('open');
+//                     $(this).parent().children('.init').html($(this).html());
+//                     $(this).parent().find('.ProductRadioButtons-item:not(.init)').hide();
+//                 }, 100);
+//             });
 
-            clearInterval(sizeInterval);
+//             clearInterval(sizeInterval);
 
-            if (!document.querySelector('.ProductForm-bts.ab-test-form')) {
-                var widthContaier = document.querySelector('.ProductForm-options');
-                var notifyMeButton = document.createElement('div');
-                notifyMeButton.innerHTML = '<div class="ProductForm-bts ab-test-form"> <span>Haven\'t found your size?</span> </div>';
-                widthContaier.append(notifyMeButton);
+//             if (!document.querySelector('.ProductForm-bts.ab-test-form')) {
+//                 var widthContaier = document.querySelector('.ProductForm-options');
+//                 var notifyMeButton = document.createElement('div');
+//                 notifyMeButton.innerHTML = '<div class="ProductForm-bts ab-test-form"> <span>Haven\'t found your size?</span> </div>';
+//                 widthContaier.append(notifyMeButton);
 
-                document.querySelector('.ProductForm-bts.ab-test-form').addEventListener('click', function () {
-                    document.querySelector('#js-back-to-stock').click();
-                });
-            }
-            if (document.querySelector('.ab-test .ProductRadioButtons-itemRadio:checked+.ProductRadioButtons-itemLabel')) {
-                document.querySelector('.ab-test .ProductRadioButtons-itemRadio:checked+.ProductRadioButtons-itemLabel').click()
-            }
-        }
-    }, 500);
-};
+//                 document.querySelector('.ProductForm-bts.ab-test-form').addEventListener('click', function () {
+//                     document.querySelector('#js-back-to-stock').click();
+//                 });
+//             }
+//             if (document.querySelector('.ab-test .ProductRadioButtons-itemRadio:checked+.ProductRadioButtons-itemLabel')) {
+//                 document.querySelector('.ab-test .ProductRadioButtons-itemRadio:checked+.ProductRadioButtons-itemLabel').click()
+//             }
+//         }
+//     }, 500);
+// };
 
-initiateFunction();
+// initiateFunction();
 
-var buttonInterval = window.setInterval(function () {
-    var widthButtons = document.querySelectorAll('.is-group-Width .ProductRadioButtons-item .ProductRadioButtons-itemLabel');
-    if (widthButtons.length) {
-        clearInterval(buttonInterval);
+// var buttonInterval = window.setInterval(function () {
+//     var widthButtons = document.querySelectorAll('.is-group-Width .ProductRadioButtons-item .ProductRadioButtons-itemLabel');
+//     if (widthButtons.length) {
+//         clearInterval(buttonInterval);
 
-        widthButtons.forEach(function (item) {
-            item.addEventListener('click', function () {
-                if (document.querySelector('.is-group-SIZE-test')) {
-                    document.querySelector('.is-group-SIZE-test').remove();
-                }
+//         widthButtons.forEach(function (item) {
+//             item.addEventListener('click', function () {
+//                 if (document.querySelector('.is-group-SIZE-test')) {
+//                     document.querySelector('.is-group-SIZE-test').remove();
+//                 }
 
-                initiateFunction();
-            });
-        });
-    }
-}, 500);
+//                 initiateFunction();
+//             });
+//         });
+//     }
+// }, 500);
 
-$(document).on('click', '.prod-gram .init', function () {
-    $(this).parent().find('.ProductRadioButtons-item:not(.init)').toggle();
+// $(document).on('click', '.prod-gram .init', function () {
+//     $(this).parent().find('.ProductRadioButtons-item:not(.init)').toggle();
 
-    $('.prod-gram').addClass('open');
-    $('.is-group-SIZE-test .ProductRadioButtons-item').each(function () {
-        if (!$(this).hasClass('ab-test')) {
-            $(this).addClass('ab-test');
-        }
-    });
-});
+//     $('.prod-gram').addClass('open');
+//     $('.is-group-SIZE-test .ProductRadioButtons-item').each(function () {
+//         if (!$(this).hasClass('ab-test')) {
+//             $(this).addClass('ab-test');
+//         }
+//     });
+// });
