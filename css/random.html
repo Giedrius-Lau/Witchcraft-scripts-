@@ -1,10 +1,102 @@
-Daugiau <i class="svg-icon svg-chevron-down"></i>
-<div class="closing-container"></div>
-<div class="test-dropdown-content">
-    <a href="https://loto.lt/lt/news" class="test-dropdown-content-item">Akcijos</a>
-    <a href="/lt/laidu-irasai" class="test-dropdown-content-item">Laidų įrašai</a>
-    <a href="https://loto.lt/lt/momentines-loterijos" class="test-dropdown-content-item">Momentinės loterijos</a>
-    <a href="https://loto.lt/lt/winners" class="test-dropdown-content-item">Laimėjimai</a>
-    <a href="https://loto.lt/lt/lotoklubas" class="test-dropdown-content-item">Apie Loto klubą</a>
-    <a href="https://loto.lt/lt/page/misijos" class="test-dropdown-content-item">Loto klubo misijos</a> 
-</div>
+<body>
+    <table class="body">
+        <tr>
+            <td>
+                <!-- Hero section -->
+                <table class="header row">
+                    <tr>
+                        <td class="header__cell">
+                            <center>
+
+                                <table class="container">
+                                    <tr>
+                                        <td>
+
+                                            <table class="row">
+                                                <tr>
+                                                    <td class="above-logo">
+                                                        <p>{{ email_title }}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="shop-name__cell">
+                                                        {%- if shop.email_logo_url %}
+                                                        <img src="{{shop.email_logo_url}}" alt="{{ shop.name }}" width="{{ shop.email_logo_width }}">
+                                                        {%- else %}
+                                                        <h1 class="shop-name__text">
+                                                            <a href="{{shop.url}}">{{ shop.name }}</a>
+                                                        </h1>
+                                                        {%- endif %}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="hero-image">
+                                                        <img src={{ hero_img }}></img>
+                                                        <h2>{{ hero_title }}</h2>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Hero section -->
+
+                <!-- Content section -->
+                <table class="row content">
+                    <tr>
+                        <td class="content__cell">
+                            <center>
+                                <table class="container w-400 pb-25">
+                                    <tr>
+                                        <td class="text-center">
+                                            <p>{{ email_body }}</p>
+                                            {% if order_status_url %}
+                                            <table class="row actions">
+                                                <tr>
+                                                    <td class="actions__cell">
+                                                        <table class="button main-action-cell">
+                                                            <tr>
+                                                                <td class="text-center pb-10">
+                                                                    <span class="order-number__text bold">
+                                                                        ORDER NO. {{ order_name }}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-center pb-25">
+                                                                    <span class="order-number__text">
+                                                                        {{ created_at }}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+                                                        </table>
+
+                                                        <table class="button main-action-cell">
+                                                            <tr>
+                                                                <td class="button__cell"><a href="{{ customer.account_activation_url }}" class="button__text">Activate your account</a></td>
+                                                            </tr>
+                                                        </table>
+                                                        
+
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Content section -->
+            </td>
+        </tr>
+    </table>
+</body>

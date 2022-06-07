@@ -1,0 +1,259 @@
+{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Rectangle_691_5_2a6760d5-c735-4200-87e0-6d4cc1c6855c.png?v=1654515223' %}
+{% assign hero_title = 'your rhode has arrived.' %}
+
+{% if fulfillment.item_count == item_count %} 
+  {% capture email_title %}She’s a beauty. {% endcapture %}
+  {% capture email_body %}Your order has been delivered. Go try it on! Haven't received your order yet? <a href="mailto:{{ shop.email }}">Let us know.</a>{% endcapture %}
+{% elsif fulfillment.item_count > 1 %} 
+  {% if fulfillment_status == 'fulfilled' %}
+    {% capture email_title %}The last items in your order has been delivered{% endcapture %}
+    {% capture email_body %}The last items in your order has been delivered. Track your shipment to see the delivery status.{% endcapture %}
+  {% else %}
+    {% capture email_title %}Some items in your order have been delivered{% endcapture %}
+    {% capture email_body %}Some items in your order have been delivered. Track your shipment to see the delivery status.{% endcapture %}
+  {% endif %}
+{% else %} 
+  {% if fulfillment_status == 'fulfilled' %}
+    {% capture email_title %}The last item in your order has been delivered{% endcapture %}
+    {% capture email_body %}The last item in your order has been delivered. Track your shipment to see the delivery status.{% endcapture %}
+  {% else %}
+    {% capture email_title %}One item in your order has been delivered{% endcapture %}
+    {% capture email_body %}One item in your order has been delivered. Track your shipment to see the delivery status.{% endcapture %}
+  {% endif %}
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <title>{{ email_title }}</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
+  <style>
+    .button__cell a { background: {{ shop.email_accent_color }} }
+  a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
+  .button__cell a { border-radius: 50px; border: 1px solid #67645E; width: 200px; padding: 15px 20px; color: #67645E;text-transform: uppercase; letter-spacing: 1px;}
+  td.order-list__product-description-cell { text-transform: uppercase; } 
+  td.content__cell { padding-bottom: 10px !important; }
+  p, td, span, strong, a {color: #67645E !important}
+  a {text-decoration: underline;}
+  td.shop-name__cell {text-align: center; padding: 40px 0;} 
+  p, h1, h2, h3, h4, h5, span, strong {letter-spacing: 0.03em;} 
+  .above-logo {text-align: center;}
+  td.hero-image {padding-bottom: 15px; position: relative}
+  td.hero-image h2 {color: #ffffff; position: absolute;top: 50%; width: 100%; text-align: center; font-size: 32px;transform: translateY(-50%);font-weight: 300;}
+  .order-list__product-images {border-radius: 12px; background-color: #AEAEB2;}
+  .text-center {text-align: center;} .bold {font-weight: 700;}
+  .pb-5 {padding-bottom: 5px;} .pb-10 {padding-bottom: 10px;} .pb-15 {padding-bottom: 15px;} .pb-25 {padding-bottom: 25px;} .pb-35 {padding-bottom: 35px;}
+  .pt-5 {padding-top: 5px;} .pt-10 {padding-top: 10px;} .pt-15 {padding-top: 15px;} .pt-25 {padding-top: 25px;} .pt-35 {padding-top: 35px;}
+  .pl-5 {padding-left: 5px;} .pl-10 {padding-left: 10px;} .pl-15 {padding-left: 15px;} .pl-25 {padding-left: 25px;} .pl-35 {padding-left: 35px;}
+  .pr-5 {padding-right: 5px;} .pr-10 {padding-right: 10px;} .pr-15 {padding-right: 15px;} .pr-25 {padding-right: 25px;} .pr-35 {padding-right: 35px;}
+  .padding-0 {padding: 0 !important;}
+  .mb-5 {margin-bottom: 5px;} .mb-10 {margin-bottom: 10px;} .mb-15 {margin-bottom: 15px;} .mb-25 {margin-bottom: 25px;} .mb-35 {margin-bottom: 35px;}
+  .mt-5 {margin-top: 5px;} .mt-10 {margin-top: 10px;} .mt-15 {margin-top: 15px;} .mt-25 {margin-top: 25px;} .mt-35 {margin-top: 35px;}
+  .ml-5 {margin-left: 5px;} .ml-10 {margin-left: 10px;} .ml-15 {margin-left: 15px;} .ml-25 {margin-left: 25px;} .ml-35 {margin-left: 35px;}
+  .mr-5 {margin-right: 5px;} .mr-10 {margin-right: 10px;} .mr-15 {margin-right: 15px;} .mr-25 {margin-right: 25px;} .mr-35 {margin-right: 35px;}
+  .w-400 {width: 380 px !important;}
+  .border-bottom {border-bottom: 1px solid #C4C4C4;} .border-top {border-top: 1px solid #C4C4C4;}
+  @media (max-width: 600px) {.container { width: 88% !important; }}
+  .order-list__product-description-cell {vertical-align: top;}
+  .order-list__price-cell span {float: right;}
+  .order-list__item-original-price {font-weight: 400; font-size: 16px; text-decoration: line-through;}
+  .small-text {font-size: 14px !important;font-weight: 300 !important; margin:0; text-transform: capitalize; margin-bottom: -5px}
+  .centered tr, .centered td, .centered {text-align: center;}
+</style>
+</head>
+
+  
+<body>
+    <table class="body">
+        <tr>
+            <td>
+                <!-- Hero section -->
+                <table class="header row">
+                    <tr>
+                        <td class="header__cell">
+                            <center>
+
+                                <table class="container">
+                                    <tr>
+                                        <td>
+
+                                            <table class="row">
+                                                <tr>
+                                                    <td class="above-logo">
+                                                        <p>{{ email_title }}</p>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="shop-name__cell">
+                                                        {%- if shop.email_logo_url %}
+                                                        <img src="{{shop.email_logo_url}}" alt="{{ shop.name }}" width="{{ shop.email_logo_width }}">
+                                                        {%- else %}
+                                                        <h1 class="shop-name__text">
+                                                            <a href="{{shop.url}}">{{ shop.name }}</a>
+                                                        </h1>
+                                                        {%- endif %}
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="hero-image">
+                                                        <img src={{ hero_img }}></img>
+                                                        <h2>{{ hero_title }}</h2>
+                                                    </td>
+                                                </tr>
+                                            </table>
+
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Hero section -->
+
+                <!-- Content section -->
+                <table class="row content">
+                    <tr>
+                        <td class="content__cell">
+                            <center>
+                                <table class="container w-400 pb-25">
+                                    <tr>
+                                        <td class="text-center">
+                                            <p>{{ email_body }}</p>
+                                            {% if order_status_url %}
+                                            <table class="row actions">
+                                                <tr>
+                                                    <td class="actions__cell">
+                                                        <table class="button main-action-cell">
+                                                            <tr>
+                                                                <td class="text-center pb-10">
+                                                                    <span class="order-number__text bold">
+                                                                        ORDER NO. {{ order_name }}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td class="text-center pb-25">
+                                                                    <span class="order-number__text">
+                                                                        {{ created_at }}
+                                                                    </span>
+                                                                </td>
+                                                            </tr>
+
+                                                        </table>
+
+                                                        <table class="button main-action-cell">
+                                                            <tr>
+                                                                <td class="button__cell pb-25"><a href="{{ order_status_url }}" class="button__text">View your order</a></td>
+                                                            </tr>
+                                                        </table>
+
+                                                        {% if fulfillment.tracking_numbers.size > 0 %}
+                                                        <p class="disclaimer__subtext centered">
+                                                            <br />
+                                                            {% if fulfillment.tracking_numbers.size == 1 and fulfillment.tracking_company and fulfillment.tracking_url %}
+                                                            {{ fulfillment.tracking_company }} Tracking Number: <a href="{{ fulfillment.tracking_url }}">{{ fulfillment.tracking_numbers.first }}</a>
+                                                            {% elsif fulfillment.tracking_numbers.size == 1 %}
+                                                            Tracking number: {{ fulfillment.tracking_numbers.first }}
+                                                            {% else %}
+                                                            Tracking numbers:<br />
+                                                            {% for tracking_number in fulfillment.tracking_numbers %}
+                                                            {{ tracking_number }}<br />
+                                                            {% endfor %}
+                                                            {% endif %}
+                                                        </p>
+                                                        {% endif %}
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+                <!-- Content section -->
+
+                <!-- Product section  -->
+                <table class="row section">
+                    <td class="section__cell">
+                            <table class="container">
+                                <tr class="border-top">
+                                    <td class="pb-25"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="row">
+                                            {% for line in subtotal_line_items %}
+                                            <tr class="order-list__item" style="border-style:hidden;">
+                                                <td class="order-list__item__cell pb-15">
+                                                    <table>
+                                                        <td>
+                                                            {% if line.image %}
+                                                            <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="130" height="160" class="order-list__product-images mr-15" />
+                                                            {% endif %}
+                                                        </td>
+                  
+                                                        <!-- Description -->
+                                                        <td class="order-list__product-description-cell">
+                                                            {% if line.product.title %}
+                                                            {% assign line_title = line.product.title %}
+                                                            {% else %}
+                                                            {% assign line_title = line.title %}
+                                                            {% endif %}
+                  
+                                                            {% if line.quantity < line.quantity %} {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %} {% else %} {% assign
+                                                                line_display=line.quantity %} {% endif %} <span class="order-list__item-title">{{ line_title }}</span><br />
+                  
+                                                                <!-- INFO {{line.variant.metafields.}} -->
+                  
+                                                                <p class="small-text" style="margin-top: 5px !important">Description</p>
+                                                                <p class="small-text">Flavor:</p>
+                                                                <p class="small-text">Quantity: {{ line_display }}</p>
+                  
+                                                                {% if line.variant.title != 'Default Title' %}
+                                                                <span class="order-list__item-variant">{{ line.variant.title }}</span><br />
+                                                                {% endif %}
+                  
+                                                                {% if line.selling_plan_allocation %}
+                                                                <span class="order-list__item-variant">{{ line.selling_plan_allocation.selling_plan.name }}</span><br />
+                                                                {% endif %}
+                  
+                                                                {% if line.refunded_quantity > 0 %}
+                                                                <span class="order-list__item-refunded">Refunded</span>
+                                                                {% endif %}
+                                                        </td>
+                  
+                                                        <!-- Total -->
+                                                        <td class="order-list__price-cell" style="min-width: 120px; vertical-align: top;">
+                                                            <span class="order-list__item-price ml-5">
+                                                                {% if line.final_line_price > 0 %}
+                                                                {{ line.final_line_price | money_without_trailing_zeros }}
+                                                                {% else %}
+                                                                Free
+                                                                {% endif %}
+                                                            </span>
+                                                            {% if line.original_line_price != line.final_line_price %}
+                                                            <span class="order-list__item-original-price">{{ line.original_line_price | money_without_trailing_zeros }}</span>
+                                                            {% endif %}
+                                                        </td>
+                  
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                    </td>
+                  </table>
+        </tr>
+    </table>
+</body>
+
+</html>

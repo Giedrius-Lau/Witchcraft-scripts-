@@ -1,38 +1,69 @@
-// .is-group-SIZE-test .ProductRadioButtons-item {
-//     display: block;
-//     margin: 0;
-// }
+// .is-group-SIZE {
+//     .ProductRadioButtons-item {
+//         display: none;
+//         margin: 0;
 
-// .prod-gram .ProductRadioButtons-item.init.ab-test {
-//     cursor: pointer;
-//     border-top: 1px solid #b6b9b9;
-//     border-bottom: 1px solid #b6b9b9;
+//         &.open {
+//             display: block;
+
+//             .ProductRadioButtons-itemLabel {
+//                 justify-content: start;
+//             }
+//         }
+//     }
+
+//     .ProductRadioButtons-groupTitle {
+//         position: relative;
+//         top: -40px;
+//         color: transparent;
+//         font-size: 0;
+
+//         &:before {
+//             content: 'SIZE: ';
+//             color: #333333;
+//             font-size: 12px;
+//         }
+
+//         span#js-selected-variant_1 {
+//             margin-left: -25px;
+//         }
+//     }
 
 //     .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel {
-//         color: #b6b9b9 !important;
-//         border-color: #b6b9b9;
+//         &:after {
+//             content: ' ';
+//             position: absolute;
+//             width: 1px;
+//             height: 51px;
+//             left: 17px;
+//             top: -6px;
+//             background-color: currentColor;
+//             transform: rotate(137deg);
+//         }
+//     }
+
+//     .ProductRadioButtons-itemLabel,
+//     .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel {
+//         justify-content: flex-start !important;
+//         padding-left: 14px;
+//         height: 40px;
+//         border-top: 0 !important;
+//     }
+
+//     .ProductRadioButtons-item.ProductRadioButtons-item--dimmed.open {
+//         pointer-events: none;
 //     }
 // }
 
-// .ProductRadioButtons-item--dimmed.ab-test {
-//     pointer-events: none;
-// }
-
-// .ProductRadioButtons-item.ab-test {
-//     height: 40px;
-// }
-
-// .prod-gram .ProductRadioButtons-item.ab-test {
-//     padding: 5px 15px;
-//     z-index: 2;
-//     cursor: pointer;
-//     width: 100%;
-//     margin: 0;
-//     padding: 0;
-// }
-
-// .prod-gram {
+// .dropdown-toggle {
 //     position: relative;
+//     border: 1px solid #b6b9b9;
+//     height: 40px;
+//     display: flex;
+//     align-items: center;
+//     padding-left: 10px;
+//     cursor: pointer;
+//     top: 30px;
 
 //     &::after {
 //         content: '+';
@@ -49,147 +80,24 @@
 //             content: '-';
 //         }
 //     }
-// }
 
-// .prod-gram {
-//     .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel:after {
-//         content: ' ';
-//         position: absolute;
-//         width: 1px;
-//         height: 51px;
-//         left: 17px;
-//         top: -6px;
-//         background-color: currentColor;
-//         transform: rotate(137deg);
+//     .dropdown-toggle-content {
+//         font-size: 12px;
+//         line-height: 12px;
+//         text-align: center;
 //     }
-// }
-
-// .prod-gram .ProductRadioButtons-item:not(.init) {
-//     width: 100%;
-//     display: none;
-//     background: transparent;
-// }
-
-// #shopify-section-pdp-form > form > div.js-product-options > div > div > div.ProductRadioButtons-groupTitle {
-//     display: flex;
-//     padding-bottom: 0;
-//     margin-top: 10px;
-//     height: 28px;
-
-//     #js-sizeChart {
-//         margin-left: auto;
-//         margin-right: 2px;
-//         text-transform: capitalize;
-//         text-decoration: underline;
-//         cursor: pointer;
-//         letter-spacing: 0;
-//     }
-// }
-
-// .ProductForm-bts.ab-test-form {
-//     background: #ffffff00 !important;
-//     display: block !important;
-//     color: #000000;
-//     text-decoration: underline;
 // }
 
 // div#js-back-to-stock {
-//     display: none !important;
-// }
-
-// .ProductRadioButtons-item.init.ab-test {
-//     margin-bottom: 1px;
-// }
-
-// .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel:after {
-//     content: ' ';
-//     position: absolute;
-//     width: 0.0625rem;
-//     height: 4.625rem;
-//     left: 50%;
-//     top: -22px;
-//     background-color: currentColor;
-//     -webkit-transform: rotate(114deg);
-//     -ms-transform: rotate(114deg);
-//     transform: rotate(114deg);
-// }
-
-// .ProductRadioButtons-group.is-group-SIZE {
-//     .ProductRadioButtons-item {
-//         display: none;
-//     }
-// }
-
-// #js-sizeChart {
+//     display: block !important;
+//     background: transparent;
+//     color: #333333;
 //     text-decoration: underline;
-//     cursor: pointer;
-//     float: right;
+//     margin: 0;
+//     padding: 0;
+//     margin-top: -15px;
+// }
+
+// span#js-sizeChart {
 //     text-transform: capitalize;
-//     letter-spacing: 0;
-//     font-size: 13px;
-// }
-
-// div.is-group-SIZE-test > div.ProductRadioButtons-groupTitle {
-//     display: none;
-// }
-// #shopify-section-pdp-form > form > div.js-product-options > div > div.ProductRadioButtons > div.is-group-SIZE-test.prod-gram.open > div:nth-child(2) {
-//     display: none !important;
-// }
-
-// .is-group-Width .ProductRadioButtons-itemLabel {
-//     padding: 0 18px;
-//     margin-top: 11px;
-//     justify-content: center !important;
-//     border-top: 1px solid #b6b9b9 !important;
-// }
-
-// .ProductForm-options {
-//     position: relative;
-
-//     .ProductRadioButtons-group.is-group-SIZE {
-//         margin-top: 10px;
-//     }
-
-//     .is-group-SIZE-test.prod-gram {
-//         position: absolute;
-//         width: 100%;
-//         background: white;
-//         z-index: 1;
-//         top: 30px;
-
-//         .ProductRadioButtons-itemLabel,
-//         .ProductRadioButtons-itemRadio--dimmed + .ProductRadioButtons-itemLabel {
-//             justify-content: flex-start !important;
-//             padding-left: 14px;
-//             height: 40px;
-//             border-top: 0 !important;
-//         }
-//     }
-
-//     .ProductRadioButtons-group.is-group-Width {
-//         margin-top: 70px;
-
-//         .ProductRadioButtons-groupTitle {
-//             padding-bottom: 0;
-//         }
-//     }
-
-//     .ProductRadioButtons-groupTitle {
-//         font-size: 13px;
-//         letter-spacing: 1px;
-//     }
-// }
-
-// .is-group-SIZE-test {
-//     animation: opacity 0.5s ease-in-out;
-// }
-
-// @keyframes opacity {
-//     0% {
-//         opacity: 0;
-//     }
-
-//     100% {
-//         opacity: 100%;
-//     }
 // }

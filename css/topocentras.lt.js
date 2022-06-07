@@ -1,43 +1,17 @@
-// (function () {
-//     var oldPushState = history.pushState;
-//     history.pushState = function pushState() {
-//       var ret = oldPushState.apply(this, arguments);
-//       window.dispatchEvent(new Event('pushstate'));
-//       window.dispatchEvent(new Event('locationchange'));
-//       return ret;
-//     };
+// var interval = window.setInterval(function () {
+//     var deliveryList = document.querySelectorAll('.Shipping-shippingItem-2zy');
+//     var buttonContainer = document.querySelector('.AddToCartContainer-actionButtonsWrapper-QDm');
 
-//     var oldReplaceState = history.replaceState;
-//     history.replaceState = function replaceState() {
-//       var ret = oldReplaceState.apply(this, arguments);
-//       window.dispatchEvent(new Event('replacestate'));
-//       window.dispatchEvent(new Event('locationchange'));
-//       return ret;
-//     };
-
-//     window.addEventListener('popstate', function () {
-//       window.dispatchEvent(new Event('locationchange'));
-//     });
-//   })();
-
-
-//   var setTest = function () {
-//     var interval = window.setInterval(function () {
-//       var buttons = document.querySelectorAll('.Filters-filterGroupContainer-1Wl .Filters-filterTitle-1AA')
-//       if (buttons.length > 0 && !document.querySelector('.ab-closed-filters')) {
-//         document.querySelector('.Filters-filterGroupContainer-1Wl').classList.add('ab-closed-filters')
-
-//         buttons.forEach(function (button) {
-//           button.click();
-//         })
+//     if (deliveryList.length && buttonContainer && !document.querySelector('.new-notification')) {
 //         clearInterval(interval);
-//       }
-//     }, 300);
-//   }
 
-//   setTest();
-
-
-//   window.addEventListener('locationchange', function () {
-//     setTest();
-//   });
+//         deliveryList.forEach(function (item) {
+//             if (item.querySelector('.Shipping-title-36d').textContent.trim().startsWith('Atsiimkite TOPO CENTRE, per')) {
+//                 var newNotification = document.createElement('div')
+//                 newNotification.setAttribute('class', 'new-notification')
+//                 newNotification.innerHTML = '<img src="https://www.topocentras.lt/9af51a58a5c78410e1db649d6698c5f1.svg" /><span><strong>Turime! </strong>Atsiimkite TOPO CENTRE <strong>per 30min.</strong></span>'
+//                 buttonContainer.prepend(newNotification)
+//             }
+//         });
+//     }
+// }, 100);

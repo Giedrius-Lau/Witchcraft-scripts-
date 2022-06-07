@@ -1,5 +1,5 @@
-{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Rectangle_691_1_e1efd36a-d305-42d1-8db4-56fa1a71bc91.png?v=1654505351' %}
-{% assign hero_title = 'Something yummy is on the way.' %}
+{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Rectangle_691.png?v=1654258679' %}
+{% assign hero_title = 'yummy skin, coming soon.' %}
 
 {% capture email_title %}Thank you for your order. {% endcapture %}
 {% capture email_body %}
@@ -39,8 +39,7 @@
     .button__cell a { border-radius: 50px; border: 1px solid #67645E; width: 200px; padding: 15px 20px; color: #67645E;text-transform: uppercase; letter-spacing: 1px;}
     td.order-list__product-description-cell { text-transform: uppercase; } 
     td.content__cell { padding-bottom: 10px !important; }
-    p, td, span, strong, a {color: #67645E !important}
-    a {text-decoration: underline;}
+    p, td, span, strong {color: #67645E !important}
     td.shop-name__cell {text-align: center; padding: 40px 0;} 
     p, h1, h2, h3, h4, h5, span, strong {letter-spacing: 0.03em;} 
     .above-logo {text-align: center;}
@@ -64,7 +63,7 @@
     .order-list__price-cell span {float: right;}
     .order-list__item-original-price {font-weight: 400; font-size: 16px; text-decoration: line-through;}
     .small-text {font-size: 14px !important;font-weight: 300 !important; margin:0; text-transform: capitalize; margin-bottom: -5px}
-    .centered tr, .centered td, .centered {text-align: center;}
+    .centered tr, .centered td {text-align: center;}
   </style>
 </head>
 
@@ -148,25 +147,6 @@
                       </tr>
                       <tr>
                         <td class="button__cell" style="border-radius: 50px"><a href="{{ order_status_url }}" class="button__text">View your order</a></td>
-                      </tr>
-                      <tr>
-                        <td class="centered">
-                          {% if fulfillment.tracking_numbers.size > 0 %}
-                          <p class="centered">
-                            <br/>
-                            {% if fulfillment.tracking_numbers.size == 1 and fulfillment.tracking_company and fulfillment.tracking_url %}
-                              {{ fulfillment.tracking_company }} tracking number: <a href="{{ fulfillment.tracking_url }}">{{ fulfillment.tracking_numbers.first }}</a>
-                            {% elsif fulfillment.tracking_numbers.size == 1 %}
-                              Tracking number: {{ fulfillment.tracking_numbers.first }}
-                            {% else %}
-                              Tracking numbers:<br />
-                              {% for tracking_number in fulfillment.tracking_numbers %}
-                                {{ tracking_number }}<br />
-                              {% endfor %}
-                            {% endif %}
-                          </p>
-                        {% endif %}
-                        </td>
                       </tr>
                     </table>
                   </td>
@@ -524,7 +504,7 @@
                 </tr>
               </table>
 
-<!-- 
+
               <table class="row centered">
                 <tr>
                   {% if requires_shipping and shipping_address %}
@@ -562,7 +542,7 @@
                   </td>
                   {% endif %}
                 </tr>
-              </table> -->
+              </table>
 
             </td>
           </tr>
