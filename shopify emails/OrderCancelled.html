@@ -6,7 +6,7 @@
   {% if financial_status == 'voided' %}
     {% case cancel_reason %}
     {% when 'customer' %}
-      We got your request and your order is now canceled. You will receive a full refund within 2-3 business days
+      We got your request and your order is now canceled. You will receive a full refund within 2-3 business days.
     {% when 'inventory' %}
       Order {{ name }} was canceled because we did not have enough stock to fulfill your order and your payment has been voided
     {% when 'fraud' %}
@@ -17,7 +17,7 @@
   {% elsif financial_status == 'refunded' %}
     {% case cancel_reason %}
     {% when 'customer' %}
-      Order {{ name }} was canceled at your request and your payment has been refunded
+      Order {{ name }} was canceled at your request and your payment has been refunded.
     {% when 'inventory' %}
       Order {{ name }} was canceled because we did not have enough stock to fulfill your order and your payment has been refunded
     {% when 'fraud' %}
@@ -26,7 +26,6 @@
       Order {{ name }} was canceled because of unforeseen circumstances and your payment has been refunded
     {% endcase %}
   {% endif %}
-  .
 {% endcapture %}
 
 <!DOCTYPE html>
@@ -70,6 +69,7 @@
     .centered tr, .centered td, .centered {text-align: center;}
     p {margin-block-start: 0 !important; margin-block-end: 0 !important;}
     .subtotal-line__title {padding: 0;}
+    .hero-image img {width: 100%;}
   </style>
 </head>
 
@@ -147,7 +147,7 @@
           <tr>
             <td class="text-center pb-25">
               <span class="order-number__text">
-                {{ created_at }}
+                {{ created_at | date: "%b %d, %Y"}}
               </span>
             </td>
           </tr>
@@ -196,10 +196,8 @@
                         {% if line.quantity < line.quantity %} {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %} {% else %} {% assign line_display=line.quantity %} {% endif %} 
                         <span class="order-list__item-title">{{ line_title }}</span><br />
 
-                          <!-- INFO {{line.variant.metafields.}} -->
-                          
-                          <p class="small-text" style="margin-top: 5px !important">Description</p>
-                          <p class="small-text">Flavor:</p>
+                          <!-- <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p> -->
+                          <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
                           <p class="small-text">Quantity: {{ line_display }}</p>
 
                           {% if line.variant.title != 'Default Title' %}
@@ -211,7 +209,7 @@
                           {% endif %}
 
                           {% if line.refunded_quantity > 0 %}
-                          <span class="order-list__item-refunded">Refunded</span>
+                          <!-- <span class="order-list__item-refunded">Refunded</span> -->
                           {% endif %}                          
                       </td>
 
@@ -413,6 +411,7 @@
                 </tr>
 
                 {% endif %}
+                
                 {% if transaction.kind == 'refund' %}
                 {% if transaction.payment_details.credit_card_company %}
                 {% assign refund_method_title = transaction.payment_details.credit_card_company %}

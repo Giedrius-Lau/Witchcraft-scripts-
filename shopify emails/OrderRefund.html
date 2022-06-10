@@ -1,4 +1,4 @@
-{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Rectangle_691_3_6c81dd9b-b0fc-4e17-baed-94709413d0aa.png?v=1654514091' %}
+{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Refund.png?v=1654638175' %}
 {% assign hero_title = 'here’s some money back.' %}
 
 {% if refund_line_items.size == item_count %}
@@ -47,397 +47,388 @@
   .order-list__product-description-cell {vertical-align: top;}
   .order-list__price-cell span {float: right;}
   .order-list__item-original-price {font-weight: 400; font-size: 16px; text-decoration: line-through;}
-  .small-text {font-size: 14px !important;font-weight: 300 !important; margin:0; text-transform: capitalize; margin-bottom: -5px}
+  .small-text {font-size: 14px !important;font-weight: 300 !important; margin:0; text-transform: capitalize;}
   .centered tr, .centered td, .centered {text-align: center;}
+  p {margin-block-start: 0 !important; margin-block-end: 0 !important;}
+  .subtotal-line__title {padding: 0;}
+  .hero-image img {width: 100%;}
 </style>
 </head>
-
 <body>
-    <table class="body">
-      <tr>
-        <td>
-  
-  <!-- Hero section -->
-  <table class="header row">
+  <table class="body">
     <tr>
-        <td class="header__cell">
-            <center>
-  
-                <table class="container">
-                    <tr>
-                        <td>
-  
-                            <table class="row">
-                                <tr>
-                                    <td class="above-logo">
-                                        <p>{{ email_title }}</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="shop-name__cell">
-                                        {%- if shop.email_logo_url %}
-                                        <img src="{{shop.email_logo_url}}" alt="{{ shop.name }}" width="{{ shop.email_logo_width }}">
-                                        {%- else %}
-                                        <h1 class="shop-name__text">
-                                            <a href="{{shop.url}}">{{ shop.name }}</a>
-                                        </h1>
-                                        {%- endif %}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="hero-image">
-                                        <img src={{ hero_img }}></img>
-                                        <h2>{{ hero_title }}</h2>
-                                    </td>
-                                </tr>
-                            </table>
-  
-                        </td>
-                    </tr>
-                </table>
-            </center>
-        </td>
-    </tr>
-  </table>
-  <!-- Hero section -->
-  
-  
-  <!-- Content section -->
-  <table class="row content">
-  <tr>
-    <td class="content__cell">
-      <center>
-        <table class="container w-400 pb-25">
+      <td>
+
+        <!-- Hero section -->
+        <table class="header row">
           <tr>
-            <td class="text-center">
-              <p>{{ email_body }}</p>
-              {% if order_status_url %}
-              <table class="row actions">
-                <tr>
-                  <td class="actions__cell">
-                    <table class="button main-action-cell">
-                      <tr>
-                        <td class="text-center pb-10">
-                          <span class="order-number__text bold">
-                            ORDER NO. {{ order_name }}
-                          </span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="text-center pb-25">
-                          <span class="order-number__text">
-                            {{ created_at }}
-                          </span>
-                        </td>
-                      </tr>
-              
-                    </table>
-                  </td>
-                </tr>
-              </table>
-              {% endif %}
+            <td class="header__cell">
+              <center>
+
+                <table class="container">
+                  <tr>
+                    <td>
+
+                      <table class="row">
+                        <tr>
+                          <td class="above-logo">
+                            <p>{{ email_title }}</p>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="shop-name__cell">
+                            {%- if shop.email_logo_url %}
+                            <img src="{{shop.email_logo_url}}" alt="{{ shop.name }}" width="{{ shop.email_logo_width }}">
+                            {%- else %}
+                            <h1 class="shop-name__text">
+                              <a href="{{shop.url}}">{{ shop.name }}</a>
+                            </h1>
+                            {%- endif %}
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="hero-image">
+                            <img src={{ hero_img }}></img>
+                            <!-- <h2>{{ hero_title }}</h2> -->
+                          </td>
+                        </tr>
+                      </table>
+
+                    </td>
+                  </tr>
+                </table>
+              </center>
             </td>
           </tr>
         </table>
-      </center>
-    </td>
-  </tr>
-  </table>
-  <!-- Content section -->
-  
-  <!-- Product section  -->
-  <table class="row section">
-    <tr>
-      <td class="pl-35">REFUNDED ITEMS:</td>
-    </tr>
-    <tr>
-      <td class="section__cell" style="padding-top: 20px">
-        <center>
-          <table class="container">
-            <tr class="border-top">
-              <td class="pb-25"></td>
-            </tr>
-            <tr>
-              <td>
-                <table class="row">
-                  {% for line in subtotal_line_items %}
-                  <tr class="order-list__item" style="border-style:hidden;">
-                    <td class="order-list__item__cell pb-15">
-                      <table>
-                        <td>
-                          {% if line.image %}
-                          <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="130" height="160" class="order-list__product-images mr-15" />
-                          {% endif %}
-                        </td>
-  
-                        <!-- Description -->
-                        <td class="order-list__product-description-cell">
-                          {% if line.product.title %}
-                          {% assign line_title = line.product.title %}
-                          {% else %}
-                          {% assign line_title = line.title %}
-                          {% endif %}
-  
-                          {% if line.quantity < line.quantity %} {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %} {% else %} {% assign line_display=line.quantity %} {% endif %} 
-                          <span class="order-list__item-title">{{ line_title }}</span><br />
-  
-                            <!-- INFO {{line.variant.metafields.}} -->
-                            
-                            <p class="small-text" style="margin-top: 5px !important">Description</p>
-                            <p class="small-text">Flavor:</p>
-                            <p class="small-text">Quantity: {{ line_display }}</p>
-  
-                            {% if line.variant.title != 'Default Title' %}
-                            <span class="order-list__item-variant">{{ line.variant.title }}</span><br />
-                            {% endif %}
-  
-                            {% if line.selling_plan_allocation %}
-                            <span class="order-list__item-variant">{{ line.selling_plan_allocation.selling_plan.name }}</span><br />
-                            {% endif %}
-  
-                            {% if line.refunded_quantity > 0 %}
-                            <span class="order-list__item-refunded">Refunded</span>
-                            {% endif %}                          
-                        </td>
-  
-                        <!-- Total -->
-                        <td class="order-list__price-cell" style="min-width: 120px; vertical-align: top;">
-                          <span class="order-list__item-price ml-5">
-                            {% if line.final_line_price > 0 %}
-                            {{ line.final_line_price | money_without_trailing_zeros }}
-                            {% else %}
-                            Free
-                            {% endif %}
-                          </span>
-                          {% if line.original_line_price != line.final_line_price %}
-                          <span class="order-list__item-original-price">{{ line.original_line_price | money_without_trailing_zeros }}</span>
-                          {% endif %}
-                        </td>
-                        
-                      </table>
-                    </td class="pt-25 pb-25">
-                  </tr>{% endfor %}
+        <!-- Hero section -->
+
+
+        <!-- Content section -->
+        <table class="row content">
+          <tr>
+            <td class="content__cell">
+              <center>
+                <table class="container w-400 pb-25">
+                  <tr>
+                    <td class="text-center pb-25">
+                      <p>{{ email_body }}</p>
+
+                    </td>
+                  </tr>
+                  {% if order_status_url %}
+
+                  <tr>
+                    <td class="text-center pb-10">
+                      <span class="order-number__text bold">
+                        ORDER NO. {{ order_name }}
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="text-center pb-25">
+                      <span class="order-number__text">
+                        {{ created_at | date: "%b %d, %Y"}}
+                      </span>
+                    </td>
+                  </tr>
+                  {% endif %}
                 </table>
-  
-  
-                
-  
-                <table class="row subtotal-lines">
-                  <!-- EDITED -->
-                  <tr style="border-top-style: dashed; border-top-width: 1px; border-top-color: #C4C4C4 !important;">
-                    <td class="subtotal-spacer"></td>
+              </center>
+            </td>
+          </tr>
+        </table>
+        <!-- Content section -->
+
+        <!-- Product section  -->
+        <table class="row section">
+          <tr>
+            <td class="section__cell" style="padding-top: 20px">
+              <center>
+                <table class="container">
+                  <tr>
+                    <td class="pb-15">REFUNDED ITEMS:</td>
+                  </tr>
+                  <tr class="border-top">
+                    <td class="pb-25"></td>
+                  </tr>
+                  <tr>
                     <td>
-                      <table class="row subtotal-table">
-                       
-  
-                        <tr class="subtotal-line" height="5">
-                          <td class="subtotal-line__title"> 
-                            <p>
-                              <span class="small-text">Subtotal</span>
-                            </p>
-                          </td>
-                          <td class="subtotal-line__value">
-                            <p class="small-text">{{ subtotal_price | money }}</p>
-                          </td>
+                      <table class="row">
+                        {% for line in subtotal_line_items %}
+                        <tr class="order-list__item" style="border-style:hidden;">
+                          <td class="order-list__item__cell pb-15">
+                            <table>
+                              <td>
+                                {% if line.image %}
+                                <img src="{{ line | img_url: 'compact_cropped' }}" align="left" width="130" height="160" class="order-list__product-images mr-15" />
+                                {% endif %}
+                              </td>
+
+                              <!-- Description -->
+                              <td class="order-list__product-description-cell">
+                                {% if line.product.title %}
+                                {% assign line_title = line.product.title %}
+                                {% else %}
+                                {% assign line_title = line.title %}
+                                {% endif %}
+
+                                {% if line.quantity < line.quantity %} {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %} {% else %} {% assign line_display=line.quantity %} {% endif %}
+                                  <span class="order-list__item-title">{{ line_title }}</span><br />
+
+                                  <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p>
+                                  <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                                  <p class="small-text">Quantity: {{ line_display }}</p>
+
+                                  {% if line.variant.title != 'Default Title' %}
+                                  <span class="order-list__item-variant">{{ line.variant.title }}</span><br />
+                                  {% endif %}
+
+                                  {% if line.selling_plan_allocation %}
+                                  <span class="order-list__item-variant">{{ line.selling_plan_allocation.selling_plan.name }}</span><br />
+                                  {% endif %}
+
+                                  {% if line.refunded_quantity > 0 %}
+                                  <span class="order-list__item-refunded">Refunded</span>
+                                  {% endif %}
+                              </td>
+
+                              <!-- Total -->
+                              <td class="order-list__price-cell" style="min-width: 120px; vertical-align: top;">
+                                <span class="order-list__item-price ml-5">
+                                  {% if line.final_line_price > 0 %}
+                                  {{ line.final_line_price | money_without_trailing_zeros }}
+                                  {% else %}
+                                  Free
+                                  {% endif %}
+                                </span>
+                                {% if line.original_line_price != line.final_line_price %}
+                                <span class="order-list__item-original-price">{{ line.original_line_price | money_without_trailing_zeros }}</span>
+                                {% endif %}
+                              </td>
+
+                            </table>
+                          </td class="pt-25 pb-25">
+                        </tr>{% endfor %}
+                      </table>
+
+
+
+
+                      <table class="row subtotal-lines">
+                        <!-- EDITED -->
+                        <tr style="border-top-style: dashed; border-top-width: 1px; border-top-color: #C4C4C4 !important;">
+                          <td>
+                            <table class="row subtotal-table">
+
+
+                              <tr class="subtotal-line" height="5">
+                                <td class="subtotal-line__title">
+                                  <p>
+                                    <span class="small-text">Subtotal</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <p class="small-text">{{ subtotal_price | money }}</p>
+                                </td>
+                              </tr>
+
+
+                              {% for discount_application in discount_applications %}
+                              {% if discount_application.target_selection == 'all' %}
+                              {% capture discount_title %}
+                              {% if discount_application.title %}
+                              {{ discount_application.title | upcase }}
+                              {% else %}
+                              Discount
+                              {% endif %}
+                              {% endcapture %}
+
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title" height="5">
+                                  <p class="small-text">
+                                    <span class="small-text">Discount</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <p class="small-text">-{{ discount_application.total_allocated_amount | money }}</p>
+                                </td>
+                              </tr>
+
+                              {% endif %}
+                              {% endfor %}
+
+                              {% if total_discounts > 0 %}
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title" height="5">
+                                  <p class="small-text">
+                                    <span class="small-text">Discount</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <p class="small-text">-{{ total_discounts | money }}</p>
+                                </td>
+                              </tr>
+                              {% endif %}
+
+
+
+
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title" height="5">
+                                  <p class="small-text">
+                                    <span class="small-text">Tax</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <p class="small-text">{{ tax_price | money }}</p>
+                                </td>
+                              </tr>
+
+                              {% if delivery_method == 'pick-up' %}
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title" height="5">
+                                  <p class="small-text">
+                                    <span> class="small-text"Pickup</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <p class="small-text">{{ shipping_price | money }}</p>
+                                </td>
+                              </tr>
+                              {% else %}
+
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title" height="5">
+                                  <p class="small-text">
+                                    <span class="small-text">Shipping</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <p class="small-text">{{ shipping_price | money }}</p>
+                                </td>
+                              </tr>
+                              {% endif %}
+
+
+                              {% if total_duties %}
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title" height="5">
+                                  <p class="small-text">
+                                    <span class="small-text">Duties</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <p class="small-text">{{ total_duties | money }}</p>
+                                </td>
+                              </tr>
+                              {% endif %}
+
+                              {% if total_tip and total_tip > 0 %}
+
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title" height="5">
+                                  <p class="small-text">
+                                    <span class="small-text">Tip</span>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <p class="small-text">{{ total_tip | money }}</p>
+                                </td>
+                              </tr>
+                              {% endif %}
+
+                              <tr class="subtotal-line">
+                                <td class="subtotal-line__title" height="5">
+                                  <p class="small-text">
+                                    <strong class="small-text" style="text-transform: capitalize !important; font-weight: 700 !important;">TOTAL</strong>
+                                  </p>
+                                </td>
+                                <td class="subtotal-line__value">
+                                  <strong class="small-text" style="font-weight: 700 !important">{{ total_price | money_with_currency }}</strong>
+                                </td>
+                              </tr>
+
+                            </table>
+
+
+
+                            {% assign transaction_size = 0 %}
+                            {% assign transaction_amount = 0 %}
+                            {% for transaction in transactions %}
+                            {% unless transaction.kind == "capture" or transaction.kind == "void" %}
+                            {% assign transaction_size = transaction_size | plus: 1 %}
+                            {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
+                            {% endunless %}
+                            {% endfor %}
+
+                            {% if transaction_size > 1 or transaction_amount < total_price %} <table class="row subtotal-table">
+                        <tr>
+                          <td colspan="2" class="subtotal-table__line"></td>
                         </tr>
-  
-  
-                        {% for discount_application in discount_applications %}
-                        {% if discount_application.target_selection == 'all' %}
-                        {% capture discount_title %}
-                        {% if discount_application.title %}
-                        {{ discount_application.title | upcase }}
+                        <tr>
+                          <td colspan="2" class="subtotal-table__small-space"></td>
+                        </tr>
+
+                        {% for transaction in transactions %}
+                        {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
+                        {% if transaction.payment_details.credit_card_company %}
+                        {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
                         {% else %}
-                        Discount
+                        {% capture transaction_name %}{{ transaction.gateway_display_name }}{% endcapture %}
                         {% endif %}
-                        {% endcapture %}
-  
+
+
                         <tr class="subtotal-line">
-                          <td class="subtotal-line__title" height="5">
-                            <p class="small-text">
-                              <span class="small-text">Discount</span>
+                          <td class="subtotal-line__title">
+                            <p>
+                              <span>{{transaction_name}}</span>
                             </p>
                           </td>
                           <td class="subtotal-line__value">
-                            <p class="small-text">-{{ discount_application.total_allocated_amount | money }}</p>
+                            <strong>{{ transaction.amount | money }}</strong>
                           </td>
                         </tr>
-  
+
+                        {% endif %}
+                        {% if transaction.kind == 'refund' %}
+                        {% if transaction.payment_details.credit_card_company %}
+                        {% assign refund_method_title = transaction.payment_details.credit_card_company %}
+                        {% else %}
+                        {% assign refund_method_title = transaction.gateway %}
+                        {% endif %}
+
+
+                        <tr class="subtotal-line">
+                          <td class="subtotal-line__title">
+                            <p>
+                              <span>Refund</span>
+                              <br>
+                              <small>{{ refund_method_title | capitalize }}</small>
+                            </p>
+                          </td>
+                          <td class="subtotal-line__value">
+                            <strong>- {{ transaction.amount | money }}</strong>
+                          </td>
+                        </tr>
+
                         {% endif %}
                         {% endfor %}
-  
-                        {% if total_discounts > 0 %}
-                        <tr class="subtotal-line">
-                          <td class="subtotal-line__title" height="5">
-                            <p class="small-text">
-                              <span class="small-text">Discount</span>
-                            </p>
-                          </td>
-                          <td class="subtotal-line__value">
-                            <p class="small-text">-{{ total_discounts | money }}</p>
-                          </td>
-                        </tr>
-                        {% endif %}
-  
-                      
-  
-                        
-                        <tr class="subtotal-line">
-                          <td class="subtotal-line__title" height="5">
-                            <p class="small-text">
-                              <span class="small-text">Tax</span>
-                            </p>
-                          </td>
-                          <td class="subtotal-line__value">
-                            <p class="small-text">{{ tax_price | money }}</p>
-                          </td>
-                        </tr>
-                        
-                        {% if delivery_method == 'pick-up' %}
-                        <tr class="subtotal-line">
-                          <td class="subtotal-line__title" height="5">
-                            <p class="small-text">
-                              <span> class="small-text"Pickup</span>
-                            </p>
-                          </td>
-                          <td class="subtotal-line__value">
-                            <p class="small-text">{{ shipping_price | money }}</p>
-                          </td>
-                        </tr>
-                        {% else %}
-  
-                        <tr class="subtotal-line">
-                          <td class="subtotal-line__title" height="5">
-                            <p class="small-text">
-                              <span class="small-text">Shipping</span>
-                            </p>
-                          </td>
-                          <td class="subtotal-line__value">
-                            <p class="small-text">{{ shipping_price | money }}</p>
-                          </td>
-                        </tr>
-                        {% endif %}
-  
-  
-                        {% if total_duties %}
-                        <tr class="subtotal-line">
-                          <td class="subtotal-line__title" height="5">
-                            <p class="small-text">
-                              <span class="small-text">Duties</span>
-                            </p>
-                          </td>
-                          <td class="subtotal-line__value">
-                            <p class="small-text">{{ total_duties | money }}</p>
-                          </td>
-                        </tr>
-                        {% endif %}
-  
-                        {% if total_tip and total_tip > 0 %}
-  
-                        <tr class="subtotal-line">
-                          <td class="subtotal-line__title" height="5">
-                            <p class="small-text">
-                              <span class="small-text">Tip</span>
-                            </p>
-                          </td>
-                          <td class="subtotal-line__value">
-                            <p class="small-text">{{ total_tip | money }}</p>
-                          </td>
-                        </tr>
-                        {% endif %}
-  
-                        <tr class="subtotal-line">
-                          <td class="subtotal-line__title" height="5">
-                            <p class="small-text">
-                              <strong class="small-text" style="text-transform: capitalize !important; font-weight: 700 !important;">TOTAL</strong>
-                            </p>
-                          </td>
-                          <td class="subtotal-line__value">
-                            <strong class="small-text" style="font-weight: 700 !important">{{ total_price | money_with_currency }}</strong>
-                          </td>
-                        </tr>
-  
                       </table>
-  
-  
-  
-                      {% assign transaction_size = 0 %}
-                      {% assign transaction_amount = 0 %}
-                      {% for transaction in transactions %}
-                      {% unless transaction.kind == "capture" or transaction.kind == "void" %}
-                      {% assign transaction_size = transaction_size | plus: 1 %}
-                      {% assign transaction_amount = transaction_amount | plus: transaction.amount %}
-                      {% endunless %}
-                      {% endfor %}
-  
-                      {% if transaction_size > 1 or transaction_amount < total_price %} <table class="row subtotal-table">
-                  <tr>
-                    <td colspan="2" class="subtotal-table__line"></td>
-                  </tr>
-                  <tr>
-                    <td colspan="2" class="subtotal-table__small-space"></td>
-                  </tr>
-  
-                  {% for transaction in transactions %}
-                  {% if transaction.status == "success" and transaction.kind == "authorization" or transaction.kind == "sale" %}
-                  {% if transaction.payment_details.credit_card_company %}
-                  {% capture transaction_name %}{{ transaction.payment_details.credit_card_company }} (ending in {{ transaction.payment_details.credit_card_last_four_digits }}){% endcapture %}
-                  {% else %}
-                  {% capture transaction_name %}{{ transaction.gateway_display_name }}{% endcapture %}
-                  {% endif %}
-  
-  
-                  <tr class="subtotal-line">
-                    <td class="subtotal-line__title">
-                      <p>
-                        <span>{{transaction_name}}</span>
-                      </p>
-                    </td>
-                    <td class="subtotal-line__value">
-                      <strong>{{ transaction.amount | money }}</strong>
+                      {% endif %}
                     </td>
                   </tr>
-  
-                  {% endif %}
-                  
-                  {% if transaction.kind == 'refund' %}
-                  {% if transaction.payment_details.credit_card_company %}
-                  {% assign refund_method_title = transaction.payment_details.credit_card_company %}
-                  {% else %}
-                  {% assign refund_method_title = transaction.gateway %}
-                  {% endif %}
-  
-  
-                  <tr class="subtotal-line">
-                    <td class="subtotal-line__title">
-                      <p>
-                        <span>Refund</span>
-                        <br>
-                        <small>{{ refund_method_title | capitalize }}</small>
-                      </p>
-                    </td>
-                    <td class="subtotal-line__value">
-                      <strong>- {{ transaction.amount | money }}</strong>
-                    </td>
-                  </tr>
-  
-                  {% endif %}
-                  {% endfor %}
                 </table>
-                {% endif %}
-              </td>
-            </tr>
-          </table>
-  
-  
+
+
+            </td>
+          </tr>
+        </table>
+        </center>
       </td>
     </tr>
   </table>
-  </center>
-  </td>
-  </tr>
-  </table>
-  
+
   <table class="row">
     <tr>
       <td class="footer__cell">
@@ -445,8 +436,8 @@
           <table class="container">
             <tr>
               <td>
-  
-                <p class="disclaimer__subtext centered">Please email us  if you have any questions.<br><strong><a style="text-decoration: none;" href="mailto:{{ shop.email }}">{{ shop.email }}</a></strong></p>
+
+                <p class="disclaimer__subtext centered">Please email us if you have any questions.<br><strong><a style="text-decoration: none;" href="mailto:{{ shop.email }}">{{ shop.email }}</a></strong></p>
               </td>
             </tr>
           </table>
@@ -454,12 +445,12 @@
       </td>
     </tr>
   </table>
-  
+
   <img src="{{ 'notifications/spacer.png' | shopify_asset_url }}" class="spacer" height="1" />
-  
+
   </td>
   </tr>
   </table>
-  </body>
-  
-  </html>
+</body>
+
+</html>

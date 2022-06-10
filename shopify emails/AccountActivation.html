@@ -1,4 +1,4 @@
-{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Rectangle_691_6_fc877f1b-b091-4bb6-9e2f-72a8b4df32ec.png?v=1654515223' %}
+{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Screenshot_2022-06-07_at_10.37.50.png?v=1654587492' %}
 {% assign hero_title = 'dewy, delicious skin awaits.' %}
 
 {% capture email_title %}Welcome to the fam.{% endcapture %}
@@ -14,7 +14,7 @@
   <style>
     .button__cell a { background: {{ shop.email_accent_color }} }
   a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
-  .button__cell a { border-radius: 50px; border: 1px solid #67645E; width: 240px; padding: 15px 20px; color: #67645E;text-transform: uppercase; letter-spacing: 1px;}
+  .button__cell a { border-radius: 50px; border: 1px solid #67645E; width: 250px; padding: 15px 20px; color: #67645E;text-transform: uppercase; letter-spacing: 1px;}
   td.order-list__product-description-cell { text-transform: uppercase; } 
   td.content__cell { padding-bottom: 10px !important; }
   p, td, span, strong, a {color: #67645E !important}
@@ -35,14 +35,17 @@
   .mt-5 {margin-top: 5px;} .mt-10 {margin-top: 10px;} .mt-15 {margin-top: 15px;} .mt-25 {margin-top: 25px;} .mt-35 {margin-top: 35px;}
   .ml-5 {margin-left: 5px;} .ml-10 {margin-left: 10px;} .ml-15 {margin-left: 15px;} .ml-25 {margin-left: 25px;} .ml-35 {margin-left: 35px;}
   .mr-5 {margin-right: 5px;} .mr-10 {margin-right: 10px;} .mr-15 {margin-right: 15px;} .mr-25 {margin-right: 25px;} .mr-35 {margin-right: 35px;}
-  .w-400 {width: 460px !important;}
+  .w-400 {width: 440px !important;}
   .border-bottom {border-bottom: 1px solid #C4C4C4;} .border-top {border-top: 1px solid #C4C4C4;}
   @media (max-width: 600px) {.container { width: 88% !important; }}
   .order-list__product-description-cell {vertical-align: top;}
   .order-list__price-cell span {float: right;}
   .order-list__item-original-price {font-weight: 400; font-size: 16px; text-decoration: line-through;}
-  .small-text {font-size: 14px !important;font-weight: 300 !important; margin:0; text-transform: capitalize; margin-bottom: -5px}
+  .small-text {font-size: 14px !important;font-weight: 300 !important; margin:0; text-transform: capitalize;}
   .centered tr, .centered td, .centered {text-align: center;}
+  p {margin-block-start: 0 !important; margin-block-end: 0 !important;}
+  .subtotal-line__title {padding: 0;}
+  .hero-image img {width: 100%;}
 </style>
 </head>
 
@@ -56,11 +59,11 @@
                     <tr>
                         <td class="header__cell">
                             <center>
-
+                  
                                 <table class="container">
                                     <tr>
                                         <td>
-
+                  
                                             <table class="row">
                                                 <tr>
                                                     <td class="above-logo">
@@ -81,18 +84,18 @@
                                                 <tr>
                                                     <td class="hero-image">
                                                         <img src={{ hero_img }}></img>
-                                                        <h2>{{ hero_title }}</h2>
+                                                        <!-- <h2>{{ hero_title }}</h2> -->
                                                     </td>
                                                 </tr>
                                             </table>
-
+                  
                                         </td>
                                     </tr>
                                 </table>
                             </center>
                         </td>
                     </tr>
-                </table>
+                  </table>
                 <!-- Hero section -->
 
                 <!-- Content section -->
@@ -108,11 +111,9 @@
                                             {% else %}
                                                 <p>{{ email_body }}</p>
                                             {% endif %}
-                                            <table class="button main-action-cell">
                                                 <tr>
                                                   <td class="button__cell pt-35 pb-35"><a href="{{ customer.account_activation_url }}" class="button__text">Activate your account</a></td>
                                                 </tr>
-                                              </table>
                                         </td>
                                     </tr>
                                 </table>
