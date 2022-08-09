@@ -6,13 +6,13 @@
   {% if financial_status == 'voided' %}
     {% case cancel_reason %}
     {% when 'customer' %}
-      We got your request and your order is now canceled. You will receive a full refund within 2-3 business days.
+      Your order is now canceled. You will receive a full refund within 2-3 business days.
     {% when 'inventory' %}
       Order {{ name }} was canceled because we did not have enough stock to fulfill your order and your payment has been voided
     {% when 'fraud' %}
       Order {{ name }} was canceled because we suspect it is fraudulent and your payment has been voided
     {% when 'other' %}
-      Order {{ name }} was canceled because of unforeseen circumstances and your payment has been voided
+      Order {{ name }} was canceled because of unforeseen circumstances and your payment has been voided.
     {% endcase %}
   {% elsif financial_status == 'refunded' %}
     {% case cancel_reason %}
@@ -197,7 +197,9 @@
                         <span class="order-list__item-title">{{ line_title }}</span><br />
 
                           <!-- <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p> -->
-                          <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                          {% if line.product.metafields.my_fields.variant_title != blank  %}
+                              <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                          {% endif %}
                           <p class="small-text">Quantity: {{ line_display }}</p>
 
                           {% if line.variant.title != 'Default Title' %}
@@ -411,7 +413,6 @@
                 </tr>
 
                 {% endif %}
-                
                 {% if transaction.kind == 'refund' %}
                 {% if transaction.payment_details.credit_card_company %}
                 {% assign refund_method_title = transaction.payment_details.credit_card_company %}

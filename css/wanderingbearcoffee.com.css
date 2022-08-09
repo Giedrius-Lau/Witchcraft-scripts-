@@ -1,0 +1,22 @@
+@media (min-width: 320px) and (max-width: 767px) {
+  .PDPBuy .js-pdp-add-to-cart {
+    position: absolute;
+    top: 37.5%; }
+  .PDPForm {
+    position: relative !important; }
+  #shopify-section-pdp-intro > div.PDPForm-dimensions > hr {
+    margin-bottom: 44%; } }
+
+@media (min-width: 475px) and (max-width: 767px) {
+  .PDPBuy .js-pdp-add-to-cart {
+    position: absolute;
+    top: 38.5%; }
+  #shopify-section-pdp-intro > div.PDPForm-dimensions > hr {
+    margin-bottom: 31%; } }
+
+@media (min-width: 609px) and (max-width: 767px) {
+  .PDPBuy .js-pdp-add-to-cart {
+    position: absolute;
+    top: 35%; }
+  #shopify-section-pdp-intro > div.PDPForm-dimensions > hr {
+    margin-bottom: 23%; } }

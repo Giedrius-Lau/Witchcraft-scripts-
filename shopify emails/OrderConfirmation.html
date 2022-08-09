@@ -34,6 +34,9 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
   <style>
+
+
+    body{width: 100% !important;}
     .button__cell a { background: {{ shop.email_accent_color }} }
   a, a:hover, a:active, a:visited { color: {{ shop.email_accent_color }}; }
   .button__cell a { border-radius: 50px; border: 1px solid #67645E; width: 200px; padding: 15px 20px; color: #67645E;text-transform: uppercase; letter-spacing: 1px;}
@@ -227,7 +230,9 @@
                           <span class="order-list__item-title">{{ line_title }}</span><br />
 
                           <!-- <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p> -->
-                          <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                          {% if line.product.metafields.my_fields.variant_title != blank  %}
+                            <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                          {% endif %}
                           <p class="small-text">Quantity: {{ line_display }}</p>
 
                           {% if line.variant.title != 'Default Title' %}

@@ -1,4 +1,4 @@
-{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Screenshot_2022-06-07_at_10.10.04.png?v=1654585820' %}
+{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Rhode_Has_Arrived.png?v=1654637636' %}
 {% assign hero_title = 'your rhode has arrived.' %}
 
 {% if fulfillment.item_count == item_count %} 
@@ -200,8 +200,10 @@
                                                             {% if line.quantity < line.quantity %} {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %} {% else %} {% assign line_display=line.quantity %} {% endif %} 
                                                             <span class="order-list__item-title">{{ line_title }}</span><br />
                                     
-                                                              <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p>
-                                                              <p class="small-text">Flavor: {{ product.metafields.my_fields.variant_title }}</p>
+                                                              <!-- <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p> -->
+                                                              {% if line.product.metafields.my_fields.variant_title != blank  %}
+                                                                <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                                                             {% endif %}
                                                               <p class="small-text">Quantity: {{ line_display }}</p>
                                     
                                                               {% if line.variant.title != 'Default Title' %}

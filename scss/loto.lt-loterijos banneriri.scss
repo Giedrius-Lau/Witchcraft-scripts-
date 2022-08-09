@@ -11,10 +11,15 @@
 //     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
 //     background-position-y: -70px;
 //     margin-bottom: 20px;
-//     justify-content: space-between;
 
 //     &.teleloto {
 //         #demo {
+//             background: transparent !important;
+//             padding: 0 !important;
+
+//             img {
+//                 border-radius: 10px;
+//             }
 //         }
 //     }
 
@@ -26,22 +31,13 @@
 //         justify-content: space-between;
 
 //         #demo {
-//             background-color: #fde896;
+//             background: transparent !important;
+//             padding: 0 !important;
+//             max-width: 300px;
+//             margin-bottom: 50px;
 
-//             .days,
-//             .hours,
-//             .minutes,
-//             .seconds {
-//                 background: #ffffff;
-//                 color: #1d1c86;
-
-//                 &:before {
-//                     color: #1d1c86;
-//                 }
-//             }
-
-//             .separators {
-//                 color: #1d1c86;
+//             img {
+//                 min-width: 100%;
 //             }
 //         }
 
@@ -57,28 +53,12 @@
 //         background-image: url(https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/seifas-ejp.png);
 //         justify-content: space-between;
 
-//         @media (max-width: 991px) {
-//             margin: 0 -20px;
-//             width: calc(100% + 40px);
-//         }
-
 //         #demo {
-//             background: #ffffff2e;
+//             background: transparent !important;
+//             padding: 0 !important;
 
-//             .days,
-//             .hours,
-//             .minutes,
-//             .seconds {
-//                 background: #ffffff;
-//                 color: #000000;
-
-//                 &:before {
-//                     color: #ffffff;
-//                 }
-//             }
-
-//             .separators {
-//                 color: #ffffff;
+//             img {
+//                 min-width: 100%;
 //             }
 //         }
 
@@ -97,6 +77,10 @@
 //         width: 90%;
 
 //         &.teleloto {
+//             #demo {
+//                 background: transparent !important;
+//                 box-shadow: none !important;
+//             }
 //         }
 
 //         &.vikingloto {
@@ -105,6 +89,8 @@
 //             background-image: url(https://semexit.s3.eu-west-1.amazonaws.com/Loto.lt/kamuoliukai-vikingai.png);
 
 //             #demo {
+//                 max-width: unset;
+//                 margin-bottom: 0;
 //             }
 //         }
 
@@ -123,6 +109,7 @@
 //                 margin-bottom: 10px;
 //             }
 
+
 //             .button-link {
 //                 margin: 30px auto 55% !important;
 //             }
@@ -130,7 +117,7 @@
 //     }
 
 //     .left {
-//         width: 45%;
+//         width: 50%;
 
 //         @media (max-width: 991px) {
 //             width: 0;
@@ -138,8 +125,8 @@
 //     }
 
 //     .newBanner-inner {
-//         width: 55%;
-//         padding: 20px 40px 20px 0;
+//         width: auto;
+//         padding: 20px 30px;
 //         display: flex;
 //         flex-direction: column;
 //         text-align: right;
@@ -148,7 +135,6 @@
 //         @media (max-width: 991px) {
 //             text-align: left;
 //             padding: 15px;
-//             width: 100%;
 //         }
 //     }
 // }
@@ -156,20 +142,20 @@
 // .banner-title {
 //     color: rgb(25, 109, 118);
 //     font-weight: 700;
-//     font-size: 20px;
+//     font-size: 18px;
 //     line-height: 30px;
 //     margin-bottom: 10px;
 // }
 
 // #demo {
-//     background: rgba(24, 105, 114, 86%);
+//     background: rgba(255, 255, 255, 0.9);
 //     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.25);
-//     color: #ffffff;
+//     color: #000000;
 //     border-radius: 10px;
 //     padding: 15px;
 //     display: flex;
 //     justify-content: space-between;
-//     font-size: 41px;
+//     font-size: 22px;
 
 //     @media (max-width: 991px) {
 //         padding: 20px 12px 11px;
@@ -183,12 +169,8 @@
 //     }
 
 //     .separators {
-//         font-size: 30px;
+//         font-size: 20px;
 //         margin-top: 15px;
-
-//         @media (max-width: 991px) {
-//             font-size: 20px;
-//         }
 //     }
 
 //     .days,
@@ -227,7 +209,6 @@
 //             bottom: -21px;
 //             font-size: 10px;
 //             left: 36%;
-//             opacity: 0.7;
 //         }
 //     }
 
@@ -254,14 +235,14 @@
 // }
 
 // .button-link {
-//     padding: 15px 40px;
+//     padding: 12px 40px;
 //     background: #fcea3e;
 //     color: #196e6c;
 //     font-weight: 700;
 //     border-radius: 5px;
 //     display: block;
-//     width: 220px;
-//     margin-top: 20px;
+//     width: 200px;
+//     margin-top: 15px;
 //     margin-left: auto;
 //     text-align: center;
 //     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.1);
@@ -285,9 +266,10 @@
 
 // .img-mobile {
 //     display: none;
-
+    
 //     @media (max-width: 991px) {
-//         display: block;
+//     display: block;
+
 //     }
 // }
 
@@ -295,6 +277,7 @@
 //     display: block;
 
 //     @media (max-width: 991px) {
-//         display: none;
+//     display: none;
+
 //     }
 // }

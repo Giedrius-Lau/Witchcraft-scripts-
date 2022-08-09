@@ -1,9 +1,9 @@
-{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Screenshot_2022-06-07_at_10.09.53.png?v=1654585820' %}
+{% assign hero_img = 'https://cdn.shopify.com/s/files/1/0606/5451/8510/files/Wait_By_The_Window.png?v=1654637549' %}
 {% assign hero_title = 'wait by the window.' %}
 
 {% if fulfillment.item_count == item_count %} 
   {% capture email_title %}ETA: today{% endcapture %}
-  {% capture email_body %}Your new essentials should be landing on your doorstep very soon. Instant dewy glow, healthier looking skin over time. {% endcapture %}
+  {% capture email_body %}Your new essentials should be landing on your doorstep very soon. {% endcapture %}
 {% elsif fulfillment.item_count > 1 %} 
   {% if fulfillment_status == 'fulfilled' %}
     {% capture email_title %}The last items in your order are out for delivery{% endcapture %}
@@ -206,8 +206,10 @@
                                                             {% if line.quantity < line.quantity %} {% capture line_display %} {{ line.quantity }} of {{ line.quantity }} {% endcapture %} {% else %} {% assign line_display=line.quantity %} {% endif %} 
                                                             <span class="order-list__item-title">{{ line_title }}</span><br />
                                     
-                                                              <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p>
-                                                              <p class="small-text">Flavor: {{ product.metafields.my_fields.variant_title }}</p>
+                                                              <!-- <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p> -->
+                                                              {% if line.product.metafields.my_fields.variant_title != blank  %}
+                                                                <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                                                            {% endif %}
                                                               <p class="small-text">Quantity: {{ line_display }}</p>
                                     
                                                               {% if line.variant.title != 'Default Title' %}

@@ -3,7 +3,7 @@
 
 {% if fulfillment.item_count == item_count %}  
   {% capture email_title %}Your order is on the way{% endcapture %}
-  {% capture email_body %}SHE'S EN ROUTE. <br/>Your tracking number may take a min to provide updates. {% endcapture %}
+  {% capture email_body %}Your tracking number may take a min to provide updates. {% endcapture %}
 {% elsif fulfillment.item_count > 1 %} 
   {% if fulfillment_status == 'fulfilled' %}
     {% capture email_title %}The last items in your order are on the way{% endcapture %}
@@ -30,6 +30,7 @@
   <title>{{ email_title }}</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width">
+  <meta name="x-apple-disable-message-reformatting" />
   <link rel="stylesheet" type="text/css" href="/assets/notifications/styles.css">
   <style>
     .button__cell a { background: {{ shop.email_accent_color }} }
@@ -69,10 +70,6 @@
 </style>
 </head>
 
-<body>
-  <table class="body">
-    <tr>
-      <td>
 
         <body>
           <table class="body">
@@ -222,7 +219,9 @@
                           <span class="order-list__item-title">{{ line_title }}</span><br />
 
                           <!-- <p class="small-text" style="margin-top: 5px !important">Description: {{ line_title }}</p> -->
-                          <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                          {% if line.product.metafields.my_fields.variant_title != blank  %}
+                            <p class="small-text">Flavor: {{ line.product.metafields.my_fields.variant_title }}</p>
+                          {% endif %}
                           <p class="small-text">Quantity: {{ line_display }}</p>
 
                           {% if line.variant.title != 'Default Title' %}
