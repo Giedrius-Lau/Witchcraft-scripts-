@@ -1,14 +1,168 @@
-// @media (min-width: 1024px) {
-//     .TopBlock-topBlock-1Ng .TopBlock-productReviewStars-3Qa {
-//         margin-top: -25px !important;
-//         width: fit-content !important;
-//         margin-left: auto !important;
-//         margin-bottom: 20px !important;
+// .Services-container-31Y.product-page-services-slider > div:nth-child(2) {
+//     display: none;
+
+//     &.active {
+//         display: block;
+//         padding-bottom: 15px;
 //     }
 // }
 
-// @media (min-width: 576px) and (max-width: 1023px) {
-//     .TopBlock-productReviewStars-3Qa {
-//         margin-bottom: 10px;
+// .owl-stage {
+//     width: 100% !important;
+//     display: flex !important;
+//     flex-direction: column !important;
+//     transform: none !important;
+//     margin: 0 !important;
+//     padding: 0 !important;
+
+//     .owl-item {
+//         margin: 0 !important;
+//         width: 100% !important;
+//     }
+// }
+
+// .Services-servicesBlockContainer-1k9 .Services-container-31Y .Services-notSlider-2zX {
+//     gap: 8px;
+
+//     @media (max-width: 767px) {
+//         gap: unset;
+//         flex-direction: column;
+//     }
+// }
+
+// .Services-container-31Y.product-page-services-slider {
+//     border-bottom: 1px solid #e3e2d2;
+// }
+
+// .price {
+//     font-weight: 700;
+
+//     @media (max-width: 767px) {
+//         margin-left: 24px;
+//     }
+// }
+
+// .from {
+//     font-weight: 100;
+//     margin-left: 5px;
+//     min-width: 70px;
+// }
+
+// .Services-servicesBlockContainer-1k9 {
+//     background: #ffffff !important;
+// }
+
+// .Services-servicesBlockContainer-1k9 .Services-container-31Y .Services-serviceNameContainer-gHU {
+//     font-weight: 500 !important;
+
+//     @media (max-width: 767px) {
+//         flex-wrap: wrap;
+//     }
+// }
+
+// .Services-servicesBlockContainer-1k9 .Services-container-31Y .Services-serviceNameContainer-gHU .Services-serviceTitle-Hoy {
+//     margin-right: auto;
+// }
+
+// .placiau-maziau {
+//     margin-left: auto;
+// }
+
+// .owl-nav {
+//     display: none;
+// }
+
+// .Services-servicesBlockContainer-1k9 .Services-container-31Y .Services-serviceBoxOptionsContainer-3Li .Services-serviceBox-oIP {
+//     padding: 10px !important;
+//     min-height: 40px !important;
+// }
+// .placiau,
+// .maziau {
+//     display: none;
+//     color: #0a509b;
+
+//     &:hover {
+//         color: #0a509b;
+//     }
+
+//     &.active {
+//         display: block;
+//     }
+// }
+
+// .placiau img {
+//     transform: rotate(90deg);
+// }
+
+// .maziau img {
+//     transform: rotate(270deg);
+// }
+
+// .Services-promotedOptionsTitle-2ly {
+//     margin-bottom: 10px !important;
+//     font-weight: 600;
+//     border-bottom: 1px solid #e3e2d2;
+//     padding-bottom: 10px;
+//     position: relative;
+
+//     &:before {
+//         content: '';
+//         background: url(https://picfit.topocentras.lt/xcdn-cgi/image/fit=contain,format=auto,quality=80/media/wysiwyg/DM/Shield.png);
+//         width: 20px;
+//         height: 20px;
+//         background-size: contain;
+//         background-repeat: no-repeat;
+//         display: inline-block;
+//         margin-right: 7px;
+//         position: relative;
+//         left: 0;
+//         top: 5px;
+//     }
+// }
+
+// button.OtherServices-otherOptionsTitle-1Y7.OtherServices-isOpen-BJE {
+//     display: none;
+// }
+
+// .OtherServices-serviceContainer-140 {
+//     display: none !important;
+// }
+
+// .Services-servicesBlockContainer-1k9 .Services-container-31Y .Services-serviceBoxOptionsContainer-3Li .Services-serviceBox-oIP.Services-serviceBoxSelected-1sh:before {
+//     top: 20px !important;
+// }
+
+// .custom-checkbox {
+//     width: 15px;
+//     height: 15px;
+//     min-width: 15px;
+//     border: 1px solid #e3e2d2;
+//     margin-right: 10px;
+//     margin-top: 3px;
+//     cursor: pointer;
+//     background-size: contain !important;
+
+//     &.active {
+//         border: 1px solid #0a509b;
+//         background: url(https://www.topocentras.lt/85461610c1d70863bd67f0dc953db8d5.svg) no-repeat center center;
+//     }
+
+//     @media (max-width: 767px) {
+//         border: 2px solid #e3e2d2;
+
+//         &.active {
+//             border: 2px solid #0a509b;
+//         }
+//     }
+// }
+
+// span.Services-serviceTitle-Hoy {
+//     margin-right: 0 !important;
+//     width: 55%;
+
+//     @media (max-width: 767px) {
+//         width: 81%;
+//         font-size: 90%;
+//         margin-bottom: 7px;
 //     }
 // }
