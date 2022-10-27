@@ -1,0 +1,116 @@
+.configurator__sizing-tool-cta,
+#lcly-button-0 i {
+  display: none !important; }
+
+.size .size-toggle {
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 20px 0 0; }
+  .size .size-toggle img {
+    margin-left: 10px;
+    transform: rotate(180deg); }
+  .size .size-toggle.open img {
+    transform: rotate(0deg); }
+
+.size .size-container {
+  display: none; }
+  .size .size-container.open {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-top: 15px; }
+  .size .size-container img {
+    height: 48px;
+    width: auto; }
+  .size .size-container .size-container-text {
+    font-size: 14px;
+    line-height: 16px; }
+    .size .size-container .size-container-text img {
+      height: 16px;
+      width: 16px; }
+    .size .size-container .size-container-text .size-container-link {
+      font-size: 12px;
+      line-height: 14px;
+      font-weight: 700;
+      text-decoration-line: underline;
+      text-transform: uppercase;
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      margin-top: 10px;
+      cursor: pointer; }
+
+#lcly-button-0 {
+  display: flex;
+  align-items: center; }
+  #lcly-button-0 .location-icon {
+    width: auto;
+    height: 15px;
+    margin-right: 5px; }
+  #lcly-button-0 a#lcly-button-buy {
+    line-height: 16px; }
+    #lcly-button-0 a#lcly-button-buy span {
+      font-weight: 400;
+      font-size: 14px !important;
+      line-height: 16px !important;
+      text-decoration-line: underline;
+      text-transform: capitalize !important; }
+      #lcly-button-0 a#lcly-button-buy span::after {
+        opacity: 0 !important; }
+
+.new-buttons {
+  margin-top: 10px; }
+  .new-buttons .for-the {
+    margin-top: 15px; }
+    .new-buttons .for-the.disabled {
+      display: none; }
+  .new-buttons .buttons-title {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 32px;
+    text-transform: uppercase; }
+  .new-buttons .buttons-container {
+    display: flex;
+    gap: 8px; }
+    .new-buttons .buttons-container div {
+      width: 100%;
+      height: 48px;
+      background: #FFFFFF;
+      border-radius: 4px;
+      border: 1px solid #D9DDE0;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer; }
+      .new-buttons .buttons-container div.active {
+        border: 2px solid #E9A22E; }
+
+button#atc-pdp.disabled {
+  background: #D9DDE0;
+  pointer-events: none; }
+
+.dropdown.dropdown--large:nth-child(1), .dropdown.dropdown--large:nth-child(3) {
+  margin-top: 1.6rem; }
+  .dropdown.dropdown--large:nth-child(1).disabled, .dropdown.dropdown--large:nth-child(3).disabled {
+    display: none; }
+
+.dropdown.dropdown--large:nth-child(3) {
+  margin-top: 1.6rem; }
+
+.configurator > ul > li:nth-child(3) > div.configurator__sizes {
+  margin-top: 0; }
+
+.configurator__footer {
+  padding: 0 !important; }
+
+li.configurator__swatches-container {
+  margin: 0; }
+  li.configurator__swatches-container .configurator__selected-color {
+    text-align: left; }
+
+.configurator__size-confirmation {
+  display: none; }
